@@ -1,0 +1,24 @@
+.homepage {
+    /*border: #D8D8D8 solid 1px;*/
+    border: #E8F1FF solid 5px;
+    border-radius: 10px;
+    margin-left: 60px;
+    margin-right: 10px;
+    font-family: "Microsoft YaHei" ! important;
+}
+.homepage ul{
+    border: #D8D8D8 solid 1px;
+    list-style: none;
+    margin: 15px 15px;
+}
+.homepage ul li{
+    padding: 20px 0;
+    margin: 0 30px;
+    overflow: hidden;
+}
+.homepage ul li div{
+    font-size: 20px;
+    float: left;
+    width: 46%;
+
+}

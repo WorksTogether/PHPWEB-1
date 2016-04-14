@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="./lib/jquery.min.js"></script>
+    <script src="./lib/jquery.form.js"></script>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/angular-ui/angular-ui-router.min.js"></script>
+    <script src="js/project.js"></script>
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="js/jquery.multilevelpushmenu_red.css"/>
+
+    <link rel="stylesheet" href="js/expandcollapse.css"/>
+    <script type="text/javascript" src="http://oss.maxcdn.com/libs/modernizr/2.6.2/modernizr.min.js"></script>
+    <script src="js/jquery.multilevelpushmenu.js"></script>
+    <script src="js/expandcollapse.js"></script>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            /*font-family: "Microsoft YaHei" ! important;*/
+        }
+        .header{
+            height: 130px;
+            background: url("image/banner1.png");
+            border-radius: 0 0 10px 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            border-bottom: #BDBDBD solid 2px;
+            font-family: "Microsoft YaHei" ! important;
+
+        }
+        .header ul{
+            list-style: none;
+            font-size: 20px;
+            margin-top: 75px;
+        }
+        .header ul li{
+            float: right;
+            margin-right: 50px;
+            height: 30px;
+        }
+        .header ul li .out{
+            background: url("./image/out.png");
+            width: 16px;
+            display: inline-block;
+            float: left;
+            margin: 7px 7px 7px 0;
+            height: 16px;
+        }
+        .header ul li .user{
+            background: url("./image/user.png");
+            width: 16px;
+            display: inline-block;
+            float: left;
+            margin: 7px 7px 7px 0;
+            height: 16px;
+        }
+        .header ul li .lock{
+            background: url("./image/lock.png");
+            width: 16px;
+            display: inline-block;
+            float: left;
+            margin: 7px 7px 7px 0;
+            height: 16px;
+        }
+        .header ul li a{
+            color: #000000;
+        }
+        body{
+            background-color: #FAFAFA;
+        }
+    </style>
+</head>
+<body ng-app="starter">
+<div ui-view></div>
+<script type="text/javascript">
+</script>
+</body>
+</html>
