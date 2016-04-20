@@ -1,31 +1,26 @@
-<html>
-<head>
-    <meta charset="gbk">
-    <link rel="stylesheet" href="css/login.css"/>
-    <!--<div class="banner"></div>-->
-</head>
-<body>
+<link rel="stylesheet" href="css/login.css"/>
+<!--<div class="banner"></div>-->
 <div class="main">
     <div class="main_form">
-        <form id="login_form" action="../php/login.php" method="post">
+        <form id="login_form" action="common.php" method="post">
 <ul>
     <label for="user"><b>Username:</b></label>
     <li>
         <em class="em1"></em>
-        <input name="user" id="user" type="text" placeholder="ÓÃ»§Ãû/ÊÖ»ú/ÓÊÏä"/>
+        <input name="user" id="user" type="text" placeholder="ç”¨æˆ·å/æ‰‹æœº/é‚®ç®±"/>
     </li>
     <label for="user"><b>Password:</b></label>
     <li>
         <em class="em2"></em>
-        <input name="password" type="password" placeholder="ÊäÈëµÇÂ¼ÃÜÂë"/>
+        <input name="password" type="password" placeholder="è¾“å…¥ç™»å½•å¯†ç "/>
     </li>
     <!--<li style="width: 100px;float: left">-->
-        <!--<input type="text" placeholder="ÊäÈëÑéÖ¤Âë"/>-->
+        <!--<input type="text" placeholder="è¾“å…¥éªŒè¯ç "/>-->
     <!--</li>-->
     <!--<div class="code" id="checkCode" onclick="createCode()"></div>-->
     <!--<span class="code" id="checkcode" onclick="createCode()">11111</span>-->
     <input  class="button" type="submit" value="Login"/>
-    <a ui-sref="22222">Ê×¡¡¡¡Ò³</a>
+    <a ui-sref="22222">é¦–ã€€ã€€é¡µ</a>
 </ul>
 
         </form>
@@ -41,7 +36,7 @@
 var code;
 function createCode() {
     code = "";
-    var codeLength = 6; //ÑéÖ¤ÂëµÄ³¤¶È
+    var codeLength = 6; //éªŒè¯ç çš„é•¿åº¦
     var checkCode = document.getElementById("checkCode");
     var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
     for (var i = 0; i < codeLength; i++)
@@ -56,6 +51,4 @@ function createCode() {
     }
 }
 </script>
-</body>
-</html>
 

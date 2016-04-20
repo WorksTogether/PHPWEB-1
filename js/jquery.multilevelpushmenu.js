@@ -12,7 +12,6 @@
 	$.fn.multilevelpushmenu = function( options ) {
 		var args = arguments;
 			returnValue = null;
-		
 		this.each(function(){
 			var instance = this,
 				$this = $( this ),
