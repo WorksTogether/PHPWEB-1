@@ -243,6 +243,7 @@
 
 			// Click event for back item
 			function backItemAnchorClick( e, $levelHolder ) {
+				console.log(this.containersToPush);
 				if( $(instance).find( 'div.levelHolderClass' ).is(':animated') ) return false;
 				instance.settings.onBackItemClick.apply(this, Array.prototype.slice.call([e, $levelHolder, instance.settings]));
 				stopEventPropagation(e);

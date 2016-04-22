@@ -15,6 +15,7 @@ if(!empty($_POST["user"]) && !empty($_POST["password"]))
 
     try {
         $dbh = new PDO('mysql:host=localhost;dbname=kstest', "root", "nankai");
+        $dbh->exec("SET CHARACTER SET UTF8");
         $user=$dbh->query("SELECT * from userinfo where username='".$userName."'and password='".$password."'");
         $dbh = null;/*关闭数据库*/
         if($user->rowCount()>0)
@@ -36,7 +37,7 @@ if(!empty($_POST["user"]) && !empty($_POST["password"]))
 }
 else
 {
-    $jsonArr = Array("result"=>"failed","info"=>urlencode(iconv("utf-8","gbk","请输入用户名和密码")));
+    $jsonArr = Array("result"=>"failed","info"=>urlencode(iconv("utf-8",$showCoding,"请输入用户名和密码")));
     echo urldecode(json_encode($jsonArr));
 }
 ?>

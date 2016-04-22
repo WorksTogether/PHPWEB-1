@@ -1,6 +1,6 @@
 <!--<link rel="stylesheet" href="../css/menu_style.css"/>-->
 <!--<script src="../js/menu.js"></script>-->
-
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="js/jquery.multilevelpushmenu_red.css"/>
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="js/expandcollapse.css"/>
@@ -17,7 +17,7 @@
 <div style="border:#0099CC solid 2px;width: 98%;margin: 110px 1% 0 1%;height: 0px;"></div>
 </div>
 
-<div style="position: relative;height: 700px;margin-top: 150px">
+<div style="height: 700px;margin-top: 150px;position: relative;" ng-controller="222">
 <!--<div id="menu1" class="menu">-->
 <!--<ul>-->
 <!--<li><a ui-sref="login">首　　页</a></li>-->
@@ -30,7 +30,8 @@
 <!--</ul>-->
 <!--<div class="cls"></div>-->
 <!--</div>-->
-    <div id="menu" style="position: absolute;top: 0;left: 0;z-index: 9999;height: 100%;width: 200px">
+
+    <div id="menu" style="position: absolute;top: 0;left: 0px;height: 100%;width: 200px;z-index: 5">
         <nav>
             <h2 ><i class="fa fa-reorder"></i> <a ui-sref="22222.33333" style="font-size: 1.1em;margin-left: 10px">首页</a></h2>
             <ul>
@@ -179,5 +180,6 @@
             </ul>
         </nav>
     </div>
-<div ui-view style=""></div>
+    <div ui-view></div>
+
 </div>

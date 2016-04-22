@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	// HTML markup implementation, overlap mode
 	$( '#menu' ).multilevelpushmenu({
-		// containersToPush: [$( '#pushobj' )],
+		//containersToPush: [$( '#pushobj' )],
 
 		// Just for fun also changing the look of the menu
 		wrapperClass: 'mlpm_w',
@@ -9,32 +9,30 @@ $(document).ready(function(){
 	});
 
 	// Full collapse
-	// $( '#fullcollapse' ).click(function(){
-	// 	$( '#menu' ).multilevelpushmenu( 'collapse' );
-	// });
+	//$( '#fullcollapse' ).click(function(){
+	//	$( '#menu' ).multilevelpushmenu( 'collapse' );
+	//});
 
 	// Base expand
-	// $( '#baseexpand' ).click(function(){
-	// 	$( '#menu' ).multilevelpushmenu( 'expand' );
-	// });
+
 
 	// Expand to Men's Clothing
-	// $( '#expandmensclothing' ).click(function(){
+	//$( '#expandmensclothing' ).click(function(){
 		// Use menu title for expanding just in case you know that there
 		// is only one option with such title. If there is more then one
 		// menu has with the same title, expand/collapse invoked with
 		// title name as parameter won't work.
-		// $( '#menu' ).multilevelpushmenu( 'expand' , 'Men\'s Clothing' );
+		//$( '#menu' ).multilevelpushmenu( 'expand' , 'Men\'s Clothing' );
 		
 		// More safe way is to use methods like
-		// $( '#menu' ).multilevelpushmenu( 'findmenusbytitle' , 'Mobile Phones' );
+		//$( '#menu' ).multilevelpushmenu( 'findmenusbytitle' , 'Mobile Phones' );
 		// and then invoke expand method with desired menu level object
 		// (e.g. if we have several menu objects with title 'Mobile Phones' but
 		// we want to expand the first one)
-		// var $phonemenu = $( '#menu' ).multilevelpushmenu( 'findmenusbytitle' , 'Mobile Phones' ).first();
+		//var $phonemenu = $( '#menu' ).multilevelpushmenu( 'findmenusbytitle' , 'Mobile Phones' ).first();
 		// and then
-		// $( '#menu' ).multilevelpushmenu( 'expand' , $phonemenu );
-	// });
+		//$( '#menu' ).multilevelpushmenu( 'expand' , $phonemenu );
+	//});
 
 	// Expand to Mobile Phones
 	// $( '#expandmobilephones' ).click(function(){

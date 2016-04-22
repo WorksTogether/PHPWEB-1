@@ -1,11 +1,11 @@
 <link rel="stylesheet" href="css/credit_case_in.css"/>
-<!--<script src="lib/jquery.min.js"></script>-->
+<script src="lib/jquery.min.js"  async="async"> </script>
 <script src="lib/jquery.jqgrid.min.js"></script>
 <script src="lib/grid.locale-de.min.js"></script>
 <link rel="stylesheet" href="css/ui.jqgrid.css"/>
 <link rel="stylesheet" href="css/jquery-ui.min.css"/>
-<link rel="stylesheet" href="../css/theme.css"/>
-<div class="credit_case_in">
+<link rel="stylesheet" href="css/theme.css"/>
+<div class="credit_case_in" ng-controller="444">
 <div class="div1">
     <div style="overflow: hidden">
         <form action="">
@@ -40,10 +40,10 @@
                 <input id="batch_number2" class="form-field" type="text"/>
             </li>
             <li>
-                <input type="file" value="浏览..."/>
+                <input type="file" value="浏览..." nv-file-select="" uploader="uploader"/>
             </li>
             <li>
-                <input class="submit-button" type="submit" value="导入案件" />
+                <input class="submit-button" type="button" value="导入案件" ng-click="uploader.queue[0].upload()" ng-disabled="uploader.queue[0].isReady || uploader.queue[0].isUploading || uploader.queue[0].isSuccess"/>
             </li>
             <li>
                 <span>
@@ -57,7 +57,7 @@
 </div>
     <div style="width: 97%;margin: 0 auto;border: #F2F2F2 solid 5px;border-radius: 10px"></div>
 <div class="div2">
-        <table id="list4"></table>
+        <table id="list1"></table>
         <!--<div id="pager"></div>-->
     </div>
 
@@ -65,7 +65,7 @@
 <script type="text/javascript">
     $(document).ready(
             function() {
-                jQuery("#list4").jqGrid({
+                jQuery("#list1").jqGrid({
                     datatype: "local",
                     height: 250,
                     colNames:['Date', 'Client', 'Amount','Tax','Total','Notes','案件流水号','批次号','持卡人姓名','性别','身份证号','委托方','卡号','开户日期','额度',],
@@ -91,7 +91,7 @@
                     emptyrecords: "Nothing to display",
 //                    caption: "案件详细列表",
                     scrollrows:true,
-//                    width:600,
+//                    width:$("#list1").parent().width()-150,
                     autowidth:true,
                     rownumbers:true,
                     height:320,
@@ -116,6 +116,10 @@
                     {invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}
                 ];
                 for(var i=0;i<=mydata.length;i++)
-                    jQuery("#list4").jqGrid('addRowData',i+1,mydata[i]);
+                    jQuery("#list1").jqGrid('addRowData',i+1,mydata[i]);
             });
+//    $(window).resize(function(){
+//        $("#list1").setGridWidth($("#list1").parent().width());
+//    });
+   console.log($("#list1").parent().width())
 </script>

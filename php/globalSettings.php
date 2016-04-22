@@ -6,4 +6,7 @@
  * Time: 22:04
  */
 $showCoding="gbk";
+define('SITE_PATH',str_replace('\\','/',realpath(dirname(__FILE__).'/../'))."/");
+$isDeleteFileAfterProcess=false;
+$creditCardCaseFile="cardCase";
 ?>
