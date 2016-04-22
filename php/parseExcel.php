@@ -1,49 +1,18 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: ks
- * Date: 2016/4/21
- * Time: 21:26
- */
-/*
-error_reporting(E_ALL);
 
-date_default_timezone_set('Asia/ShangHai');
-*/
-/** PHPExcel_IOFactory */
-//require_once 'PHPExcel/Classes/PHPExcel/IOFactory.php';
-
-/*
-// Check prerequisites
-if (!file_exists("test.xls")) {
-    exit("not found test.xls.\n");
-}
-
-$reader = PHPExcel_IOFactory::createReader('Excel5'); //设置以Excel5格式(Excel97-2003工作簿)
-$PHPExcel = $reader->load("test.xls"); // 载入excel文件
-$sheet = $PHPExcel->getSheet(0); // 读取第一個工作表
-$highestRow = $sheet->getHighestRow(); // 取得总行数
-$highestColumm = $sheet->getHighestColumn(); // 取得总列数
-
-echo $highestRow,$highestColumm ;
-echo "</br>";*/
-/** 循环读取每个单元格的数据 */
-/*
-for ($row = 1; $row <= $highestRow; $row++){//行数是以第1行开始
-    for ($column = 'A'; $column <= $highestColumm; $column++) {//列数是以A列开始
-        $dataset[] = $sheet->getCell($column.$row)->getValue();
-        echo $column.$row.":".$sheet->getCell($column.$row)->getValue()."<br />";
-    }
-}*/
-?>
 <table id="table_id" >
     <?php
+    /**
+     * Created by PhpStorm.
+     * User: ks
+     * Date: 2016/4/21
+     * Time: 21:26
+     */
     require_once 'globalSettings.php';
+    require_once 'CreditCardCase.php';
+    require_once 'PHPExcel/Classes/PHPExcel/IOFactory.php';
     error_reporting(E_ALL);
-
     date_default_timezone_set('Asia/ShangHai');
     /** PHPExcel_IOFactory */
-    require_once 'PHPExcel/Classes/PHPExcel/IOFactory.php';
     $filename="test.xls";
     if (!file_exists("test.xls")) {
         exit("not found test.xls.\n");
@@ -53,6 +22,21 @@ for ($row = 1; $row <= $highestRow; $row++){//行数是以第1行开始
     $objPHPExcel = $objReader->load($filename);
 
     $objWorksheet = $objPHPExcel->getActiveSheet();
+
+//    $highestRow = $objWorksheet->getHighestRow(); // 取得总行数
+//    $highestColumm =$highestColumm= PHPExcel_Cell::columnIndexFromString( $objWorksheet->getHighestColumn()); // 取得总列数
+//    echo  $highestRow,$highestColumm;/** 循环读取每个单元格的数据 */
+//    for ($row = 1; $row <= $highestRow; $row++){//行数是以第1行开始
+//        for ($column = 0; $column < $highestColumm; $column++) {//列数是以第0列开始
+//            $columnName = PHPExcel_Cell::stringFromColumnIndex($column);
+//            echo $columnName.$row.":".$objWorksheet->getCellByColumnAndRow($column, $row)->getValue()."<br />";
+//        }
+//    }
+
+
+    $totalArray=array();
+    $subArray=array();
+
     $i = 0;
     foreach($objWorksheet->getRowIterator() as $row){
         ?>
@@ -66,6 +50,7 @@ for ($row = 1; $row <= $highestRow; $row++){//行数是以第1行开始
             }
             foreach($cellIterator as $cell){
 
+                array_push($subArray,urlencode(iconv("utf-8",$showCoding,$cell->getValue())));
                 echo '<td  style="text-align: center;border:1px solid #f00;width: 100px;; height: auto">' .iconv('utf-8',$showCoding,  $cell->getValue()) . '</td>';
 
             }
@@ -73,9 +58,17 @@ for ($row = 1; $row <= $highestRow; $row++){//行数是以第1行开始
                 echo '</thead>';
             }
             $i++;
+            //array_push($totalArray,$subArray);
+            $cardCase=new \nankai\CreditCardCase();
+            $subArray
+            $subArray=array();
             ?>
         </tr>
         <?php
     }
+    $cardCase=new \nankai\CreditCardCase();
+    echo urldecode(json_encode($totalArray));
+    echo json_encode($cardCase);
     ?>
 </table>
+
