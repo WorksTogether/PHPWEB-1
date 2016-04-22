@@ -7,7 +7,7 @@ angular.module('starter.controllers.444', ['angularFileUpload','ui.router'])
         });
 
         var uploader = $scope.uploader = new FileUploader({
-            url: './upload.php'
+            url: '../ks/php/parseExcel.php'
         });
         uploader.onAfterAddingFile = function(fileItem) {
             console.info('onAfterAddingFile', fileItem);

@@ -40,7 +40,7 @@
                 <input id="batch_number2" class="form-field" type="text"/>
             </li>
             <li>
-                <input type="file" value="浏览..." nv-file-select="" uploader="uploader"/>
+                <input type="file" name="cardCase" value="浏览..." nv-file-select="" uploader="uploader"/>
             </li>
             <li>
                 <input class="submit-button" type="button" value="导入案件" ng-click="uploader.queue[0].upload()" ng-disabled="uploader.queue[0].isReady || uploader.queue[0].isUploading || uploader.queue[0].isSuccess"/>
