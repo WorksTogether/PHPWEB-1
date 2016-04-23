@@ -3,17 +3,16 @@ angular.module('starter.controllers.444', ['angularFileUpload','ui.router'])
     ,FileUploader,$state){
         $scope.$on('$stateChangeSuccess', function(evt, next, current) {
             //alert('route begin change');
-            //$state.reload();
         });
-
         var uploader = $scope.uploader = new FileUploader({
-            url: '../ks/php/parseExcel.php'
+            url: './upload.php'
         });
         uploader.onAfterAddingFile = function(fileItem) {
             console.info('onAfterAddingFile', fileItem);
         };
         uploader.onSuccessItem = function(fileItem, response, status, headers) {
             console.info('onSuccessItem', fileItem, response, status, headers);
+            jQuery("#list1").jqGrid('setGridParam', {}).trigger('reloadGrid');
         };
         uploader.onErrorItem = function(fileItem, response, status, headers) {
             console.info('onErrorItem', fileItem, response, status, headers);

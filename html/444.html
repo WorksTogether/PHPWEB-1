@@ -40,7 +40,7 @@
                 <input id="batch_number2" class="form-field" type="text"/>
             </li>
             <li>
-                <input type="file" name="cardCase" value="浏览..." nv-file-select="" uploader="uploader"/>
+                <input type="file" value="浏览..." nv-file-select="" uploader="uploader"/>
             </li>
             <li>
                 <input class="submit-button" type="button" value="导入案件" ng-click="uploader.queue[0].upload()" ng-disabled="uploader.queue[0].isReady || uploader.queue[0].isUploading || uploader.queue[0].isSuccess"/>
@@ -60,66 +60,69 @@
         <table id="list1"></table>
         <!--<div id="pager"></div>-->
     </div>
-
 </div>
 <script type="text/javascript">
-    $(document).ready(
-            function() {
-                jQuery("#list1").jqGrid({
-                    datatype: "local",
-                    height: 250,
-                    colNames:['Date', 'Client', 'Amount','Tax','Total','Notes','案件流水号','批次号','持卡人姓名','性别','身份证号','委托方','卡号','开户日期','额度',],
-                    colModel:[
-                        {name:'invdate',index:'invdate', width:100, sorttype:"date"},
-                        {name:'name',index:'name', width:100},
-                        {name:'amount',index:'amount', width:100, align:"right",sorttype:"float"},
-                        {name:'tax',index:'tax', width:100, align:"right",sorttype:"float"},
-                        {name:'total',index:'total', width:100,align:"right",sorttype:"float"},
-                        {name:'note',index:'note', width:100, sortable:false},
-                        {name:'案件流水号',index:'案件流水号', width:100, sortable:true},
-                        {name:'批次号',index:'批次号', width:100, sortable:true},
-                        {name:'持卡人姓名',index:'持卡人姓名', width:100, sortable:false},
-                        {name:'性别',index:'性别', width:100, sortable:true},
-                        {name:'身份证号',index:'身份证号', width:100, sortable:true},
-                        {name:'委托方',index:'委托方', width:100, sortable:true},
-                        {name:'卡号',index:'卡号', width:100, sortable:true},
-                        {name:'开户日期',index:'开户日期', width:100, sortable:true},
-                        {name:'额度',index:'额度', width:200, sortable:true}
-                    ],
+    $(document).ready(function (){
+        jQuery("#list1").jqGrid({
+            url:"server.php?q=2",
+//            datatype: "local",
+            datatype: "json",
+            height: 250,
+            colNames:['id','Date', 'Clienta', 'Amount','Tax','Total','Notes','案件流水号','批次号','持卡人姓名','性别','身份证号','委托方','卡号','开户日期','额度',],
+            colModel:[
+                {name : 'id',index : 'id',width : 60,sorttype : "int"},
+                {name:'invdate',index:'invdate', width:100, sorttype:"date"},
+                {name:'name',index:'name', width:100},
+                {name:'amount',index:'amount', width:100, align:"right",sorttype:"float"},
+                {name:'tax',index:'tax', width:100, align:"right",sorttype:"float"},
+                {name:'total',index:'total', width:100,align:"right",sorttype:"float"},
+                {name:'note',index:'note', width:100, sortable:false},
+                {name:'案件流水号',index:'案件流水号', width:100, sortable:true},
+                {name:'批次号',index:'批次号', width:100, sortable:true},
+                {name:'持卡人姓名',index:'持卡人姓名', width:100, sortable:false},
+                {name:'性别',index:'性别', width:100, sortable:true},
+                {name:'身份证号',index:'身份证号', width:100, sortable:true},
+                {name:'委托方',index:'委托方', width:100, sortable:true},
+                {name:'卡号',index:'卡号', width:100, sortable:true},
+                {name:'开户日期',index:'开户日期', width:100, sortable:true},
+                {name:'额度',index:'额度', width:200, sortable:true}
+            ],
 //                    multiselect: true,
 //                    pager : '#pager',
-                    emptyrecords: "Nothing to display",
+            rowNum : 20,
+            sortname : 'id',
+            emptyrecords: "Nothing to display",
 //                    caption: "案件详细列表",
-                    scrollrows:true,
+            scrollrows:true,
 //                    width:$("#list1").parent().width()-150,
-                    autowidth:true,
-                    rownumbers:true,
-                    height:320,
+            autowidth:true,
+            rownumbers:true,
+            height:320,
 //                    scroll:5,
 //                    cellLayout:10,
 //                    subGridWidth:30
 //                    rowNum:5
 //                    rowList:[1,2,3,4,5]
-                    hoverrows:true,
-                    shrinkToFit:false,
-                    autoScroll: false
-                });
-                var mydata = [
-                    {invdate:"2007-10-01",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
-                    {invdate:"2007-10-02",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-                    {invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},
-                    {invdate:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
-                    {invdate:"2007-10-05",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-                    {invdate:"2007-09-06",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},
-                    {invdate:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
-                    {invdate:"2007-10-03",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-                    {invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}
-                ];
-                for(var i=0;i<=mydata.length;i++)
-                    jQuery("#list1").jqGrid('addRowData',i+1,mydata[i]);
-            });
-//    $(window).resize(function(){
-//        $("#list1").setGridWidth($("#list1").parent().width());
-//    });
-   console.log($("#list1").parent().width())
+            hoverrows:true,
+            shrinkToFit:false,
+            autoScroll: false,
+//            loadonce : true,
+            mtype : "post",
+            repeatitems: false,
+            loadui:"block"
+        });
+//        var mydata = [
+//            {invdate:"2007-10-01",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
+//            {invdate:"2007-10-02",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
+//            {invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},
+//            {invdate:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
+//            {invdate:"2007-10-05",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
+//            {invdate:"2007-09-06",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},
+//            {invdate:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
+//            {invdate:"2007-10-03",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
+//            {invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}
+//        ];
+//        for(var i=0;i<=mydata.length;i++)
+//            jQuery("#list1").jqGrid('addRowData',i+1,mydata[i]);
+    });
 </script>
