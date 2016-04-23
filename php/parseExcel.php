@@ -49,19 +49,23 @@
     $objPHPExcel = $objReader->load($fileName);
     $objWorksheet = $objPHPExcel->getActiveSheet();
     $totalArrayStorage=array();
+    $totalArrayShow=array();
     $skip=0;
     foreach($objWorksheet->getRowIterator() as $row){
         //去掉标题行
         if($skip==0) {$skip=1;continue;}
             $subArray=array();
+            $subArrayShow=array();
             $cardCase=new \nankai\CreditCardCase();
             $cellIterator = $row->getCellIterator();
             $cellIterator->setIterateOnlyExistingCells(false);
             foreach($cellIterator as $cell){
                 $subArray[]=urlencode($cell->getValue());
+                $subArrayShow[]=urlencode($cell->getValue());
             }
             $cardCase->setContent($subArray);
             array_push($totalArrayStorage,$cardCase);
+            array_push($totalArrayShow,$subArrayShow);
 
     }
 
@@ -142,7 +146,23 @@
             $user = $dbh->query($sqlStr);
         }
 
-        echo  iconv("utf-8",$showCoding,urldecode(json_encode($totalArrayStorage)));
+        $total=1;
+        $page=1;
+        $records=count($totalArrayShow);
+        $showRowsArray=array("total"=>$total,"page"=>$page,"records"=>$records,"rows"=>"");
+        $showLineArray=array();
+
+        $id=1;
+        foreach ($totalArrayShow as $lineArray)
+        {
+            $showCellArray=array("id"=>"","cell"=>"");
+            $showCellArray['id']=$id;
+            $showCellArray['cell']=$lineArray;
+            $showLineArray[]=$showCellArray;
+            $id++;
+        }
+        $showRowsArray['rows']=$showLineArray;
+        echo  iconv("utf-8",$showCoding,urldecode(json_encode($showRowsArray)));
     }
     catch (PDOException $e)
     {
