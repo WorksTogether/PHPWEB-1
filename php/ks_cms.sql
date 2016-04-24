@@ -81,8 +81,9 @@ CREATE TABLE `credit_card_case` (
   `contactPersonInfoRemarks` varchar(200) DEFAULT NULL COMMENT '联系人备注',
   `contactPersonTelephone` varchar(50) DEFAULT NULL COMMENT '联系人电话',
   `contactPersonType` varchar(50) DEFAULT NULL COMMENT '联系人类型',
+  `confirm` varchar(10) NOT NULL DEFAULT 'no' COMMENT '是否正式确认插入',
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8;
 
 /*Data for the table `credit_card_case` */
 

@@ -11,7 +11,7 @@ namespace nankai;
 
 class CreditCardCase
 {
-    /** 数据库加上ID一共60个字段*/
+    /** 数据库加上ID和confirm一共61个字段*/
     public  $id;//主键索引
     public  $cardHolderName;//持卡人姓名
     public  $gender;//性别
@@ -72,6 +72,7 @@ class CreditCardCase
     public  $contactPersonInfoRemarks;//联系人备注
     public  $contactPersonTelephone;//联系人电话
     public  $contactPersonType;//联系人类型
+    public  $confirm='no';//临时数据还是确定存储
 
     public  $caseLength=59;
 

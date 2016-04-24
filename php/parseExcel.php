@@ -80,7 +80,7 @@
                 "cardInfoRemarks4,city,adjustCity,subBankName,branchBankName,withdrawalTime,overdueDays,caseLevel,outsourceNumber,alreadyRepaidPeriods," .
                 "totalAlreadyRepaidAmount,communicateAddress,billAddress,billZipCode,companyAddress,companyName,companyTelephone,companyZipCode,email,homeAddress," .
                 "homePhone,homeZipCode,postTitle,cellPhone,residenceAddress,residenceZipCode,cardHolderInfoRemarks,telephone,zipCode,contactPersonAddress,contactPersonPhone," .
-                "contactPersonCompany,contactPersonEmail,contactPersonIDNumber,contactPersonName,contactPersonZipCode,contactPersonRelationship,contactPersonInfoRemarks,contactPersonTelephone,contactPersonType)  VALUES('" .
+                "contactPersonCompany,contactPersonEmail,contactPersonIDNumber,contactPersonName,contactPersonZipCode,contactPersonRelationship,contactPersonInfoRemarks,contactPersonTelephone,contactPersonType,confirm)  VALUES('" .
                 urldecode( $objCardCase->id ). "','" .
                 urldecode($objCardCase->cardHolderName) . "','" .
                 urldecode($objCardCase->gender ). "','" .
@@ -140,7 +140,8 @@
                 urldecode($objCardCase->contactPersonRelationship)."','" .
                 urldecode($objCardCase->contactPersonInfoRemarks)."','" .
                 urldecode($objCardCase->contactPersonTelephone)."','" .
-                urldecode($objCardCase->contactPersonType)."')";
+                urldecode($objCardCase->contactPersonType)."','" .
+                urldecode($objCardCase->confirm). "')";
 
             //执行命令
             $user = $dbh->query($sqlStr);
