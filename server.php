@@ -35,15 +35,42 @@ switch ($action) {
     break;
 };
 function  first_refresh(){
+  $page = $_POST['page'];  
+  $limit = $_POST['rows']; 
+  $sidx = $_POST['sidx'];
+  $sord = $_POST['sord'];
+   if (!$sidx) 
+  $sidx = 1; 
+  // echo json_encode($sord);
   $sql = "";
-  $sql = "SELECT * FROM `total` WHERE status = 'case_in'";
+  $sql = "SELECT COUNT(*) AS count FROM `total` WHERE status = 'case_in'";
+  $result = $GLOBALS['$conn']->query($sql); 
+  $row = $result->fetch_array(MYSQLI_ASSOC); 
+  $count = $row['count'];
+  if ($count > 0)
+   { 
+      $total_pages = ceil($count / $limit); 
+    } 
+    else 
+    { 
+      $total_pages = 0; 
+    } 
+    if ($page > $total_pages) 
+      $page = $total_pages; 
+      $start = $limit * $page - $limit; 
+    if ($start < 0 )
+       $start = 0; 
+  $responce->records = $count;
+  $responce->total = $total_pages;  
+  if ($page > $total_pages) 
+      $page = $responce->total;
+      $responce->page = $page;
+
+  $sql = "SELECT * FROM `total` WHERE status = 'case_in' ORDER BY $sidx $sord LIMIT $start , $limit";
   if($result = $GLOBALS['$conn']->query($sql))
   {
     if ($result->num_rows > 0)
      {
-      $output->page = 3;
-      $output->total = 3;
-      $output->records = 50;
       $i = 0;
       while($row = $result->fetch_assoc()) 
       {
@@ -60,7 +87,8 @@ function  first_refresh(){
     }
     else
     {
-          $reponse["records"] = 0;
+          $reponse->records = 0;
+          $responce->total = 0;
     echo json_encode($reponse,JSON_UNESCAPED_UNICODE);
     }
   }
@@ -145,8 +173,8 @@ $sql = "SELECT * FROM `total` WHERE status = 'case_in'";
     if ($result->num_rows > 0)
      {
       $output->page = 1;
-      $output->total = 1;
-      $output->records = 1;
+      $output->total = 5;
+      $output->records = 50;
       $i = 0;
       while($row = $result->fetch_assoc()) 
       {

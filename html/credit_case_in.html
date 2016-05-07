@@ -5,152 +5,103 @@
 <link rel="stylesheet" href="css/ui.jqgrid.css"/>
 <link rel="stylesheet" href="css/jquery-ui.min.css"/>
 <link rel="stylesheet" href="css/theme.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<!--<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
 <div class="credit_case_in" ng-controller="credit_case_in">
-<div class="div1">
-<div style="overflow: hidden">
-        <form action="" method="post" id="case_query1">
-            <ul style="margin-top: 15px;margin-left: 10px;margin-bottom: 5px">
-                <li>
-                    <label for="batch_number1">批次号：</label>
-                    <input id="batch_number1" class="form-field" type="text"/>
+    <div class="div1">
+        <div style="overflow: hidden">
+            <form action="" method="post" id="case_query1">
+                <ul style="margin-top: 15px;margin-left: 10px;margin-bottom: 5px">
+                    <li>
+                        <label for="batch_number1">批次号：</label>
+                        <input id="batch_number1" class="form-field" type="text"/>
+                    </li>
+                    <li>
+                        <label for="credit_user">持卡人姓名：</label>
+                        <input id="credit_user" class="form-field" type="text"/>
+                    </li>
+                    <li>
+                        <label for="id_number">身份证号码：</label>
+                        <input id="id_number" class="form-field" type="text"/>
+                    </li>
+                    <li style="margin-left: 40px">
+                        <input class="submit-button" type="button" value="查询" style="height:39px;display: inline-block;width: 108px"/>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div style="overflow: hidden">
+            <form action="" id="credit_case_data" name="form2">
+                <ul style="margin-top: 10px;margin-left: 10px;margin-bottom: 5px;height: 41px">
+                    <li>
+                        <label for="bank_name">银行名称：</label>
+                        <input id="bank_name" name="bank_name" class="form-field" type="text"/>
+                    </li>
+                    <li>
+                        <label for="batch_number2">批次号：</label>
+                        <input id="batch_number2" name="batch_number2" class="form-field" type="text"/>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="file" style="line-height: 30px">选择文件<input type="file" name="upload_file1" id="upload_file1" data-upload1="false" accept=" application/vnd.ms-excel" nv-file-select="" uploader="uploader" multiple="multiple"></a>
+                        <!--<input type="file" value="浏览..." nv-file-select="" accept=" application/vnd.ms-excel" uploader="uploader"/>-->
+                    </li>
+                    <li>
+                        <span class="showFileName">未选择文件</span>
+                        <span class="fileerrorTip"></span>
+                    </li>
+                    <li>
+                        <!--<input class="submit-button" type="button" value="导入案件" ng-click="uploader.queue[0].upload()" ng-disabled="uploader.queue[0].isReady || uploader.queue[0].isUploading || uploader.queue[0].isSuccess"/>-->
+                        <input id="submit2" class="submit-button" type="button" value="导入案件" style="height:39px;display: inline-block;width: 108px"/>
+                    </li>
+                    <li>
+                        <a  class="submit-button" style="text-decoration: none;display:inline-block;margin-left: 20px;width: 130px;text-align: center" href="./download/信用卡案件导入模板.xls">Excel 模板下载</a>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div style="margin-top: 6px;">
+            <ul style="list-style: none;overflow: hidden;height: 40px">
+                <li style="float: left;margin-left: 32px;">
+                    <span id="check_fin" class="submit-button" style="display: inline-block;width: 70px;text-align: center">核对完成</span>
                 </li>
-                <li>
-                    <label for="credit_user">持卡人姓名：</label>
-                    <input id="credit_user" class="form-field" type="text"/>
-                </li>
-                <li>
-                    <label for="id_number">身份证号码：</label>
-                    <input id="id_number" class="form-field" type="text"/>
-                </li>
-                <li style="margin-left: 40px">
-                    <input class="submit-button" type="button" value="查询" style="height:39px;display: inline-block;width: 108px"/>
-                </li>
+                <li><span id="del_row1" class="submit-button" style="margin-left: 20px;display: inline-block;width: 70px;text-align: center">删除</span></li>
             </ul>
-        </form>
+        </div>
     </div>
-<div style="overflow: hidden">
-    <form action="" id="credit_case_data" name="form2">
-        <ul style="margin-top: 10px;margin-left: 10px;margin-bottom: 5px;height: 41px">
-            <li>
-                <label for="bank_name">银行名称：</label>
-                <input id="bank_name" name="bank_name" class="form-field" type="text"/>
-            </li>
-            <li>
-                <label for="batch_number2">批次号：</label>
-                <input id="batch_number2" name="batch_number2" class="form-field" type="text"/>
-            </li>
-            <li>
-                <a href="javascript:;" class="file" style="line-height: 30px">选择文件<input type="file" name="upload_file1" id="upload_file1" data-upload1="false" accept=" application/vnd.ms-excel" nv-file-select="" uploader="uploader" multiple="multiple"></a>
-                <!--<input type="file" value="浏览..." nv-file-select="" accept=" application/vnd.ms-excel" uploader="uploader"/>-->
-            </li>
-            <li>
-                <span class="showFileName">未选择文件</span>
-                <span class="fileerrorTip"></span>
-            </li>
-            <li>
-                <!--<input class="submit-button" type="button" value="导入案件" ng-click="uploader.queue[0].upload()" ng-disabled="uploader.queue[0].isReady || uploader.queue[0].isUploading || uploader.queue[0].isSuccess"/>-->
-                <input id="submit2" class="submit-button" type="button" value="导入案件" style="height:39px;display: inline-block;width: 108px"/>
-            </li>
-            <li>
-                    <a  class="submit-button" style="text-decoration: none;display:inline-block;margin-left: 20px;width: 130px;text-align: center" href="./download/信用卡案件导入模板.xls">Excel 模板下载</a>
-            </li>
-        </ul>
-    </form>
-</div>
-<div style="margin-top: 6px;">
-    <ul style="list-style: none;overflow: hidden;height: 40px">
-        <li style="float: left;margin-left: 32px;">
-            <span id="check_fin" class="submit-button" style="display: inline-block;width: 70px;text-align: center">核对完成</span>
-        </li>
-        <li><span id="del_row1" class="submit-button" style="margin-left: 20px;display: inline-block;width: 70px;text-align: center">删除</span></li>
-    </ul>
-</div>
-</div>
     <div style="width: 97%;margin: 0 auto;border: #F2F2F2 solid 5px;border-radius: 10px"></div>
-<div class="div2">
+    <div class="div2">
         <table id="list1"></table>
-    <div id="pager"></div>
+        <div id="pager"></div>
         <!--<div id="pager"></div>-->
     </div>
 </div>
 <script type="text/javascript">
     $(document).ready(function (){
-//        jQuery("#list1").jqGrid({
-//            url:"server.php?action=first_refresh",
-////            datatype: "local",
-////            postData:{action:"norefresh"},
-//            datatype: "json",
-////            mtype:"POST",
-//            height: 250,
-//            colNames:['id','持卡人姓名','性别','证件号码','卡号','人民币账号', '美元账号','开卡日期','额度','账单日期','余额人民币','金额人民币','委托金额美元','还款日期','美元还款日','人民币还款'],
-//            colModel:[
-//                {name:'id',index:'A', width:80,align:'center'},
-//                {name:'A',index:'B', width:80,align:'center'},
-//                {name:'B',index:'C', width:180},
-//                {name:'证件号码',index:'D', width:120},
-//                {name:'卡号',index:'E', width:120},
-//                {name:'人民币账号',index:'F', width:100,align:'center'},
-//                {name:'美元账号',index:'G', width:80,align:'center'},
-//                {name:'开卡日期',index:'H', width:80, sortable:false, align:'center'},
-//                {name:'额度',index:'I', width:80,align:'center'},
-//                {name:'账单日期',index:'J', width:80,align:'center'},
-//                {name:'余额人民币',index:'K', width:80,align:'center'},
-//                {name:'金额人民币',index:'L', width:80,align:'center'},
-//                {name:'委托金额美元',index:'M', width:80,align:'center'},
-//                {name:'还款日期',index:'N', width:80,align:'center'},
-//                {name:'美元还款日',index:'O', width:80,align:'center'},
-//                {name:'人民币还款',index:'P', width:80,align:'center'},
-//            ],
-//            multiselect: true,
-//            sortname : 'id',
-//            rowNum:-1,
-//            viewrecords: true,
-//            sortable:true,
-//            sortorder: "asc",
-//            emptyrecords: "Nothing to display",
-//            scrollrows:true,
-//            autowidth:true,
-//            rownumbers:true,
-//            loadtext:"Loading...",
-//            height:320,
-//            scroll: true,
-//            hoverrows:true,
-//            shrinkToFit:false,
-//            autoScroll: false,
-////            loadonce : true,
-//            mtype : "post",
-//            repeatitems: false,
-//            loadui:"block",
-//
-//            loadComplete:function(data){ //完成服务器请求后，回调函数
-//                if(data.records==0){ //如果没有记录返回，追加提示信息，删除按钮不可用
-//                    console.log(11111);
-//                }
-//            }
-//        });
         jQuery("#list1").jqGrid({
             url:"server.php?action=first_refresh",
 //            datatype: "local",
             datatype: "json",
-            colNames:['持卡人姓名','性别','证件号码','卡号','人民币账号', '美元账号','开卡日期','额度','账单日期','余额人民币','金额人民币','委托金额美元','还款日期','美元还款日','人民币还款'],
+            colNames:['id','持卡人姓名','性别','证件号码','卡号','人民币账号', '美元账号','开卡日期','额度','账单日期','余额人民币','金额人民币','委托金额美元','还款日期','美元还款日','人民币还款'],
             colModel:[
-                {name:'A',index:'A', width:120,align:'center'},
-                {name:'B',index:'B', width:60},
-                {name:'证件号码',index:'C', width:120},
-                {name:'卡号',index:'D', width:120},
-                {name:'人民币账号',index:'E', width:120,align:'center'},
-                {name:'美元账号',index:'F', width:120,align:'center'},
-                {name:'开卡日期',index:'G', width:120, sortable:false, align:'center'},
-                {name:'额度',index:'H', width:120,align:'center'},
-                {name:'账单日期',index:'I', width:120,align:'center'},
-                {name:'余额人民币',index:'J', width:120,align:'center'},
-                {name:'金额人民币',index:'K', width:120,align:'center'},
-                {name:'委托金额美元',index:'L', width:120,align:'center'},
-                {name:'还款日期',index:'M', width:120,align:'center'},
-                {name:'美元还款日',index:'N', width:120,align:'center'},
-                {name:'人民币还款',index:'O', width:120,align:'center'},
+                {name:'id',index:'A', width:120,align:'center'},
+                {name:'持卡人姓名',index:'B', width:120,align:'center'},
+                {name:'性别',index:'C', width:60},
+                {name:'证件号码',index:'D', width:120},
+                {name:'卡号',index:'E', width:120},
+                {name:'人民币账号',index:'F', width:120,align:'center'},
+                {name:'美元账号',index:'G', width:120,align:'center'},
+                {name:'开卡日期',index:'H', width:120, sortable:false, align:'center'},
+                {name:'额度',index:'I', width:120,align:'center'},
+                {name:'账单日期',index:'J', width:120,align:'center'},
+                {name:'余额人民币',index:'K', width:120,align:'center'},
+                {name:'金额人民币',index:'L', width:120,align:'center'},
+                {name:'委托金额美元',index:'M', width:120,align:'center'},
+                {name:'还款日期',index:'N', width:120,align:'center'},
+                {name:'美元还款日',index:'O', width:120,align:'center'},
+                {name:'人民币还款',index:'P', width:120,align:'center'}
             ],
             rowNum : 20,
+            multiselect: true,
             sortname : 'id',
             viewrecords: true,
             sortable:true,
@@ -160,14 +111,14 @@
             autowidth:true,
             rownumbers:true,
             height:450,
-            multiselect: true,
             hoverrows:true,
             shrinkToFit:false,
             autoScroll: false,
+//            loadonce : true,
             mtype : "post",
             repeatitems: false,
             loadtext:"loading...",
-            loadui:"block",
+//            loadui:"block",
             scroll:true,
             loadComplete:function(data){ //完成服务器请求后，回调函数
                 if(data.records==0){ //如果没有记录返回，追加提示信息，删除按钮不可用
@@ -175,24 +126,6 @@
                 }
             }
         });
-//        $(".file").on("change","input[type='file']",function(e){
-//            var src = e.target || window.event.srcElement;
-//            console.dir(document.getElementById( "upload_file1" ))
-//            var filePath=$(this).val();
-//            console.log(filePath);
-//            if(filePath.indexOf("xls")!=-1)
-//            {
-//                $(".fileerrorTip").html("").hide();
-//                var arr=filePath.split('\\');
-//                var fileName=arr[arr.length-1];
-//                $(".showFileName").html(fileName);
-//            }else{
-//                $(".showFileName").html("");
-//                $(".fileerrorTip").html("上传文件类型错误").show();
-//                $(this).data("upload1",false);
-//                return false;
-//            }
-//        });
         var validate_check = function() {
             if ($('#bank_name').val() == "") {
                 $('#bank_name').css("border","none");
@@ -246,11 +179,12 @@
         $('#submit2').click(function(){
             if(validate_check())
             {
-                $("#list1").jqGrid('setGridParam',{
-                    url:"server.php?action=request_file"
+            $("#list1").jqGrid('setGridParam',{
+                url:"server.php?action=request_file",
 //                    postData:{'title':title,'sn':sn},
 //                    page:1
-                }).trigger("reloadGrid");
+                clearGridData: true
+            }).trigger("reloadGrid");
             }
         });
         $("#del_row1").click(function(){
