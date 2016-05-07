@@ -181,7 +181,7 @@
             {
             $("#list1").jqGrid('setGridParam',{
                 url:"server.php?action=request_file",
-                   postData:{'title':111111}
+//                   postData:{'title':111111}
 //                    page:1
             }).trigger("reloadGrid");
             }
@@ -250,7 +250,7 @@
         });
         $("#query").click(function(){
             $.ajax({
-                url:"server.php?",
+                url:"server.php?action=query_1",
                 type:"POST",
                 dataType:"json",
                 data:{
@@ -259,7 +259,7 @@
                 },
                 success:function(data,textStatus,jqXHR){
                         $("#list1").jqGrid('setGridParam',{
-                            url:"server.php?action=request_file",
+                            url:"server.php?action=query_2",
                             postData: {
                                 name:$("#credit_user").val(),
                                 status:$("#batch_number1").val()
