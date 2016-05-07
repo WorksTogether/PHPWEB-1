@@ -149,7 +149,7 @@
             hoverrows:true,
             shrinkToFit:false,
             autoScroll: false,
-            loadonce : true,
+//            loadonce : true,
             mtype : "post",
             repeatitems: false,
             loadtext:"loading...",
@@ -202,7 +202,7 @@
             $('#code').fadeOut();
             $('#goodcover').hide();
         });
-        var validate_check = function(){
+        var validate_check = function(hand_zone_excute,hand_leader){
 
             if ($('#check1').get(0).checked == false && $('#check2').get(0).checked == false) {
                 $('#check1').parent("label").addClass("validate_border");
@@ -234,16 +234,16 @@
                 }
                 else
                 {
-                    $("#drop_down1").css({border:"none"});
+                    $("#drop_down1").css({border:"1px solid #D7D7D7",boxShadow: "none"});
                     if( $("#drop_down1").hasClass("validate_border"))
                     {
                         $("#drop_down1").removeClass("validate_border");
                     }
+                    hand_zone_excute
                 }
             }
             if($('#check2').get(0).checked == true)
             {
-                console.log($("#drop_down2").find("select").eq(0))
                 if($("#drop_down2").find("select").eq(0).val() == "0")
                 {
                     $("#drop_down2").find("select").eq(0).parent("li").focus().css({
@@ -255,7 +255,7 @@
                 }
                 else
                 {
-                    $("#drop_down2").find("select").eq(0).parent("li").css({border:"none"});
+                    $("#drop_down2").find("select").eq(0).parent("li").css({border:"1px solid #D7D7D7",boxShadow: "none"});
                     if(  $("#drop_down2").find("select").eq(0).parent("li").hasClass("validate_border"))
                     {
                         $("#drop_down2").find("select").eq(0).parent("li").removeClass("validate_border");
@@ -272,38 +272,51 @@
                 }
                 else
                 {
-                    $("#drop_down2").find("select").eq(1).parent("li").css({border:"none"});
+                    $("#drop_down2").find("select").eq(1).parent("li").css({border:"1px solid #D7D7D7",boxShadow: "none"});
                     if(  $("#drop_down2").find("select").eq(1).parent("li").hasClass("validate_border"))
                     {
                         $("#drop_down2").find("select").eq(1).parent("li").removeClass("validate_border");
                     }
                 }
             }
+            return true;
         };
         $('#assign').click(function(){
-            console.log($("#check1").get(0).checked);
-            if(validate_check())
+            console.log(validate_check());
+            var sels = $("#list1").jqGrid('getGridParam','selarrrow');
+            if(sels=="")
             {
-                $.ajax({
-                    url:"server.php?action=hand_assign",
-                    type:"POST",
-                    dataType:"json",
-                    data:{
-                        zone_excute:11111,
-                        leader:222222
-                    },
-                    success:function(data,textStatus,jqXHR){
-                        if(data.msg == "success")
-                        {
-                            alert("手动分配成功！");
-                        }
-                        if(data.msg == "error")
-                        {
-                            alert("手动分配失败！");
-                        }
-                    }
-                });
+                alert("请选择手动分配项！");
             }
+            else
+            {
+                var hand_zone_excute = "";
+                var hand_leader = "";
+                if(validate_check())
+                {
+                    $.ajax({
+                        url:"server.php?action=hand_assign",
+                        type:"POST",
+                        dataType:"json",
+                        data:{
+                            zone_excute:11111,
+                            leader:222222,
+                            sels:sels
+                        },
+                        success:function(data,textStatus,jqXHR){
+                            if(data.msg == "success")
+                            {
+                                alert("手动分配成功！");
+                            }
+                            if(data.msg == "error")
+                            {
+                                alert("手动分配失败！");
+                            }
+                        }
+                    });
+                }
+            }
+
 
         });
     });
