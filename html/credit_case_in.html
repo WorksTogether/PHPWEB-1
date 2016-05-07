@@ -25,7 +25,7 @@
                         <input id="id_number" class="form-field" type="text"/>
                     </li>
                     <li style="margin-left: 40px">
-                        <input class="submit-button" type="button" value="查询" style="height:39px;display: inline-block;width: 108px"/>
+                        <input id="query" class="submit-button" type="button" value="查询" style="height:39px;display: inline-block;width: 108px"/>
                     </li>
                 </ul>
             </form>
@@ -181,9 +181,8 @@
             {
             $("#list1").jqGrid('setGridParam',{
                 url:"server.php?action=request_file",
-//                    postData:{'title':title,'sn':sn},
+                   postData:{'title':111111}
 //                    page:1
-                clearGridData: true
             }).trigger("reloadGrid");
             }
         });
@@ -248,6 +247,29 @@
             }
 
 
+        });
+        $("#query").click(function(){
+            $.ajax({
+                url:"server.php?",
+                type:"POST",
+                dataType:"json",
+                data:{
+                    name:$("#credit_user").val(),
+                    status:$("#batch_number1").val()
+                },
+                success:function(data,textStatus,jqXHR){
+                        $("#list1").jqGrid('setGridParam',{
+                            url:"server.php?action=request_file",
+                            postData: {
+                                name:$("#credit_user").val(),
+                                status:$("#batch_number1").val()
+                            }
+                        }).trigger("reloadGrid");
+                },
+                error:function(qXHR,textStatus,errorThrown ){
+                    alert("未查询到相关信息！");
+                }
+            });
         });
     });
 </script>
