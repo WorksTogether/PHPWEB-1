@@ -25,140 +25,38 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="851">
-              <caret line="65" column="48" selection-start-line="65" selection-start-column="48" selection-end-line="65" selection-end-column="48" />
+            <state relative-caret-position="-9">
+              <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="font-awesome.min.css" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/css/font-awesome.min.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="server.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="server.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="794">
-              <caret line="97" column="50" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="22222.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/22222.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="upload.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/upload.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="parseExcel.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/parseExcel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="120" column="63" selection-start-line="120" selection-start-column="62" selection-end-line="120" selection-end-column="63" />
+            <state relative-caret-position="350">
+              <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
               <folding>
-                <marker date="1461479139075" expanded="true" signature="2597:2693" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:2831" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:2974" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:3129" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:3295" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:3472" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:3703" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:3704" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:3756" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:3757" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:3759" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:3825" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:3883" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:3943" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:4004" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:4066" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:4127" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:4187" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:4242" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:4305" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:4380" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:4449" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:4517" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:4589" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:4660" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:4734" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:4807" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:4873" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:4939" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:5005" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:5071" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:5125" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:5185" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:5246" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:5310" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:5374" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:5435" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:5494" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:5559" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:5629" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:5703" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:5771" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:5832" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:6264" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:6821" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:7380" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:7526" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:7530" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:7593" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:7649" placeholder="INSERT INTO credit_card_case... " />
-                <marker date="1461479139075" expanded="true" signature="2597:7650" placeholder="INSERT INTO credit_card_case... " />
+                <marker date="1462629962727" expanded="true" signature="816:859" placeholder="SELECT COUNT... " />
+                <marker date="1462629962727" expanded="true" signature="2149:2192" placeholder="SELECT COUNT... " />
+                <marker date="1462629962727" expanded="true" signature="3391:3418" placeholder="SELECT * FRO... total" />
+                <marker date="1462629962727" expanded="true" signature="3391:3466" placeholder="SELECT * FRO... total" />
+                <marker date="1462629962727" expanded="true" signature="4552:4614" placeholder="SELECT COUNT... " />
+                <marker date="1462629962727" expanded="true" signature="5174:5257" placeholder="SELECT * FRO... total" />
+                <marker date="1462629962727" expanded="true" signature="7745:7829" placeholder="INSERT INTO `total`... " />
+                <marker date="1462629962727" expanded="true" signature="8224:8266" placeholder="DELETE FROM " />
+                <marker date="1462629962727" expanded="true" signature="8557:8621" placeholder="UPDATE `tota... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="444.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/444.html">
+      <file leaf-file-name="credit_case_in.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/credit_case_in.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="globalSettings.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/php/globalSettings.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="uploadTest.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/uploadTest.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+            <state relative-caret-position="3045">
+              <caret line="273" column="21" selection-start-line="273" selection-start-column="21" selection-end-line="273" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -167,8 +65,70 @@
       <file leaf-file-name="CreditCardCase.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/php/CreditCardCase.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
+            <state relative-caret-position="-1266">
               <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="globalSettings.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/php/globalSettings.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-9">
+              <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="connect.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/connect.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-9">
+              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-9">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1462612331389" expanded="true" signature="278:332" placeholder="INSERT INTO `case_in`... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="upload.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/upload.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-9">
+              <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-9">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-9">
+              <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -191,12 +151,15 @@
       <list>
         <option value="$PROJECT_DIR$/php/login.php" />
         <option value="$PROJECT_DIR$/js/controllers/444.js" />
-        <option value="$PROJECT_DIR$/php/globalSettings.php" />
         <option value="$PROJECT_DIR$/test/uploadTest.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/html/444.html" />
         <option value="$PROJECT_DIR$/php/CreditCardCase.php" />
         <option value="$PROJECT_DIR$/php/parseExcel.php" />
+        <option value="$PROJECT_DIR$/connect.php" />
+        <option value="$PROJECT_DIR$/php/globalSettings.php" />
+        <option value="$PROJECT_DIR$/html/credit_case_in.html" />
+        <option value="$PROJECT_DIR$/server.php" />
       </list>
     </option>
   </component>
@@ -214,7 +177,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1932" />
+    <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -259,76 +222,63 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PHPWEB" />
+              <option name="myItemId" value="PHPWEB-1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PHPWEB" />
+              <option name="myItemId" value="PHPWEB-1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PHPWEB" />
+              <option name="myItemId" value="PHPWEB-1" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PHPWEB" />
+              <option name="myItemId" value="PHPWEB-1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PHPWEB" />
+              <option name="myItemId" value="PHPWEB-1" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="upload" />
+              <option name="myItemId" value="php" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PHPWEB" />
+              <option name="myItemId" value="PHPWEB-1" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="PHPWEB" />
+              <option name="myItemId" value="PHPWEB-1" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="fonts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PHPWEB" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PHPWEB" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="html" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -389,34 +339,35 @@
       <workItem from="1461416460055" duration="2027000" />
       <workItem from="1461478913004" duration="244000" />
       <workItem from="1462361974489" duration="2788000" />
+      <workItem from="1462612385823" duration="12723000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31202000" />
+    <option name="totallyTimeSpent" value="43925000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1932" height="1056" extended-state="1" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14718163" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.146875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18393235" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18393235" sideWeight="0.49791667" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -431,152 +382,12 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/php/globalSettings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/uploadTest.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/CreditCardCase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/22222.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="30" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/parseExcel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="45" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="45" />
-          <folding>
-            <marker date="1461479139075" expanded="true" signature="2597:2693" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:2831" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:2974" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3129" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3295" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3472" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3703" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3704" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3756" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3757" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3759" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3825" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3883" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3943" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4004" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4066" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4127" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4187" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4242" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4305" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4380" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4449" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4517" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4589" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4660" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4734" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4807" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4873" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4939" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5005" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5071" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5125" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5185" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5246" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5310" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5374" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5435" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5494" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5559" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5629" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5703" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5771" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5832" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:6264" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:6821" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7380" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7526" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7530" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7593" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7649" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7650" placeholder="INSERT INTO credit_card_case... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers/444.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding>
-            <marker date="1461418891077" expanded="true" signature="289:342" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="5" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/444.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/globalSettings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/uploadTest.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -620,9 +431,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-          <folding>
-            <marker date="1461418891077" expanded="true" signature="289:342" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -683,59 +492,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="969">
           <caret line="51" column="12" selection-start-line="51" selection-start-column="12" selection-end-line="51" selection-end-column="12" />
-          <folding>
-            <marker date="1461479139075" expanded="true" signature="2597:2693" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:2831" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:2974" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3129" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3295" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3472" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3703" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3704" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3756" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3757" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3759" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3825" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3883" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3943" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4004" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4066" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4127" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4187" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4242" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4305" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4380" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4449" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4517" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4589" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4660" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4734" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4807" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4873" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4939" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5005" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5071" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5125" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5185" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5246" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5310" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5374" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5435" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5494" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5559" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5629" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5703" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5771" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5832" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:6264" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:6821" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7380" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7526" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7530" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7593" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7649" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7650" placeholder="INSERT INTO credit_card_case... " />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -780,59 +537,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1083">
           <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-          <folding>
-            <marker date="1461479139075" expanded="true" signature="2597:2693" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:2831" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:2974" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3129" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3295" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3472" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3703" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3704" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3756" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3757" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3759" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3825" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3883" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3943" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4004" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4066" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4127" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4187" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4242" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4305" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4380" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4449" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4517" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4589" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4660" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4734" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4807" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4873" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4939" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5005" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5071" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5125" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5185" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5246" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5310" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5374" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5435" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5494" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5559" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5629" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5703" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5771" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5832" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:6264" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:6821" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7380" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7526" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7530" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7593" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7649" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7650" placeholder="INSERT INTO credit_card_case... " />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -840,13 +545,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="21" column="92" selection-start-line="21" selection-start-column="81" selection-end-line="21" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -871,13 +569,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/33333.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -885,21 +576,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers/444.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
-          <folding>
-            <marker date="1461418891077" expanded="true" signature="289:342" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -918,26 +599,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/globalSettings.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/uploadTest.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="15" column="7" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -950,95 +615,183 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/php/parseExcel.php">
+    <entry file="file://$PROJECT_DIR$/css/font-awesome.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="120" column="63" selection-start-line="120" selection-start-column="62" selection-end-line="120" selection-end-column="63" />
-          <folding>
-            <marker date="1461479139075" expanded="true" signature="2597:2693" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:2831" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:2974" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3129" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3295" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3472" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3703" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3704" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3756" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3757" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3759" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3825" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3883" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:3943" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4004" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4066" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4127" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4187" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4242" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4305" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4380" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4449" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4517" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4589" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4660" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4734" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4807" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4873" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:4939" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5005" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5071" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5125" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5185" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5246" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5310" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5374" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5435" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5494" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5559" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5629" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5703" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5771" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:5832" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:6264" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:6821" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7380" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7526" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7530" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7593" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7649" placeholder="INSERT INTO credit_card_case... " />
-            <marker date="1461479139075" expanded="true" signature="2597:7650" placeholder="INSERT INTO credit_card_case... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/php/CreditCardCase.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+        <state relative-caret-position="57">
+          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.php">
+    <entry file="file://$PROJECT_DIR$/server2.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="794">
-          <caret line="97" column="50" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="37" column="4" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1462612331389" expanded="true" signature="278:332" placeholder="INSERT INTO `case_in`... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/upload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHPExcel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2166">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="851">
-          <caret line="65" column="48" selection-start-line="65" selection-start-column="48" selection-end-line="65" selection-end-column="48" />
+        <state relative-caret-position="-9">
+          <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/font-awesome.min.css">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/json.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="30" selection-start-line="3" selection-start-column="30" selection-end-line="3" selection-end-column="30" />
+        <state relative-caret-position="247">
+          <caret line="206" column="9" selection-start-line="206" selection-start-column="9" selection-end-line="206" selection-end-column="9" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_7.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="352" column="9" selection-start-line="352" selection-start-column="9" selection-end-line="352" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/globalSettings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="235" column="9" selection-start-line="235" selection-start-column="9" selection-end-line="235" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/basic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="92" column="9" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/connect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/parseExcel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1434">
+          <caret line="14" column="45" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/php/CreditCardCase.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1266">
+          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/credit_case_in.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3045">
+          <caret line="273" column="21" selection-start-line="273" selection-start-column="21" selection-end-line="273" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+          <folding>
+            <marker date="1462629962727" expanded="true" signature="816:859" placeholder="SELECT COUNT... " />
+            <marker date="1462629962727" expanded="true" signature="2149:2192" placeholder="SELECT COUNT... " />
+            <marker date="1462629962727" expanded="true" signature="3391:3418" placeholder="SELECT * FRO... total" />
+            <marker date="1462629962727" expanded="true" signature="3391:3466" placeholder="SELECT * FRO... total" />
+            <marker date="1462629962727" expanded="true" signature="4552:4614" placeholder="SELECT COUNT... " />
+            <marker date="1462629962727" expanded="true" signature="5174:5257" placeholder="SELECT * FRO... total" />
+            <marker date="1462629962727" expanded="true" signature="7745:7829" placeholder="INSERT INTO `total`... " />
+            <marker date="1462629962727" expanded="true" signature="8224:8266" placeholder="DELETE FROM " />
+            <marker date="1462629962727" expanded="true" signature="8557:8621" placeholder="UPDATE `tota... " />
+          </folding>
         </state>
       </provider>
     </entry>

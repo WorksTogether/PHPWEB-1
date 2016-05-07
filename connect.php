@@ -1,7 +1,7 @@
 <?php
 $servername = "127.0.0.1";
 $username = "root";
-$password = "123456";
+$password = "nankai";
 $dbname = "manage_system";
 
 // 创建连接

@@ -8,8 +8,7 @@ include 'connect.php';
 include 'PHPExcel/IOFactory.php';
 
 $uploadfile_path = "";
-$GLOBALS['file_name'] = "";
-$action = $_GET['action']; 
+$action = $_GET['action'];
 switch ($action) {
   case 'norefresh':
       $reponse["records"] = 0;
@@ -19,7 +18,7 @@ switch ($action) {
 		handle_fileupload();
   break;
     case 'request_file':
-		request_file($GLOBALS['file_name']);
+		request_file();
   break;
   case 'del_row':
     del_row();
@@ -30,10 +29,156 @@ switch ($action) {
   case 'first_refresh':
     first_refresh();
   break;
+  case 'query_1':
+      query_exist();
+  break;
+  case 'query_2':
+      query_list();
+  break;
+  case 'query_2':
+      distribution();
+  break;
   default:
     # code...
     break;
 };
+
+function query_exist()
+{
+
+        $sql = "SELECT COUNT(*) AS count FROM `total` WHERE ";
+        $query_param_batch=$_POST['status'];
+        $query_param_name=$_POST['name'];
+        //$query_param_ID=$_POST['page'];
+    if(empty($query_param_batch) && empty($query_param_name) && empty($query_param_ID))
+    {
+        $array = array(
+            "msg" => "error",
+        );
+        echo json_encode($array);
+        die(0);
+    }
+    if(!empty($query_param_batch))
+    {
+        $sql.="status='".$query_param_batch."' AND ";
+    }
+    if(!empty($query_param_name))
+    {
+        $sql.="name='".$query_param_name."' AND ";
+    }
+    if(!empty($query_param_ID))
+    {
+        $sql.="id_num='".$query_param_ID."' AND ";
+    }
+        $sql.=" 1=1 ";
+        $result = $GLOBALS['$conn']->query($sql);
+        $row = $result->fetch_array(MYSQLI_ASSOC);
+        $count = $row['count'];
+        if($count>0)
+        {
+            $array = array(
+                "msg" => "success",
+            );
+            echo json_encode($array);
+        }
+        else
+        {
+            $array = array(
+                "msg" => "error",
+            );
+            echo json_encode($array);
+        }
+}
+function query_list()
+{
+    $page = $_POST['page'];
+    $limit = $_POST['rows'];
+    $sidx = $_POST['sidx'];
+    $sord = $_POST['sord'];
+    if (!$sidx)
+        $sidx = 1;
+
+    $sql = "SELECT COUNT(*) AS count FROM `total` WHERE ";
+    $sql_add=" ";
+    $query_param_batch=$_POST['status'];
+    $query_param_name=$_POST['name'];
+    //$query_param_ID=$_POST['page'];
+    if(empty($query_param_batch) && empty($query_param_name) && empty($query_param_ID))
+    {
+        echo json_encode("error");
+        die(0);
+    }
+    if(!empty($query_param_batch))
+    {
+        $sql_add.="status='".$query_param_batch."' AND ";
+    }
+    if(!empty($query_param_name))
+    {
+        $sql_add.="name='".$query_param_name."' AND ";
+    }
+    if(!empty($query_param_ID))
+    {
+        $sql_add.="id_num='".$query_param_ID."' AND ";
+    }
+    $sql_add.=" 1=1 ";
+    $sql.=$sql_add;
+    $result = $GLOBALS['$conn']->query($sql);
+    $row = $result->fetch_array(MYSQLI_ASSOC);
+    $count = $row['count'];
+    if ($count > 0)
+    {
+        $total_pages = ceil($count / $limit);
+    }
+    else
+    {
+        $total_pages = 0;
+    }
+    if ($page > $total_pages)
+        $page = $total_pages;
+    $start = $limit * $page - $limit;
+    if ($start < 0 )
+        $start = 0;
+    $responce->records = $count;
+    $responce->total = $total_pages;
+    if ($page > $total_pages)
+        $page = $responce->total;
+    $responce->page = $page;
+
+    $sql = "SELECT * FROM `total` WHERE".$sql_add."ORDER BY $sidx $sord LIMIT $start , $limit";
+    if($result = $GLOBALS['$conn']->query($sql))
+    {
+        if ($result->num_rows > 0)
+        {
+            $i = 0;
+            while($row = $result->fetch_assoc())
+            {
+                $responce->rows[$i]['id'] = $row['id'];
+                $responce->rows[$i]['cell'] = array (
+                    $row['id'],
+                    $row['name'],
+                    $row['sex'],
+                    $row['status'],
+                    $row['batch_num'],
+                    $row['id_num'],
+                );
+                $i++;
+            }
+            echo json_encode($responce);
+        }
+        else
+        {
+            $reponse->records = 0;
+            $responce->total = 0;
+            echo json_encode($reponse,JSON_UNESCAPED_UNICODE);
+        }
+    }
+    else
+    {
+        echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+    }
+}
+
+
 function  first_refresh(){
   $page = $_POST['page'];  
   $limit = $_POST['rows']; 
@@ -42,7 +187,6 @@ function  first_refresh(){
    if (!$sidx) 
   $sidx = 1; 
   // echo json_encode($sord);
-  $sql = "";
   $sql = "SELECT COUNT(*) AS count FROM `total` WHERE status = 'case_in'";
   $result = $GLOBALS['$conn']->query($sql); 
   $row = $result->fetch_array(MYSQLI_ASSOC); 
@@ -60,8 +204,8 @@ function  first_refresh(){
       $start = $limit * $page - $limit; 
     if ($start < 0 )
        $start = 0; 
-  $responce->records = $count;
-  $responce->total = $total_pages;  
+    $responce->records = $count;
+    $responce->total = $total_pages;
   if ($page > $total_pages) 
       $page = $responce->total;
       $responce->page = $page;
@@ -120,9 +264,7 @@ if ( !empty( $_FILES ) ) {
   		else
    		{
    			$tempPath = $_FILES[ 'file' ][ 'tmp_name' ];
-        $uploadPath = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'case_in.xls';
-    		$uploadfile_path = $uploadPath;
-    		$GLOBALS['file_name'] = $_files["file"]["name"];
+            $uploadPath = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'case_in.xls';
     		move_uploaded_file( $tempPath, $uploadPath );
     		echo "upload: " . $_files["file"]["name"] . "";
     		echo "type: " . $_files["file"]["type"] . "";
@@ -136,68 +278,40 @@ if ( !empty( $_FILES ) ) {
    }
 }
 }
-function request_file($filename){
-$str = "";
-$sql = "";
-$inputFileName = './uploads/case_in.xls';
-$objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
-$objPHPExcel->getActiveSheet()->removeRow(1); 
-$objWorksheet = $objPHPExcel->getActiveSheet();
-
-$highestRow = $objWorksheet->getHighestRow(); // e.g. 10
-$highestColumn = $objWorksheet->getHighestColumn(); // e.g 'F'
-$highestColumnIndex = PHPExcel_Cell::columnIndexFromString($highestColumn); 
-
-for ($row = 1; $row <= $highestRow; ++$row)
+function request_file()
 {
-  for ($col = 0; $col <= $highestColumnIndex; ++$col)
-  {
-    $str .= htmlspecialchars(stripslashes(trim($objWorksheet->getCellByColumnAndRow($col, $row)->getValue()))).'\\';
-  }
-  $strs = explode("\\",$str);
-  $sql = "INSERT INTO `total`(`name`, `sex`,`status`) VALUES ('$strs[0]','$strs[1]','case_in')";
-  // $GLOBALS['$conn']->query($sql);
-  if($GLOBALS['$conn']->query($sql))
-  {
+    $inputFileName = './uploads/case_in.xls';
+    if(file_exists($inputFileName))
+    {
+        $str = "";
+        $objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
+        $objPHPExcel->getActiveSheet()->removeRow(1);
+        $objWorksheet = $objPHPExcel->getActiveSheet();
 
-  }
-  else {
-    echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
-}
-  $str = "";
-}
+        $highestRow = $objWorksheet->getHighestRow(); // e.g. 10
+        $highestColumn = $objWorksheet->getHighestColumn(); // e.g 'F'
+        $highestColumnIndex = PHPExcel_Cell::columnIndexFromString($highestColumn);
 
-$sql = "SELECT * FROM `total` WHERE status = 'case_in'";
-  if($result = $GLOBALS['$conn']->query($sql))
-  {
-    if ($result->num_rows > 0)
-     {
-      $output->page = 1;
-      $output->total = 5;
-      $output->records = 50;
-      $i = 0;
-      while($row = $result->fetch_assoc()) 
-      {
-        // echo json_encode($row);
-        $responce->rows[$i]['id'] = $row['id'];
-        $responce->rows[$i]['cell'] = array ( 
-                $row['id'],
-                $row['name'], 
-                $row['sex'], 
-                $row['status'], 
-            ); 
-            $i++; 
-      }
-      echo json_encode($responce);
+        for ($row = 1; $row <= $highestRow; ++$row) {
+            for ($col = 0; $col <= $highestColumnIndex; ++$col) {
+                $str .= htmlspecialchars(stripslashes(trim($objWorksheet->getCellByColumnAndRow($col, $row)->getValue()))) . '\\';
+            }
+            $strs = explode("\\", $str);
+            $sql = "INSERT INTO `total`(`name`, `sex`,`status`) VALUES ('$strs[0]','$strs[1]','case_in')";
+            if ($GLOBALS['$conn']->query($sql)) {
+
+            } else {
+                echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+            }
+            $str = "";
+        }
+        unlink($inputFileName);
+
     }
-  }
-  else
-  {
-    echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
-  }
+    first_refresh();
+
 }
 function del_row(){
-  $sql = "";
   $ids = $_POST['sels'];
   if (empty ($ids)) 
   {
@@ -208,6 +322,7 @@ function del_row(){
 if($GLOBALS['$conn']->query($sql))
   {
    echo json_encode("success");
+
   }
   else
   {
@@ -216,7 +331,6 @@ if($GLOBALS['$conn']->query($sql))
 
 }
 function check_fin(){
-  $sql = "";
   $ids = $_POST['sels'];
   $ids_str = join(',', $ids);
   if (empty ($ids)) 
@@ -224,8 +338,6 @@ function check_fin(){
      die("0");
   }  
 $sql = "UPDATE `total` SET `status`='wait_assign' WHERE id IN ($ids_str)";
-// $GLOBALS['$conn']->query("SET AUTOCOMMIT=0");
-// $GLOBALS['$conn']->query("BEGIN");
 if($GLOBALS['$conn']->query($sql))
 {
 echo json_encode("success");
