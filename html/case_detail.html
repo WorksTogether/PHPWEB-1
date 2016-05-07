@@ -104,8 +104,8 @@
 <script type="text/javascript">
     $(document).ready(function (){
         jQuery("#list1").jqGrid({
-//            url:"server.php?action=request_file",
-            datatype: "local",
+            url:"server.php?action=first_refresh",
+//            datatype: "local",
             datatype: "json",
             colNames:['持卡人姓名','性别','证件号码','卡号','人民币账号', '美元账号','开卡日期','额度','账单日期','余额人民币','金额人民币','委托金额美元','还款日期','美元还款日','人民币还款'],
             colModel:[
@@ -149,9 +149,9 @@
             scroll:true,
             loadComplete:function(data){
                 if(data.records==0){
-                    $("#del_row1").unbind();
+
                 }else{
-                    $("#del_row1").bind("click",del_rows);
+
                 }
             }
         });
