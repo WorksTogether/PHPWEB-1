@@ -1,0 +1,204 @@
+<link rel="stylesheet" href="css/case_close.css"/>
+<script src="lib/jquery.min.js"  async="async"> </script>
+<script src="lib/jquery.jqgrid.min.js"></script>
+<script src="lib/grid.locale-de.min.js"></script>
+<link rel="stylesheet" href="css/ui.jqgrid.css"/>
+<link rel="stylesheet" href="css/jquery-ui.min.css"/>
+<link rel="stylesheet" href="css/theme.css"/>
+<div class="credit_case_in" ng-controller="credit_case_in">
+    <div class="div1">
+        <div style="overflow: hidden">
+            <form action="" method="post" id="case_query1">
+                <ul style="margin-top: 15px;margin-left: 10px;margin-bottom: 5px">
+                    <li>
+                        <label for="batch_number1">批次号：</label>
+                        <input id="batch_number1" class="form-field" type="text"/>
+                    </li>
+                    <li>
+                        <label for="credit_user">批次流水号：</label>
+                        <input id="credit_user" class="form-field" type="text"/>
+                    </li>
+                    <li style="margin-left: 40px">
+                        <input class="submit-button" type="button" value="查询" style="height:39px;display: inline-block;width: 108px"/>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div style="margin-top: 15px;">
+            <ul style="list-style: none;overflow: hidden;height: 40px">
+                <li style="float: left;margin-left: 32px;">
+                    <span class="submit-button" style="display: inline-block;width: 70px;text-align: center">委案关闭</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div style="width: 97%;margin: 0 auto;border: #F2F2F2 solid 5px;border-radius: 10px"></div>
+    <div class="div2">
+        <table id="list1"></table>
+        <div id="pager"></div>
+        <!--<div id="pager"></div>-->
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function (){
+        jQuery("#list1").jqGrid({
+            url:"server.php?action=request_file",
+//            datatype: "local",
+            datatype: "json",
+            colNames:['持卡人姓名','性别','证件号码','卡号','人民币账号', '美元账号','开卡日期','额度','账单日期','余额人民币','金额人民币','委托金额美元','还款日期','美元还款日','人民币还款'],
+            colModel:[
+                {name:'A',index:'A', width:120,align:'center'},
+                {name:'B',index:'B', width:60},
+                {name:'证件号码',index:'C', width:120},
+                {name:'卡号',index:'D', width:120},
+                {name:'人民币账号',index:'E', width:120,align:'center'},
+                {name:'美元账号',index:'F', width:120,align:'center'},
+                {name:'开卡日期',index:'G', width:120, sortable:false, align:'center'},
+                {name:'额度',index:'H', width:120,align:'center'},
+                {name:'账单日期',index:'I', width:120,align:'center'},
+                {name:'余额人民币',index:'J', width:120,align:'center'},
+                {name:'金额人民币',index:'K', width:120,align:'center'},
+                {name:'委托金额美元',index:'L', width:120,align:'center'},
+                {name:'还款日期',index:'M', width:120,align:'center'},
+                {name:'美元还款日',index:'N', width:120,align:'center'},
+                {name:'人民币还款',index:'O', width:120,align:'center'},
+            ],
+            rowNum : 15,
+            sortname : 'id',
+            multiselect:true,
+            gridview:true,
+//            pager: '#pager',
+            viewrecords: true,
+            sortable:true,
+            sortorder: "asc",
+            emptyrecords: "Nothing to display",
+            scrollrows:true,
+            autowidth:true,
+            rownumbers:true,
+            height:450,
+            hoverrows:true,
+            shrinkToFit:false,
+            autoScroll: false,
+            loadonce : true,
+            mtype : "post",
+            repeatitems: false,
+            loadtext:"loading...",
+            loadui:"block",
+            scroll:true,
+            loadComplete:function(data){
+                if(data.records==0){
+                    $("#del_row1").unbind();
+                }else{
+                    $("#del_row1").bind("click",del_rows);
+                }
+            }
+        });
+//        var mydata = [
+//            {sn:"2007-10-01",title:"test",size:"note",os:"200.00",charge:"10.00",price:"210.00"},
+//            {invdate:"2007-10-02",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
+//            {invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},
+//            {invdate:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
+//            {invdate:"2007-10-05",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
+//            {invdate:"2007-09-06",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},
+//            {invdate:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
+//            {invdate:"2007-10-03",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
+//            {invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}
+//        ];
+//        for(var i=0;i<=mydata.length;i++)
+//            jQuery("#list1").jqGrid('addRowData',i+1,mydata[i]);
+        $(".file").on("change","input[type='file']",function(){
+            var filePath=$(this).val();
+            if(filePath.indexOf("xls")!=-1)
+            {
+                $(".fileerrorTip").html("").hide();
+                var arr=filePath.split('\\');
+                var fileName=arr[arr.length-1];
+                $(".showFileName").html(fileName);
+            }else{
+                $(".showFileName").html("");
+                $(".fileerrorTip").html("上传文件类型错误").show();
+                $(this).data("upload1",false);
+                return false;
+            }
+        });
+        var validate_check = function() {
+            if ($('#bank_name').val() == "") {
+                $('#bank_name').css("border","none");
+                $('#bank_name').focus().css({
+                    border: "1px solid red",
+                    boxShadow: "0 0 5px red"
+                });
+                $('#bank_name').addClass("validate_border");
+                return false;
+            }
+            else
+            {
+                $('#bank_name').css({border:"1px solid #198BD4",boxShadow: "0 0 2px #198BD4"});
+                if( $('#bank_name').hasClass("validate_border"))
+                {
+                    $('#bank_name').removeClass("validate_border");
+                }
+            }
+            if ($('#batch_number2').val() == "") {
+                $('#batch_number2').css("border","none");
+                $('#batch_number2').focus().css({
+                    border: "1px solid red",
+                    boxShadow: "0 0 5px red"
+                });
+                $('#batch_number2').addClass("validate_border");
+                return false;
+            }
+            else
+            {
+                $('#batch_number2').css({border:"1px solid #198BD4",boxShadow: "0 0 2px #198BD4"});
+                if( $('#batch_number2').hasClass("validate_border"))
+                {
+                    $('#batch_number2').removeClass("validate_border");
+                }
+            }
+//            console.info("验证前",angular.element("#upload_file1").data("upload1"));
+//            console.info("验证前",typeof angular.element("#upload_file1").data("upload1"));
+            if(!angular.element("#upload_file1").data("upload1"))
+            {
+                alert("请选择导入文件！");
+                return false;
+            }
+            else
+            {
+                angular.element("#upload_file1").data("upload1",false);
+            }
+//            console.info("验证后",angular.element("#upload_file1").data("upload1"));
+//            console.info("验证后",typeof angular.element("#upload_file1").data("upload1"));
+            return true;
+        };
+        $('#submit2').click(function(){
+            if(validate_check())
+            {
+                $("#list1").jqGrid('setGridParam',{
+                    url:"server.php?action=request_file"
+//                    postData:{'title':title,'sn':sn},
+//                    page:1
+                }).trigger("reloadGrid");
+            }
+        });
+        var del_rows = function(){
+            var sels = $("#list1").jqGrid('getGridParam','selarrrow');
+            console.info("sels",sels);
+            if(sels=="")
+            {
+                alert("请选择要删除的项！");
+            }
+            else
+            {
+                if(confirm("您是否确认删除？"))
+                {
+                    var len = sels.length;
+                    for(var i= 0;i<len;i++)
+                    {
+                        $("#list1").jqGrid('delRowData',sels[0]);
+                    }
+                }
+            }
+        };
+    });
+</script>

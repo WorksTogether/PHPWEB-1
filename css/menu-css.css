@@ -44,7 +44,6 @@
     text-decoration: none;
 }
 .menu ul li .active {
-    /*background: url(../images/on.png) top right no-repeat;*/
     background:#317EB4 ;
 }
 .menu ul li .open i.fa-chevron-down {
@@ -55,7 +54,6 @@
 }
 
 .menu ul li .inactive {
-    /*background: url(../images/off.png) top right no-repeat;*/
     background: #0099CC;
 }
 

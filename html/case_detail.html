@@ -1,0 +1,283 @@
+<link rel="stylesheet" href="css/case_detail.css"/>
+<script src="lib/jquery.min.js"  async="async"> </script>
+<script src="lib/jquery.jqgrid.min.js"></script>
+<script src="lib/grid.locale-de.min.js"></script>
+<link rel="stylesheet" href="css/ui.jqgrid.css"/>
+<link rel="stylesheet" href="css/jquery-ui.min.css"/>
+<link rel="stylesheet" href="css/theme.css"/>
+<div class="credit_case_in" ng-controller="credit_case_in">
+    <div class="div1">
+        <div style="overflow: hidden">
+            <form action="" method="post">
+                <ul style="margin-top: 15px;margin-left: 10px;margin-bottom: 5px">
+                    <li>
+                        <label for="batch_number1">批次号：</label>
+                        <input id="batch_number1" class="form-field" type="text"/>
+                    </li>
+                    <li>
+                        <label for="credit_user">持卡人姓名：</label>
+                        <input id="credit_user" class="form-field" type="text"/>
+                    </li>
+                    <li>
+                        <label for="id_number">身份证号码：</label>
+                        <input id="id_number" class="form-field" type="text"/>
+                    </li>
+                    <li style="margin-left: 40px">
+                        <input class="submit-button" type="button" value="查询" style="height:39px;display: inline-block;width: 108px"/>
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div style="margin-top: 15px;">
+            <ul style="list-style: none;overflow: hidden;height: 40px">
+                <li style="float: left;margin-left: 32px;">
+                    <span class="submit-button" id="case_detail" style="display: inline-block;width: 70px;text-align: center">案件详情</span>
+                </li>
+                <li><span class="submit-button" style="margin-left: 20px;display: inline-block;width: 70px;text-align: center">导出Excel</span></li>
+            </ul>
+        </div>
+    </div>
+    <div style="width: 97%;margin: 0 auto;border: #F2F2F2 solid 5px;border-radius: 10px"></div>
+    <div class="div2">
+        <table id="list1"></table>
+        <div id="pager"></div>
+        <!--<div id="pager"></div>-->
+    </div>
+    <div id="goodcover"></div>
+    <div id="code">
+        <div style="overflow: hidden;border-bottom: #F6D4BC solid 2px;border-radius: 0 0 5px 5px; background-color: #F6D4BC;">
+            <a  id="closebt" href="javascript:void(0)" style="font-size: 20px;color: #CC2900;float: right;display:inline-block">
+                <i class="fa fa-times-circle"></i>
+            </a>
+        </div>
+        <div class="box_content">
+            <div style="height: 100%;width: 120px;float: left;">
+                <ul id="ul_nav" style="overflow: hidden">
+                    <li class="nav" style="border-right: none;font-weight: bold" data-list="1">
+                        <div>
+                            <span>案件信息</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="2">
+                        <div>
+                            <span>电催记录</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="3">
+                        <div>
+                            <span>外访记录</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="4">
+                        <div>
+                            <span>外访记录</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="5">
+                        <div>
+                            <span>外访记录</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="6">
+                        <div>
+                            <span>外访记录</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="7">
+                        <div>
+                            <span>外访记录</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="8">
+                        <div>
+                            <span>外访记录</span>
+                        </div>
+                    </li>
+                    <li style="position:relative;border-right: #F6D4BC solid 2px;height:1000px;"></li>
+                </ul>
+            </div>
+            <div id="nav_page" class="nav_page" style="float: left" ng-include="'html/nav_page.html'"></div>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function (){
+        jQuery("#list1").jqGrid({
+//            url:"server.php?action=request_file",
+            datatype: "local",
+            datatype: "json",
+            colNames:['持卡人姓名','性别','证件号码','卡号','人民币账号', '美元账号','开卡日期','额度','账单日期','余额人民币','金额人民币','委托金额美元','还款日期','美元还款日','人民币还款'],
+            colModel:[
+                {name:'A',index:'A', width:120,align:'center'},
+                {name:'B',index:'B', width:60},
+                {name:'证件号码',index:'C', width:120},
+                {name:'卡号',index:'D', width:120},
+                {name:'人民币账号',index:'E', width:120,align:'center'},
+                {name:'美元账号',index:'F', width:120,align:'center'},
+                {name:'开卡日期',index:'G', width:120, sortable:false, align:'center'},
+                {name:'额度',index:'H', width:120,align:'center'},
+                {name:'账单日期',index:'I', width:120,align:'center'},
+                {name:'余额人民币',index:'J', width:120,align:'center'},
+                {name:'金额人民币',index:'K', width:120,align:'center'},
+                {name:'委托金额美元',index:'L', width:120,align:'center'},
+                {name:'还款日期',index:'M', width:120,align:'center'},
+                {name:'美元还款日',index:'N', width:120,align:'center'},
+                {name:'人民币还款',index:'O', width:120,align:'center'},
+            ],
+            rowNum : 15,
+            sortname : 'id',
+            multiselect:true,
+            gridview:true,
+//            pager: '#pager',
+            viewrecords: true,
+            sortable:true,
+            sortorder: "asc",
+            emptyrecords: "Nothing to display",
+            scrollrows:true,
+            autowidth:true,
+            rownumbers:true,
+            height:495,
+            hoverrows:true,
+            shrinkToFit:false,
+            autoScroll: false,
+            loadonce : true,
+            mtype : "post",
+            repeatitems: false,
+            loadtext:"loading...",
+            loadui:"block",
+            scroll:true,
+            loadComplete:function(data){
+                if(data.records==0){
+                    $("#del_row1").unbind();
+                }else{
+                    $("#del_row1").bind("click",del_rows);
+                }
+            }
+        });
+//        var mydata = [
+//            {sn:"2007-10-01",title:"test",size:"note",os:"200.00",charge:"10.00",price:"210.00"},
+//            {invdate:"2007-10-02",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
+//            {invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},
+//            {invdate:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
+//            {invdate:"2007-10-05",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
+//            {invdate:"2007-09-06",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},
+//            {invdate:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
+//            {invdate:"2007-10-03",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
+//            {invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}
+//        ];
+//        for(var i=0;i<=mydata.length;i++)
+//            jQuery("#list1").jqGrid('addRowData',i+1,mydata[i]);
+        jQuery.fn.center = function() {
+            var obj = this;
+            body_width = parseInt(obj.parent().width());
+            body_height = parseInt(obj.parent().height());
+            block_width = parseInt(obj.width());
+            block_height = parseInt(obj.height());
+
+            left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+            if (body_width < block_width)
+            {
+                left_position = 0 + $(window).scrollLeft();
+            }
+
+            top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+            if (body_height < block_height)
+            {
+                top_position = 0 + $(window).scrollTop();
+            }
+            obj.css({
+                'position': 'absolute'
+            });
+            obj.css({
+                'top': (obj.parent().height() - $('#code').height()) * 0.5,
+                'left': left_position
+            });
+            $(window).bind('resize', function() {
+                obj.center();
+            });
+            $(window).bind('scroll', function() {
+                obj.center();
+            });
+        };
+        $('#case_detail').click(function() {
+            $.ajax({
+                url:"list.php",
+                dataType:"json",
+                type:"post",
+                success: function (data) {
+                    var obj2 = $('#nav_page');
+                    obj2.find("[data-key='name']").html(data["name"]);
+                    obj2.find("[data-key='sex']").html(data["sex"]);
+                    obj2.find("[data-key='cardid']").html(data["cardid"]);
+                }
+            });
+            $('#code').center();
+            $('#goodcover').show();
+            $('#code').fadeIn();
+        });
+        $('#closebt').click(function() {
+            $('#code').fadeOut();
+            $('#goodcover').hide();
+        });
+        $('#ul_nav').click(function (e) {
+            console.dir()
+            var e = e || window.event;
+            var target = e.target || e.srcElement;
+            if (target.nodeName.toLowerCase() == "li" || target.nodeName.toLowerCase() == "div" || target.nodeName.toLowerCase() == "span") {
+                if (target.nodeName.toLowerCase() == "div") {
+                    $(target).parents("ul").children("li").css({
+                        "border-right": "#F6D4BC solid 2px",
+                        "font-weight": "normal"
+                    });
+                    var list1 = $(target).parent("li").css({
+                        "border-right": "none",
+                        "font-weight": "bold"
+                    }).data("list");
+                    $(target).parents("ul").children("li").children("div").css({
+                        "border-bottom": "none"
+                    });
+                    $(target).css({
+                        "border-bottom": "#F6D4BC solid 5px"
+                    });
+                    var obj1 = $('#nav_page').children("div").css({
+                        "display": "none"
+                    });
+                    for (var i in obj1) {
+                        if (obj1.hasOwnProperty(i) && $(obj1[i]).data("list") == list1) {
+                            $(obj1[i]).css({
+                                "display": "block"
+                            });
+                        }
+                    }
+                }
+                if (target.nodeName.toLowerCase() == "span") {
+                    $(target).parents("ul").children("li").css({
+                        "border-right": "#F6D4BC solid 2px",
+                        "font-weight": "normal"
+                    });
+                    var list1 = $(target).parents("li").css({
+                        "border-right": "none",
+                        "font-weight": "bold"
+                    }).data("list");
+                    $(target).parents("ul").children("li").children("div").css({
+                        "border-bottom": "none"
+                    });
+                    $(target).parent("div").css({
+                        "border-bottom": "#F6D4BC solid 5px"
+                    });
+                    var obj1 = $('#nav_page').children("div").css({
+                        "display": "none"
+                    });
+                    for (var i in obj1) {
+                        if (obj1.hasOwnProperty(i) && $(obj1[i]).data("list") == list1) {
+                            $(obj1[i]).css({
+                                "display": "block"
+                            });
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>

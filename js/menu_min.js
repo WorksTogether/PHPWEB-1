@@ -2,7 +2,6 @@
     $.fn.menu = function(b) {
         var c,
         item,
-        item1,
         httpAdress;
         b = jQuery.extend({
             Speed: 800,
@@ -12,7 +11,6 @@
         b);
         c = $(this);
         item = c.children("ul").parent("li").children("a");
-        //item = c.children("a");
         httpAdress = window.location;
         item.addClass("inactive");
         function _item() {
@@ -37,7 +35,6 @@
             {
                 a.removeAttr("class");
                 a.addClass("inactive");
-                console.log(a.parent("li").children().length);
                 if(a.parent("li").children().length > 0)
                 {
                     a.parent("li").children("ul").slideUp(b.Speed);

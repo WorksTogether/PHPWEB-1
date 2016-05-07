@@ -1,0 +1,180 @@
+<!--<link rel="stylesheet" href="../css/menu_style.css"/>-->
+<!--<script src="../js/menu.js"></script>-->
+<!--<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">-->
+<!--<link rel="stylesheet" href="js/jquery.multilevelpushmenu_red.css"/>-->
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" href="js/expandcollapse.css"/>-->
+<!--<script src="lib/jquery.min.js"></script>-->
+<!--<script type="text/javascript" src="http://oss.maxcdn.com/libs/modernizr/2.6.2/modernizr.min.js" async="async"></script>-->
+<!--<script src="js/jquery.multilevelpushmenu.js" async="async"></script>-->
+<!--<script src="js/expandcollapse.js" async="async"></script>-->
+
+<script src="js/menu_min.js"></script>
+<link rel="stylesheet" href="css/font-awesome.min.css"/>
+<link rel="stylesheet" href="css/menu-css.css"/>
+<!--<link rel="stylesheet" href="css/style1.css"/>-->
+
+<!--<link rel="stylesheet" href="css/credit_case_in.css"/>-->
+<!--<script src="lib/jquery.min.js"  async="async"> </script>-->
+<!--<script src="lib/jquery.jqgrid.min.js"></script>-->
+<!--<script src="lib/grid.locale-de.min.js"></script>-->
+<!--<link rel="stylesheet" href="css/ui.jqgrid.css"/>-->
+<!--<link rel="stylesheet" href="css/jquery-ui.min.css"/>-->
+<!--<link rel="stylesheet" href="css/theme.css"/>-->
+<div class="header">
+    <ul>
+        <li><em class="out"></em> <a href="">退出</a></li>
+        <li><em class="user"></em><a href="">我的角色</a></li>
+        <li><em class="lock"></em><a href="">修改密码</a></li>
+    </ul>
+<div style="border:#0099CC solid 2px;width: 98%;margin: 110px 1% 0 1%;height: 0px;"></div>
+</div>
+
+<div style="height: 700px;margin-top: 150px;" ng-controller="nav">
+<!--<div id="menu1" class="menu">-->
+<!--<ul>-->
+<!--<li><a ui-sref="login">首　　页</a></li>-->
+<!--<li><a ui-sref="login.22222">企业文化</a></li>-->
+<!--<li><a ui-sref="login.22222.33333">产品展示</a></li>-->
+<!--<li><a href="#">新闻中心</a></li>-->
+<!--<li><a href="#">阳光服务</a></li>-->
+<!--<li><a href="#">加盟代理</a></li>-->
+<!--<li><a href="#">在线咨询</a></li>-->
+<!--</ul>-->
+<!--<div class="cls"></div>-->
+<!--</div>-->
+
+    <div id="content">
+        <div class="menu">
+            <ul>
+                <li><a ui-sref="nav.homepage" id="home_page"><span>首页</span><i class="fa fa-reorder"></i></a>
+                    <ul></ul>
+                </li>
+                <li>
+                    <a class="" href="#"><i class="fa fa-folder-open-o"></i><span>案件管理</span><i class="fa fa-chevron-down"></i></a>
+                    <ul>
+                        <li>
+                            <a href="#" class="inactive"><i class="fa fa-file-code-o"></i><span>案件导入/初分</span><i class="fa fa-chevron-down"></i></a>
+                            <ul>
+                                <li><a ui-sref="nav.credit_case_in"><span>信用卡案件导入</span></a></li>
+                                <li><a href="#"><span>贷款案件导入</span></a></li>
+                                <li><a ui-sref="nav.case_assign"><span>案件分配</span></a></li>
+                                <li><a href="#"><span>委案记录</span></a></li>
+                                <li><a href="#"><span>信用卡案件明细</span></a></li>
+                                <li><a href="#"><span>贷款案件明细</span></a></li>
+                                <li><a href="#"><span>导入对账单</span></a></li>
+                                <li><a href="#"><span>导入最新余额</span></a></li>
+                                <li><a href="#"><span>委案关闭</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#"><i class="fa fa-file-excel-o"></i><span>分案管理</span><i class="fa fa-chevron-down"></i></a>
+                            <ul>
+                                <li><a href="#"><span>地区主管-待处理委案</span></a></li>
+                                <li><a href="#"><span>地区主管-已处理委案</span></a></li>
+                                <li><a href="#"><span>催收组长-待处理委案</span></a></li>
+                                <li><a href="#"><span>催收组长-已处理委案</span></a></li>
+                                <li><a href="#"><span>案件调整分配</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="inactive"><i class="fa fa-file-o"></i><span>案件统计</span><i class="fa fa-chevron-down"></i></a>
+                            <ul>
+                                <li><a href="#"><span>全部委案记录</span></a></li>
+                                <li><a href="#"><span>催收中委案</span></a></li>
+                                <li><a href="#"><span>已完成委案</span></a></li>
+                                <li><a href="#"><span>已关闭委案</span></a></li>
+                                <li><a href="#"><span>信用卡全部案件明细</span></a></li>
+                                <li><a href="#"><span>贷款全部案件明细</span></a></li>
+                                <li><a href="#"><span>还款账单明细</span></a></li>
+                            </ul>
+                        </li>
+                        <!--<li><a href="#">Subitem 4</a>-->
+                            <!--<ul>-->
+                                <!--<li><a href="#">Subitem 1</a></li>-->
+                                <!--<li><a href="#">Subitem 2</a></li>-->
+                            <!--</ul>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#" class="inactive">Subitem 5</a>-->
+                        <!--</li>-->
+                    </ul>
+                </li>
+                <li><a href="#"  style=""><i class="fa fa-folder-open-o"></i><span>催收管理</span><i class="fa fa-chevron-down"></i></a>
+                    <ul>
+                        <li>
+                            <a href="#" class="inactive"><i class="fa fa-file-code-o"></i><span>催收案件管理</span><i class="fa fa-chevron-down"></i></a>
+                            <ul>
+                                <li><a ui-sref="nav.credit_case_in"><span>待办催收任务</span></a></li>
+                                <li><a ui-sref="#"><span>重点关注案件</span></a></li>
+                                <li><a ui-sref="#"><span>被关注案件</span></a></li>
+                                <li><a ui-sref="#"><span>历史案件明细</span></a></li>
+                                <li><a ui-sref="#"><span>我的电催提醒</span></a></li>
+                                <li><a ui-sref="#"><span>0-3天未电催</span></a></li>
+                                <li><a ui-sref="#"><span>3-7天未电催</span></a></li>
+                                <li><a ui-sref="#"><span>7天以上未电催</span></a></li>
+                                <li><a ui-sref="#"><span>从未电催过案件</span></a></li>
+                                <li><a ui-sref="#"><span>临近退案-3天内</span></a></li>
+                                <li><a ui-sref="#"><span>临近退案-3-7天</span></a></li>
+                                <li><a ui-sref="#"><span>离退案-7天以上</span></a></li>
+                                <li><a ui-sref="#"><span>已过退案时间</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="inactive"><i class="fa fa-file-code-o"></i><span>催收统计</span><i class="fa fa-chevron-down"></i></a>
+                            <ul>
+                                <li><a ui-sref="#"><span>当日催收统计</span></a></li>
+                                <li><a ui-sref="#"><span>历史催收统计</span></a></li>
+                                <li><a ui-sref="#"><span>催收记录统计</span></a></li>
+                                <li><a ui-sref="#"><span>回款统计</span></a></li>
+                                <li><a ui-sref="#"><span>外访记录统计</span></a></li>
+                            </ul>
+                        </li>
+                        <!--<li>-->
+                            <!--<a href="#" class="inactive">Subitem 3</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a href="#" class="inactive">Subitem 4</a>-->
+                        <!--</li>-->
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa fa-folder-open-o"></i><span>协催管理</span><i class="fa fa-chevron-down"></i></a>
+                    <ul>
+                        <li>
+                            <a href="#" class="inactive"><i class="fa fa-file-code-o"></i><span>催收信函</span><i class="fa fa-chevron-down"></i></a>
+                            <ul>
+                                <li><a ui-sref="#"><span>打印催收函</span></a></li>
+                                <li><a ui-sref="#"><span>已处理催收函</span></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="inactive"><i class="fa fa-file-code-o"></i><span>催收协办</span><i class="fa fa-chevron-down"></i></a>
+                            <ul>
+                                <li><a ui-sref="#"><span>投诉预警</span></a></li>
+                                <li><a ui-sref="#"><span>户籍查询</span></a></li>
+                                <li><a ui-sref="#"><span>法院协催</span></a></li>
+                                <li><a ui-sref="#"><span>社保查询</span></a></li>
+                                <li><a ui-sref="#"><span>公安协催</span></a></li>
+                                <li><a ui-sref="#"><span>争议咨询</span></a></li>
+                                <li><a ui-sref="#"><span>移动查询</span></a></li>
+                                <li><a ui-sref="#"><span>主管协催</span></a></li>
+                                <li><a ui-sref="#"><span>客服咨询</span></a></li>
+                                <li><a ui-sref="#"><span>电信查询</span></a></li>
+                                <li><a ui-sref="#"><span>短信申请</span></a></li>
+                                <li><a ui-sref="#"><span>退件查询</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--<div ng-include="'html/33333.html'"></div>-->
+    <div ui-view></div>
+
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function (){
+        $(".menu ul li").menu();
+    });
+</script>

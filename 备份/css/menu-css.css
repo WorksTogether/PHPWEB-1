@@ -1,0 +1,128 @@
+.menu{
+/*width: 280px;*/
+    margin: 15px;
+}
+.menu ul li {
+    display: block;
+    list-style: none;
+    overflow: visible;
+    margin: 2px auto;
+}
+
+.menu ul li a {
+    display: block;
+    height: 50px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    padding-left: 15px;
+    font-size: 18px;
+    color: white;
+    outline: none;
+    border-radius: 5px;
+    position: relative;
+}
+.menu ul li i.fa-chevron-down{
+    -webkit-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+.menu ul li i.fa-reorder{
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+.menu ul li a span{
+    margin-left: 20px;
+    line-height: 50px;
+}
+.menu ul li a:hover{
+    font-weight: bold;
+    background:#317EB4 ;
+    text-decoration: none;
+}
+.menu ul li .active {
+    /*background: url(../images/on.png) top right no-repeat;*/
+    background:#317EB4 ;
+}
+.menu ul li .open i.fa-chevron-down {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.menu ul li .inactive {
+    /*background: url(../images/off.png) top right no-repeat;*/
+    background: #0099CC;
+}
+
+.menu ul li ul {
+    display: none;
+}
+
+.menu ul li ul li ul {
+    margin-bottom: 5px;
+}
+
+.menu ul li ul li {
+    display: block;
+    font-size: 12px;
+    list-style: none;
+margin: 2px auto;
+    width: 190px;
+}
+
+.menu ul li ul li a {
+    font-size: 17px;
+    height: 40px;
+    color: white;
+    border-radius: 5px;
+}
+.menu ul li ul li a span{
+    line-height: 40px;
+    margin-left: 10px;
+}
+.menu ul li ul li a:hover{
+    background:#317EB4 ;
+ }
+.menu ul li ul li ul{
+margin: 5px auto;
+    border-radius: 5px;
+    /*background: #0099CC;*/
+   /*width: 230px;*/
+}
+.menu ul li ul li ul li{
+    margin: 0 auto;
+    background: none;
+    width: 160px;
+    border-bottom: #CC9900 solid 2px;
+}
+.menu ul li ul li ul li:last-child{
+    border-bottom:none;
+}
+.menu ul li ul li ul li a{
+    background: #0099CC;
+    display: block;
+    border-radius: 0px;
+    height: 30px;
+    padding-left: 0;
+}
+.menu ul li ul li ul li:first-child a{
+    border-radius: 5px 5px 0 0;
+}
+.menu ul li ul li ul li:last-child a{
+    border-radius: 0 0 5px 5px;
+}
+.menu ul li ul li ul li a:hover{
+
+}
+.menu ul li ul li ul li a span{
+display: block;
+    line-height: 30px;
+margin-left: 0;
+    text-align: center;
+    width: 100%;
+}

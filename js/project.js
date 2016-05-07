@@ -1,4 +1,4 @@
-angular.module('starter', ['ui.router','starter.controllers.444','starter.controllers.222'])
+angular.module('starter', ['ui.router','starter.controllers.credit_case_in','starter.controllers.nav'])
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('login', {
@@ -6,20 +6,55 @@ angular.module('starter', ['ui.router','starter.controllers.444','starter.contro
                 templateUrl: 'html/login.html',
                 controller:''
             })
-            .state('22222', {
-                url: '/22222',
-                templateUrl: 'html/22222.html',
-                controller:'222'
+            .state('nav', {
+                url: '/nav',
+                templateUrl: 'html/nav.html',
+                controller:'nav'
             })
-            .state('22222.33333', {
-                url: '/33333',
-                templateUrl: 'html/33333.html',
+            .state('nav.homepage', {
+                url: '/homepage',
+                templateUrl: 'html/homepage.html',
                 controller:''
             })
-            .state('22222.444', {
-                url: '/444',
-                templateUrl: 'html/444.html',
-                controller:'444'
+            .state('nav.credit_case_in', {
+                url: '/credit_case_in',
+                templateUrl: 'html/credit_case_in.html',
+                controller:'credit_case_in'
+            })
+            .state('nav.case_assign', {
+                url: '/case_assign',
+                templateUrl: 'html/case_assign.html',
+                controller:''
+            })
+            .state('nav.case_detail', {
+                url: '/case_detail',
+                templateUrl: 'html/case_detail.html',
+                controller:''
+            })
+            .state('nav.import_account', {
+                url: '/import_account',
+                templateUrl: 'html/import_account.html',
+                controller:''
+            })
+            .state('nav.import_amount', {
+                url: '/import_amount',
+                templateUrl: 'html/import_amount.html',
+                controller:''
+            })
+            .state('nav.case_close', {
+                url: '/case_close',
+                templateUrl: 'html/case_close.html',
+                controller:''
+            })
+            .state('nav.region_case', {
+                url: '/region_case',
+                templateUrl: 'html/region_case.html',
+                controller:''
+            })
+            .state('nav.region_fin', {
+                url: '/region_fin',
+                templateUrl: 'html/region_fin.html',
+                controller:''
             })
 
         $urlRouterProvider.otherwise('login');
