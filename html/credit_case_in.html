@@ -258,6 +258,9 @@
                     status:$("#batch_number1").val()
                 },
                 success:function(data,textStatus,jqXHR){
+                    console.dir(data);
+                    if(data.msg == "success")
+                    {
                         $("#list1").jqGrid('setGridParam',{
                             url:"server.php?action=query_2",
                             postData: {
@@ -265,6 +268,12 @@
                                 status:$("#batch_number1").val()
                             }
                         }).trigger("reloadGrid");
+                    }
+                    if(data.msg == "error")
+                    {
+                        alert("未查询到相关信息！");
+                    }
+
                 },
                 error:function(qXHR,textStatus,errorThrown ){
                     alert("未查询到相关信息！");
