@@ -54,16 +54,16 @@
     <li style="height: 70px;margin: 20px; border: dotted 2px #D7D7D7;border-radius: 5px;overflow: hidden">
         <ul style="overflow: hidden">
             <li style="float: left;display: inline-block;line-height: 75px;margin-left: 15px">
-                <input type="radio" name="submit_type" value="0" style="zoom: 1.5"/>
+                <label for="check1" style="display: inline-block;line-height: 18px;width:18px;height:18px;border-radius: 50px;border: 1px solid #ffffff;"><input type="radio" name="submit_type" id="check1" value="0" style="zoom: 1.5; border:none"/></label>
             </li>
             <li style="float: left;display: inline-block;line-height: 70px;margin-left: 10px">
                 <label for="region_excutive">地区主管：</label>
             </li>
-            <li class="dropdown" style="float: left;margin: 15px 15px 15px 5px">
+            <li id="drop_down1" class="dropdown" style="float: left;margin: 15px 15px 15px 5px;">
 
                 <select class="dropdown-select" name="region_excutive" id="region_excutive">
-                    <option value="">请选择</option>
-                    <option value="">北京地区主管</option>
+                    <option value="0">请选择</option>
+                    <option value="beijing">北京地区主管</option>
                     <option value="">成都地区主管</option>
                     <option value="">上海地区主管</option>
                     <option value="">重庆地区主管</option></select>
@@ -71,10 +71,10 @@
             </li>
         </ul>
     </li>
-    <li style="height: 135px;margin: 20px; border: dotted 2px #D7D7D7;border-radius: 5px;">
+    <li id="drop_down2" style="height: 135px;margin: 20px; border: dotted 2px #D7D7D7;border-radius: 5px;">
         <ul style="overflow: hidden">
             <li style="float: left;display: inline-block;margin-left: 15px;margin-top: 60px">
-                <input type="radio" name="submit_type" value="0" style="zoom: 1.5"/>
+                <label for="check2" style="display: inline-block;line-height: 18px;width:18px;height:18px;border-radius: 50px;border: 1px solid #ffffff;"><input type="radio" name="submit_type" id="check2" value="0" style="zoom: 1.5"/></label>
             </li>
             <li style="float: left;display: inline-block;margin-top:25px;margin-left: 10px">
                 <label for="region_excutive">地区主管：</label>
@@ -82,8 +82,8 @@
             <li class="dropdown" style="float: left;margin: 20px 15px 0px 5px">
 
                 <select class="dropdown-select" name="region_excutive" id="region_excutive">
-                    <option value="">请选择</option>
-                    <option value="">北京地区主管</option>
+                    <option value="0">请选择</option>
+                    <option value="1">北京地区主管</option>
                     <option value="">成都地区主管</option>
                     <option value="">上海地区主管</option>
                     <option value="">重庆地区主管</option></select>
@@ -95,16 +95,16 @@
             <li class="dropdown" style="float: left;margin: 20px 15px 15px 5px">
 
                 <select class="dropdown-select" name="region_excutive" id="region_excutive">
-                    <option value="">请选择</option>
-                    <option value="">催收组长A</option>
-                    <option value="">催收组长B</option>
-                    <option value="">催收组长C</option>
-                    <option value="">催收组长D</option></select>
+                    <option value="0">请选择</option>
+                    <option value="1">催收组长A</option>
+                    <option value="1">催收组长B</option>
+                    <option value="1">催收组长C</option>
+                    <option value="1">催收组长D</option></select>
                 </select>
             </li>
         </ul>
     </li>
-        <li class="confirm_assign"><span style="line-height: 35px">分配</span></li>
+        <li id="assign" class="confirm_assign"><span style="line-height: 35px">分配</span></li>
     </form>
 </ul>
         </div>
@@ -114,7 +114,7 @@
 <script type="text/javascript">
     $(document).ready(function (){
         jQuery("#list1").jqGrid({
-            url:"server.php?action=request_file",
+            url:"server.php?action=request_case_assign",
 //            datatype: "local",
             datatype: "json",
             colNames:['持卡人姓名','性别','证件号码','卡号','人民币账号', '美元账号','开卡日期','额度','账单日期','余额人民币','金额人民币','委托金额美元','还款日期','美元还款日','人民币还款'],
@@ -161,19 +161,6 @@
                 }
             }
         });
-//        var mydata = [
-//            {sn:"2007-10-01",title:"test",size:"note",os:"200.00",charge:"10.00",price:"210.00"},
-//            {invdate:"2007-10-02",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-//            {invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},
-//            {invdate:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
-//            {invdate:"2007-10-05",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-//            {invdate:"2007-09-06",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},
-//            {invdate:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
-//            {invdate:"2007-10-03",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-//            {invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}
-//        ];
-//        for(var i=0;i<=mydata.length;i++)
-//            jQuery("#list1").jqGrid('addRowData',i+1,mydata[i]);
         jQuery.fn.center = function() {
             var obj = this;
             body_width = parseInt(obj.parent().width());
@@ -214,6 +201,110 @@
         $('#closebt').click(function() {
             $('#code').fadeOut();
             $('#goodcover').hide();
+        });
+        var validate_check = function(){
+
+            if ($('#check1').get(0).checked == false && $('#check2').get(0).checked == false) {
+                $('#check1').parent("label").addClass("validate_border");
+                $('#check2').parent("label").addClass("validate_border");
+                return false;
+            }
+            else
+            {
+
+                if(  $('#check1').parent("label").hasClass("validate_border"))
+                {
+                    $('#check1').parent("label").removeClass("validate_border");
+                }
+                if(  $('#check2').parent("label").hasClass("validate_border"))
+                {
+                    $('#check2').parent("label").removeClass("validate_border");
+                }
+            }
+            if($('#check1').get(0).checked == true)
+            {
+                if($("#drop_down1").children("select").val() == "0")
+                {
+                    $("#drop_down1").focus().css({
+                        border: "1px solid red",
+                        boxShadow: "0 0 5px red"
+                    });
+                    $("#drop_down1").addClass("validate_border");
+                    return false;
+                }
+                else
+                {
+                    $("#drop_down1").css({border:"none"});
+                    if( $("#drop_down1").hasClass("validate_border"))
+                    {
+                        $("#drop_down1").removeClass("validate_border");
+                    }
+                }
+            }
+            if($('#check2').get(0).checked == true)
+            {
+                console.log($("#drop_down2").find("select").eq(0))
+                if($("#drop_down2").find("select").eq(0).val() == "0")
+                {
+                    $("#drop_down2").find("select").eq(0).parent("li").focus().css({
+                        border: "1px solid red",
+                        boxShadow: "0 0 5px red"
+                    });
+                    $("#drop_down2").find("select").eq(0).parent("li").addClass("validate_border");
+                    return false;
+                }
+                else
+                {
+                    $("#drop_down2").find("select").eq(0).parent("li").css({border:"none"});
+                    if(  $("#drop_down2").find("select").eq(0).parent("li").hasClass("validate_border"))
+                    {
+                        $("#drop_down2").find("select").eq(0).parent("li").removeClass("validate_border");
+                    }
+                }
+                if($("#drop_down2").find("select").eq(1).val() == "0")
+                {
+                    $("#drop_down2").find("select").eq(1).parent("li").focus().css({
+                        border: "1px solid red",
+                        boxShadow: "0 0 5px red"
+                    });
+                    $("#drop_down2").find("select").eq(1).parent("li").addClass("validate_border");
+                    return false;
+                }
+                else
+                {
+                    $("#drop_down2").find("select").eq(1).parent("li").css({border:"none"});
+                    if(  $("#drop_down2").find("select").eq(1).parent("li").hasClass("validate_border"))
+                    {
+                        $("#drop_down2").find("select").eq(1).parent("li").removeClass("validate_border");
+                    }
+                }
+            }
+        };
+        $('#assign').click(function(){
+            console.log($("#check1").get(0).checked);
+            if(validate_check())
+            {
+                $.ajax({
+                    url:"server.php?action=hand_assign",
+                    type:"POST",
+                    dataType:"json",
+                    data:{
+                        zone_excute:11111,
+                        leader:222222
+                    },
+                    success:function(data,textStatus,jqXHR){
+                        if(data.msg == "success")
+                        {
+                            alert("手动分配成功！");
+                        }
+                        if(data.msg == "error")
+                        {
+                            alert("手动分配失败！");
+                        }
+                    }
+                });
+            }
+
         });
     });
 </script>
