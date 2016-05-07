@@ -27,7 +27,7 @@ switch ($action) {
     check_fin();
   break;
   case 'first_refresh':
-    first_refresh();
+    query_by_status('case_in');
   break;
   case 'query_1':
       query_exist();
@@ -35,13 +35,57 @@ switch ($action) {
   case 'query_2':
       query_list();
   break;
-  case 'query_2':
+  case 'code in writing':
       distribution();
+  break;
+  case 'request_case_assign':
+      request_case_assign();
   break;
   default:
     # code...
     break;
 };
+
+function distribution()
+{
+    $param_director=$_POST['director'];
+    $param_leader=$_POST['leader'];
+    $param_id=$_POST['id'];
+    //没收数据和不存在主管但是组长存在的情况
+    if((empty($param_director) && empty($param_leader)|| (empty($param_director) && !empty($param_leader))))
+    {
+        $array = array(
+            "msg" => "error",
+        );
+        echo json_encode($array);
+        die(0);
+    }
+    $sql_join="";
+    $sql_1 = "UPDATE `total` SET ";
+    $sql_2="WHERE id=".$param_id;
+
+    if(empty($param_leader))//只有主管
+    {
+        $sql_join=" director='".$param_director."' ";
+    }
+    else//通还有主管和组长
+    {
+        $sql_join=" director='".$param_director."' , leader='".$param_leader."' ";
+    }
+    $sql=$sql_1.$sql_join.$sql_2;
+    if (!$GLOBALS['$conn']->query($sql))
+    {
+        echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+    }
+
+
+}
+
+function  request_case_assign()
+{
+    query_by_status('wait_assign');
+}
+
 
 function query_exist()
 {
@@ -179,7 +223,7 @@ function query_list()
 }
 
 
-function  first_refresh(){
+function  query_by_status($data_status){
   $page = $_POST['page'];  
   $limit = $_POST['rows']; 
   $sidx = $_POST['sidx'];
@@ -187,7 +231,7 @@ function  first_refresh(){
    if (!$sidx) 
   $sidx = 1; 
   // echo json_encode($sord);
-  $sql = "SELECT COUNT(*) AS count FROM `total` WHERE status = 'case_in'";
+  $sql = "SELECT COUNT(*) AS count FROM `total` WHERE status = '".$data_status."'";
   $result = $GLOBALS['$conn']->query($sql); 
   $row = $result->fetch_array(MYSQLI_ASSOC); 
   $count = $row['count'];
@@ -210,7 +254,7 @@ function  first_refresh(){
       $page = $responce->total;
       $responce->page = $page;
 
-  $sql = "SELECT * FROM `total` WHERE status = 'case_in' ORDER BY $sidx $sord LIMIT $start , $limit";
+  $sql = "SELECT * FROM `total` WHERE status = '".$data_status."' ORDER BY $sidx $sord LIMIT $start , $limit";
   if($result = $GLOBALS['$conn']->query($sql))
   {
     if ($result->num_rows > 0)
@@ -223,7 +267,9 @@ function  first_refresh(){
                 $row['id'],
                 $row['name'], 
                 $row['sex'], 
-                $row['status'], 
+                $row['status'],
+                 $row['batch_num'],
+                 $row['id_num'],
             ); 
             $i++; 
       }
@@ -308,7 +354,7 @@ function request_file()
         unlink($inputFileName);
 
     }
-    first_refresh();
+    query_by_status("case_in");
 
 }
 function del_row(){
