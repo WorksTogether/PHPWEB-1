@@ -35,7 +35,7 @@ switch ($action) {
   case 'query_2':
       query_list();
   break;
-  case 'code in writing':
+  case 'hand_assign':
       distribution();
   break;
   case 'request_case_assign':
@@ -48,9 +48,17 @@ switch ($action) {
 
 function distribution()
 {
-    $param_director=$_POST['director'];
+    $param_director=$_POST['zone_excute'];
     $param_leader=$_POST['leader'];
-    $param_id=$_POST['id'];
+    $param_ids=$_POST['sels'];
+    if (empty ($param_ids))
+    {
+        $array = array(
+            "msg" => "error",
+        );
+        echo json_encode($array);
+        die(0);
+    }
     //没收数据和不存在主管但是组长存在的情况
     if((empty($param_director) && empty($param_leader)|| (empty($param_director) && !empty($param_leader))))
     {
@@ -60,20 +68,26 @@ function distribution()
         echo json_encode($array);
         die(0);
     }
-    $sql_join="";
     $sql_1 = "UPDATE `total` SET ";
-    $sql_2="WHERE id=".$param_id;
+    $sql_2="WHERE id IN (".$param_ids.")";
 
     if(empty($param_leader))//只有主管
     {
-        $sql_join=" director='".$param_director."' ";
+        $sql_join=" `director`='".$param_director."' ";
     }
     else//通还有主管和组长
     {
-        $sql_join=" director='".$param_director."' , leader='".$param_leader."' ";
+        $sql_join=" `director`='".$param_director."' , `leader`='".$param_leader."' ";
     }
     $sql=$sql_1.$sql_join.$sql_2;
-    if (!$GLOBALS['$conn']->query($sql))
+    if ($GLOBALS['$conn']->query($sql))
+    {
+        $array = array(
+            "msg" => "success",
+        );
+        echo json_encode($array);
+    }
+    else
     {
         echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
     }
