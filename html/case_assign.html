@@ -64,9 +64,9 @@
                 <select class="dropdown-select" name="region_excutive" id="region_excutive">
                     <option value="0">请选择</option>
                     <option value="beijing">北京地区主管</option>
-                    <option value="">成都地区主管</option>
-                    <option value="">上海地区主管</option>
-                    <option value="">重庆地区主管</option></select>
+                    <option value="chengdu">成都地区主管</option>
+                    <option value="shanghai">上海地区主管</option>
+                    <option value="chongqing">重庆地区主管</option></select>
                 </select>
             </li>
         </ul>
@@ -83,10 +83,10 @@
 
                 <select class="dropdown-select" name="region_excutive" id="region_excutive">
                     <option value="0">请选择</option>
-                    <option value="1">北京地区主管</option>
-                    <option value="">成都地区主管</option>
-                    <option value="">上海地区主管</option>
-                    <option value="">重庆地区主管</option></select>
+                    <option value="beijing">北京地区主管</option>
+                    <option value="chengdu">成都地区主管</option>
+                    <option value="shanghai">上海地区主管</option>
+                    <option value="chongqing">重庆地区主管</option></select>
                 </select>
             </li>
             <li style="float:left;display: inline-block;margin-top:25px;margin-left:10px">
@@ -96,10 +96,10 @@
 
                 <select class="dropdown-select" name="region_excutive" id="region_excutive">
                     <option value="0">请选择</option>
-                    <option value="1">催收组长A</option>
-                    <option value="1">催收组长B</option>
-                    <option value="1">催收组长C</option>
-                    <option value="1">催收组长D</option></select>
+                    <option value="A">催收组长A</option>
+                    <option value="B">催收组长B</option>
+                    <option value="C">催收组长C</option>
+                    <option value="D">催收组长D</option></select>
                 </select>
             </li>
         </ul>
@@ -139,6 +139,7 @@
             sortname : 'id',
 //            pager: '#pager',
             viewrecords: true,
+            multiselect:true,
             sortable:true,
             sortorder: "asc",
             emptyrecords: "Nothing to display",
@@ -153,7 +154,6 @@
             mtype : "post",
             repeatitems: false,
             loadtext:"loading...",
-            loadui:"block",
             scroll:true,
             loadComplete:function(data){ //完成服务器请求后，回调函数
                 if(data.records==0){ //如果没有记录返回，追加提示信息，删除按钮不可用
@@ -194,15 +194,25 @@
                 });
         };
         $('#hand_assign').click(function() {
-            $('#code').center();
-            $('#goodcover').show();
-            $('#code').fadeIn();
+            var sels = $("#list1").jqGrid('getGridParam','selarrrow');
+            console.log(sels)
+            if(sels=="")
+            {
+                alert("请选择手动分配项！");
+            }
+            else
+            {
+                $('#code').center();
+                $('#goodcover').show();
+                $('#code').fadeIn();
+                localStorage.setItem("sels",sels);
+            }
         });
         $('#closebt').click(function() {
             $('#code').fadeOut();
             $('#goodcover').hide();
         });
-        var validate_check = function(hand_zone_excute,hand_leader){
+        var validate_check = function(){
 
             if ($('#check1').get(0).checked == false && $('#check2').get(0).checked == false) {
                 $('#check1').parent("label").addClass("validate_border");
@@ -239,7 +249,8 @@
                     {
                         $("#drop_down1").removeClass("validate_border");
                     }
-                    hand_zone_excute
+//                    hand_zone_excute = $("#drop_down1").children("select").val();
+                    localStorage.setItem("hand_zone_excute",$("#drop_down1").children("select").val());
                 }
             }
             if($('#check2').get(0).checked == true)
@@ -260,6 +271,8 @@
                     {
                         $("#drop_down2").find("select").eq(0).parent("li").removeClass("validate_border");
                     }
+//                    hand_zone_excute = $("#drop_down2").find("select").eq(0).val();
+                    localStorage.setItem("hand_zone_excute",$("#drop_down2").find("select").eq(0).val());
                 }
                 if($("#drop_down2").find("select").eq(1).val() == "0")
                 {
@@ -277,19 +290,14 @@
                     {
                         $("#drop_down2").find("select").eq(1).parent("li").removeClass("validate_border");
                     }
+//                    hand_leader = $("#drop_down2").find("select").eq(1).val();
+                    localStorage.setItem("hand_leader",$("#drop_down2").find("select").eq(1).val());
                 }
             }
             return true;
         };
         $('#assign').click(function(){
             console.log(validate_check());
-            var sels = $("#list1").jqGrid('getGridParam','selarrrow');
-            if(sels=="")
-            {
-                alert("请选择手动分配项！");
-            }
-            else
-            {
                 var hand_zone_excute = "";
                 var hand_leader = "";
                 if(validate_check())
@@ -299,14 +307,16 @@
                         type:"POST",
                         dataType:"json",
                         data:{
-                            zone_excute:11111,
-                            leader:222222,
-                            sels:sels
+                            zone_excute:localStorage.getItem("hand_zone_excute"),
+                            leader:localStorage.getItem("hand_leader"),
+                            sels:localStorage.getItem("sels")
                         },
                         success:function(data,textStatus,jqXHR){
                             if(data.msg == "success")
                             {
                                 alert("手动分配成功！");
+                                $('#code').fadeOut();
+                                $('#goodcover').hide();
                             }
                             if(data.msg == "error")
                             {
@@ -314,10 +324,10 @@
                             }
                         }
                     });
+                    localStorage.removeItem("hand_zone_excute");
+                    localStorage.removeItem("hand_leader");
+                    localStorage.removeItem("sels");
                 }
-            }
-
-
         });
     });
 </script>
