@@ -71,14 +71,7 @@ function distribution()
     $sql_1 = "UPDATE `total` SET ";
     $sql_2="WHERE id IN (".$param_ids.")";
 
-    if(empty($param_leader))//只有主管
-    {
-        $sql_join=" `director`='".$param_director."' ";
-    }
-    else//通还有主管和组长
-    {
-        $sql_join=" `director`='".$param_director."' , `leader`='".$param_leader."' ";
-    }
+    $sql_join=" `director`='".$param_director."' , `leader`='".$param_leader."' ";
     $sql=$sql_1.$sql_join.$sql_2;
     if ($GLOBALS['$conn']->query($sql))
     {
