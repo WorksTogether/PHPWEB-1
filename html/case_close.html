@@ -27,7 +27,7 @@
         <div style="margin-top: 15px;">
             <ul style="list-style: none;overflow: hidden;height: 40px">
                 <li style="float: left;margin-left: 32px;">
-                    <span class="submit-button" style="display: inline-block;width: 70px;text-align: center">委案关闭</span>
+                    <span id="case_close" class="submit-button" style="display: inline-block;width: 70px;text-align: center">委案关闭</span>
                 </li>
             </ul>
         </div>
@@ -79,7 +79,6 @@
             hoverrows:true,
             shrinkToFit:false,
             autoScroll: false,
-            loadonce : true,
             mtype : "post",
             repeatitems: false,
             loadtext:"loading...",
@@ -91,94 +90,6 @@
                 }else{
                     $("#del_row1").bind("click",del_rows);
                 }
-            }
-        });
-//        var mydata = [
-//            {sn:"2007-10-01",title:"test",size:"note",os:"200.00",charge:"10.00",price:"210.00"},
-//            {invdate:"2007-10-02",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-//            {invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},
-//            {invdate:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
-//            {invdate:"2007-10-05",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-//            {invdate:"2007-09-06",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},
-//            {invdate:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
-//            {invdate:"2007-10-03",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-//            {invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}
-//        ];
-//        for(var i=0;i<=mydata.length;i++)
-//            jQuery("#list1").jqGrid('addRowData',i+1,mydata[i]);
-        $(".file").on("change","input[type='file']",function(){
-            var filePath=$(this).val();
-            if(filePath.indexOf("xls")!=-1)
-            {
-                $(".fileerrorTip").html("").hide();
-                var arr=filePath.split('\\');
-                var fileName=arr[arr.length-1];
-                $(".showFileName").html(fileName);
-            }else{
-                $(".showFileName").html("");
-                $(".fileerrorTip").html("上传文件类型错误").show();
-                $(this).data("upload1",false);
-                return false;
-            }
-        });
-        var validate_check = function() {
-            if ($('#bank_name').val() == "") {
-                $('#bank_name').css("border","none");
-                $('#bank_name').focus().css({
-                    border: "1px solid red",
-                    boxShadow: "0 0 5px red"
-                });
-                $('#bank_name').addClass("validate_border");
-                return false;
-            }
-            else
-            {
-                $('#bank_name').css({border:"1px solid #198BD4",boxShadow: "0 0 2px #198BD4"});
-                if( $('#bank_name').hasClass("validate_border"))
-                {
-                    $('#bank_name').removeClass("validate_border");
-                }
-            }
-            if ($('#batch_number2').val() == "") {
-                $('#batch_number2').css("border","none");
-                $('#batch_number2').focus().css({
-                    border: "1px solid red",
-                    boxShadow: "0 0 5px red"
-                });
-                $('#batch_number2').addClass("validate_border");
-                return false;
-            }
-            else
-            {
-                $('#batch_number2').css({border:"1px solid #198BD4",boxShadow: "0 0 2px #198BD4"});
-                if( $('#batch_number2').hasClass("validate_border"))
-                {
-                    $('#batch_number2').removeClass("validate_border");
-                }
-            }
-//            console.info("验证前",angular.element("#upload_file1").data("upload1"));
-//            console.info("验证前",typeof angular.element("#upload_file1").data("upload1"));
-            if(!angular.element("#upload_file1").data("upload1"))
-            {
-                alert("请选择导入文件！");
-                return false;
-            }
-            else
-            {
-                angular.element("#upload_file1").data("upload1",false);
-            }
-//            console.info("验证后",angular.element("#upload_file1").data("upload1"));
-//            console.info("验证后",typeof angular.element("#upload_file1").data("upload1"));
-            return true;
-        };
-        $('#submit2').click(function(){
-            if(validate_check())
-            {
-                $("#list1").jqGrid('setGridParam',{
-                    url:"server.php?action=request_file"
-//                    postData:{'title':title,'sn':sn},
-//                    page:1
-                }).trigger("reloadGrid");
             }
         });
         var del_rows = function(){
@@ -200,5 +111,37 @@
                 }
             }
         };
+        $("#case_close").click(function(){
+            var sels = $("#list1").jqGrid('getGridParam','selarrrow');
+            console.info("sels",sels);
+            if(sels=="")
+            {
+                alert("请选择要关闭的项！");
+            }
+            else
+            {
+                if(confirm("确认要关闭选择案件？"))
+                {
+                    $.ajax({
+                        url:"server.php?action=case_close",
+                        type:"POST",
+                        dataType:"json",
+                        data:{
+                           sels:sels
+                        },
+                        success:function(data,textStatus,jqXHR){
+                    if(data.msg == "success")
+                        {
+                         alert("关闭成功！");
+                        }
+                        else
+                        {
+                        alert("关闭失败！");
+                        }
+                        }
+                    });
+                }
+            }
+        });
     });
 </script>
