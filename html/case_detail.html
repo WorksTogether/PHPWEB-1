@@ -33,7 +33,7 @@
                 <li style="float: left;margin-left: 32px;">
                     <span class="submit-button" id="case_detail" style="display: inline-block;width: 70px;text-align: center">案件详情</span>
                 </li>
-                <li><span class="submit-button" style="margin-left: 20px;display: inline-block;width: 70px;text-align: center">导出Excel</span></li>
+                <li><span id="export_case" class="submit-button" style="margin-left: 20px;display: inline-block;width: 70px;text-align: center">导出Excel</span></li>
             </ul>
         </div>
     </div>
@@ -126,6 +126,7 @@
                 {name:'人民币还款',index:'O', width:120,align:'center'},
             ],
             rowNum : 15,
+            multiselect:true,
             sortname : 'id',
             gridview:true,
 //            pager: '#pager',
@@ -199,9 +200,14 @@
             });
         };
         $('#case_detail').click(function() {
-            var sels = $("#list1").jqGrid('getGridParam','selrow');
+            var sels = $("#list1").jqGrid('getGridParam','selarrrow');
             console.log(sels)
-            if(sels==null)
+            if(sels.length > 1)
+            {
+                alert("选择一项查看详情！");
+                return false;
+            }
+            if(sels=="")
             {
                 alert("请选择查看案件详情项！");
             }
@@ -317,6 +323,8 @@
                 }
             }
         });
-
+$("#export_case").click(function(){
+    $(this).html("正在导出..");
+});
     });
 </script>
