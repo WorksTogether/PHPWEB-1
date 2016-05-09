@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/case_assign.css"/>
+<link rel="stylesheet" href="css/region_case.css"/>
 <script src="lib/jquery.min.js"  async="async"> </script>
 <script src="lib/jquery.jqgrid.min.js"></script>
 <script src="lib/grid.locale-de.min.js"></script>
@@ -51,60 +51,24 @@
         <div class="box_content">
             <ul>
                 <form action="">
-                    <li style="height: 70px;margin: 20px; border: dotted 2px #D7D7D7;border-radius: 5px;overflow: hidden">
+                    <li style="height: 80px;margin: 20px; border: dotted 2px #D7D7D7;border-radius: 5px;">
                         <ul style="overflow: hidden">
-                            <li style="float: left;display: inline-block;line-height: 75px;margin-left: 15px">
-                                <input type="radio" name="submit_type" value="0" style="zoom: 1.5"/>
-                            </li>
-                            <li style="float: left;display: inline-block;line-height: 70px;margin-left: 10px">
-                                <label for="region_excutive">地区主管：</label>
-                            </li>
-                            <li class="dropdown" style="float: left;margin: 15px 15px 15px 5px">
-
-                                <select class="dropdown-select" name="region_excutive" id="region_excutive">
-                                    <option value="">请选择</option>
-                                    <option value="">北京地区主管</option>
-                                    <option value="">成都地区主管</option>
-                                    <option value="">上海地区主管</option>
-                                    <option value="">重庆地区主管</option></select>
-                                </select>
-                            </li>
-                        </ul>
-                    </li>
-                    <li style="height: 135px;margin: 20px; border: dotted 2px #D7D7D7;border-radius: 5px;">
-                        <ul style="overflow: hidden">
-                            <li style="float: left;display: inline-block;margin-left: 15px;margin-top: 60px">
-                                <input type="radio" name="submit_type" value="0" style="zoom: 1.5"/>
-                            </li>
-                            <li style="float: left;display: inline-block;margin-top:25px;margin-left: 10px">
-                                <label for="region_excutive">地区主管：</label>
-                            </li>
-                            <li class="dropdown" style="float: left;margin: 20px 15px 0px 5px">
-
-                                <select class="dropdown-select" name="region_excutive" id="region_excutive">
-                                    <option value="">请选择</option>
-                                    <option value="">北京地区主管</option>
-                                    <option value="">成都地区主管</option>
-                                    <option value="">上海地区主管</option>
-                                    <option value="">重庆地区主管</option></select>
-                                </select>
-                            </li>
-                            <li style="float:left;display: inline-block;margin-top:25px;margin-left:10px">
+                            <li style="float:left;display: inline-block;margin-top:25px;margin-left:30px">
                                 <label for="region_excutive">催收组长：</label>
                             </li>
-                            <li class="dropdown" style="float: left;margin: 20px 15px 15px 5px">
+                            <li id="drop_down1" class="dropdown" style="float: left;margin: 20px 15px 15px 5px">
 
                                 <select class="dropdown-select" name="region_excutive" id="region_excutive">
-                                    <option value="">请选择</option>
-                                    <option value="">催收组长A</option>
-                                    <option value="">催收组长B</option>
-                                    <option value="">催收组长C</option>
-                                    <option value="">催收组长D</option></select>
+                                    <option value="0">请选择</option>
+                                    <option value="A">催收组长A</option>
+                                    <option value="B">催收组长B</option>
+                                    <option value="C">催收组长C</option>
+                                    <option value="D">催收组长D</option></select>
                                 </select>
                             </li>
                         </ul>
                     </li>
-                    <li class="confirm_assign"><span style="line-height: 35px">分配</span></li>
+                    <li id="assign" class="confirm_assign"><span style="line-height: 35px">分配</span></li>
                 </form>
             </ul>
         </div>
@@ -114,7 +78,7 @@
 <script type="text/javascript">
     $(document).ready(function (){
         jQuery("#list1").jqGrid({
-            url:"server.php?action=request_file",
+            url:"server.php?action=request_region_wait",
 //            datatype: "local",
             datatype: "json",
             colNames:['持卡人姓名','性别','证件号码','卡号','人民币账号', '美元账号','开卡日期','额度','账单日期','余额人民币','金额人民币','委托金额美元','还款日期','美元还款日','人民币还款'],
@@ -139,6 +103,7 @@
             sortname : 'id',
 //            pager: '#pager',
             viewrecords: true,
+            multiselect:true,
             sortable:true,
             sortorder: "asc",
             emptyrecords: "Nothing to display",
@@ -149,11 +114,10 @@
             hoverrows:true,
             shrinkToFit:false,
             autoScroll: false,
-            loadonce : true,
             mtype : "post",
             repeatitems: false,
             loadtext:"loading...",
-            loadui:"block",
+//            loadui:"block",
             scroll:true,
             loadComplete:function(data){ //完成服务器请求后，回调函数
                 if(data.records==0){ //如果没有记录返回，追加提示信息，删除按钮不可用
@@ -161,19 +125,6 @@
                 }
             }
         });
-//        var mydata = [
-//            {sn:"2007-10-01",title:"test",size:"note",os:"200.00",charge:"10.00",price:"210.00"},
-//            {invdate:"2007-10-02",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-//            {invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},
-//            {invdate:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
-//            {invdate:"2007-10-05",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-//            {invdate:"2007-09-06",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},
-//            {invdate:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
-//            {invdate:"2007-10-03",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-//            {invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}
-//        ];
-//        for(var i=0;i<=mydata.length;i++)
-//            jQuery("#list1").jqGrid('addRowData',i+1,mydata[i]);
         jQuery.fn.center = function() {
             var obj = this;
             body_width = parseInt(obj.parent().width());
@@ -206,14 +157,76 @@
                 obj.center();
             });
         };
-        $('#hand_assign').click(function() {
-            $('#code').center();
-            $('#goodcover').show();
-            $('#code').fadeIn();
-        });
         $('#closebt').click(function() {
             $('#code').fadeOut();
             $('#goodcover').hide();
+        });
+        var validate_check = function() {
+            console.log($("#drop_down1").children("select").val())
+                if($("#drop_down1").children("select").val() == "0")
+                {
+                    $("#drop_down1").focus().css({
+                        border: "1px solid red",
+                        boxShadow: "0 0 5px red"
+                    });
+                    $("#drop_down1").addClass("validate_border");
+                    return false;
+                }
+                else
+                {
+                    $("#drop_down1").css({border:"1px solid #D7D7D7",boxShadow: "none"});
+                    if( $("#drop_down1").hasClass("validate_border"))
+                    {
+                        $("#drop_down1").removeClass("validate_border");
+                    }
+                    localStorage.setItem("hand_leader",$("#drop_down1").children("select").val());
+                }
+            return true;
+        };
+        $('#assign').click(function() {
+            if (validate_check()) {
+                $.ajax({
+                    url:"server.php?action=region_hand_assign",
+                    type:"POST",
+                    dataType:"json",
+                    data:{
+                        leader:localStorage.getItem("hand_leader"),
+                        sels:localStorage.getItem("sels")
+                    },
+                    success:function(data,textStatus,jqXHR){
+                        if(data.msg == "success")
+                        {s
+                            alert("手动分配成功！");
+                            $('#code').fadeOut();
+                            $('#goodcover').hide();
+                            $("#list1").jqGrid('setGridParam',{
+                                url:"server.php?action=request_region_wait"
+                            }).trigger("reloadGrid");
+                        }
+                        if(data.msg == "error")
+                        {
+                            alert("手动分配失败！");
+                        }
+                    }
+                });
+                localStorage.removeItem("hand_leader");
+                localStorage.removeItem("sels");
+            }
+        });
+        $('#hand_assign').click(function() {
+            var sels = $("#list1").jqGrid('getGridParam','selarrrow');
+            console.log(sels)
+            if(sels=="")
+            {
+                alert("请选择手动分配项！");
+            }
+            else
+            {
+                $('#code').center();
+                $('#goodcover').show();
+                $('#code').fadeIn();
+                localStorage.setItem("sels",sels);
+            }
         });
     });
 </script>

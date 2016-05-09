@@ -115,7 +115,7 @@
 }
 #code {
     width: 375px;
-    height: 400px;
+    height: 235px;
     background-color: #FAE1D1;
     position: absolute;
     display: none;
@@ -131,7 +131,7 @@
 .credit_case_in .box_content{
     margin: 10px;
     border: #F6D4BC solid 2px;
-    height: 345px;
+    height: 180px;
     border-radius: 5px 5px 5px 5px;
     background-color: #FFFFFF;
     font-size: 16px;
@@ -234,4 +234,27 @@
 .credit_case_in .box_content .confirm_assign:hover{
     cursor: pointer;
     font-weight: bold;
+}
+.credit_case_in .validate_border{
+    animation: move1 0.2s linear 2;
+    -moz-animation:  move2 0.2s linear 2;
+    -webkit-animation: move1 0.2s linear 2;
+}
+@keyframes move1 {
+    0%  {border: 1px solid red;box-shadow: 0 0 5px red;}
+    /*25%  {border: 1px solid #198BD4;}*/
+    50%  {border: 1px solid red; box-shadow: 0 0 15px red;}
+    100%  {border: 1px solid red;box-shadow: 0 0 5px red;}
+}
+@-moz-keyframes move2{
+    0%  {border: 1px solid red;box-shadow: 0 0 5px red;}
+    /*25%  {border: 1px solid #198BD4;}*/
+    50%  {border: 1px solid red; box-shadow: 0 0 15px red;}
+    100%  {border: 1px solid red;box-shadow: 0 0 5px red;}
+}
+@-webkit-keyframes move1 {
+    0%  {border: 1px solid red;-webkit-box-shadow: 0 0 5px red;}
+    /*25%  {border: 1px solid #198BD4;}*/
+    50%  {border: 1px solid red; -webkit-box-shadow: 0 0 15px red;}
+    100%  {border: 1px solid red;-webkit-box-shadow: 0 0 5px red;}
 }
