@@ -51,7 +51,7 @@
             </a>
         </div>
         <div class="box_content">
-            <div style="height: 100%;width: 120px;float: left;">
+            <div style="height: 100%;width:120px;float: left;">
                 <ul id="ul_nav" style="overflow: hidden">
                     <li class="nav" style="border-right: none;font-weight: bold" data-list="1">
                         <div>
@@ -96,7 +96,7 @@
                     <li style="position:relative;border-right: #F6D4BC solid 2px;height:1000px;"></li>
                 </ul>
             </div>
-            <div id="nav_page" class="nav_page" style="float: left" ng-include="'html/nav_page.html'"></div>
+            <div id="nav_page" class="nav_page" style="" ng-include="'html/nav_page.html'"></div>
         </div>
 
     </div>
@@ -127,7 +127,6 @@
             ],
             rowNum : 15,
             sortname : 'id',
-            multiselect:true,
             gridview:true,
 //            pager: '#pager',
             viewrecords: true,
@@ -141,7 +140,6 @@
             hoverrows:true,
             shrinkToFit:false,
             autoScroll: false,
-            loadonce : true,
             mtype : "post",
             repeatitems: false,
             loadtext:"loading...",
@@ -201,20 +199,60 @@
             });
         };
         $('#case_detail').click(function() {
-            $.ajax({
-                url:"list.php",
-                dataType:"json",
-                type:"post",
-                success: function (data) {
-                    var obj2 = $('#nav_page');
-                    obj2.find("[data-key='name']").html(data["name"]);
-                    obj2.find("[data-key='sex']").html(data["sex"]);
-                    obj2.find("[data-key='cardid']").html(data["cardid"]);
-                }
-            });
-            $('#code').center();
-            $('#goodcover').show();
-            $('#code').fadeIn();
+            var sels = $("#list1").jqGrid('getGridParam','selrow');
+            console.log(sels)
+            if(sels==null)
+            {
+                alert("请选择查看案件详情项！");
+            }
+            else
+            {
+                $.ajax({
+                    url:"list.php",
+                    dataType:"json",
+                    type:"post",
+                    success: function (data) {
+//                        var obj2 = $('#nav_page');
+//                        obj2.find("[data-key='name']").html(data["name"]);
+//                        obj2.find("[data-key='sex']").html(data["sex"]);
+//                        obj2.find("[data-key='cardid']").html(data["cardid"]);
+//                        $.each(list,function(name,val){
+//                            if(data.name)
+//                            {
+//                                $("#nav_page").find("span[name='name']").html(data.name);
+//                            }
+//                            else
+//                            {
+//                                $(this).parent("li").css({
+//                                    "display":"none"
+//                                });
+//                            }
+//                        });
+                        $.each(data,function(name,value){
+                            select($("#nav_page").find("span"),"name",name,value);
+                        });
+                    }
+                });
+                var select = function(obj,attr,val,insert){
+                    $.each(obj,function(name,value){
+                        if($(obj[name]).attr(attr) == val)
+                        {
+                            $(obj[name]).html(insert);
+                        }
+                    });
+                };
+                $('#code').center();
+                $('#goodcover').show();
+                $('#code').fadeIn();
+                console.log($("#nav_page").parent("div").width())
+                $("#nav_page").css({
+                   "width": ($("#nav_page").parent("div").width()-122)+"px"
+                });
+                $("#nav_page").children("div").css({
+                    "width": ($("#nav_page").width()-20)+"px",
+                    "height":($("#nav_page").height()-20)+"px"
+                });
+            }
         });
         $('#closebt').click(function() {
             $('#code').fadeOut();
@@ -279,5 +317,6 @@
                 }
             }
         });
+
     });
 </script>
