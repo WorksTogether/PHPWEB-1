@@ -324,7 +324,48 @@
             }
         });
 $("#export_case").click(function(){
-    $(this).html("正在导出..");
+    var sels = $("#list1").jqGrid('getGridParam','selarrrow');
+    console.log(sels)
+    if(sels=="")
+    {
+        alert("请选择案件导出项！");
+    }
+    else
+    {
+        $(this).html("正在导出..");
+        $.ajax({
+            url:"server.php?action=export_case",
+            dataType:"json",
+            type:"post",
+            timeout:300000,
+            data:{
+                sels:sels
+            },
+            success: function (data) {
+                if(data.msg == "success"&& data.url != "")
+                {
+                    var fileURL=window.open (data.url,"_blank","height=0,width=0,toolbar=no,menubar=no,scrollbars=no,resizable=on,location=no,status=no");
+                    fileURL.document.execCommand("SaveAs");
+                    fileURL.window.close();
+                    fileURL.close();
+                    $(this).html("导出Excel");
+                }
+                else
+                {
+                    alert("导出失败！");
+                    $(this).html("导出Excel");
+                }
+
+            },
+            complete : function(XMLHttpRequest,status) {
+                if(status=='timeout')
+                {
+                    alert("导出失败！");
+                    $(this).html("导出Excel");
+                }
+            }
+        });
+    }
 });
     });
 </script>
