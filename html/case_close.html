@@ -133,6 +133,11 @@
                     if(data.msg == "success")
                         {
                          alert("关闭成功！");
+                            var len = sels.length;
+                            for(var i= 0;i<len;i++)
+                            {
+                                $("#list1").jqGrid('delRowData',sels[0]);
+                            }
                         }
                         else
                         {
