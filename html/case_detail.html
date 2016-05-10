@@ -154,19 +154,6 @@
                 }
             }
         });
-//        var mydata = [
-//            {sn:"2007-10-01",title:"test",size:"note",os:"200.00",charge:"10.00",price:"210.00"},
-//            {invdate:"2007-10-02",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-//            {invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},
-//            {invdate:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
-//            {invdate:"2007-10-05",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-//            {invdate:"2007-09-06",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"},
-//            {invdate:"2007-10-04",name:"test",note:"note",amount:"200.00",tax:"10.00",total:"210.00"},
-//            {invdate:"2007-10-03",name:"test2",note:"note2",amount:"300.00",tax:"20.00",total:"320.00"},
-//            {invdate:"2007-09-01",name:"test3",note:"note3",amount:"400.00",tax:"30.00",total:"430.00"}
-//        ];
-//        for(var i=0;i<=mydata.length;i++)
-//            jQuery("#list1").jqGrid('addRowData',i+1,mydata[i]);
         jQuery.fn.center = function() {
             var obj = this;
             body_width = parseInt(obj.parent().width());
@@ -218,22 +205,6 @@
                     dataType:"json",
                     type:"post",
                     success: function (data) {
-//                        var obj2 = $('#nav_page');
-//                        obj2.find("[data-key='name']").html(data["name"]);
-//                        obj2.find("[data-key='sex']").html(data["sex"]);
-//                        obj2.find("[data-key='cardid']").html(data["cardid"]);
-//                        $.each(list,function(name,val){
-//                            if(data.name)
-//                            {
-//                                $("#nav_page").find("span[name='name']").html(data.name);
-//                            }
-//                            else
-//                            {
-//                                $(this).parent("li").css({
-//                                    "display":"none"
-//                                });
-//                            }
-//                        });
                         $.each(data,function(name,value){
                             select($("#nav_page").find("span"),"name",name,value);
                         });
@@ -344,7 +315,7 @@ $("#export_case").click(function(){
             success: function (data) {
                 if(data.msg == "success"&& data.url != "")
                 {
-                    var fileURL=window.open (data.url,"_blank","height=0,width=0,toolbar=no,menubar=no,scrollbars=no,resizable=on,location=no,status=no");
+                    var fileURL=window.open (data.url,"_blank","height=0,width=0,toolbar=no,menubar=no,scrollbars=no,resizable=on,location=no,status=no,alwaysLowered=yes");
                     fileURL.document.execCommand("SaveAs");
                     fileURL.window.close();
                     fileURL.close();
