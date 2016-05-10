@@ -85,7 +85,9 @@ function case_close()
 }
 function request_case_close()
 {
-    query_by_status('fin_assign');
+    //query_by_status('fin_assign');
+    //query_by_status("fin_assign' or status='wait_assign");
+    query_by_status("'or '1'='1 ");//查询全部
 }
 function export_case()
 {
