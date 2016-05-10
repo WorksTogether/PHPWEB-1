@@ -53,10 +53,39 @@ case 'request_case_close':
 case 'case_close':
     case_close();
     break;
+case 'list':
+    case_list();
+    break;
   default:
     # code...
     break;
 };
+
+function case_list()
+{
+    $ids = $_POST['sels'];
+    if(empty($ids))
+    {
+
+        $array = array(
+            "msg" => "error",
+        );
+        echo json_encode($array);
+        die(0);
+    }
+
+    $sql = "SELECT * FROM `total` WHERE id IN (".$ids[0].")";
+    if ($result=$GLOBALS['$conn']->query($sql))
+    {
+        echo json_encode($result->fetch_assoc());
+    }
+    else
+    {
+        echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+    }
+
+
+}
 function case_close()
 {
     $ids = $_POST['sels'];
