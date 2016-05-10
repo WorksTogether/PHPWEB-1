@@ -201,9 +201,12 @@
             else
             {
                 $.ajax({
-                    url:"list.php",
+                    url:"server.php?action=list",
                     dataType:"json",
                     type:"post",
+                    data:{
+                        sels:sels
+                    },
                     success: function (data) {
                         $.each(data,function(name,value){
                             select($("#nav_page").find("span"),"name",name,value);
