@@ -56,6 +56,40 @@ angular.module('starter', ['ui.router','starter.controllers.credit_case_in','sta
                 templateUrl: 'html/region_fin.html',
                 controller:''
             })
-
+            .state('nav.case_inprocess', {
+                url: '/case_inprocess',
+                templateUrl: 'html/case_inprocess.html',
+                controller:''
+            })
+            .state('nav.case_fin', {
+                url: '/case_fin',
+                templateUrl: 'html/case_fin.html',
+                controller:''
+            })
+            .state('nav.case_closed', {
+                url: '/case_closed',
+                templateUrl: 'html/case_closed.html',
+                controller:''
+            })
+            .state('nav.leader_fin', {
+                url: '/leader_fin',
+                templateUrl: 'html/leader_fin.html',
+                controller:''
+            })
+            .state('nav.leader_case', {
+                url: '/leader_case',
+                templateUrl: 'html/leader_case.html',
+                controller:''
+            })
+            .state('nav.wait_handle', {
+                url: '/wait_handle',
+                templateUrl: 'html/wait_handle.html',
+                controller:''
+            })
+            .state('nav.pay_att', {
+                url: '/pay_att',
+                templateUrl: 'html/pay_att.html',
+                controller:''
+            })
         $urlRouterProvider.otherwise('login');
     });
