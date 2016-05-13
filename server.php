@@ -77,6 +77,7 @@ function case_list()
     $sql = "SELECT * FROM `total` WHERE id IN (".$ids[0].")";
     if ($result=$GLOBALS['$conn']->query($sql))
     {
+        //$rows[0]=$result->fetch_assoc();
         echo json_encode($result->fetch_assoc());
     }
     else
