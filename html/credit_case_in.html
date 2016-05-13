@@ -53,9 +53,6 @@
                         <!--<input class="submit-button" type="button" value="导入案件" ng-click="uploader.queue[0].upload()" ng-disabled="uploader.queue[0].isReady || uploader.queue[0].isUploading || uploader.queue[0].isSuccess"/>-->
                         <input id="submit2" class="submit-button" type="button" value="导入案件" style="height:39px;display: inline-block;width: 108px"/>
                     </li>
-                    <li>
-                        <a  class="submit-button" style="text-decoration: none;display:inline-block;margin-left: 20px;width: 130px;text-align: center" href="./download/信用卡案件导入模板.xls">Excel 模板下载</a>
-                    </li>
                 </ul>
             </form>
         </div>
@@ -64,7 +61,10 @@
                 <li style="float: left;margin-left: 32px;">
                     <span id="check_fin" class="submit-button" style="display: inline-block;width: 70px;text-align: center">核对完成</span>
                 </li>
-                <li><span id="del_row1" class="submit-button" style="margin-left: 20px;display: inline-block;width: 70px;text-align: center">删除</span></li>
+                <li><span id="del_row1" class="submit-button" style="margin-left: 20px;display: inline-block;width: 70px;text-align: center;float: left">删除</span></li>
+                <li>
+                    <a  class="submit-button" style="text-decoration: none;display:inline-block;margin-left: 20px;width: 130px;text-align: center" href="./download/信用卡案件导入模板.xls">Excel 模板下载</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -110,7 +110,7 @@
             scrollrows:true,
             autowidth:true,
             rownumbers:true,
-            height:450,
+            height:430,
             hoverrows:true,
             shrinkToFit:false,
             autoScroll: false,

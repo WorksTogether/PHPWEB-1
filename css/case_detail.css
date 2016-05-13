@@ -6,6 +6,7 @@
     margin-right: 10px;
     font-family: "Microsoft YaHei" ! important;
     position: relative;
+
 }
 .credit_case_in .div2{
     /*background-color: #F2F2F2;*/
@@ -25,7 +26,7 @@
     list-style: none;
 }
 .credit_case_in .div1 form ul li .form-field{
-    width:200px;
+    width:145px;
     height:38px;
     padding-left:5px;
     line-height:30px;
@@ -137,8 +138,8 @@
     border-radius: 10px;
 }
 #code {
-    width: 1500px;
-    height: 680px;
+    width: 90%;
+    height: 90%;
     background-color: #FAE1D1;
     position: absolute;
     display: none;
@@ -152,9 +153,10 @@
     /*margin-top: 3px;*/
 }
 .credit_case_in .box_content{
-    margin: 10px;
+    margin: 10px auto;
     border: #F6D4BC solid 2px;
-    height: 628px;
+    height: 92%;
+    width: 98%;
     border-radius: 5px 5px 5px 5px;
     background-color: #FFFFFF;
     font-size: 16px;
@@ -178,13 +180,19 @@
 .credit_case_in .box_content .nav span{
     line-height: 45px;
 }
+.credit_case_in .box_content .nav_page{
+    float: left;
+    height: 100%;
+}
 .credit_case_in .box_content .nav_page div{
     display: none;
-    width: 1200px;
-    height: 600px;
+    /*width: 98%;*/
+    /*height: 97%;*/
+margin: 10px;
+    position: relative;
+    border: #F6D4BC dotted 2px;
+    border-radius: 5px;
     overflow: hidden;
-    margin-top: 10px;
-    margin-left: 10px;
 }
 table.table1{
     /*font-family: "Trebuchet MS", sans-serif;*/
@@ -198,12 +206,14 @@ table.table1{
     padding-right: 20px;
     border-right: #F6D4BC dotted 2px;
     margin-left: 20px;
+    word-wrap : break-word;
     /*width: 300px;*/
 }
 .table1 tbody th{
     background-color:#E4F4C3;
     padding:0px 10px;
     font-weight: bold;
+    white-space: nowrap;
     /*background:-webkit-gradient(*/
             /*linear,*/
             /*left bottom,*/
@@ -233,6 +243,37 @@ table.table1{
     text-shadow:1px 1px 1px #fff;
     -webkit-border-radius:2px 5px 5px 2px;
     -moz-border-radius:2px 5px 5px 2px;
+    white-space: nowrap;
+}
+.credit_case_in .box_content .nav_page div ul li{
+    float: left;
+    margin-bottom: 7px;
+    margin-top: 7px;
+}
+.credit_case_in .box_content .nav_page div ul li span:first-child{
+    background-color:#E4F4C3;
+    padding:10px;
+    font-weight: bold;
+    white-space: nowrap;
+    -webkit-border-top-left-radius:5px;
+    -webkit-border-bottom-left-radius:5px;
+    border-top-left-radius:5px;
+    border-bottom-left-radius:5px;
+    /*height: 16px;*/
+    /*line-height: 16px;*/
+    display: inline-block;
+    margin-left: 15px;
+    margin-right: 3px;
+}
+.credit_case_in .box_content .nav_page div ul li span:last-child{
+    padding:10px;
+    text-align:center;
+    background-color:#EAF7DE;
+    color:#666;
+    text-shadow:1px 1px 1px #fff;
+    -webkit-border-radius:2px 5px 5px 2px;
+    -moz-border-radius:2px 5px 5px 2px;
+    white-space: nowrap;
 }
 
 

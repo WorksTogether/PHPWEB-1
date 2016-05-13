@@ -249,7 +249,6 @@
                     {
                         $("#drop_down1").removeClass("validate_border");
                     }
-//                    hand_zone_excute = $("#drop_down1").children("select").val();
                     localStorage.setItem("hand_zone_excute",$("#drop_down1").children("select").val());
                 }
             }
@@ -317,6 +316,9 @@
                                 alert("手动分配成功！");
                                 $('#code').fadeOut();
                                 $('#goodcover').hide();
+                                $("#list1").jqGrid('setGridParam',{
+                                    url:"server.php?action=request_case_assign"
+                                }).trigger("reloadGrid");
                             }
                             if(data.msg == "error")
                             {
