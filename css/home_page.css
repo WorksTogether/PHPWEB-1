@@ -5,6 +5,9 @@
     margin-right: 10px;
     margin-left: 265px;
     font-family: "Microsoft YaHei" ! important;
+    z-index: 2;
+    position: relative;
+    background-color: #ffffff;
 }
 .homepage ul{
     border: #D8D8D8 solid 1px;

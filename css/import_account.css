@@ -5,6 +5,9 @@
     margin-left: 265px;
     margin-right: 10px;
     font-family: "Microsoft YaHei" ! important;
+    z-index: 2;
+    position: relative;
+    background-color: #ffffff;
 }
 .credit_case_in .div2{
     /*background-color: #F2F2F2;*/
