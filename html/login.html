@@ -2,26 +2,26 @@
 <!--<div class="banner"></div>-->
 <div class="main">
     <div class="main_form">
-        <form id="login_form" action="userServer.php" method="post">
+        <form id="login_form" action="" method="post">
 <ul>
     <input name="action" type="hidden" value="login"/>
     <label for="user"><b>Username:</b></label>
     <li>
         <em class="em1"></em>
-        <input name="user_name" id="user" type="text" placeholder="用户名/手机/邮箱"/>
+        <input name="user" id="user" type="text" placeholder="用户名/手机/邮箱"/>
     </li>
     <label for="user"><b>Password:</b></label>
     <li>
         <em class="em2"></em>
-        <input name="password" type="password" placeholder="输入登录密码"/>
+        <input id="pas" name="password" type="password" placeholder="输入登录密码"/>
     </li>
     <!--<li style="width: 100px;float: left">-->
         <!--<input type="text" placeholder="输入验证码"/>-->
     <!--</li>-->
     <!--<div class="code" id="checkCode" onclick="createCode()"></div>-->
     <!--<span class="code" id="checkcode" onclick="createCode()">11111</span>-->
-    <input  class="button" type="submit" value="Login"/>
-    <a ui-sref="nav.homepage">首　　页</a>
+    <input  id="submit" class="button" type="button" value="Login"/>
+    <!--<a ui-sref="nav.homepage">首　　页</a>-->
 </ul>
 
         </form>
@@ -29,11 +29,23 @@
 </div>
 
 <script type="text/javascript">
-//    $(document).ready(function() {
-//        $('#login_form').ajaxForm(function() {
-//            alert("Thank you for your comment!");
-//        });
-//    });
+    $(document).ready(function() {
+$("#submit").click(function(){
+    $.ajax({
+        url: "userServer.php",
+        data: {
+            user:$("#user").val(),
+            pas:$("#pas").val()
+        },
+        type: 'POST',
+        dataType: 'json',
+        success: function (data, textStatus) {
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+        }
+    });
+});
+    });
 var code;
 function createCode() {
     code = "";
