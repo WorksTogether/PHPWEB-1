@@ -2,12 +2,13 @@
 <!--<div class="banner"></div>-->
 <div class="main">
     <div class="main_form">
-        <form id="login_form" action="common.php" method="post">
+        <form id="login_form" action="userServer.php" method="post">
 <ul>
+    <input name="action" type="hidden" value="login"/>
     <label for="user"><b>Username:</b></label>
     <li>
         <em class="em1"></em>
-        <input name="user" id="user" type="text" placeholder="用户名/手机/邮箱"/>
+        <input name="user_name" id="user" type="text" placeholder="用户名/手机/邮箱"/>
     </li>
     <label for="user"><b>Password:</b></label>
     <li>
