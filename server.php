@@ -56,6 +56,9 @@ case 'case_close':
 case 'list':
     case_list();
     break;
+case 'request_region_wait':
+    query_by_status('fin_assign');
+    break;
   default:
     # code...
     break;
