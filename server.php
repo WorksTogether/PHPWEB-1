@@ -5,9 +5,18 @@ set_time_limit(0);
 
 date_default_timezone_set('Europe/London');
 include 'connect.php';
+include 'php/Globals.php';
 include 'PHPExcel/IOFactory.php';
 
-$uploadfile_path = "";
+if(!isLogin())
+{
+    $array = array(
+        "msg" => "error",
+        "info" => "您未登录",
+    );
+    echo json_encode($array);
+    die(0);
+}
 $action = $_GET['action'];
 switch ($action) {
   case 'norefresh':
