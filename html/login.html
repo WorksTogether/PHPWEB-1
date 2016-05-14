@@ -30,6 +30,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
 $("#submit").click(function(){
+    console.log(window.location.host)
     $.ajax({
         url: "userServer.php",
         data: {
@@ -42,7 +43,7 @@ $("#submit").click(function(){
         success: function (data, textStatus) {
             if(data.msg == "success")
             {
-                window.location.href="http://localhost/#/nav/homepage";
+                window.location.href="http://"+window.location.host+"/#/nav/homepage";
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
