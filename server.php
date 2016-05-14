@@ -14,7 +14,7 @@ if(!isLogin())
         "msg" => "error",
         "info" => "您未登录",
     );
-    echo json_encode($array);
+    echo json_encode($array,JSON_UNESCAPED_UNICODE);
     die(0);
 }
 $action = $_GET['action'];
