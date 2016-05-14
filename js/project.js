@@ -91,5 +91,10 @@ angular.module('starter', ['ui.router','starter.controllers.credit_case_in','sta
                 templateUrl: 'html/pay_att.html',
                 controller:''
             })
+            .state('nav.user_manage', {
+                url: '/user_manage',
+                templateUrl: 'html/user_manage.html',
+                controller:''
+            })
         $urlRouterProvider.otherwise('login');
     });
