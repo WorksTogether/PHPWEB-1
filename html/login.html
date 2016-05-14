@@ -4,7 +4,6 @@
     <div class="main_form">
         <form id="login_form" action="" method="post">
 <ul>
-    <input name="action" type="hidden" value="login"/>
     <label for="user"><b>Username:</b></label>
     <li>
         <em class="em1"></em>
@@ -21,7 +20,7 @@
     <!--<div class="code" id="checkCode" onclick="createCode()"></div>-->
     <!--<span class="code" id="checkcode" onclick="createCode()">11111</span>-->
     <input  id="submit" class="button" type="button" value="Login"/>
-    <!--<a ui-sref="nav.homepage">首　　页</a>-->
+    <a ui-sref="nav.homepage">首　　页</a>
 </ul>
 
         </form>
@@ -34,12 +33,17 @@ $("#submit").click(function(){
     $.ajax({
         url: "userServer.php",
         data: {
-            user:$("#user").val(),
-            pas:$("#pas").val()
+            user_name:$("#user").val(),
+            password:$("#pas").val(),
+            action:"login"
         },
         type: 'POST',
         dataType: 'json',
         success: function (data, textStatus) {
+            if(data.msg == "success")
+            {
+                window.location.href="http://localhost/#/nav/homepage";
+            }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
         }
