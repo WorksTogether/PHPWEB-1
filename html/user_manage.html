@@ -151,13 +151,12 @@
             mtype : "post",
             repeatitems: false,
             loadtext:"loading...",
-            loadui:"block",
+//            loadui:"block",
             scroll:true,
             loadComplete:function(data){
                 if(data.records==0){
-                    $("#del_row1").unbind();
                 }else{
-                    $("#del_row1").bind("click",del_rows);
+
                 }
             }
         });
