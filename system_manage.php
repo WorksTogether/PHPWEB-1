@@ -115,6 +115,23 @@ function manage_user_add()
         $area=$area1;
         $auth=1;
     }
+
+    $sql="SELECT * FROM `user_info` WHERE user_name='".$userName."'";
+    if ($result=$GLOBALS['$conn']->query($sql)) {
+        if($result->num_rows>0)//用户已经存在
+        {
+            $array = array(
+                "msg" => "error",
+                "info" => "用户已存在",
+            );
+            die(json_encode($array,JSON_UNESCAPED_UNICODE));
+        }
+
+
+    } else {
+        echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+    }
+
     $sql = "INSERT INTO `user_info`(`user_name`, `password`,`real_name`,`gender`,`phone`,`email`,`auth`,`status`,`area`) VALUES 
       ('$userName','$password','$realName','$gender','$phone','$email','$auth','$status','$area')";
     if ($GLOBALS['$conn']->query($sql)) {
