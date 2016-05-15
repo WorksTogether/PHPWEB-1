@@ -167,27 +167,45 @@ function export_case()
     $objActSheet->setTitle('第一页');
 
     //填写表头
-    $objActSheet->setCellValue('A1','ID号');
-    $objActSheet->setCellValue('B1','姓名');
-    $objActSheet->setCellValue('C1','性别');
-    $objActSheet->setCellValue('D1','状态');
-    $objActSheet->setCellValue('E1','批次号');
-    $objActSheet->setCellValue('F1','身份证号');
-    $objActSheet->setCellValue('G1','区域主管');
-    $objActSheet->setCellValue('H1','区域组长');
+    $objActSheet->setCellValue('A1','持卡人姓名');
+    $objActSheet->setCellValue('B1','性别');
+    $objActSheet->setCellValue('C1','证件号码');
+    $objActSheet->setCellValue('D1','人民币账号');
+    $objActSheet->setCellValue('E1','美元账号');
+    $objActSheet->setCellValue('F1','开卡日期');
+    $objActSheet->setCellValue('G1','额度');
+    $objActSheet->setCellValue('H1','账单日期');
+    $objActSheet->setCellValue('I1','余额人民币');
+    $objActSheet->setCellValue('J1','金额人民币');
+    $objActSheet->setCellValue('K1','委托金额美元');
+    $objActSheet->setCellValue('L1','还款日期');
+    $objActSheet->setCellValue('M1','美元还款');
+    $objActSheet->setCellValue('N1','人民币还款');
+    $objActSheet->setCellValue('O1','区域主管');
+    $objActSheet->setCellValue('P1','区域组长');
 
     if($result = $GLOBALS['$conn']->query($sql)) {
         if ($result->num_rows > 0) {
             $i=2;
             while ($row = $result->fetch_assoc()) {
-                $objActSheet->setCellValue('A'.$i,$row['id']);
-                $objActSheet->setCellValue('B'.$i,$row['name']);
-                $objActSheet->setCellValue('C'.$i,$row['sex']);
-                $objActSheet->setCellValue('D'.$i,$row['status']);
-                $objActSheet->setCellValue('E'.$i,$row['batch_num']);
-                $objActSheet->setCellValue('F'.$i,$row['id_num']);
-                $objActSheet->setCellValue('G'.$i,$row['director']);
-                $objActSheet->setCellValue('H'.$i,$row['leader']);
+
+
+                $objActSheet->setCellValue('A'.$i,$row['name']);
+                $objActSheet->setCellValue('B'.$i,$row['sex']);
+                $objActSheet->setCellValue('C'.$i,$row['id_num']);
+                $objActSheet->setCellValue('D'.$i,$row['rmb_account']);
+                $objActSheet->setCellValue('E'.$i,$row['us_account']);
+                $objActSheet->setCellValue('F'.$i, $row['open_date']);
+                $objActSheet->setCellValue('G'.$i,$row['credit_limit']);
+                $objActSheet->setCellValue('H'.$i,$row['bill_date']);
+                $objActSheet->setCellValue('I'.$i,$row['remain_rmb']);
+                $objActSheet->setCellValue('J'.$i,$row['sum_rmb']);
+                $objActSheet->setCellValue('K'.$i,$row['delegate_money']);
+                $objActSheet->setCellValue('L'.$i, $row['payment_date']);
+                $objActSheet->setCellValue('M'.$i, $row['us_payment']);
+                $objActSheet->setCellValue('N'.$i, $row['rmb_payment']);
+                $objActSheet->setCellValue('O'.$i,$row['director']);
+                $objActSheet->setCellValue('P'.$i,$row['leader']);
                 $i++;
             }
             $outputFileName=dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'downloads' . DIRECTORY_SEPARATOR . 'output.xls';
@@ -375,12 +393,21 @@ function query_list()
             {
                 $responce->rows[$i]['id'] = $row['id'];
                 $responce->rows[$i]['cell'] = array (
-                    $row['id'],
                     $row['name'],
                     $row['sex'],
-                    $row['status'],
-                    $row['batch_num'],
                     $row['id_num'],
+                    $row['card_num'],
+                    $row['rmb_account'],
+                    $row['us_account'],
+                    $row['open_date'],
+                    $row['credit_limit'],
+                    $row['bill_date'],
+                    $row['remain_rmb'],
+                    $row['sum_rmb'],
+                    $row['delegate_money'],
+                    $row['payment_date'],
+                    $row['us_payment'],
+                    $row['rmb_payment'],
                 );
                 $i++;
             }
@@ -440,13 +467,22 @@ function  query_by_status($data_status){
       while($row = $result->fetch_assoc()) 
       {
         $responce->rows[$i]['id'] = $row['id'];
-        $responce->rows[$i]['cell'] = array ( 
-                $row['id'],
-                $row['name'], 
-                $row['sex'], 
-                $row['status'],
-                 $row['batch_num'],
-                 $row['id_num'],
+        $responce->rows[$i]['cell'] = array (
+            $row['name'],
+            $row['sex'],
+            $row['id_num'],
+            $row['card_num'],
+            $row['rmb_account'],
+            $row['us_account'],
+            $row['open_date'],
+            $row['credit_limit'],
+            $row['bill_date'],
+            $row['remain_rmb'],
+            $row['sum_rmb'],
+            $row['delegate_money'],
+            $row['payment_date'],
+            $row['us_payment'],
+            $row['rmb_payment'],
             ); 
             $i++; 
       }
@@ -520,7 +556,38 @@ function request_file()
                 $str .= htmlspecialchars(stripslashes(trim($objWorksheet->getCellByColumnAndRow($col, $row)->getValue()))) . '\\';
             }
             $strs = explode("\\", $str);
-            $sql = "INSERT INTO `total`(`name`, `sex`,`status`) VALUES ('$strs[0]','$strs[1]','case_in')";
+            $sql = "INSERT INTO `total`(`name`,
+                                        `sex`,
+                                        `id_num`,
+                                        `card_num`,
+                                        `rmb_account`,
+                                        `us_account`,
+                                        `open_date`,
+                                        `credit_limit`,
+                                        `bill_date`,
+                                        `remain_rmb`,
+                                        `sum_rmb`,
+                                        `delegate_money`,
+                                        `payment_date`,
+                                        `us_payment`,
+                                        `rmb_payment`,
+                                        `status`)
+                                VALUES ('$strs[0]',
+                                        '$strs[1]',
+                                        '$strs[2]',
+                                        '$strs[3]',
+                                        '$strs[4]',
+                                        '$strs[5]',
+                                        '$strs[6]',
+                                        '$strs[7]',
+                                        '$strs[8]',
+                                        '$strs[9]',
+                                        '$strs[10]',
+                                        '$strs[11]',
+                                        '$strs[12]',
+                                        '$strs[13]',
+                                        '$strs[14]',
+                                        'case_in')";
             if ($GLOBALS['$conn']->query($sql)) {
 
             } else {
