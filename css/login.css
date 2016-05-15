@@ -14,9 +14,13 @@
     background: #F2F2F2;
     height: 300px;
     width: 400px;
-margin-top: 270px;
-    float: right;
-    margin-right: 150px;
+/*margin-top: 270px;*/
+    /*float: right;*/
+    /*margin-right: 150px;*/
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    margin-top: -200px;
     border-radius:10px ;
     border: #CDCDCD solid 2px;
     box-shadow:0px 0px 10px 5px #E2E2E2 ;
