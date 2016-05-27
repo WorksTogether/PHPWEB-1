@@ -14,18 +14,18 @@
     <script src="js/controllers/nav.js"></script>
     <script src="lib/angular-file-upload.min.js"></script>
     <script type="text/javascript">
-    var permissionList;
+    // var permissionList;
     angular.element(document).ready(function() {
-        $.get('/system_manager', function(data) {
-            permissionList = data;
-            angular.bootstrap(document, ["starter"]);
-        });
+        // $.get('/system_manager.php?action=author_list', function(data) {
+        //     permissionList = data;
+        //     angular.bootstrap(document, ["starter"]);
+        // });
         // permissionList = [{
         //     Name: "credit_case_in"
         // }, {
         //     Name: "show"
         // }];
-        // angular.bootstrap(document, ["starter"]);
+        angular.bootstrap(document, ["starter"]);
     });
     </script>
     <style>
