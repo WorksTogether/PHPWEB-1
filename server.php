@@ -228,7 +228,7 @@ function export_case()
             while ($row = $result->fetch_assoc()) {
 
                 $objActSheet->setCellValue('A'.$i, $row['customer_name']);
-                $objActSheet->setCellValueExplicit('B'.$i,$row['id_num']);
+                $objActSheet->setCellValueplicit('B'.$i,$row['id_num']);
                 $objActSheet->setCellValue('C'.$i, $row['work_company']);
                 $objActSheet->setCellValue('D'.$i, $row['work_addr']);
                 $objActSheet->setCellValueExplicit('E'.$i, $row['work_telephone']);
@@ -644,10 +644,18 @@ function isBlank($name,$id_num,$phone)
     return false;
 }
 
-function getMyDate($intValue)
-{
-    $date=intval((intval($intValue)-25569)*3600*24);
-    return gmdate('Y/m/d',$date);
+function excelTime($date, $time=false){
+    if(is_numeric($date)){
+        $jd = GregorianToJD(1, 1, 1970);
+        $gregorian = JDToGregorian($jd+intval($date)-25569);
+        $date = explode('/',$gregorian);
+        $date_str = str_pad($date[2],4,'0', STR_PAD_LEFT)
+            ."-".str_pad($date[0],2,'0', STR_PAD_LEFT)
+            ."-".str_pad($date[1],2,'0', STR_PAD_LEFT)
+            .($time?" 00:00:00":'');
+        return $date_str;
+    }
+    return $date;
 }
 function request_file()
 {
@@ -667,6 +675,11 @@ function request_file()
         for ($row = 1; $row <= $highestRow; ++$row) {
             for ($col = 0; $col <= $highestColumnIndex; ++$col) {
                 $valueInCell=$objWorksheet->getCellByColumnAndRow($col, $row)->getValue();
+                if($col==19 || $col==20 || $col==21 || $col==22 || $col==23 || $col==26)//日期
+                {
+                        if(is_numeric($valueInCell))
+                         $valueInCell=excelTime((int)$valueInCell);
+                }
                 $str .= htmlspecialchars(stripslashes(trim($valueInCell))) . '<##>';
             }
             $strs = explode("<##>", $str);
@@ -727,7 +740,7 @@ function request_file()
                                         '$strs[17]',
                                         '$strs[18]',
                                         '$strs[19]',
-                                        '$date',
+                                        '$strs[20]',
                                         '$strs[21]',
                                         '$strs[22]',
                                         '$strs[23]',
@@ -791,7 +804,8 @@ function del_row(){
   }     
   $ids_str = join(',', $ids); 
   $sql = "DELETE FROM `total` WHERE id IN ($ids_str)";
-if($GLOBALS['$conn']->query($sql))
+  $sql2 = "DELETE FROM `relation` WHERE customer_id IN ($ids_str)";
+if($GLOBALS['$conn']->query($sql) && $GLOBALS['$conn']->query($sql2))
   {
    echo json_encode("success");
 
