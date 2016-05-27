@@ -165,10 +165,24 @@ function export_case()
     $objActSheet = $objExcel->getActiveSheet();
     //设置当前活动sheet的名称
     $objActSheet->setTitle('第一页');
-    $objActSheet->getColumnDimension()->setAutoSize(true);
-    $objActSheet->getStyle('A1:AK1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+    // 设置行高度
+    $objActSheet->getRowDimension('1')->setRowHeight(22);
 
-    $objActSheet->getStyle('A1:AK1')->getFill()->getStartColor()->setARGB("#0cedffb");
+    for($start='A';$start<='Z';$start++)
+    {
+        $objActSheet->getColumnDimension($start)->setWidth(18);
+    }
+
+    // 字体和样式
+    $objActSheet->getStyle('A1:AK1')->getFont()->setSize(12);
+    $objActSheet->getStyle('A1:AK1')->getFont()->setBold(true);
+    $objActSheet->getStyle('A1:AK1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+    $objActSheet->getStyle('A1:AK1')->getFill()->getStartColor()->setARGB("#ffbfbfbf");
+    $objActSheet->getStyle('A1:AK1')->getBorders()->getAllBorders()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
+    $objActSheet->getStyle('A1:AK1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+    $objActSheet->getStyle('A:AK')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+    $objActSheet->getStyle('A:AK')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+    $objActSheet->getStyle('A:AK')->getAlignment()->setWrapText(true);
     //填写表头
     $objActSheet->setCellValue('A1','客户名');
     $objActSheet->setCellValue('B1','身份证号');
@@ -214,22 +228,22 @@ function export_case()
             while ($row = $result->fetch_assoc()) {
 
                 $objActSheet->setCellValue('A'.$i, $row['customer_name']);
-                $objActSheet->setCellValue('B'.$i, $row['id_num']);
+                $objActSheet->setCellValueExplicit('B'.$i,$row['id_num']);
                 $objActSheet->setCellValue('C'.$i, $row['work_company']);
                 $objActSheet->setCellValue('D'.$i, $row['work_addr']);
-                $objActSheet->setCellValue('E'.$i, $row['work_telephone']);
+                $objActSheet->setCellValueExplicit('E'.$i, $row['work_telephone']);
                 $objActSheet->setCellValue('F'.$i, $row['work_duty']);
                 $objActSheet->setCellValue('G'.$i, $row['household_addr']);
                 $objActSheet->setCellValue('H'.$i, $row['home_addr']);
-                $objActSheet->setCellValue('I'.$i, $row['applyer_phone']);
+                $objActSheet->setCellValueExplicit('I'.$i, $row['applyer_phone']);
                 $objActSheet->setCellValue('J'.$i,$row['relation_name']);
                 $objActSheet->setCellValue('K'.$i, $row['relationship']);
-                $objActSheet->setCellValue('L'.$i, $row['relation_phone']);
+                $objActSheet->setCellValueExplicit('L'.$i, $row['relation_phone']);
                 $objActSheet->setCellValue('M'.$i, $row['relation_company']);
                 $objActSheet->setCellValue('N'.$i, $row['relation_duty']);
                 $objActSheet->setCellValue('O'.$i,$row['relation_addr']);
                 $objActSheet->setCellValue('P'.$i,$row['product_type']);
-                $objActSheet->setCellValue('Q'.$i,$row['sign_money']);
+                $objActSheet->setCellValueExplicit('Q'.$i,$row['sign_money']);
                 $objActSheet->setCellValue('R'.$i,$row['repay_sum_period']);
                 $objActSheet->setCellValue('S'.$i,$row['repay_month']);
                 $objActSheet->setCellValue('T'.$i,$row['repay_date']);
@@ -242,8 +256,8 @@ function export_case()
                 $objActSheet->setCellValue('AA'.$i,$row['capital_delay_start_date']);
                 $objActSheet->setCellValue('AB'.$i,$row['bank_name']);
                 $objActSheet->setCellValue('AC'.$i, $row['account_name']);
-                $objActSheet->setCellValue('AD'.$i,$row['bank_card_num']);
-                $objActSheet->setCellValue('AE'.$i,$row['customer_phone']);
+                $objActSheet->setCellValueExplicit('AD'.$i,$row['bank_card_num']);
+                $objActSheet->setCellValueExplicit('AE'.$i,$row['customer_phone']);
                 $objActSheet->setCellValue('AF'.$i,$row['repay_sum_period_2']);
                 $objActSheet->setCellValue('AG'.$i,$row['repay_already_period']);
                 $objActSheet->setCellValue('AH'.$i,$row['repay_not_period']);
@@ -629,6 +643,12 @@ function isBlank($name,$id_num,$phone)
 
     return false;
 }
+
+function getMyDate($intValue)
+{
+    $date=intval((intval($intValue)-25569)*3600*24);
+    return gmdate('Y/m/d',$date);
+}
 function request_file()
 {
     $inputFileName = './uploads/case_in.xls';
@@ -646,9 +666,10 @@ function request_file()
 
         for ($row = 1; $row <= $highestRow; ++$row) {
             for ($col = 0; $col <= $highestColumnIndex; ++$col) {
-                $str .= htmlspecialchars(stripslashes(trim($objWorksheet->getCellByColumnAndRow($col, $row)->getValue()))) . '\\';
+                $valueInCell=$objWorksheet->getCellByColumnAndRow($col, $row)->getValue();
+                $str .= htmlspecialchars(stripslashes(trim($valueInCell))) . '<##>';
             }
-            $strs = explode("\\", $str);
+            $strs = explode("<##>", $str);
             if(!isBlank($strs[0],$strs[1],$strs[30])) {
                 $sql = "INSERT INTO `total`(`customer_name`,
                                         `id_num`,
@@ -706,7 +727,7 @@ function request_file()
                                         '$strs[17]',
                                         '$strs[18]',
                                         '$strs[19]',
-                                        '$strs[20]',
+                                        '$date',
                                         '$strs[21]',
                                         '$strs[22]',
                                         '$strs[23]',

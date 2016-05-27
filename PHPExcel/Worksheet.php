@@ -1217,7 +1217,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
 			$pCoordinate,
 			new PHPExcel_Cell(
 				NULL, 
-				PHPExcel_Cell_DataType::TYPE_NULL, 
+				PHPExcel_Cell_DataType::TYPE_NULL,
 				$this
 			)
 		);

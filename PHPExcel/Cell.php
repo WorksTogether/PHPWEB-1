@@ -243,7 +243,7 @@ class PHPExcel_Cell
 				$this->_value = PHPExcel_Cell_DataType::checkString($pValue);
 				break;
 			case PHPExcel_Cell_DataType::TYPE_NUMERIC:
-				$this->_value = (float)$pValue;
+				$this->_value = (string)$pValue;//为了兼容大数据，将float更改为string，保证数据的正常显示
 				break;
 			case PHPExcel_Cell_DataType::TYPE_FORMULA:
 				$this->_value = (string)$pValue;
@@ -277,7 +277,7 @@ class PHPExcel_Cell
 	public function getCalculatedValue($resetLog = TRUE)
 	{
 //echo 'Cell '.$this->getCoordinate().' value is a '.$this->_dataType.' with a value of '.$this->getValue().PHP_EOL;
-		if ($this->_dataType == PHPExcel_Cell_DataType::TYPE_FORMULA) {
+		if ($this->_dataType == PHPExcel_Cell_DataType::TYPE_NULL) {
 			try {
 //echo 'Cell value for '.$this->getCoordinate().' is a formula: Calculating value'.PHP_EOL;
 				$result = PHPExcel_Calculation::getInstance(

@@ -32,6 +32,7 @@ function login()
           storageSession($row);
             $array = array(
                 "msg" => "success",
+                "auth"=>$row['auth'],
             );
             echo json_encode($array);
         }
