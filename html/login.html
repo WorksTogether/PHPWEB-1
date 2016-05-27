@@ -68,8 +68,9 @@ $(document).ready(function() {
             type: 'POST',
             dataType: 'json',
             success: function(data, textStatus) {
+                console.dir(data);
                 if (data.msg == "success") {
-                    console.dir(data);
+                    console.log("success");
                     window.location.href = "http://" + window.location.host + "/#/nav/homepage";
                     if (data.permission_num == 0) {
                         permissionList = permissionList0;
