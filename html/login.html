@@ -69,6 +69,7 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(data, textStatus) {
                 if (data.msg == "success") {
+                    console.dir(data);
                     window.location.href = "http://" + window.location.host + "/#/nav/homepage";
                     if (data.permission_num == 0) {
                         permissionList = permissionList0;
