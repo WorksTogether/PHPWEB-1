@@ -29,6 +29,33 @@
 </div>
 <script type="text/javascript">
 $(document).ready(function() {
+    var permissionList, permissionList0, permissionList1;
+    permissionList0 = [{
+        Name: "case_admin"
+    }, {
+        Name: "case_assign_main"
+    }, {
+        Name: "credit_case_in"
+    }, {
+        Name: "case_assign"
+    }, {
+        Name: "case_close"
+    }];
+    permissionList1 = [{
+        Name: "case_admin"
+    }, {
+        Name: "case_assign_main"
+    }, {
+        Name: "credit_case_in"
+    }, {
+        Name: "case_assign"
+    }, {
+        Name: "case_close"
+    }, , {
+        Name: "case_tongji"
+    }, , {
+        Name: "case_detail"
+    }];
     $("#submit").click(function() {
         console.log(window.location.host)
         $.ajax({
@@ -43,6 +70,11 @@ $(document).ready(function() {
             success: function(data, textStatus) {
                 if (data.msg == "success") {
                     window.location.href = "http://" + window.location.host + "/#/nav/homepage";
+                    if (data.permission_num == 0) {
+                        permissionList = permissionList0;
+                    } else if (data.permission_num == 1) {
+                        permissionList = permissionList1;
+                    }
                 }
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {}
