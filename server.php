@@ -165,7 +165,10 @@ function export_case()
     $objActSheet = $objExcel->getActiveSheet();
     //设置当前活动sheet的名称
     $objActSheet->setTitle('第一页');
+    $objActSheet->getColumnDimension()->setAutoSize(true);
+    $objActSheet->getStyle('A1:AK1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
 
+    $objActSheet->getStyle('A1:AK1')->getFill()->getStartColor()->setARGB("#0cedffb");
     //填写表头
     $objActSheet->setCellValue('A1','客户名');
     $objActSheet->setCellValue('B1','身份证号');
