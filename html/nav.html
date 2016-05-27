@@ -8,12 +8,10 @@
 <!--<script type="text/javascript" src="http://oss.maxcdn.com/libs/modernizr/2.6.2/modernizr.min.js" async="async"></script>-->
 <!--<script src="js/jquery.multilevelpushmenu.js" async="async"></script>-->
 <!--<script src="js/expandcollapse.js" async="async"></script>-->
-
 <script src="js/menu_min.js"></script>
-<link rel="stylesheet" href="css/font-awesome.min.css"/>
-<link rel="stylesheet" href="css/menu-css.css"/>
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<link rel="stylesheet" href="css/menu-css.css" />
 <!--<link rel="stylesheet" href="css/style1.css"/>-->
-
 <!--<link rel="stylesheet" href="css/credit_case_in.css"/>-->
 <!--<script src="lib/jquery.min.js"  async="async"> </script>-->
 <!--<script src="lib/jquery.jqgrid.min.js"></script>-->
@@ -28,81 +26,80 @@
         <li><em class="lock"></em><a href="">修改密码</a></li>
     </ul>
     <div style="position: absolute;width: 700px;height: 35px;background-color: #ffffff;top: 20px;left: 50px">这里添加XX公司催收系统</div>
-<div style="border:#0099CC solid 2px;width: 98%;margin: 70px 1% 0 1%;height: 0px;"></div>
+    <div style="border:#0099CC solid 2px;width: 98%;margin: 70px 1% 0 1%;height: 0px;"></div>
 </div>
-
 <div style="height: 700px;margin-top: 110px;" ng-controller="nav">
-<!--<div id="menu1" class="menu">-->
-<!--<ul>-->
-<!--<li><a ui-sref="login">首　　页</a></li>-->
-<!--<li><a ui-sref="login.22222">企业文化</a></li>-->
-<!--<li><a ui-sref="login.22222.33333">产品展示</a></li>-->
-<!--<li><a href="#">新闻中心</a></li>-->
-<!--<li><a href="#">阳光服务</a></li>-->
-<!--<li><a href="#">加盟代理</a></li>-->
-<!--<li><a href="#">在线咨询</a></li>-->
-<!--</ul>-->
-<!--<div class="cls"></div>-->
-<!--</div>-->
-
+    <!--<div id="menu1" class="menu">-->
+    <!--<ul>-->
+    <!--<li><a ui-sref="login">首　　页</a></li>-->
+    <!--<li><a ui-sref="login.22222">企业文化</a></li>-->
+    <!--<li><a ui-sref="login.22222.33333">产品展示</a></li>-->
+    <!--<li><a href="#">新闻中心</a></li>-->
+    <!--<li><a href="#">阳光服务</a></li>-->
+    <!--<li><a href="#">加盟代理</a></li>-->
+    <!--<li><a href="#">在线咨询</a></li>-->
+    <!--</ul>-->
+    <!--<div class="cls"></div>-->
+    <!--</div>-->
     <div id="content">
         <div class="menu">
             <ul>
                 <li><a ui-sref="nav.homepage" id="home_page"><span>首页</span><i class="fa fa-reorder"></i></a>
                     <ul></ul>
                 </li>
-                <li>
+                <li has-permission="case_admin">
                     <a class="" href="#"><i class="fa fa-folder-open-o"></i><span>案件管理</span><i class="fa fa-chevron-down"></i></a>
                     <ul>
-                        <li>
+                        <li has-permission="case_assign_main">
                             <a href="#" class="inactive"><i class="fa fa-file-code-o"></i><span>案件导入/初分</span><i class="fa fa-chevron-down"></i></a>
                             <ul class="selected">
-                                <li><a  ui-sref="nav.credit_case_in"><span>案件导入</span></a></li>
-                                <li><a ui-sref="nav.case_assign"><span>案件分配</span></a></li>
+                                <li has-permission="credit_case_in"><a ui-sref="nav.credit_case_in"><span>案件导入</span></a></li>
+                                <li has-permission="case_assign"><a ui-sref="nav.case_assign"><span>案件分配</span></a></li>
                                 <!--<li><a ui-sref="nav.import_account"><span>导入对账单</span></a></li>-->
                                 <!--<li><a ui-sref="nav.import_amount"><span>导入最新余额</span></a></li>-->
-                                <li><a ui-sref="nav.case_close"><span>委案关闭</span></a></li>
+                                <li has-permission="case_close"><a ui-sref="nav.case_close"><span>委案关闭</span></a></li>
                             </ul>
                         </li>
-                        <li><a href="#"><i class="fa fa-file-excel-o"></i><span>分案管理</span><i class="fa fa-chevron-down"></i></a>
+                        <li has-permission="fen_case_admin"><a href="#"><i class="fa fa-file-excel-o"></i><span>分案管理</span><i class="fa fa-chevron-down"></i></a>
                             <ul>
-                                <li><a ui-sref="nav.region_case"><span>主管-待处理委案</span></a></li>
-                                <li><a ui-sref="nav.region_fin"><span>主管-已处理委案</span></a></li>
-                                <li><a ui-sref="nav.leader_case"><span>组长-待处理委案</span></a></li>
-                                <li><a ui-sref="nav.leader_fin"><span>组长-已处理委案</span></a></li>
+                                <li has-permission="region_case"><a ui-sref="nav.region_case"><span>主管-待处理委案</span></a></li>
+                                <li has-permission="region_fin"><a ui-sref="nav.region_fin"><span>主管-已处理委案</span></a></li>
+                                <li has-permission="leader_case"><a ui-sref="nav.leader_case"><span>组长-待处理委案</span></a></li>
+                                <li has-permission="leader_fin"><a ui-sref="nav.leader_fin"><span>组长-已处理委案</span></a></li>
                             </ul>
                         </li>
-                        <li>
+                        <li has-permission="case_tongji">
                             <a href="#" class="inactive"><i class="fa fa-file-o"></i><span>案件统计</span><i class="fa fa-chevron-down"></i></a>
                             <ul>
-                                <li><a ui-sref="nav.case_inprocess"><span>催收中委案</span></a></li>
-                                <li><a ui-sref="nav.case_fin"><span>已完成委案</span></a></li>
-                                <li><a ui-sref="nav.case_closed"><span>已关闭委案</span></a></li>
-                                <li><a ui-sref="nav.case_detail"><span>全部案件明细</span></a></li>
-                                <li><a href="#"><span>还款账单明细</span></a></li>
+                                <li has-permission="case_inprocess"><a ui-sref="nav.case_inprocess"><span>催收中委案</span></a></li>
+                                <li has-permission="case_fin"><a ui-sref="nav.case_fin"><span>已完成委案</span></a></li>
+                                <li has-permission="case_closed"><a ui-sref="nav.case_closed"><span>已关闭委案</span></a></li>
+                                <li has-permission="case_detail"><a ui-sref="nav.case_detail"><span>全部案件明细</span></a></li>
+                                <li has-permission="leader_fin"><a href="#"><span>还款账单明细</span></a></li>
                             </ul>
                         </li>
                         <!--<li><a href="#">Subitem 4</a>-->
-                            <!--<ul>-->
-                                <!--<li><a href="#">Subitem 1</a></li>-->
-                                <!--<li><a href="#">Subitem 2</a></li>-->
-                            <!--</ul>-->
+                        <!--<ul>-->
+                        <!--<li><a href="#">Subitem 1</a></li>-->
+                        <!--<li><a href="#">Subitem 2</a></li>-->
+                        <!--</ul>-->
                         <!--</li>-->
                         <!--<li>-->
-                            <!--<a href="#" class="inactive">Subitem 5</a>-->
+                        <!--<a href="#" class="inactive">Subitem 5</a>-->
                         <!--</li>-->
                     </ul>
                 </li>
-                <li><a href="#"  style=""><i class="fa fa-folder-open-o"></i><span>催收管理</span><i class="fa fa-chevron-down"></i></a>
+                <!--  <li has-permission="show"> -->
+                <li has-permission="cuishouadmin"><a href="#" style=""><i class="fa fa-folder-open-o"></i><span>催收管理</span><i class="fa fa-chevron-down"></i></a>
                     <ul>
-                        <li>
+                        <li has-permission="cuishou_case_admin">
                             <a href="#" class="inactive"><i class="fa fa-file-code-o"></i><span>催收案件管理</span><i class="fa fa-chevron-down"></i></a>
                             <ul>
-                                <li><a ui-sref="nav.wait_handle"><span>待办催收案件</span></a></li>
-                                <li><a ui-sref="#"><span>电催中案件</span></a></li>
-                                <li><a ui-sref="#"><span>待办外访案件</span></a></li>
-                                <li><a ui-sref="#"><span>外访中案件</span></a></li>
-                                <li><a ui-sref="nav.pay_att"><span>重点关注案件</span></a></li>
+                                <li has-permission="wait_handle"><a ui-sref="nav.wait_handle"><span>待办催收案件</span></a></li>
+                                <li has-permission=""><a ui-sref="#"><span>电催中案件</span></a></li>
+                                <li has-permission=""><a ui-sref="#"><span>待办外访案件</span></a></li>
+                                <li has-permission=""><a ui-sref="#"><span>外访中案件</span></a></li>
+                                <li has-permission="pay_att"><a ui-sref="nav.pay_att"><span>重点关注案件</span></a></li>
                             </ul>
                         </li>
                         <li>
@@ -115,10 +112,10 @@
                             </ul>
                         </li>
                         <!--<li>-->
-                            <!--<a href="#" class="inactive">Subitem 3</a>-->
+                        <!--<a href="#" class="inactive">Subitem 3</a>-->
                         <!--</li>-->
                         <!--<li>-->
-                            <!--<a href="#" class="inactive">Subitem 4</a>-->
+                        <!--<a href="#" class="inactive">Subitem 4</a>-->
                         <!--</li>-->
                     </ul>
                 </li>
@@ -171,7 +168,7 @@
     <span style="line-height: 80px">技术支持：启辉科技工作室</span>
 </div>
 <script type="text/javascript">
-    $(document).ready(function (){
-        $(".menu ul li").menu();
-    });
+$(document).ready(function() {
+    $(".menu ul li").menu();
+});
 </script>
