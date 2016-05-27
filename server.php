@@ -167,45 +167,86 @@ function export_case()
     $objActSheet->setTitle('第一页');
 
     //填写表头
-    $objActSheet->setCellValue('A1','持卡人姓名');
-    $objActSheet->setCellValue('B1','性别');
-    $objActSheet->setCellValue('C1','证件号码');
-    $objActSheet->setCellValue('D1','人民币账号');
-    $objActSheet->setCellValue('E1','美元账号');
-    $objActSheet->setCellValue('F1','开卡日期');
-    $objActSheet->setCellValue('G1','额度');
-    $objActSheet->setCellValue('H1','账单日期');
-    $objActSheet->setCellValue('I1','余额人民币');
-    $objActSheet->setCellValue('J1','金额人民币');
-    $objActSheet->setCellValue('K1','委托金额美元');
-    $objActSheet->setCellValue('L1','还款日期');
-    $objActSheet->setCellValue('M1','美元还款');
-    $objActSheet->setCellValue('N1','人民币还款');
-    $objActSheet->setCellValue('O1','区域主管');
-    $objActSheet->setCellValue('P1','区域组长');
+    $objActSheet->setCellValue('A1','客户名');
+    $objActSheet->setCellValue('B1','身份证号');
+    $objActSheet->setCellValue('C1','工作单位');
+    $objActSheet->setCellValue('D1','单位地址');
+    $objActSheet->setCellValue('E1','单位电话');
+    $objActSheet->setCellValue('F1','职务');
+    $objActSheet->setCellValue('G1','户籍地址');
+    $objActSheet->setCellValue('H1','住址');
+    $objActSheet->setCellValue('I1','申请人手机号');
+    $objActSheet->setCellValue('J1','关系人姓名');
+    $objActSheet->setCellValue('K1','关系');
+    $objActSheet->setCellValue('L1','关系人电话');
+    $objActSheet->setCellValue('M1','关系人单位');
+    $objActSheet->setCellValue('N1','关系人职位');
+    $objActSheet->setCellValue('O1','关系人详细地址');
+    $objActSheet->setCellValue('P1','产品类型');
+    $objActSheet->setCellValue('Q1','签约金额');
+    $objActSheet->setCellValue('R1','还款期数');
+    $objActSheet->setCellValue('S1','月还款金额');
+    $objActSheet->setCellValue('T1','每月还款日期');
+    $objActSheet->setCellValue('U1','签约日期');
+    $objActSheet->setCellValue('V1','放款日期');
+    $objActSheet->setCellValue('W1','还款起始日期');
+    $objActSheet->setCellValue('X1','还款过期日期');
+    $objActSheet->setCellValue('Y1','剩余本金');
+    $objActSheet->setCellValue('Z1','委案金额');
+    $objActSheet->setCellValue('AA1','本金拖欠开始日期');
+    $objActSheet->setCellValue('AB1','开户银行名');
+    $objActSheet->setCellValue('AC1','账户名');
+    $objActSheet->setCellValue('AD1','银行卡号');
+    $objActSheet->setCellValue('AE1','客户手机号');
+    $objActSheet->setCellValue('AF1','还款期数');
+    $objActSheet->setCellValue('AG1','已还期数');
+    $objActSheet->setCellValue('AH1','未还期数');
+    $objActSheet->setCellValue('AI1','M值');
+    $objActSheet->setCellValue('AJ1','区域主管');
+    $objActSheet->setCellValue('AK1','区域组长');
 
     if($result = $GLOBALS['$conn']->query($sql)) {
         if ($result->num_rows > 0) {
             $i=2;
             while ($row = $result->fetch_assoc()) {
 
-
-                $objActSheet->setCellValue('A'.$i,$row['name']);
-                $objActSheet->setCellValue('B'.$i,$row['sex']);
-                $objActSheet->setCellValue('C'.$i,$row['id_num']);
-                $objActSheet->setCellValue('D'.$i,$row['rmb_account']);
-                $objActSheet->setCellValue('E'.$i,$row['us_account']);
-                $objActSheet->setCellValue('F'.$i, $row['open_date']);
-                $objActSheet->setCellValue('G'.$i,$row['credit_limit']);
-                $objActSheet->setCellValue('H'.$i,$row['bill_date']);
-                $objActSheet->setCellValue('I'.$i,$row['remain_rmb']);
-                $objActSheet->setCellValue('J'.$i,$row['sum_rmb']);
-                $objActSheet->setCellValue('K'.$i,$row['delegate_money']);
-                $objActSheet->setCellValue('L'.$i, $row['payment_date']);
-                $objActSheet->setCellValue('M'.$i, $row['us_payment']);
-                $objActSheet->setCellValue('N'.$i, $row['rmb_payment']);
-                $objActSheet->setCellValue('O'.$i,$row['director']);
-                $objActSheet->setCellValue('P'.$i,$row['leader']);
+                $objActSheet->setCellValue('A'.$i, $row['customer_name']);
+                $objActSheet->setCellValue('B'.$i, $row['id_num']);
+                $objActSheet->setCellValue('C'.$i, $row['work_company']);
+                $objActSheet->setCellValue('D'.$i, $row['work_addr']);
+                $objActSheet->setCellValue('E'.$i, $row['work_telephone']);
+                $objActSheet->setCellValue('F'.$i, $row['work_duty']);
+                $objActSheet->setCellValue('G'.$i, $row['household_addr']);
+                $objActSheet->setCellValue('H'.$i, $row['home_addr']);
+                $objActSheet->setCellValue('I'.$i, $row['applyer_phone']);
+                $objActSheet->setCellValue('J'.$i,$row['relation_name']);
+                $objActSheet->setCellValue('K'.$i, $row['relationship']);
+                $objActSheet->setCellValue('L'.$i, $row['relation_phone']);
+                $objActSheet->setCellValue('M'.$i, $row['relation_company']);
+                $objActSheet->setCellValue('N'.$i, $row['relation_duty']);
+                $objActSheet->setCellValue('O'.$i,$row['relation_addr']);
+                $objActSheet->setCellValue('P'.$i,$row['product_type']);
+                $objActSheet->setCellValue('Q'.$i,$row['sign_money']);
+                $objActSheet->setCellValue('R'.$i,$row['repay_sum_period']);
+                $objActSheet->setCellValue('S'.$i,$row['repay_month']);
+                $objActSheet->setCellValue('T'.$i,$row['repay_date']);
+                $objActSheet->setCellValue('U'.$i,$row['sign_date']);
+                $objActSheet->setCellValue('V'.$i,$row['loan_date']);
+                $objActSheet->setCellValue('W'.$i,$row['repay_start_date']);
+                $objActSheet->setCellValue('X'.$i, $row['repay_expire_date']);
+                $objActSheet->setCellValue('Y'.$i,$row['remain_capital']);
+                $objActSheet->setCellValue('Z'.$i,$row['case_money']);
+                $objActSheet->setCellValue('AA'.$i,$row['capital_delay_start_date']);
+                $objActSheet->setCellValue('AB'.$i,$row['bank_name']);
+                $objActSheet->setCellValue('AC'.$i, $row['account_name']);
+                $objActSheet->setCellValue('AD'.$i,$row['bank_card_num']);
+                $objActSheet->setCellValue('AE'.$i,$row['customer_phone']);
+                $objActSheet->setCellValue('AF'.$i,$row['repay_sum_period_2']);
+                $objActSheet->setCellValue('AG'.$i,$row['repay_already_period']);
+                $objActSheet->setCellValue('AH'.$i,$row['repay_not_period']);
+                $objActSheet->setCellValue('AI'.$i,$row['m_value']);
+                $objActSheet->setCellValue('AJ'.$i,$row['director']);
+                $objActSheet->setCellValue('AK'.$i,$row['leader']);
                 $i++;
             }
             $outputFileName=dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'downloads' . DIRECTORY_SEPARATOR . 'output.xls';
@@ -393,21 +434,41 @@ function query_list()
             {
                 $responce->rows[$i]['id'] = $row['id'];
                 $responce->rows[$i]['cell'] = array (
-                    $row['name'],
-                    $row['sex'],
+                    $row['customer_name'],
                     $row['id_num'],
-                    $row['card_num'],
-                    $row['rmb_account'],
-                    $row['us_account'],
-                    $row['open_date'],
-                    $row['credit_limit'],
-                    $row['bill_date'],
-                    $row['remain_rmb'],
-                    $row['sum_rmb'],
-                    $row['delegate_money'],
-                    $row['payment_date'],
-                    $row['us_payment'],
-                    $row['rmb_payment'],
+                    $row['work_company'],
+                    $row['work_addr'],
+                    $row['work_telephone'],
+                    $row['work_duty'],
+                    $row['household_addr'],
+                    $row['home_addr'],
+                    $row['applyer_phone'],
+                    $row['relation_name'],
+                    $row['relationship'],
+                    $row['relation_phone'],
+                    $row['relation_company'],
+                    $row['relation_duty'],
+                    $row['relation_addr'],
+                    $row['product_type'],
+                    $row['sign_money'],
+                    $row['repay_sum_period'],
+                    $row['repay_month'],
+                    $row['repay_date'],
+                    $row['sign_date'],
+                    $row['loan_date'],
+                    $row['repay_start_date'],
+                    $row['repay_expire_date'],
+                    $row['remain_capital'],
+                    $row['case_money'],
+                    $row['capital_delay_start_date'],
+                    $row['bank_name'],
+                    $row['account_name'],
+                    $row['bank_card_num'],
+                    $row['customer_phone'],
+                    $row['repay_sum_period_2'],
+                    $row['repay_already_period'],
+                    $row['repay_not_period'],
+                    $row['m_value'],
                 );
                 $i++;
             }
@@ -468,22 +529,42 @@ function  query_by_status($data_status){
       {
         $responce->rows[$i]['id'] = $row['id'];
         $responce->rows[$i]['cell'] = array (
-            $row['name'],
-            $row['sex'],
+            $row['customer_name'],
             $row['id_num'],
-            $row['card_num'],
-            $row['rmb_account'],
-            $row['us_account'],
-            $row['open_date'],
-            $row['credit_limit'],
-            $row['bill_date'],
-            $row['remain_rmb'],
-            $row['sum_rmb'],
-            $row['delegate_money'],
-            $row['payment_date'],
-            $row['us_payment'],
-            $row['rmb_payment'],
-            ); 
+            $row['work_company'],
+            $row['work_addr'],
+            $row['work_telephone'],
+            $row['work_duty'],
+            $row['household_addr'],
+            $row['home_addr'],
+            $row['applyer_phone'],
+            $row['relation_name'],
+            $row['relationship'],
+            $row['relation_phone'],
+            $row['relation_company'],
+            $row['relation_duty'],
+            $row['relation_addr'],
+            $row['product_type'],
+            $row['sign_money'],
+            $row['repay_sum_period'],
+            $row['repay_month'],
+            $row['repay_date'],
+            $row['sign_date'],
+            $row['loan_date'],
+            $row['repay_start_date'],
+            $row['repay_expire_date'],
+            $row['remain_capital'],
+            $row['case_money'],
+            $row['capital_delay_start_date'],
+            $row['bank_name'],
+            $row['account_name'],
+            $row['bank_card_num'],
+            $row['customer_phone'],
+            $row['repay_sum_period_2'],
+            $row['repay_already_period'],
+            $row['repay_not_period'],
+            $row['m_value'],
+            );
             $i++; 
       }
       echo json_encode($responce);
@@ -537,12 +618,21 @@ if ( !empty( $_FILES ) ) {
    }
 }
 }
+
+function isBlank($name,$id_num,$phone)
+{
+    if(empty($name)&&empty($id_num)&&empty($phone))
+        return true;
+
+    return false;
+}
 function request_file()
 {
     $inputFileName = './uploads/case_in.xls';
     if(file_exists($inputFileName))
     {
         $str = "";
+        $lastNewId =-1;
         $objPHPExcel = PHPExcel_IOFactory::load($inputFileName);
         $objPHPExcel->getActiveSheet()->removeRow(1);
         $objWorksheet = $objPHPExcel->getActiveSheet();
@@ -556,21 +646,42 @@ function request_file()
                 $str .= htmlspecialchars(stripslashes(trim($objWorksheet->getCellByColumnAndRow($col, $row)->getValue()))) . '\\';
             }
             $strs = explode("\\", $str);
-            $sql = "INSERT INTO `total`(`name`,
-                                        `sex`,
+            if(!isBlank($strs[0],$strs[1],$strs[30])) {
+                $sql = "INSERT INTO `total`(`customer_name`,
                                         `id_num`,
-                                        `card_num`,
-                                        `rmb_account`,
-                                        `us_account`,
-                                        `open_date`,
-                                        `credit_limit`,
-                                        `bill_date`,
-                                        `remain_rmb`,
-                                        `sum_rmb`,
-                                        `delegate_money`,
-                                        `payment_date`,
-                                        `us_payment`,
-                                        `rmb_payment`,
+                                        `work_company`,
+                                        `work_addr`,
+                                        `work_telephone`,
+                                        `work_duty`,
+                                        `household_addr`,
+                                        `home_addr`,
+                                        `applyer_phone`,
+                                        `relation_name`,
+                                        `relationship`,
+                                        `relation_phone`,
+                                        `relation_company`,
+                                        `relation_duty`,
+                                        `relation_addr`,
+                                        `product_type`,
+                                        `sign_money`,
+                                        `repay_sum_period`,
+                                        `repay_month`,
+                                        `repay_date`,
+                                        `sign_date`,
+                                        `loan_date`,
+                                        `repay_start_date`,
+                                        `repay_expire_date`,
+                                        `remain_capital`,
+                                        `case_money`,
+                                        `capital_delay_start_date`,
+                                        `bank_name`,
+                                        `account_name`,
+                                        `bank_card_num`,
+                                        `customer_phone`,
+                                        `repay_sum_period_2`,
+                                        `repay_already_period`,
+                                        `repay_not_period`,
+                                        `m_value`,
                                         `status`)
                                 VALUES ('$strs[0]',
                                         '$strs[1]',
@@ -587,12 +698,59 @@ function request_file()
                                         '$strs[12]',
                                         '$strs[13]',
                                         '$strs[14]',
+                                        '$strs[15]',
+                                        '$strs[16]',
+                                        '$strs[17]',
+                                        '$strs[18]',
+                                        '$strs[19]',
+                                        '$strs[20]',
+                                        '$strs[21]',
+                                        '$strs[22]',
+                                        '$strs[23]',
+                                        '$strs[24]',
+                                        '$strs[25]',
+                                        '$strs[26]',
+                                        '$strs[27]',
+                                        '$strs[28]',
+                                        '$strs[29]',
+                                        '$strs[30]',
+                                        '$strs[31]',
+                                        '$strs[32]',
+                                        '$strs[33]',
+                                        '$strs[34]',
                                         'case_in')";
-            if ($GLOBALS['$conn']->query($sql)) {
+                if ($GLOBALS['$conn']->query($sql)) {
+                    $lastNewId = $GLOBALS['$conn']->insert_id;
+                } else {
+                    echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+                }
 
-            } else {
-                echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
             }
+            else
+            {
+
+                $sql = "INSERT INTO `relation`(`customer_id`,
+                                        `relation_name`,
+                                        `relationship`,
+                                        `relation_phone`,
+                                        `relation_company`,
+                                        `relation_duty`,
+                                        `relation_addr`)
+                                VALUES ($lastNewId,
+                                        '$strs[9]',
+                                        '$strs[10]',
+                                        '$strs[11]',
+                                        '$strs[12]',
+                                        '$strs[13]',
+                                        '$strs[14]'
+                                        )";
+                if ($GLOBALS['$conn']->query($sql)) {
+
+                } else {
+                    echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+                }
+            }
+
             $str = "";
         }
         unlink($inputFileName);
