@@ -21,7 +21,7 @@
 <!--<link rel="stylesheet" href="css/theme.css"/>-->
 <div class="header">
     <ul>
-        <li><em class="out"></em> <a href="">退出</a></li>
+        <li id="logout"><em class="out"></em> <a href="">退出</a></li>
         <li><em class="user"></em><a href="">我的角色</a></li>
         <li><em class="lock"></em><a href="">修改密码</a></li>
     </ul>
@@ -171,5 +171,24 @@
 <script type="text/javascript">
 $(document).ready(function() {
     $(".menu ul li").menu();
+    $("#logout").click(function() {
+        $.ajax({
+            url: "userServer.php",
+            contentType: 'application/json;charset=UTF-8',
+            data: JSON.stringify({
+                action: "logout"
+            }),
+            type: 'POST',
+            dataType: 'json',
+            success: function(data, textStatus) {
+                if (data.msg == "success") {
+                    alert("退出成功！");
+                    permissionList = "";
+                    window.location.href = "http://" + window.location.host;
+                }
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {}
+        });
+    });
 });
 </script>
