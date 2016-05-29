@@ -21,8 +21,29 @@ switch ($action)
     case 'request_manage_user':
         request_manage_user();
         break;
+    case 'del_row':
+        del_user();
+        break;
 };
+function del_user()
+{
+    $id= $_POST['sels'];
+    if (empty ($id))
+    {
+        die("0");
+    }
 
+    $sql = "DELETE FROM `user_info` WHERE id IN ($id)";
+    if($GLOBALS['$conn']->query($sql))
+    {
+        echo json_encode("success");
+
+    }
+    else
+    {
+        echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+    }
+}
 function request_manage_user()
 {
     $page = $_POST['page'];
