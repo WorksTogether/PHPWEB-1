@@ -1,10 +1,10 @@
-angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 'starter.controllers.nav'])
+angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 'starter.controllers.nav', 'starter.controllers.login'])
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('login', {
                 url: '/login',
                 templateUrl: 'html/login.html',
-                controller: ''
+                controller: 'login'
             })
             .state('nav', {
                 url: '/nav',
@@ -114,13 +114,14 @@ angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 's
             })
         $urlRouterProvider.otherwise('login');
     })
-    .run(function(permissions) {
-        permissions.setPermissions(permissionList);
-    })
+    // .run(function(permissions) {
+    //     permissions.setPermissions(permissionList);
+    // })
     .factory('permissions', function($rootScope) {
         var permissionList;
         return {
             setPermissions: function(permissions) {
+                console.log(permissions);
                 permissionList = permissions;
                 $rootScope.$broadcast('permissionsChanged')
             },
