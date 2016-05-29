@@ -10,19 +10,30 @@ set_time_limit(0);
 
 date_default_timezone_set('Europe/London');
 include 'connect.php';
-$action = $_POST['action'];
-
+$postData=file_get_contents('php://input', true);
+$str='{"user_name":"admin","password":"123456","action":"login"}';
+$jsonData=json_decode($str,true);
+$action = $jsonData['action'];
 switch ($action)
 {
     case 'login':
-        login();
+        login($jsonData);
     break;
 };
 
-function login()
+function login($jsonData)
 {
-    $userName=$_POST['user_name'];
-    $password=$_POST['password'];
+    $userName=$jsonData['user_name'];
+    $password=$jsonData['password'];
+    if(empty($userName)|| empty($password))
+    {
+        $array = array(
+            "msg" => "error",
+            "info" => "用户名或密码不能为空！",
+        );
+        echo json_encode($array);
+        die();
+    }
     $sql = "SELECT * FROM `user_info` WHERE user_name='".$userName."' AND password='".$password."'";
     if ($result=$GLOBALS['$conn']->query($sql))
     {

@@ -31,19 +31,19 @@ angular.module('starter.controllers.login', ['ui.router'])
             $http({
                 method: 'POST',
                 url: 'userServer.php',
-                params: {
+               /* params: {
                     user_name: angular.element("#user").val(),
                     password: angular.element("#pas").val(),
                     action: "login"
-                }
-                // data: {
-                //     user_name: angular.element("#user").val(),
-                //     password: angular.element("#pas").val(),
-                //     action: "login"
-                // }
-                // headers: {
-                //     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-                // }
+                }*/
+                data: {
+                     user_name: angular.element("#user").val(),
+                     password: angular.element("#pas").val(),
+                     action: "login"
+                 },
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                 }
             }).
             success(function(data, status, headers, config) {
                 if (data.msg == "success") {

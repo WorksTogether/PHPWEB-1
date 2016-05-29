@@ -228,7 +228,7 @@ function export_case()
             while ($row = $result->fetch_assoc()) {
 
                 $objActSheet->setCellValue('A'.$i, $row['customer_name']);
-                $objActSheet->setCellValueplicit('B'.$i,$row['id_num']);
+                $objActSheet->setCellValueExplicit('B'.$i,$row['id_num']);
                 $objActSheet->setCellValue('C'.$i, $row['work_company']);
                 $objActSheet->setCellValue('D'.$i, $row['work_addr']);
                 $objActSheet->setCellValueExplicit('E'.$i, $row['work_telephone']);
