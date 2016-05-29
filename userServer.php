@@ -18,6 +18,11 @@ switch ($action)
     case 'login':
         login($jsonData);
     break;
+    case 'logout':
+        logout();
+        break;
+    default:
+        break;
 };
 
 function login($jsonData)
@@ -60,7 +65,33 @@ function login($jsonData)
         echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
     }
 }
+function logout()
+{
+    clearSession();
+    $array = array(
+        "msg" => "success",
+        "info" => "退出成功！",
+    );
+    echo json_encode($array);
+}
+function clearSession()
+{
+    //正确的注销session方法：
+//1开启session
+    session_start();
 
+//2、清空session信息
+    $_SESSION = array();
+
+//3、清楚客户端sessionid
+    if(isset($_COOKIE[session_name()]))
+    {
+        setCookie(session_name(),'',time()-3600,'/');
+    }
+//4、彻底销毁session
+    session_destroy();
+
+}
 function storageSession($row)
 {
     // 启动 Session
