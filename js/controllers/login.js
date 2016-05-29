@@ -29,9 +29,14 @@ angular.module('starter.controllers.login', ['ui.router'])
     .controller('login', ['$scope', "$http", "permissions", function($scope, $http, permissions) {
         $scope.submit = function() {
             $http({
-                method: 'GET',
+                method: 'POST',
                 url: 'userServer.php',
-                params: {
+                // params: {
+                //     user_name: angular.element("#user").val(),
+                //     password: angular.element("#pas").val(),
+                //     action: "login"
+                // },
+                data: {
                     user_name: angular.element("#user").val(),
                     password: angular.element("#pas").val(),
                     action: "login"
