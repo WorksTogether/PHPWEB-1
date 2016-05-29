@@ -64,18 +64,18 @@
       <file leaf-file-name="userServer.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/userServer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+            <state relative-caret-position="375">
+              <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
               <folding>
-                <marker date="1464529345253" expanded="true" signature="779:811" placeholder="SELECT * FRO... user_info" />
-                <marker date="1464529345253" expanded="true" signature="779:821" placeholder="SELECT * FRO... user_info" />
-                <marker date="1464529345253" expanded="true" signature="779:822" placeholder="SELECT * FRO... user_info" />
-                <marker date="1464529345253" expanded="true" signature="779:824" placeholder="SELECT * FRO... user_info" />
-                <marker date="1464529345253" expanded="true" signature="779:833" placeholder="SELECT * FRO... user_info" />
-                <marker date="1464529345253" expanded="true" signature="779:851" placeholder="SELECT * FRO... user_info" />
-                <marker date="1464529345253" expanded="true" signature="779:852" placeholder="SELECT * FRO... user_info" />
-                <marker date="1464529345253" expanded="true" signature="779:865" placeholder="SELECT * FRO... user_info" />
-                <marker date="1464529345253" expanded="true" signature="779:866" placeholder="SELECT * FRO... user_info" />
+                <marker date="1464529394379" expanded="true" signature="717:749" placeholder="SELECT * FRO... user_info" />
+                <marker date="1464529394379" expanded="true" signature="717:759" placeholder="SELECT * FRO... user_info" />
+                <marker date="1464529394379" expanded="true" signature="717:760" placeholder="SELECT * FRO... user_info" />
+                <marker date="1464529394379" expanded="true" signature="717:762" placeholder="SELECT * FRO... user_info" />
+                <marker date="1464529394379" expanded="true" signature="717:771" placeholder="SELECT * FRO... user_info" />
+                <marker date="1464529394379" expanded="true" signature="717:789" placeholder="SELECT * FRO... user_info" />
+                <marker date="1464529394379" expanded="true" signature="717:790" placeholder="SELECT * FRO... user_info" />
+                <marker date="1464529394379" expanded="true" signature="717:803" placeholder="SELECT * FRO... user_info" />
+                <marker date="1464529394379" expanded="true" signature="717:804" placeholder="SELECT * FRO... user_info" />
               </folding>
             </state>
           </provider>
@@ -84,8 +84,8 @@
       <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/controllers/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1025">
-              <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+            <state relative-caret-position="450">
+              <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -405,12 +405,12 @@
       <workItem from="1464331584577" duration="13577000" />
       <workItem from="1464349011584" duration="7730000" />
       <workItem from="1464439037171" duration="758000" />
-      <workItem from="1464524737783" duration="4393000" />
+      <workItem from="1464524737783" duration="4473000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108174000" />
+    <option name="totallyTimeSpent" value="108254000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -739,26 +739,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/controllers/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1025">
-          <caret line="41" column="36" selection-start-line="41" selection-start-column="36" selection-end-line="41" selection-end-column="36" />
+        <state relative-caret-position="450">
+          <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/userServer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+        <state relative-caret-position="375">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
           <folding>
-            <marker date="1464529345253" expanded="true" signature="779:811" placeholder="SELECT * FRO... user_info" />
-            <marker date="1464529345253" expanded="true" signature="779:821" placeholder="SELECT * FRO... user_info" />
-            <marker date="1464529345253" expanded="true" signature="779:822" placeholder="SELECT * FRO... user_info" />
-            <marker date="1464529345253" expanded="true" signature="779:824" placeholder="SELECT * FRO... user_info" />
-            <marker date="1464529345253" expanded="true" signature="779:833" placeholder="SELECT * FRO... user_info" />
-            <marker date="1464529345253" expanded="true" signature="779:851" placeholder="SELECT * FRO... user_info" />
-            <marker date="1464529345253" expanded="true" signature="779:852" placeholder="SELECT * FRO... user_info" />
-            <marker date="1464529345253" expanded="true" signature="779:865" placeholder="SELECT * FRO... user_info" />
-            <marker date="1464529345253" expanded="true" signature="779:866" placeholder="SELECT * FRO... user_info" />
+            <marker date="1464529394379" expanded="true" signature="717:749" placeholder="SELECT * FRO... user_info" />
+            <marker date="1464529394379" expanded="true" signature="717:759" placeholder="SELECT * FRO... user_info" />
+            <marker date="1464529394379" expanded="true" signature="717:760" placeholder="SELECT * FRO... user_info" />
+            <marker date="1464529394379" expanded="true" signature="717:762" placeholder="SELECT * FRO... user_info" />
+            <marker date="1464529394379" expanded="true" signature="717:771" placeholder="SELECT * FRO... user_info" />
+            <marker date="1464529394379" expanded="true" signature="717:789" placeholder="SELECT * FRO... user_info" />
+            <marker date="1464529394379" expanded="true" signature="717:790" placeholder="SELECT * FRO... user_info" />
+            <marker date="1464529394379" expanded="true" signature="717:803" placeholder="SELECT * FRO... user_info" />
+            <marker date="1464529394379" expanded="true" signature="717:804" placeholder="SELECT * FRO... user_info" />
           </folding>
         </state>
       </provider>

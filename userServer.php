@@ -11,8 +11,7 @@ set_time_limit(0);
 date_default_timezone_set('Europe/London');
 include 'connect.php';
 $postData=file_get_contents('php://input', true);
-$str='{"user_name":"admin","password":"123456","action":"login"}';
-$jsonData=json_decode($str,true);
+$jsonData=json_decode($postData,true);
 $action = $jsonData['action'];
 switch ($action)
 {
