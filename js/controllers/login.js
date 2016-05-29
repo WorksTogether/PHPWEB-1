@@ -26,28 +26,32 @@ permissionList = [{
     Name: "case_detail"
 }];
 angular.module('starter.controllers.login', ['ui.router'])
-    .controller('login', ['$scope', "$http", "permissions", function($scope, $http, permissions) {
+    .controller('login', ['$scope', "$http", "permissions", '$state', function(
+        $scope, $http, permissions, $state) {
         $scope.submit = function() {
             $http({
                 method: 'POST',
                 url: 'userServer.php',
-               /* params: {
+                // params: {
+                //     user_name: angular.element("#user").val(),
+                //     password: angular.element("#pas").val(),
+                //     action: "login"
+                // }
+                data: {
                     user_name: angular.element("#user").val(),
                     password: angular.element("#pas").val(),
                     action: "login"
-                }*/
-                data: {
-                     user_name: angular.element("#user").val(),
-                     password: angular.element("#pas").val(),
-                     action: "login"
-                 },
+                },
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-                 }
+                }
             }).
             success(function(data, status, headers, config) {
                 if (data.msg == "success") {
-                    window.location.href = "http://" + window.location.host + "/#/nav/homepage";
+                    // window.location.href = "http://" + window.location.host + "/#/nav/homepage";
+                    $state.go('nav.homepage');
+
+
                     if (data.auth == "0") {
                         permissionList = permissionList0;
                         console.log(permissionList);
@@ -62,6 +66,7 @@ angular.module('starter.controllers.login', ['ui.router'])
                 // called asynchronously if an error occurs
                 // or server returns response with an error status.
             });
+
         }
 
     }])
