@@ -10,7 +10,7 @@ permissionList0 = [{
 }, {
     Name: "case_close"
 }];
-permissionList = [{
+permissionList1 = [{
     Name: "case_admin"
 }, {
     Name: "case_assign_main"
@@ -32,11 +32,6 @@ angular.module('starter.controllers.login', ['ui.router'])
             $http({
                 method: 'POST',
                 url: 'userServer.php',
-                // params: {
-                //     user_name: angular.element("#user").val(),
-                //     password: angular.element("#pas").val(),
-                //     action: "login"
-                // }
                 data: {
                     user_name: angular.element("#user").val(),
                     password: angular.element("#pas").val(),
@@ -62,10 +57,7 @@ angular.module('starter.controllers.login', ['ui.router'])
                     permissions.setPermissions(permissionList);
                 }
             }).
-            error(function(data, status, headers, config) {
-                // called asynchronously if an error occurs
-                // or server returns response with an error status.
-            });
+            error(function(data, status, headers, config) {});
 
         }
 
