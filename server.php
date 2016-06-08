@@ -81,12 +81,15 @@ function request_leader()
     {
         $area=$_SESSION["area"];
         $array = array();
+        $array2=array();
         $sql = "SELECT * FROM `user_info` WHERE auth =2  AND area='".$area."'" ;
         if($result = $GLOBALS['$conn']->query($sql)) {
             if ($result->num_rows > 0) {
+                $array['msg']="success";
                 while ($row = $result->fetch_assoc()) {
-                    $array[$row['user_name']] = $row['real_name'];
+                    $array2[$row['user_name']] = $row['real_name'];
                 }
+                $array['leader']=$array2;
                 echo json_encode($array,JSON_UNESCAPED_UNICODE);
 
             }
