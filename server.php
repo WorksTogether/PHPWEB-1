@@ -88,7 +88,7 @@ function request_leader()
             if ($result->num_rows > 0) {
                 $array['msg']="success";
                 while ($row = $result->fetch_assoc()) {
-                    $array2[$row['user_name']] = $row['area']."->".$row['real_name'];
+                    $array2[$row['user_name']] = $row['area'].htmlspecialchars("->").$row['real_name'];
                 }
                 $array['excutive']=$array2;
                 echo json_encode($array,JSON_UNESCAPED_UNICODE);
