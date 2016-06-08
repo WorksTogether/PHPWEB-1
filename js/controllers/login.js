@@ -150,6 +150,9 @@ angular.module('starter.controllers.login', ['ui.router'])
                     } else if (data.auth == "1") {
                         permissionList = permissionList1;
                         console.log(permissionList);
+                    } else if (data.auth == "2") {
+                        permissionList = permissionList2;
+                        console.log(permissionList);
                     }
                     permissions.setPermissions(permissionList);
                 }
