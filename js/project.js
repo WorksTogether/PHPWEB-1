@@ -14,7 +14,8 @@ angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 's
             .state('nav.homepage', {
                 url: '/homepage',
                 templateUrl: 'html/homepage.html',
-                controller: ''
+                controller: '',
+                permission: 'homepage'
             })
             .state('nav.credit_case_in', {
                 url: '/credit_case_in',
