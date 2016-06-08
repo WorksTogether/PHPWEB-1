@@ -125,15 +125,15 @@ function manage_user_add()
     $area1=$_POST['hand_zone_excute'];//长管
     $area2=$_POST['hand_leader'];//组长
 
-    if(empty($area2) && !empty($area1))
+    if($area2=='false' && !empty($area1))
     {
         $area=$area1;
         $auth=1;
     }
     else
-       if(!empty($area2) && !empty($area1))//使用<+>作为分隔符，区分下级所属上级区域
+       if($area2=='true' && !empty($area1))
        {
-           $area=$area1."<+>".$area2;
+           $area=$area1;
            $auth=2;
        }
     else

@@ -68,11 +68,40 @@ case 'list':
 case 'request_region_wait':
     query_by_status('fin_assign');
     break;
+case 'request_leader':
+    request_leader();
+    break;
   default:
     # code...
     break;
 };
+function request_leader()
+{
+    if($_SESSION["auth"] == 1)
+    {
+        $area=$_SESSION["area"];
+        $array = array();
+        $sql = "SELECT * FROM `user_info` WHERE auth =2  AND area='".$area."'" ;
+        if($result = $GLOBALS['$conn']->query($sql)) {
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $array[$row['user_name']] = $row['real_name'];
+                }
+                echo json_encode($array,JSON_UNESCAPED_UNICODE);
 
+            }
+        }
+    }
+    else{
+
+        $array = array(
+            "msg" => "error",
+            "info"=>"非法请求",
+        );
+        echo json_encode($array);
+        die(0);
+    }
+}
 function case_list()
 {
     $ids = $_POST['sels'];
