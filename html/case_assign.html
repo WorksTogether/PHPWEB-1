@@ -371,6 +371,7 @@ $(document).ready(function() {
                                 console.log(value);
                                 str1 += "<option value=" + value + ">" + value + "</option>";
                             });
+                            console.log(str1);
                             $("#region_leader").html(str1);
                             str1 = "";
                         } else if (data.excutive) {
@@ -473,10 +474,10 @@ $(document).ready(function() {
         return true;
     };
     $('#assign').click(function() {
-        console.log(validate_check());
+        // console.log(validate_check());
         var hand_zone_excute = "";
         var hand_leader = "";
-        if (validate_check()) {
+        if (true) {
             $.ajax({
                 url: "server.php?action=hand_assign",
                 type: "POST",
