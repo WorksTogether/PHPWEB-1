@@ -52,7 +52,7 @@
         <div class="box_content">
             <ul>
                 <form action="">
-                    <li style="height: 70px;margin: 20px; border: dotted 2px #D7D7D7;border-radius: 5px;overflow: hidden">
+                    <li has-permission="excutive2" style="height: 70px;margin: 20px; border: dotted 2px #D7D7D7;border-radius: 5px;overflow: hidden">
                         <ul style="overflow: hidden">
                             <li style="float: left;display: inline-block;line-height: 75px;margin-left: 15px">
                                 <label for="check1" style="display: inline-block;line-height: 18px;width:18px;height:18px;border-radius: 50px;border: 1px solid #ffffff;">
@@ -74,7 +74,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li id="drop_down2" style="height: 70px;margin: 20px; border: dotted 2px #D7D7D7;border-radius: 5px;">
+                    <li has-permission="leader2" id="drop_down2" style="height: 70px;margin: 20px; border: dotted 2px #D7D7D7;border-radius: 5px;">
                         <ul style="overflow: hidden">
                             <li style="float: left;display: inline-block;margin-left: 15px;margin-top: 27px">
                                 <label for="check2" style="display: inline-block;line-height: 18px;width:18px;height:18px;border-radius: 50px;border: 1px solid #ffffff;">
@@ -98,12 +98,12 @@
                                 <label for="region_excutive">催收组长：</label>
                             </li>
                             <li class="dropdown" style="float: left;margin: 20px 15px 15px 5px">
-                                <select class="dropdown-select" name="region_excutive" id="region_excutive">
-                                    <option value="0">请选择</option>
+                                <select class="dropdown-select" name="region_excutive" id="region_leader">
+                                    <!-- <option value="0">请选择</option>
                                     <option value="A">催收组长A</option>
                                     <option value="B">催收组长B</option>
                                     <option value="C">催收组长C</option>
-                                    <option value="D">催收组长D</option>
+                                    <option value="D">催收组长D</option> -->
                                 </select>
                                 </select>
                             </li>
@@ -366,9 +366,10 @@ $(document).ready(function() {
                 success: function(data, textStatus, jqXHR) {
                     if (data.msg == "success") {
                         $.each(data.leader, function(name, value) {
+                            console.log(value);
                             str += "<option value=" + value + ">" + value + "</option>";
                         });
-                        $("#region_excutive").append(str);
+                        $("#region_leader").append(str);
                     }
                     if (data.msg == "error") {
 

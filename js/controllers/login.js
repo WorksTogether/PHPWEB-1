@@ -9,6 +9,38 @@ permissionList0 = [{
     Name: "case_assign"
 }, {
     Name: "case_close"
+}, {
+    Name: "fen_case_admin"
+}, {
+    Name: "region_case"
+}, {
+    Name: "region_fin"
+}, {
+    Name: "leader_case"
+}, {
+    Name: "leader_fin"
+}, {
+    Name: "case_tongji"
+}, {
+    Name: "case_inprocess"
+}, {
+    Name: "case_fin"
+}, {
+    Name: "case_closed"
+}, {
+    Name: "case_detail"
+}, {
+    Name: "cuishouadmin"
+}, {
+    Name: "cuishou_case_admin"
+}, {
+    Name: "wait_handle"
+}, {
+    Name: "pay_att"
+}, {
+    Name: "select_all"
+}, {
+    Name: "excutive2"
 }];
 permissionList1 = [{
     Name: "case_admin"
@@ -20,10 +52,75 @@ permissionList1 = [{
     Name: "case_assign"
 }, {
     Name: "case_close"
-}, , {
+}, {
+    Name: "fen_case_admin"
+}, {
+    Name: "region_case"
+}, {
+    Name: "region_fin"
+}, {
+    Name: "leader_case"
+}, {
+    Name: "leader_fin"
+}, {
     Name: "case_tongji"
-}, , {
+}, {
+    Name: "case_inprocess"
+}, {
+    Name: "case_fin"
+}, {
+    Name: "case_closed"
+}, {
     Name: "case_detail"
+}, {
+    Name: "cuishouadmin"
+}, {
+    Name: "cuishou_case_admin"
+}, {
+    Name: "wait_handle"
+}, {
+    Name: "pay_att"
+}, {
+    Name: "leader2"
+}];
+permissionList2 = [{
+    Name: "case_admin"
+}, {
+    Name: "case_assign_main"
+}, {
+    Name: "credit_case_in"
+}, {
+    Name: "case_assign"
+}, {
+    Name: "case_close"
+}, {
+    Name: "fen_case_admin"
+}, {
+    Name: "region_case"
+}, {
+    Name: "region_fin"
+}, {
+    Name: "leader_case"
+}, {
+    Name: "leader_fin"
+}, {
+    Name: "case_tongji"
+}, {
+    Name: "case_inprocess"
+}, {
+    Name: "case_fin"
+}, {
+    Name: "case_closed"
+}, {
+    Name: "case_detail"
+}, {
+    Name: "cuishouadmin"
+}, {
+    Name: "cuishou_case_admin"
+}, {
+    Name: "wait_handle"
+}, {
+    Name: "pay_att"
 }];
 angular.module('starter.controllers.login', ['ui.router'])
     .controller('login', ['$scope', "$http", "permissions", '$state', function(
@@ -58,7 +155,14 @@ angular.module('starter.controllers.login', ['ui.router'])
                 }
             }).
             error(function(data, status, headers, config) {});
-
         }
-
+        $scope.$on('$stateChangeStart', function(evt, next, current) {
+            // var permission = next.permission;
+            // console.log(permission)
+            // console.log(angular.isString(permission))
+            // console.log(permissionList)
+            // if (!angular.isString(permission) || !permissions.hasPermission(permission))
+            //     console.log(22222)
+            // $location.path('/login');
+        });
     }])
