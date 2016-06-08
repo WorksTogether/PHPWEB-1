@@ -92,8 +92,6 @@ permissionList2 = [{
 }, {
     Name: "credit_case_in"
 }, {
-    Name: "case_assign"
-}, {
     Name: "case_close"
 }, {
     Name: "fen_case_admin"
