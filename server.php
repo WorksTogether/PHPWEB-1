@@ -373,12 +373,11 @@ function distribution()
 
 if($auth==0 && !empty($param_director))
 {
-    $sql_join=" director='".$param_director."' status='fin_assign'";
+    $sql_join=" director='".$param_director."', status='fin_assign'";
 } else
 if($auth==1 && !empty($param_leader)){
     $param_director=$auth=$_SESSION["area"] ;
     $sql_join=" director='".$param_director."' , leader='".$param_leader."', "."status='fin_assign'";
-    //$sql_join=" leader='".$param_leader."', "."status='fin_assign'";
 }
 else
 {
@@ -390,7 +389,7 @@ else
     die(0);
 }
     $sql_1 = "UPDATE `total` SET ";
-    $sql_2="WHERE id IN (".$param_ids.")";
+    $sql_2=" WHERE id IN (".$param_ids.")";
     $sql=$sql_1.$sql_join.$sql_2;
     if ($GLOBALS['$conn']->query($sql))
     {
