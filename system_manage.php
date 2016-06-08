@@ -115,27 +115,37 @@ function request_manage_user()
 function manage_user_add()
 {
     $userName=$_POST['login'];
+    $userName=trim($userName);
     $password=$_POST['pas'];
     $realName=$_POST['user_name'];
     $gender=$_POST['sex'];
     $phone=$_POST['tel'];
     $email=$_POST['eml'];
     $status=$_POST['status'];
-    $area1=$_POST['hand_zone_excute'];
-    $area2=$_POST['hand_leader'];
-    $area=$area1;
-    //0admin   1主管 2组长
-    $auth=1;
-    if(empty($area1))
-    {
-        $area=$area2;
-        $auth=2;
-    }
-    if(empty($area2))
+    $area1=$_POST['hand_zone_excute'];//长管
+    $area2=$_POST['hand_leader'];//组长
+
+    if(empty($area2) && !empty($area1))
     {
         $area=$area1;
         $auth=1;
     }
+    else
+       if(!empty($area2) && !empty($area1))//使用<+>作为分隔符，区分下级所属上级区域
+       {
+           $area=$area1."<+>".$area2;
+           $auth=2;
+       }
+    else
+    {
+        $array = array(
+            "msg" => "error",
+            "info" => "非法请求",
+        );
+        die(json_encode($array,JSON_UNESCAPED_UNICODE));
+    }
+
+
 
     $sql="SELECT * FROM `user_info` WHERE user_name='".$userName."'";
     if ($result=$GLOBALS['$conn']->query($sql)) {
@@ -153,7 +163,7 @@ function manage_user_add()
         echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
     }
 
-    $sql = "INSERT INTO `user_info`(`user_name`, `password`,`real_name`,`gender`,`phone`,`email`,`auth`,`status`,`area`) VALUES 
+    $sql = "INSERT INTO `user_info`(`user_name`, `password`,`real_name`,`gender`,`phone`,`email`,`auth`,`status`,`director_area`) VALUES 
       ('$userName','$password','$realName','$gender','$phone','$email','$auth','$status','$area')";
     if ($GLOBALS['$conn']->query($sql)) {
         $array = array(
