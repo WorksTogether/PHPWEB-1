@@ -77,7 +77,27 @@ case 'request_leader':
 };
 function request_leader()
 {
-    if($_SESSION["auth"] == 1)
+    $auth=$_SESSION["auth"] ;
+
+    if($auth==0)
+    {
+        $array = array();
+        $array2=array();
+        $sql = "SELECT * FROM `user_info` WHERE auth =1 " ;
+        if($result = $GLOBALS['$conn']->query($sql)) {
+            if ($result->num_rows > 0) {
+                $array['msg']="success";
+                while ($row = $result->fetch_assoc()) {
+                    $array2[$row['user_name']] = $row['area']."->".$row['real_name'];
+                }
+                $array['leader']=$array2;
+                echo json_encode($array,JSON_UNESCAPED_UNICODE);
+
+            }
+        }
+    }
+    else
+    if($auth== 1)
     {
         $area=$_SESSION["area"];
         $array = array();

@@ -118,6 +118,7 @@ function manage_user_add()
     $userName=trim($userName);
     $password=$_POST['pas'];
     $realName=$_POST['user_name'];
+    $realName=trim($realName);
     $gender=$_POST['sex'];
     $phone=$_POST['tel'];
     $email=$_POST['eml'];
