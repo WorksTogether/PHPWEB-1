@@ -126,6 +126,15 @@ function manage_user_add()
     $area1=$_POST['hand_zone_excute'];//长管
     $area2=$_POST['hand_leader'];//组长
 
+    if(empty($userName) || empty($password) || empty($realName))
+    {
+        $array = array(
+            "msg" => "error",
+            "info" => "用户名，密码和真实姓名不能为空",
+        );
+        die(json_encode($array,JSON_UNESCAPED_UNICODE));
+    }
+
     if($area2=='false' && !empty($area1))
     {
         $area=$area1;

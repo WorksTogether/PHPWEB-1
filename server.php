@@ -15,6 +15,7 @@ if(!isLogin())
         "info" => "您未登录",
     );
     echo json_encode($array,JSON_UNESCAPED_UNICODE);
+  //  echo "<META HTTP-EQUIV=Refresh CONTENT=0;URL=".$_SERVER['DOMAIN'].">";
     die(0);
 }
 $action = $_GET['action'];
@@ -353,23 +354,43 @@ function distribution()
     {
         $array = array(
             "msg" => "error",
+            "info"=>"id不能为空"
         );
         echo json_encode($array);
         die(0);
     }
     //没收数据和不存在主管但是组长存在的情况
-    if((empty($param_director) && empty($param_leader)|| (empty($param_director) && !empty($param_leader))))
+    $auth=$_SESSION["auth"] ;
+    if((empty($param_director) && empty($param_leader)) || ($auth==0 && empty($param_director)) || ($auth==1 && empty($param_leader)))
     {
         $array = array(
             "msg" => "error",
+            "info"=>" 未选择分配主管或组长"
         );
         echo json_encode($array);
         die(0);
     }
+
+if($auth==0 && !empty($param_director))
+{
+    $sql_join=" director='".$param_director."' status='fin_assign'";
+} else
+if($auth==1 && !empty($param_leader)){
+    $param_director=$auth=$_SESSION["area"] ;
+    $sql_join=" director='".$param_director."' , leader='".$param_leader."', "."status='fin_assign'";
+    //$sql_join=" leader='".$param_leader."', "."status='fin_assign'";
+}
+else
+{
+    $array = array(
+        "msg" => "error",
+        "info"=>" 非法请求"
+    );
+    echo json_encode($array);
+    die(0);
+}
     $sql_1 = "UPDATE `total` SET ";
     $sql_2="WHERE id IN (".$param_ids.")";
-
-    $sql_join=" director='".$param_director."' , leader='".$param_leader."', "."status='fin_assign'";
     $sql=$sql_1.$sql_join.$sql_2;
     if ($GLOBALS['$conn']->query($sql))
     {
