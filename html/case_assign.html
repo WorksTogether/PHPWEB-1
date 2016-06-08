@@ -371,7 +371,7 @@ $(document).ready(function() {
                                 console.log(value);
                                 str1 += "<option value=" + value + ">" + value + "</option>";
                             });
-                            $("#region_leader").html(str);
+                            $("#region_leader").html(str1);
                             str1 = "";
                         } else if (data.excutive) {
                             $.each(data.excutive, function(name, value) {
