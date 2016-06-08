@@ -90,7 +90,7 @@ function request_leader()
                 while ($row = $result->fetch_assoc()) {
                     $array2[$row['user_name']] = $row['area']."->".$row['real_name'];
                 }
-                $array['leader']=$array2;
+                $array['excutive']=$array2;
                 echo json_encode($array,JSON_UNESCAPED_UNICODE);
 
             }
