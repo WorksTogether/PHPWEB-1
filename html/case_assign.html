@@ -65,10 +65,10 @@
                             <li id="drop_down1" class="dropdown" style="float: left;margin: 15px 15px 15px 5px;">
                                 <select class="dropdown-select" name="region_excutive" id="region_excutive">
                                     <option value="0">请选择</option>
-                                    <option value="beijing">北京地区主管</option>
+                                    <!--                                     <option value="beijing">北京地区主管</option>
                                     <option value="chengdu">成都地区主管</option>
                                     <option value="shanghai">上海地区主管</option>
-                                    <option value="chongqing">重庆地区主管</option>
+                                    <option value="chongqing">重庆地区主管</option> -->
                                 </select>
                                 </select>
                             </li>
@@ -99,8 +99,8 @@
                             </li>
                             <li class="dropdown" style="float: left;margin: 20px 15px 15px 5px">
                                 <select class="dropdown-select" name="region_excutive" id="region_leader">
-                                    <!-- <option value="0">请选择</option>
-                                    <option value="A">催收组长A</option>
+                                    <!--                                     <option value="0">请选择</option> -->
+                                    <!--                                     <option value="A">催收组长A</option>
                                     <option value="B">催收组长B</option>
                                     <option value="C">催收组长C</option>
                                     <option value="D">催收组长D</option> -->
@@ -354,7 +354,8 @@ $(document).ready(function() {
     };
     $('#hand_assign').click(function() {
         var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
-        var str = "";
+        var str1 = "<option value=" + 0 + ">请选择</option>";
+        var str2 = "<option value=" + 0 + ">请选择</option>";
         console.log(sels)
         if (sels == "") {
             alert("请选择手动分配项！");
@@ -365,11 +366,22 @@ $(document).ready(function() {
                 dataType: "json",
                 success: function(data, textStatus, jqXHR) {
                     if (data.msg == "success") {
-                        $.each(data.leader, function(name, value) {
-                            console.log(value);
-                            str += "<option value=" + value + ">" + value + "</option>";
-                        });
-                        $("#region_leader").append(str);
+                        if (data.leader) {
+                            $.each(data.leader, function(name, value) {
+                                console.log(value);
+                                str1 += "<option value=" + value + ">" + value + "</option>";
+                            });
+                            $("#region_leader").html(str);
+                            str1 = "";
+                        } else if (data.excutive) {
+                            $.each(data.excutive, function(name, value) {
+                                console.log(value);
+                                str2 += "<option value=" + value + ">" + value + "</option>";
+                            });
+                            $("#region_excutive").html(str2);
+                            str2 = "";
+                        }
+
                     }
                     if (data.msg == "error") {
 
