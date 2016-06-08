@@ -41,6 +41,8 @@ permissionList0 = [{
     Name: "select_all"
 }, {
     Name: "excutive2"
+}, {
+    Name: "system_manage"
 }];
 permissionList1 = [{
     Name: "case_admin"
