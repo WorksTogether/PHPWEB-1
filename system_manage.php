@@ -163,7 +163,7 @@ function manage_user_add()
         echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
     }
 
-    $sql = "INSERT INTO `user_info`(`user_name`, `password`,`real_name`,`gender`,`phone`,`email`,`auth`,`status`,`director_area`) VALUES 
+    $sql = "INSERT INTO `user_info`(`user_name`, `password`,`real_name`,`gender`,`phone`,`email`,`auth`,`status`,`area`) VALUES 
       ('$userName','$password','$realName','$gender','$phone','$email','$auth','$status','$area')";
     if ($GLOBALS['$conn']->query($sql)) {
         $array = array(

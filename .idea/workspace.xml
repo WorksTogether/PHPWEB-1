@@ -59,17 +59,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="system_manage.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="system_manage.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/system_manage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-24">
-              <caret line="134" column="8" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="8" />
+            <state relative-caret-position="302">
+              <caret line="158" column="9" selection-start-line="158" selection-start-column="9" selection-end-line="158" selection-end-column="9" />
               <folding>
-                <marker date="1465366603639" expanded="true" signature="583:624" placeholder="DELETE FROM " />
-                <marker date="1465366603639" expanded="true" signature="1031:1088" placeholder="SELECT COUNT... " />
-                <marker date="1465366603639" expanded="true" signature="1653:1731" placeholder="SELECT * FRO... user_info" />
-                <marker date="1465366603639" expanded="true" signature="3501:3558" placeholder="SELECT * FRO... user_info" />
-                <marker date="1465366603639" expanded="true" signature="3945:4168" placeholder="INSERT INTO `user_info`... " />
+                <marker date="1465367644650" expanded="true" signature="583:624" placeholder="DELETE FROM " />
+                <marker date="1465367644650" expanded="true" signature="1031:1088" placeholder="SELECT COUNT... " />
+                <marker date="1465367644650" expanded="true" signature="1653:1731" placeholder="SELECT * FRO... user_info" />
+                <marker date="1465367644650" expanded="true" signature="3501:3558" placeholder="SELECT * FRO... user_info" />
+                <marker date="1465367644650" expanded="true" signature="3945:4159" placeholder="INSERT INTO `user_info`... " />
               </folding>
             </state>
           </provider>
@@ -95,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
+            <state relative-caret-position="361">
+              <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -358,15 +358,15 @@
       <workItem from="1464349011584" duration="7730000" />
       <workItem from="1464439037171" duration="758000" />
       <workItem from="1464524737783" duration="8319000" />
-      <workItem from="1465362408143" duration="3968000" />
+      <workItem from="1465362408143" duration="5154000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116068000" />
+    <option name="totallyTimeSpent" value="117254000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1386" height="788" extended-state="0" />
+    <frame x="-8" y="-8" width="1386" height="788" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13430656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -654,14 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -687,15 +679,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/system_manage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-24">
-          <caret line="134" column="8" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="8" />
+        <state relative-caret-position="302">
+          <caret line="158" column="9" selection-start-line="158" selection-start-column="9" selection-end-line="158" selection-end-column="9" />
           <folding>
-            <marker date="1465366603639" expanded="true" signature="583:624" placeholder="DELETE FROM " />
-            <marker date="1465366603639" expanded="true" signature="1031:1088" placeholder="SELECT COUNT... " />
-            <marker date="1465366603639" expanded="true" signature="1653:1731" placeholder="SELECT * FRO... user_info" />
-            <marker date="1465366603639" expanded="true" signature="3501:3558" placeholder="SELECT * FRO... user_info" />
-            <marker date="1465366603639" expanded="true" signature="3945:4168" placeholder="INSERT INTO `user_info`... " />
+            <marker date="1465367644650" expanded="true" signature="583:624" placeholder="DELETE FROM " />
+            <marker date="1465367644650" expanded="true" signature="1031:1088" placeholder="SELECT COUNT... " />
+            <marker date="1465367644650" expanded="true" signature="1653:1731" placeholder="SELECT * FRO... user_info" />
+            <marker date="1465367644650" expanded="true" signature="3501:3558" placeholder="SELECT * FRO... user_info" />
+            <marker date="1465367644650" expanded="true" signature="3945:4159" placeholder="INSERT INTO `user_info`... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="46" column="21" selection-start-line="46" selection-start-column="21" selection-end-line="46" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
