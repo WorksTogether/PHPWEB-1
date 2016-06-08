@@ -483,8 +483,10 @@ $(document).ready(function() {
                 type: "POST",
                 dataType: "json",
                 data: {
-                    zone_excute: localStorage.getItem("hand_zone_excute"),
-                    leader: localStorage.getItem("hand_leader"),
+                    // zone_excute: localStorage.getItem("hand_zone_excute"),
+                    zone_excute: $("#drop_down1").children("select").val(),
+                    // leader: localStorage.getItem("hand_leader"),
+                    leader: $("#drop_down2").find("select").eq(1).val(),
                     sels: localStorage.getItem("sels")
                 },
                 success: function(data, textStatus, jqXHR) {
