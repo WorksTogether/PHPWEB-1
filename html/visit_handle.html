@@ -246,13 +246,7 @@ $(document).ready(function() {
         loadtext: "loading...",
         loadui: "block",
         scroll: true,
-        loadComplete: function(data) {
-            if (data.records == 0) {
-                $("#del_row1").unbind();
-            } else {
-                $("#del_row1").bind("click", del_rows);
-            }
-        }
+        loadComplete: function(data) {}
     });
     $('#start_visit').click(function() {
         var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
