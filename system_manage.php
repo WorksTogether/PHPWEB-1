@@ -11,6 +11,16 @@ set_time_limit(0);
 date_default_timezone_set('Europe/London');
 include 'connect.php';
 include 'php/Globals.php';
+if(!isLogin() || $_SESSION['auth']!=0)
+{
+    $array = array(
+        "msg" => "error",
+        "info" => "您未登录",
+    );
+    echo json_encode($array,JSON_UNESCAPED_UNICODE);
+    echo "<META HTTP-EQUIV=Refresh CONTENT=0;URL=index.html>";//跳转到首页
+    die();
+}
 
 $action= $_GET['action'];
 switch ($action)

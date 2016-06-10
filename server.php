@@ -841,6 +841,17 @@ function excelTime($date, $time=false){
 }
 function request_file()
 {
+    $auth=$_SESSION["auth"] ;
+    if($auth!=0)
+    {
+        $array = array(
+            "msg" => "error",
+            "info"=>"只有管理员才能导入",
+        );
+        echo json_encode($array,JSON_UNESCAPED_UNICODE);
+        die();
+    }
+
     $inputFileName = './uploads/case_in.xls';
     if(file_exists($inputFileName))
     {
