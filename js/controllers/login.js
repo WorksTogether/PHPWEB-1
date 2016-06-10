@@ -55,8 +55,6 @@ permissionList0 = [{
 permissionList1 = [{
     Name: "case_admin"
 }, {
-    Name: "case_assign_main"
-}, {
     Name: "case_assign"
 }, {
     Name: "case_close"
@@ -92,6 +90,10 @@ permissionList1 = [{
     Name: "leader2"
 }, {
     Name: "credit_case_in"
+}, {
+    Name: "handle_statistic"
+}, {
+    Name: "visit_statistic"
 }];
 permissionList2 = [{
     Name: "case_admin"
