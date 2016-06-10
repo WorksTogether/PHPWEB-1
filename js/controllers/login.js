@@ -88,8 +88,6 @@ permissionList1 = [{
 permissionList2 = [{
     Name: "case_admin"
 }, {
-    Name: "case_assign_main"
-}, {
     Name: "credit_case_in"
 }, {
     Name: "case_close"
@@ -127,6 +125,10 @@ permissionList2 = [{
     Name: "wait_visit"
 }, {
     Name: "visit_process"
+}, {
+    Name: "handle_statistic"
+}, {
+    Name: "visit_statistic"
 }];
 angular.module('starter.controllers.login', ['ui.router'])
     .controller('login', ['$scope', "$http", "permissions", '$state', function(
