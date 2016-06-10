@@ -245,13 +245,7 @@ $(document).ready(function() {
         loadtext: "loading...",
         loadui: "block",
         scroll: true,
-        loadComplete: function(data) {
-            if (data.records == 0) {
-                $("#del_row1").unbind();
-            } else {
-                $("#del_row1").bind("click", del_rows);
-            }
-        }
+        loadComplete: function(data) {}
     });
     $('#phone_handle_fin').click(function() {
         var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
@@ -278,7 +272,30 @@ $(document).ready(function() {
             });
         }
     });
-    $('#visit_start').click(function() { var sels = $("#list1").jqGrid('getGridParam', 'selarrrow'); console.log(sels) if (sels == "") { alert("请选择需要外访项！"); } else { $.ajax({ url: "server.php?action=visit_process", type: "POST", dataType: "json", data: { sels: sels }, success: function(data, textStatus, jqXHR) { if (data.msg == "success") { alert("标记外访成功！"); } if (data.msg == "error") { alert("标记外访失败！"); } } }); } });
+    $('#visit_start').click(function() {
+        var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
+        console.log(sels);
+        if (sels == "") {
+            alert("请选择需要外访项！");
+        } else {
+            $.ajax({
+                url: "server.php?action=visit_process",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    sels: sels
+                },
+                success: function(data, textStatus, jqXHR) {
+                    if (data.msg == "success") {
+                        alert("标记外访成功！");
+                    }
+                    if (data.msg == "error") {
+                        alert("标记外访失败！");
+                    }
+                }
+            });
+        }
+    });
 
 });
 </script>
