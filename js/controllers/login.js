@@ -57,8 +57,6 @@ permissionList1 = [{
 }, {
     Name: "case_assign_main"
 }, {
-    Name: "credit_case_in"
-}, {
     Name: "case_assign"
 }, {
     Name: "case_close"
