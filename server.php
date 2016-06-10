@@ -84,10 +84,158 @@ case 'request_receive':
 case 'region_hand_assign':
     distribution();
     break;
+case 'request_wait_handle':
+    request_wait_handle();
+    break;
+case 'request_pay_att':
+    request_pay_att();
+    break;
+case 'cancel_att':
+    cancel_att();
+    break;
+case 'visit_handle':
+    visit_handle();
+    break;
+case 'phone_handle':
+    phone_handle();
+    break;
+case 'visit_process1':
+    visit_process();
+    break;
   default:
     # code...
     break;
 };
+
+function visit_process()
+{
+    $auth=$_SESSION["auth"] ;
+    if($auth==2)//组长
+    {
+        $real_name=$_SESSION["realName"];
+        query_by_status(" NO_DATA' OR status='visit_collection_process'  AND leader='".$real_name);
+    }
+    if($auth==1)//主管
+    {
+        $area=$_SESSION["area"];
+        $real_name=$_SESSION["realName"];
+        $director=$area."->".$real_name;
+        query_by_status(" NO_DATA' OR status='visit_collection_process'  AND director='".$director);
+    }
+    if($auth==0)//超级管理员
+    {
+        query_by_status(" NO_DATA' OR status='visit_collection_process");
+    }
+}
+function visit_handle()
+{
+    $auth=$_SESSION["auth"] ;
+    if($auth==2)//组长
+    {
+        $real_name=$_SESSION["realName"];
+        query_by_status(" NO_DATA' OR status='visit_collection_wait'  AND leader='".$real_name);
+    }
+    if($auth==1)//主管
+    {
+        $area=$_SESSION["area"];
+        $real_name=$_SESSION["realName"];
+        $director=$area."->".$real_name;
+        query_by_status(" NO_DATA' OR status='visit_collection_wait'  AND director='".$director);
+    }
+    if($auth==0)//超级管理员
+    {
+        query_by_status(" NO_DATA' OR status='visit_collection_wait");
+    }
+}
+
+function phone_handle()
+{
+    $auth=$_SESSION["auth"] ;
+    if($auth==2)//组长
+    {
+        $real_name=$_SESSION["realName"];
+        query_by_status(" NO_DATA' OR status='tel_collection'  AND leader='".$real_name);
+    }
+    if($auth==1)//主管
+    {
+        $area=$_SESSION["area"];
+        $real_name=$_SESSION["realName"];
+        $director=$area."->".$real_name;
+        query_by_status(" NO_DATA' OR status='tel_collection'  AND director='".$director);
+    }
+    if($auth==0)//超级管理员
+    {
+        query_by_status(" NO_DATA' OR status='tel_collection");
+    }
+}
+function cancel_att()
+{
+    $ids = $_POST['sels'];
+    $ids_str = join(',', $ids);
+    if(empty($ids))
+    {
+
+        $array = array(
+            "msg" => "error",
+            "info"=>"id不为空",
+        );
+        echo json_encode($array);
+        die(0);
+    }
+    $sql_join="important='no'";
+    $sql_1 = "UPDATE `total` SET ";
+    $sql_2=" WHERE id IN (".$ids_str.")";
+    $sql=$sql_1.$sql_join.$sql_2;
+    if ($GLOBALS['$conn']->query($sql))
+    {
+        $array = array(
+            "msg" => "success",
+        );
+        echo json_encode($array);
+    }
+    else
+    {
+        echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+    }
+}
+function request_pay_att()
+{
+    $auth=$_SESSION["auth"] ;
+    if($auth==2)//组长
+    {
+        $real_name=$_SESSION["realName"];
+        query_by_status(" NO_DATA' OR status!='case_close' AND important='yes' AND leader='".$real_name);
+    }
+    if($auth==1)//主管
+    {
+        $area=$_SESSION["area"];
+        $real_name=$_SESSION["realName"];
+        $director=$area."->".$real_name;
+        query_by_status(" NO_DATA' OR status!='case_close' AND important='yes' AND director='".$director);
+    }
+   if($auth==0)//超级管理员
+   {
+       query_by_status(" NO_DATA' OR status!='case_close' AND important='yes");
+   }
+}
+function request_wait_handle()
+{
+    $auth=$_SESSION["auth"] ;
+    if($auth==2)//组长
+    {
+        $real_name=$_SESSION["realName"];
+        query_by_status("fin_assign'  AND   leader='".$real_name);
+    }
+    else
+    {
+        $array = array(
+            "msg" => "error",
+            "info"=>"只有组长才能进行案件催收",
+        );
+        echo json_encode($array);
+        die(0);
+    }
+}
 function request_receive()
 {
     $auth=$_SESSION["auth"] ;
@@ -326,15 +474,15 @@ function export_case()
     }
 
     // 字体和样式
-    $objActSheet->getStyle('A1:AK1')->getFont()->setSize(12);
-    $objActSheet->getStyle('A1:AK1')->getFont()->setBold(true);
-    $objActSheet->getStyle('A1:AK1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
-    $objActSheet->getStyle('A1:AK1')->getFill()->getStartColor()->setARGB("#ffbfbfbf");
-    $objActSheet->getStyle('A1:AK1')->getBorders()->getAllBorders()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
-    $objActSheet->getStyle('A1:AK1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-    $objActSheet->getStyle('A:AK')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-    $objActSheet->getStyle('A:AK')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
-    $objActSheet->getStyle('A:AK')->getAlignment()->setWrapText(true);
+    $objActSheet->getStyle('A1:AL1')->getFont()->setSize(12);
+    $objActSheet->getStyle('A1:AL1')->getFont()->setBold(true);
+    $objActSheet->getStyle('A1:AL1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+    $objActSheet->getStyle('A1:AL1')->getFill()->getStartColor()->setARGB("#ffbfbfbf");
+    $objActSheet->getStyle('A1:AL1')->getBorders()->getAllBorders()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
+    $objActSheet->getStyle('A1:AL1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+    $objActSheet->getStyle('A:AL')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+    $objActSheet->getStyle('A:AL')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+    $objActSheet->getStyle('A:AL')->getAlignment()->setWrapText(true);
     //填写表头
     $objActSheet->setCellValue('A1','客户名');
     $objActSheet->setCellValue('B1','身份证号');
@@ -371,8 +519,9 @@ function export_case()
     $objActSheet->setCellValue('AG1','已还期数');
     $objActSheet->setCellValue('AH1','未还期数');
     $objActSheet->setCellValue('AI1','M值');
-    $objActSheet->setCellValue('AJ1','区域主管');
-    $objActSheet->setCellValue('AK1','区域组长');
+    $objActSheet->setCellValue('AJ1','是否重点关注');
+    $objActSheet->setCellValue('AK1','区域主管');
+    $objActSheet->setCellValue('AL1','区域组长');
 
     if($result = $GLOBALS['$conn']->query($sql)) {
         if ($result->num_rows > 0) {
@@ -414,8 +563,9 @@ function export_case()
                 $objActSheet->setCellValue('AG'.$i,$row['repay_already_period']);
                 $objActSheet->setCellValue('AH'.$i,$row['repay_not_period']);
                 $objActSheet->setCellValue('AI'.$i,$row['m_value']);
-                $objActSheet->setCellValue('AJ'.$i,$row['director']);
-                $objActSheet->setCellValue('AK'.$i,$row['leader']);
+                $objActSheet->setCellValue('AJ'.$i,$row['important']);
+                $objActSheet->setCellValue('AK'.$i,$row['director']);
+                $objActSheet->setCellValue('AL'.$i,$row['leader']);
                 $i++;
             }
             $outputFileName=dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'downloads' . DIRECTORY_SEPARATOR . 'output.xls';
