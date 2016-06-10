@@ -245,7 +245,10 @@ $(document).ready(function() {
         loadtext: "loading...",
         loadui: "block",
         scroll: true,
-        loadComplete: function(data) {}
+        loadComplete: function(data) {},
+        afterGridCompleteFunc: function() {
+
+        }
     });
     $('#start_handle').click(function() {
         var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
@@ -263,6 +266,9 @@ $(document).ready(function() {
                 success: function(data, textStatus, jqXHR) {
                     if (data.msg == "success") {
                         alert("已开始催收！");
+                        $("#list1").jqGrid('setGridParam', {
+                            url: "server.php?action=request_wait_handle"
+                        }).trigger("reloadGrid");
 
                     }
                     if (data.msg == "error") {
@@ -288,11 +294,9 @@ $(document).ready(function() {
                 success: function(data, textStatus, jqXHR) {
                     if (data.msg == "success") {
                         $.each(sels, function(name, value) {
-                            $("#")
+                            $("#" + value).css("background-color", "pink");
                         });
-
                         alert("重点关注成功！");
-
                     }
                     if (data.msg == "error") {
                         alert("重点关注失败！");
