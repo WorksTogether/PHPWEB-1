@@ -90,6 +90,9 @@ case 'request_wait_handle':
 case 'request_pay_att':
     request_pay_att();
     break;
+case 'pay_att':
+    pay_att();
+break;
 case 'cancel_att':
     cancel_att();
     break;
@@ -99,15 +102,150 @@ case 'visit_handle':
 case 'phone_handle':
     phone_handle();
     break;
-case 'visit_process1':
+case 'visit_process1'://查询
+    visit_process1();
+    break;
+case 'visit_process'://设置
     visit_process();
+    break;
+case 'start_handle':
+    start_handle();
+break;
+case 'start_visit':
+    start_visit();
+    break;
+case 'visit_fin':
+    case_finish();
+    break;
+case 'phone_handle_fin':
+    case_finish();
     break;
   default:
     # code...
     break;
 };
 
+function start_visit()
+{
+    $ids = $_POST['sels'];
+    $ids_str = join(',', $ids);
+    if(empty($ids))
+    {
+
+        $array = array(
+            "msg" => "error",
+            "info"=>"id不为空",
+        );
+        echo json_encode($array);
+        die(0);
+    }
+    $sql_join="status='visit_collection_process'";
+    $sql_1 = "UPDATE `total` SET ";
+    $sql_2=" WHERE id IN (".$ids_str.")";
+    $sql=$sql_1.$sql_join.$sql_2;
+    if ($GLOBALS['$conn']->query($sql))
+    {
+        $array = array(
+            "msg" => "success",
+        );
+        echo json_encode($array);
+    }
+    else
+    {
+        echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+    }
+}
+function case_finish()
+{
+    $ids = $_POST['sels'];
+    $ids_str = join(',', $ids);
+    if(empty($ids))
+    {
+
+        $array = array(
+            "msg" => "error",
+            "info"=>"id不为空",
+        );
+        echo json_encode($array);
+        die(0);
+    }
+    $sql_join="status='case_finish'";
+    $sql_1 = "UPDATE `total` SET ";
+    $sql_2=" WHERE id IN (".$ids_str.")";
+    $sql=$sql_1.$sql_join.$sql_2;
+    if ($GLOBALS['$conn']->query($sql))
+    {
+        $array = array(
+            "msg" => "success",
+        );
+        echo json_encode($array);
+    }
+    else
+    {
+        echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+    }
+}
+function start_handle()
+{
+    $ids = $_POST['sels'];
+    $ids_str = join(',', $ids);
+    if(empty($ids))
+    {
+
+        $array = array(
+            "msg" => "error",
+            "info"=>"id不为空",
+        );
+        echo json_encode($array);
+        die(0);
+    }
+    $sql_join="status='tel_collection'";
+    $sql_1 = "UPDATE `total` SET ";
+    $sql_2=" WHERE id IN (".$ids_str.")";
+    $sql=$sql_1.$sql_join.$sql_2;
+    if ($GLOBALS['$conn']->query($sql))
+    {
+        $array = array(
+            "msg" => "success",
+        );
+        echo json_encode($array);
+    }
+    else
+    {
+        echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+    }
+}
 function visit_process()
+{
+    $ids = $_POST['sels'];
+    $ids_str = join(',', $ids);
+    if(empty($ids))
+    {
+
+        $array = array(
+            "msg" => "error",
+            "info"=>"id不为空",
+        );
+        echo json_encode($array);
+        die(0);
+    }
+    $sql_join="status='visit_collection_wait'";
+    $sql_1 = "UPDATE `total` SET ";
+    $sql_2=" WHERE id IN (".$ids_str.")";
+    $sql=$sql_1.$sql_join.$sql_2;
+    if ($GLOBALS['$conn']->query($sql))
+    {
+        $array = array(
+            "msg" => "success",
+        );
+        echo json_encode($array);
+    }
+    else
+    {
+        echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+    }
+}
+function visit_process1()
 {
     $auth=$_SESSION["auth"] ;
     if($auth==2)//组长
@@ -198,6 +336,46 @@ function cancel_att()
         echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
     }
 }
+function pay_att()
+{
+    $auth=$_SESSION["auth"] ;
+    if($auth!=2)
+    {
+        $array = array(
+            "msg" => "error",
+            "info"=>"非法请求",
+        );
+        echo json_encode($array);
+        die(0);
+    }
+    $ids = $_POST['sels'];
+    $ids_str = join(',', $ids);
+    if(empty($ids))
+    {
+
+        $array = array(
+            "msg" => "error",
+            "info"=>"id不为空",
+        );
+        echo json_encode($array);
+        die(0);
+    }
+    $sql_join="important='yes'";
+    $sql_1 = "UPDATE `total` SET ";
+    $sql_2=" WHERE id IN (".$ids_str.")";
+    $sql=$sql_1.$sql_join.$sql_2;
+    if ($GLOBALS['$conn']->query($sql))
+    {
+        $array = array(
+            "msg" => "success",
+        );
+        echo json_encode($array);
+    }
+    else
+    {
+        echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+    }
+}
 function request_pay_att()
 {
     $auth=$_SESSION["auth"] ;
@@ -224,7 +402,7 @@ function request_wait_handle()
     if($auth==2)//组长
     {
         $real_name=$_SESSION["realName"];
-        query_by_status("fin_assign'  AND   leader='".$real_name);
+        query_by_status("fin_assign'   AND leader='".$real_name);
     }
     else
     {

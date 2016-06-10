@@ -12,6 +12,7 @@ case_close
 tel_collection
 visit_collection_wait
 visit_collection_process
+case_finish
 
 
 */
