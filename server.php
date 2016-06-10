@@ -75,14 +75,57 @@ break;
 case 'request_leader':
     request_leader();
     break;
-case 'request_leader_wait':
+/*case 'request_leader_wait':
     request_leader_wait();
+    break;*/
+case 'request_receive':
+    request_receive();
     break;
   default:
     # code...
     break;
 };
-function request_leader_wait()
+function request_receive()
+{
+    $auth=$_SESSION["auth"] ;
+    if($auth!=1)
+    {
+        $array = array(
+            "msg" => "error",
+            "info"=>"非法请求",
+        );
+        echo json_encode($array);
+        die(0);
+    }
+    $ids = $_POST['sels'];
+    $ids_str = join(',', $ids);
+    if(empty($ids))
+    {
+
+        $array = array(
+            "msg" => "error",
+            "info"=>"id不为空",
+        );
+        echo json_encode($array);
+        die(0);
+    }
+    $sql_join="leader=''";
+    $sql_1 = "UPDATE `total` SET ";
+    $sql_2=" WHERE id IN (".$ids_str.")";
+    $sql=$sql_1.$sql_join.$sql_2;
+    if ($GLOBALS['$conn']->query($sql))
+    {
+        $array = array(
+            "msg" => "success",
+        );
+        echo json_encode($array);
+    }
+    else
+    {
+        echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+    }
+}
+/*function request_leader_wait()
 {
     $auth=$_SESSION["auth"] ;
     if($auth==2)//组长，只列出自己的信息
@@ -90,7 +133,7 @@ function request_leader_wait()
         $real_name=$_SESSION["realName"];
         query_by_status("fin_assign' AND (director!='' AND director IS NOT NULL)  AND leader='".$real_name."' AND '1'='1");
     }
-}
+}*/
 function request_region_fin()
 {
     $auth=$_SESSION["auth"] ;
