@@ -1,0 +1,155 @@
+.banner {
+    height: 100px;
+    background: #008000;
+}
+.main {
+    height:100%;
+    position: fixed;
+    width: 100%;
+    background: url("../image/login_background1.png") 0 -100px;
+    overflow: hidden;
+
+}
+.main_form{
+    background: #F2F2F2;
+    height: 300px;
+    width: 400px;
+/*margin-top: 270px;*/
+    /*float: right;*/
+    /*margin-right: 150px;*/
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    margin-top: -200px;
+    border-radius:10px ;
+    border: #CDCDCD solid 2px;
+    box-shadow:0px 0px 10px 5px #E2E2E2 ;
+
+    font-family:"Trebuchet MS", "Myriad Pro", Arial, sans-serif;
+    color:#333;
+    text-shadow:1px 1px 1px #fff;
+
+}
+.main_form ul{
+    width: 252px;
+    list-style: none;
+margin: 41.5px auto;
+
+}
+.main_form ul label{
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-size: 20px;
+}
+.main_form ul li{
+    border: #DDDDDD solid 1px;
+    background-color: white;
+    height: 40px;
+    width: 250px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.main_form ul li em{
+    height: 15px;
+    width: 15px;
+    display: block;
+    float: left;
+    margin-top: 12.5px;
+    margin-left: 12.5px;
+}
+.main_form ul li .em1{
+    background: url("../image/i1.jpg");
+}
+.main_form ul li .em2{
+    background: url("../image/i2.jpg");
+}
+.main_form ul input{
+    outline: 0 none;
+    border: none;
+    margin: 12.5px 0 12.5px 30px;
+    font-size: 14px;
+}
+ .mycode {
+    display: inline-block;
+    width: 80px;
+    height: 40px;
+    vertical-align: middle;
+    border: solid #999999 1px;
+    border-radius: 10px;
+    box-shadow: #000000 inset 0px 0px 2px;
+}
+.main_form .button{
+    display: block;
+    border: 1px solid #0a3c59;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    padding: 8.5px 23px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 5px;
+    -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+    -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+    box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+    text-shadow: #7ea4bd 0 1px 0;
+    color: #F2F2F2;
+    font-size: 20px;
+    font-family: helvetica, serif;
+    text-decoration: none;
+    vertical-align: middle;
+    outline: 0 none;
+    width: 200px;
+    margin: 20px auto;
+}
+.main_form .button:hover{
+    border: 1px solid #0a3c59;
+    text-shadow: #1e4158 0 1px 0;
+    background: #3e779d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+    background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+    background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+    background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+    background: -o-linear-gradient(top, #65a9d7, #3e779d);
+    background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+    color: #fff
+}
+.main_form .button:active{
+    text-shadow: #1e4158 0 1px 0;
+    border: 1px solid #0a3c59;
+    background: #65a9d7;
+    background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#3e779d));
+    background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+    background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+    background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+    background: -o-linear-gradient(top, #3e779d, #65a9d7);
+    background-image: -ms-linear-gradient(top, #3e779d 0%, #65a9d7 100%);
+    color: #fff
+}
+#check_code
+{
+    /*background:url(./project/image/banner.png);*/
+    /*font-family:Arial;*/
+    font-style:italic;
+    color:blue;
+    font-size:30px;
+    border:0;
+    padding:2px 3px;
+    letter-spacing:3px;
+    font-weight:bolder;
+    display: block;
+    margin-left: 200px;
+    float:right;
+    cursor:pointer;
+    width:50px;
+    height:30px;
+    line-height:60px;
+    text-align:center;
+    vertical-align:middle;
+    background: #ff0000;
+
+}

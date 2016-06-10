@@ -1,0 +1,24 @@
+@charset "utf-8";
+/* CONTENT */
+#content {
+    width: 311px;
+    border: solid 1px #D8D8D8;
+    background: #F2F2F2;
+    font-size: 11px;
+    margin: 0 auto;
+    border-radius: 10px;
+    font-family: "Microsoft YaHei" ! important;
+}
+
+#content h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #535353;
+}
+
+#content img {
+    padding: 5px;
+    background: #f7f7f7;
+    border: solid 1px #464646;
+    margin: 2px;
+}
