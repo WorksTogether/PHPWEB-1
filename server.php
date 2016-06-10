@@ -81,6 +81,9 @@ case 'request_leader':
 case 'request_receive':
     request_receive();
     break;
+case 'region_hand_assign':
+    distribution();
+    break;
   default:
     # code...
     break;
@@ -462,8 +465,10 @@ if($auth==0 && !empty($param_director))
     $sql_join=" director='".$param_director."', status='fin_assign'";
 } else
 if($auth==1 && !empty($param_leader)){
-    $param_director=$auth=$_SESSION["area"] ;
-    $sql_join=" director='".$param_director."' , leader='".$param_leader."', "."status='fin_assign'";
+    $real_name=$_SESSION["realName"];
+    $area=$_SESSION["area"];
+    $director=$area."->".$real_name;
+    $sql_join=" director='".$director."' , leader='".$param_leader."', "."status='fin_assign'";
 }
 else
 {

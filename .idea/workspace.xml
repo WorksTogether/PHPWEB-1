@@ -25,31 +25,31 @@
       <file leaf-file-name="server.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="451">
-              <caret line="113" column="36" selection-start-line="113" selection-start-column="36" selection-end-line="113" selection-end-column="36" />
+            <state relative-caret-position="170">
+              <caret line="48" column="18" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="18" />
               <folding>
-                <marker date="1465527547269" expanded="true" signature="2180:2198" placeholder="UPDATE `tota... " />
-                <marker date="1465527547269" expanded="true" signature="3886:3925" placeholder="SELECT * FRO... user_info" />
-                <marker date="1465527547269" expanded="true" signature="3886:3926" placeholder="SELECT * FRO... user_info" />
-                <marker date="1465527547269" expanded="true" signature="4518:4558" placeholder="SELECT * FRO... total" />
-                <marker date="1465527547269" expanded="true" signature="4518:4562" placeholder="SELECT * FRO... user_info" />
-                <marker date="1465527547269" expanded="true" signature="4518:4569" placeholder="SELECT * FRO... user_info" />
-                <marker date="1465527547269" expanded="true" signature="4518:4579" placeholder="SELECT * FRO... user_info" />
-                <marker date="1465527547269" expanded="true" signature="4518:4580" placeholder="SELECT * FRO... user_info" />
-                <marker date="1465527547269" expanded="true" signature="5373:5420" placeholder="SELECT * FRO... total" />
-                <marker date="1465527547269" expanded="true" signature="5912:5977" placeholder="UPDATE `tota... " />
-                <marker date="1465527547269" expanded="true" signature="6666:6714" placeholder="SELECT * FRO... total" />
-                <marker date="1465527547269" expanded="true" signature="15096:15114" placeholder="UPDATE `tota... " />
-                <marker date="1465527547269" expanded="true" signature="15558:15601" placeholder="SELECT COUNT... " />
-                <marker date="1465527547269" expanded="true" signature="16891:16934" placeholder="SELECT COUNT... " />
-                <marker date="1465527547269" expanded="true" signature="18133:18208" placeholder="SELECT * FRO... total" />
-                <marker date="1465527547269" expanded="true" signature="20595:20667" placeholder="SELECT COUNT... " />
-                <marker date="1465527547269" expanded="true" signature="21227:21320" placeholder="SELECT * FRO... total" />
-                <marker date="1465527547269" expanded="true" signature="25886:29798" placeholder="INSERT INTO `total`... " />
-                <marker date="1465527547269" expanded="true" signature="30111:30903" placeholder="INSERT INTO `relation`... " />
-                <marker date="1465527547269" expanded="true" signature="31340:31382" placeholder="DELETE FROM " />
-                <marker date="1465527547269" expanded="true" signature="31396:31450" placeholder="DELETE FROM " />
-                <marker date="1465527547269" expanded="true" signature="31776:31840" placeholder="UPDATE `tota... " />
+                <marker date="1465543256605" expanded="true" signature="2238:2256" placeholder="UPDATE `tota... " />
+                <marker date="1465543256605" expanded="true" signature="3944:3983" placeholder="SELECT * FRO... user_info" />
+                <marker date="1465543256605" expanded="true" signature="3944:3984" placeholder="SELECT * FRO... user_info" />
+                <marker date="1465543256605" expanded="true" signature="4576:4616" placeholder="SELECT * FRO... total" />
+                <marker date="1465543256605" expanded="true" signature="4576:4620" placeholder="SELECT * FRO... user_info" />
+                <marker date="1465543256605" expanded="true" signature="4576:4627" placeholder="SELECT * FRO... user_info" />
+                <marker date="1465543256605" expanded="true" signature="4576:4637" placeholder="SELECT * FRO... user_info" />
+                <marker date="1465543256605" expanded="true" signature="4576:4638" placeholder="SELECT * FRO... user_info" />
+                <marker date="1465543256605" expanded="true" signature="5431:5478" placeholder="SELECT * FRO... total" />
+                <marker date="1465543256605" expanded="true" signature="5970:6035" placeholder="UPDATE `tota... " />
+                <marker date="1465543256605" expanded="true" signature="6724:6772" placeholder="SELECT * FRO... total" />
+                <marker date="1465543256605" expanded="true" signature="15206:15224" placeholder="UPDATE `tota... " />
+                <marker date="1465543256605" expanded="true" signature="15668:15711" placeholder="SELECT COUNT... " />
+                <marker date="1465543256605" expanded="true" signature="17001:17044" placeholder="SELECT COUNT... " />
+                <marker date="1465543256605" expanded="true" signature="18243:18318" placeholder="SELECT * FRO... total" />
+                <marker date="1465543256605" expanded="true" signature="20705:20777" placeholder="SELECT COUNT... " />
+                <marker date="1465543256605" expanded="true" signature="21337:21430" placeholder="SELECT * FRO... total" />
+                <marker date="1465543256605" expanded="true" signature="25996:29908" placeholder="INSERT INTO `total`... " />
+                <marker date="1465543256605" expanded="true" signature="30221:31013" placeholder="INSERT INTO `relation`... " />
+                <marker date="1465543256605" expanded="true" signature="31450:31492" placeholder="DELETE FROM " />
+                <marker date="1465543256605" expanded="true" signature="31506:31560" placeholder="DELETE FROM " />
+                <marker date="1465543256605" expanded="true" signature="31886:31950" placeholder="UPDATE `tota... " />
               </folding>
             </state>
           </provider>
@@ -58,7 +58,7 @@
       <file leaf-file-name="userServer.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/userServer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
+            <state relative-caret-position="2109">
               <caret line="111" column="25" selection-start-line="111" selection-start-column="4" selection-end-line="111" selection-end-column="25" />
               <folding>
                 <marker date="1465370682096" expanded="true" signature="797:883" placeholder="SELECT * FRO... user_info" />
@@ -96,8 +96,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="50" column="15" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="15" />
+            <state relative-caret-position="-57">
+              <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -182,10 +182,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1378" />
-    <option name="height" value="780" />
+    <option name="x" value="1" />
+    <option name="y" value="1" />
+    <option name="width" value="1364" />
+    <option name="height" value="736" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -229,7 +229,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -278,6 +277,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -362,18 +362,19 @@
       <workItem from="1464524737783" duration="8319000" />
       <workItem from="1465362408143" duration="18537000" />
       <workItem from="1465467149274" duration="5183000" />
-      <workItem from="1465522785852" duration="4727000" />
+      <workItem from="1465522785852" duration="5736000" />
+      <workItem from="1465542779633" duration="630000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140547000" />
+    <option name="totallyTimeSpent" value="142186000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1378" height="780" extended-state="0" />
+    <frame x="1" y="1" width="1364" height="736" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1328928" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.134273" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18393235" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -551,7 +552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -659,7 +659,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/userServer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
+        <state relative-caret-position="2109">
           <caret line="111" column="25" selection-start-line="111" selection-start-column="4" selection-end-line="111" selection-end-column="25" />
           <folding>
             <marker date="1465370682096" expanded="true" signature="797:883" placeholder="SELECT * FRO... user_info" />
@@ -669,39 +669,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="50" column="15" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="15" />
+        <state relative-caret-position="-57">
+          <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="113" column="36" selection-start-line="113" selection-start-column="36" selection-end-line="113" selection-end-column="36" />
+        <state relative-caret-position="170">
+          <caret line="48" column="18" selection-start-line="48" selection-start-column="6" selection-end-line="48" selection-end-column="18" />
           <folding>
-            <marker date="1465527547269" expanded="true" signature="2180:2198" placeholder="UPDATE `tota... " />
-            <marker date="1465527547269" expanded="true" signature="3886:3925" placeholder="SELECT * FRO... user_info" />
-            <marker date="1465527547269" expanded="true" signature="3886:3926" placeholder="SELECT * FRO... user_info" />
-            <marker date="1465527547269" expanded="true" signature="4518:4558" placeholder="SELECT * FRO... total" />
-            <marker date="1465527547269" expanded="true" signature="4518:4562" placeholder="SELECT * FRO... user_info" />
-            <marker date="1465527547269" expanded="true" signature="4518:4569" placeholder="SELECT * FRO... user_info" />
-            <marker date="1465527547269" expanded="true" signature="4518:4579" placeholder="SELECT * FRO... user_info" />
-            <marker date="1465527547269" expanded="true" signature="4518:4580" placeholder="SELECT * FRO... user_info" />
-            <marker date="1465527547269" expanded="true" signature="5373:5420" placeholder="SELECT * FRO... total" />
-            <marker date="1465527547269" expanded="true" signature="5912:5977" placeholder="UPDATE `tota... " />
-            <marker date="1465527547269" expanded="true" signature="6666:6714" placeholder="SELECT * FRO... total" />
-            <marker date="1465527547269" expanded="true" signature="15096:15114" placeholder="UPDATE `tota... " />
-            <marker date="1465527547269" expanded="true" signature="15558:15601" placeholder="SELECT COUNT... " />
-            <marker date="1465527547269" expanded="true" signature="16891:16934" placeholder="SELECT COUNT... " />
-            <marker date="1465527547269" expanded="true" signature="18133:18208" placeholder="SELECT * FRO... total" />
-            <marker date="1465527547269" expanded="true" signature="20595:20667" placeholder="SELECT COUNT... " />
-            <marker date="1465527547269" expanded="true" signature="21227:21320" placeholder="SELECT * FRO... total" />
-            <marker date="1465527547269" expanded="true" signature="25886:29798" placeholder="INSERT INTO `total`... " />
-            <marker date="1465527547269" expanded="true" signature="30111:30903" placeholder="INSERT INTO `relation`... " />
-            <marker date="1465527547269" expanded="true" signature="31340:31382" placeholder="DELETE FROM " />
-            <marker date="1465527547269" expanded="true" signature="31396:31450" placeholder="DELETE FROM " />
-            <marker date="1465527547269" expanded="true" signature="31776:31840" placeholder="UPDATE `tota... " />
+            <marker date="1465543256605" expanded="true" signature="2238:2256" placeholder="UPDATE `tota... " />
+            <marker date="1465543256605" expanded="true" signature="3944:3983" placeholder="SELECT * FRO... user_info" />
+            <marker date="1465543256605" expanded="true" signature="3944:3984" placeholder="SELECT * FRO... user_info" />
+            <marker date="1465543256605" expanded="true" signature="4576:4616" placeholder="SELECT * FRO... total" />
+            <marker date="1465543256605" expanded="true" signature="4576:4620" placeholder="SELECT * FRO... user_info" />
+            <marker date="1465543256605" expanded="true" signature="4576:4627" placeholder="SELECT * FRO... user_info" />
+            <marker date="1465543256605" expanded="true" signature="4576:4637" placeholder="SELECT * FRO... user_info" />
+            <marker date="1465543256605" expanded="true" signature="4576:4638" placeholder="SELECT * FRO... user_info" />
+            <marker date="1465543256605" expanded="true" signature="5431:5478" placeholder="SELECT * FRO... total" />
+            <marker date="1465543256605" expanded="true" signature="5970:6035" placeholder="UPDATE `tota... " />
+            <marker date="1465543256605" expanded="true" signature="6724:6772" placeholder="SELECT * FRO... total" />
+            <marker date="1465543256605" expanded="true" signature="15206:15224" placeholder="UPDATE `tota... " />
+            <marker date="1465543256605" expanded="true" signature="15668:15711" placeholder="SELECT COUNT... " />
+            <marker date="1465543256605" expanded="true" signature="17001:17044" placeholder="SELECT COUNT... " />
+            <marker date="1465543256605" expanded="true" signature="18243:18318" placeholder="SELECT * FRO... total" />
+            <marker date="1465543256605" expanded="true" signature="20705:20777" placeholder="SELECT COUNT... " />
+            <marker date="1465543256605" expanded="true" signature="21337:21430" placeholder="SELECT * FRO... total" />
+            <marker date="1465543256605" expanded="true" signature="25996:29908" placeholder="INSERT INTO `total`... " />
+            <marker date="1465543256605" expanded="true" signature="30221:31013" placeholder="INSERT INTO `relation`... " />
+            <marker date="1465543256605" expanded="true" signature="31450:31492" placeholder="DELETE FROM " />
+            <marker date="1465543256605" expanded="true" signature="31506:31560" placeholder="DELETE FROM " />
+            <marker date="1465543256605" expanded="true" signature="31886:31950" placeholder="UPDATE `tota... " />
           </folding>
         </state>
       </provider>
