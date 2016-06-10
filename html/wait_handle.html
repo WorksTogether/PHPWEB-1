@@ -1,10 +1,11 @@
-<link rel="stylesheet" href="css/wait_handle.css"/>
-<script src="lib/jquery.min.js"  async="async"> </script>
+<link rel="stylesheet" href="css/wait_handle.css" />
+<script src="lib/jquery.min.js" async="async">
+</script>
 <script src="lib/jquery.jqgrid.min.js"></script>
 <script src="lib/grid.locale-de.min.js"></script>
-<link rel="stylesheet" href="css/ui.jqgrid.css"/>
-<link rel="stylesheet" href="css/jquery-ui.min.css"/>
-<link rel="stylesheet" href="css/theme.css"/>
+<link rel="stylesheet" href="css/ui.jqgrid.css" />
+<link rel="stylesheet" href="css/jquery-ui.min.css" />
+<link rel="stylesheet" href="css/theme.css" />
 <div class="credit_case_in" ng-controller="credit_case_in">
     <div class="div1">
         <div style="overflow: hidden">
@@ -12,14 +13,14 @@
                 <ul style="margin-top: 15px;margin-left: 10px;margin-bottom: 5px">
                     <li>
                         <label for="batch_number1">批次号：</label>
-                        <input id="batch_number1" class="form-field" type="text"/>
+                        <input id="batch_number1" class="form-field" type="text" />
                     </li>
                     <li>
                         <label for="credit_user">批次流水号：</label>
-                        <input id="credit_user" class="form-field" type="text"/>
+                        <input id="credit_user" class="form-field" type="text" />
                     </li>
                     <li style="margin-left: 40px">
-                        <input class="submit-button" type="button" value="查询" style="height:39px;display: inline-block;width: 108px"/>
+                        <input class="submit-button" type="button" value="查询" style="height:39px;display: inline-block;width: 108px" />
                     </li>
                 </ul>
             </form>
@@ -27,7 +28,7 @@
         <div style="margin-top: 15px;">
             <ul style="list-style: none;overflow: hidden;height: 40px">
                 <li style="float: left;margin-left: 32px;">
-                    <span id="case_close" class="submit-button" style="display: inline-block;width: 70px;text-align: center">开始催收</span>
+                    <span id="start_handle" class="submit-button" style="display: inline-block;width: 70px;text-align: center">开始催收</span>
                 </li>
                 <li style="float: left;margin-left: 32px;">
                     <span id="pay_att" class="submit-button" style="display: inline-block;width: 70px;text-align: center">重点关注</span>
@@ -43,113 +44,264 @@
     </div>
 </div>
 <script type="text/javascript">
-    $(document).ready(function (){
-        jQuery("#list1").jqGrid({
-            url:"server.php?action=request_wait_handle",
-//            datatype: "local",
-            datatype: "json",
-            colNames:['持卡人姓名','性别','证件号码','卡号','人民币账号', '美元账号','开卡日期','额度','账单日期','余额人民币','金额人民币','委托金额美元','还款日期','美元还款日','人民币还款'],
-            colModel:[
-                {name:'A',index:'A', width:120,align:'center'},
-                {name:'B',index:'B', width:60},
-                {name:'证件号码',index:'C', width:120},
-                {name:'卡号',index:'D', width:120},
-                {name:'人民币账号',index:'E', width:120,align:'center'},
-                {name:'美元账号',index:'F', width:120,align:'center'},
-                {name:'开卡日期',index:'G', width:120, sortable:false, align:'center'},
-                {name:'额度',index:'H', width:120,align:'center'},
-                {name:'账单日期',index:'I', width:120,align:'center'},
-                {name:'余额人民币',index:'J', width:120,align:'center'},
-                {name:'金额人民币',index:'K', width:120,align:'center'},
-                {name:'委托金额美元',index:'L', width:120,align:'center'},
-                {name:'还款日期',index:'M', width:120,align:'center'},
-                {name:'美元还款日',index:'N', width:120,align:'center'},
-                {name:'人民币还款',index:'O', width:120,align:'center'},
-            ],
-            rowNum : 15,
-            sortname : 'id',
-            multiselect:true,
-            gridview:true,
-//            pager: '#pager',
-            viewrecords: true,
-            sortable:true,
-            sortorder: "asc",
-            emptyrecords: "Nothing to display",
-            scrollrows:true,
-            autowidth:true,
-            rownumbers:true,
-            height:450,
-            hoverrows:true,
-            shrinkToFit:false,
-            autoScroll: false,
-            mtype : "post",
-            repeatitems: false,
-            loadtext:"loading...",
-            loadui:"block",
-            scroll:true,
-            loadComplete:function(data){
-                if(data.records==0){
-                    $("#del_row1").unbind();
-                }else{
-                    $("#del_row1").bind("click",del_rows);
-                }
+$(document).ready(function() {
+    jQuery("#list1").jqGrid({
+        url: "server.php?action=request_wait_handle",
+        //            datatype: "local",
+        datatype: "json",
+        colNames: ['客户名字', '身份证号', '工作单位', '工作单位地址', '单位电话', '职务', '户籍地址', '住址', '申请人手机号', '关系人姓名', '与申请人关系', '关系人手机号', '关系人工作单位', '关系人职位', '关系人详细地址', '产品类型', '签约金额', '还款期数', '月还款金额', '每月还款日', '签约日期', '放款日期', '还款起始日期', '还款到期日期', '剩余本金', '委案金额', '本金拖欠开始日期', '开户行名称', '账户户名', '银行卡账号', '客户手机号码', '还款期数', '已还期数', '未还期数', 'M值'],
+        colModel: [{
+            name: '客户名字',
+            index: 'A',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '身份证号',
+            index: 'B',
+            width: 60
+        }, {
+            name: '工作单位',
+            index: 'C',
+            width: 120
+        }, {
+            name: '工作单位地址',
+            index: 'D',
+            width: 120
+        }, {
+            name: '单位电话',
+            index: 'E',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '职务',
+            index: 'F',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '户籍地址',
+            index: 'G',
+            width: 120,
+            sortable: false,
+            align: 'center'
+        }, {
+            name: '住址',
+            index: 'H',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '申请人手机号',
+            index: 'I',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '关系人姓名',
+            index: 'J',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '与申请人关系',
+            index: 'K',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '关系人手机号',
+            index: 'L',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '关系人工作单位',
+            index: 'M',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '关系人职位',
+            index: 'N',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '关系人详细地址',
+            index: 'O',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '产品类型',
+            index: 'P',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '签约金额',
+            index: 'Q',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '还款期数',
+            index: 'R',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '月还款金额',
+            index: 'S',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '每月还款日',
+            index: 'T',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '签约日期',
+            index: 'U',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '放款日期',
+            index: 'V',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '还款起始日期',
+            index: 'W',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '还款到期日期',
+            index: 'X',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '剩余本金',
+            index: 'Y',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '委案金额',
+            index: 'Z',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '本金拖欠开始日期',
+            index: 'AA',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '开户行名称',
+            index: 'AB',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '账户户名',
+            index: 'AC',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '银行卡账号',
+            index: 'AD',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '客户手机号码',
+            index: 'AE',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '还款期数',
+            index: 'AF',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '已还期数',
+            index: 'AG',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '未还期数',
+            index: 'AH',
+            width: 120,
+            align: 'center'
+        }, {
+            name: 'M值',
+            index: 'AI',
+            width: 120,
+            align: 'center'
+        }],
+        rowNum: 15,
+        sortname: 'id',
+        multiselect: true,
+        gridview: true,
+        //            pager: '#pager',
+        viewrecords: true,
+        sortable: false,
+        sortorder: "asc",
+        emptyrecords: "Nothing to display",
+        scrollrows: true,
+        autowidth: true,
+        rownumbers: true,
+        height: 450,
+        hoverrows: true,
+        shrinkToFit: false,
+        autoScroll: false,
+        mtype: "post",
+        repeatitems: false,
+        loadtext: "loading...",
+        loadui: "block",
+        scroll: true,
+        loadComplete: function(data) {
+            if (data.records == 0) {
+                $("#del_row1").unbind();
+            } else {
+                $("#del_row1").bind("click", del_rows);
             }
-        });
-        var del_rows = function(){
-            var sels = $("#list1").jqGrid('getGridParam','selarrrow');
-            console.info("sels",sels);
-            if(sels=="")
-            {
-                alert("请选择要删除的项！");
-            }
-            else
-            {
-                if(confirm("您是否确认删除？"))
-                {
-                    var len = sels.length;
-                    for(var i= 0;i<len;i++)
-                    {
-                        $("#list1").jqGrid('delRowData',sels[0]);
+        }
+    });
+    $('#start_handle').click(function() {
+        var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
+        console.log(sels)
+        if (sels == "") {
+            alert("请选择催收项！");
+        } else {
+            $.ajax({
+                url: "server.php?action=start_handle",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    sels: sels
+                },
+                success: function(data, textStatus, jqXHR) {
+                    if (data.msg == "success") {
+                        alert("已开始催收！");
+
+                    }
+                    if (data.msg == "error") {
+                        alert("开始催收失败！");
                     }
                 }
-            }
-        };
-        $("#case_close").click(function(){
-            var sels = $("#list1").jqGrid('getGridParam','selarrrow');
-            console.info("sels",sels);
-            if(sels=="")
-            {
-                alert("请选择要关闭的项！");
-            }
-            else
-            {
-                if(confirm("确认要关闭选择案件？"))
-                {
-                    $.ajax({
-                        url:"server.php?action=case_close",
-                        type:"POST",
-                        dataType:"json",
-                        data:{
-                           sels:sels
-                        },
-                        success:function(data,textStatus,jqXHR){
-                    if(data.msg == "success")
-                        {
-                         alert("关闭成功！");
-                            var len = sels.length;
-                            for(var i= 0;i<len;i++)
-                            {
-                                $("#list1").jqGrid('delRowData',sels[0]);
-                            }
-                        }
-                        else
-                        {
-                        alert("关闭失败！");
-                        }
-                        }
-                    });
-                }
-            }
-        });
+            });
+        }
     });
+    $('#pay_att').click(function() {
+        var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
+        console.log(sels)
+        if (sels == "") {
+            alert("请选择重点关注项！");
+        } else {
+            $.ajax({
+                url: "server.php?action=pay_att",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    sels: sels
+                },
+                success: function(data, textStatus, jqXHR) {
+                    if (data.msg == "success") {
+                        alert("重点关注成功！");
+
+                    }
+                    if (data.msg == "error") {
+                        alert("重点关注失败！");
+                    }
+                }
+            });
+        }
+    });
+});
 </script>
