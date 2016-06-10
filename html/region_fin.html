@@ -241,7 +241,7 @@ $(document).ready(function() {
         hoverrows: true,
         shrinkToFit: false,
         autoScroll: false,
-        loadonce: true,
+        loadonce: false,
         mtype: "post",
         repeatitems: false,
         loadtext: "loading...",
@@ -270,7 +270,6 @@ $(document).ready(function() {
                         $("#list1").jqGrid('setGridParam', {
                             url: "server.php?action=request_region_fin"
                         }).trigger("reloadGrid");
-
                     }
                     if (data.msg == "error") {
                         alert("收回失败！");

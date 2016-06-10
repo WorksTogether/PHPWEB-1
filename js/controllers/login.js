@@ -90,6 +90,8 @@ permissionList1 = [{
     Name: "pay_att"
 }, {
     Name: "leader2"
+}, {
+    Name: "credit_case_in"
 }];
 permissionList2 = [{
     Name: "case_admin"
