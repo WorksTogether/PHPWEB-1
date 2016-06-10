@@ -10,8 +10,6 @@ permissionList0 = [{
 }, {
     Name: "case_close"
 }, {
-    Name: "fen_case_admin"
-}, {
     Name: "region_case"
 }, {
     Name: "region_fin"
@@ -103,8 +101,6 @@ permissionList2 = [{
     Name: "credit_case_in"
 }, {
     Name: "case_close"
-}, {
-    Name: "fen_case_admin"
 }, {
     Name: "region_case"
 }, {
