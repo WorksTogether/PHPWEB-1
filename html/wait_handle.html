@@ -287,6 +287,10 @@ $(document).ready(function() {
                 },
                 success: function(data, textStatus, jqXHR) {
                     if (data.msg == "success") {
+                        $.each(data.leader, function(name, value) {
+
+                        });
+                        $("#")
                         alert("重点关注成功！");
 
                     }
