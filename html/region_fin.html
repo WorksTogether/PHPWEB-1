@@ -267,6 +267,9 @@ $(document).ready(function() {
                 success: function(data, textStatus, jqXHR) {
                     if (data.msg == "success") {
                         alert("收回成功！");
+                        $("#list1").jqGrid('setGridParam', {
+                            url: "server.php?action=request_region_fin"
+                        }).trigger("reloadGrid");
 
                     }
                     if (data.msg == "error") {
