@@ -263,7 +263,9 @@ $(document).ready(function() {
                 success: function(data, textStatus, jqXHR) {
                     if (data.msg == "success") {
                         alert("标记完成成功！");
-
+                        $("#list1").jqGrid('setGridParam', {
+                            url: "server.php?action=phone_handle"
+                        }).trigger("reloadGrid");
                     }
                     if (data.msg == "error") {
                         alert("标记完成失败！");
@@ -288,6 +290,9 @@ $(document).ready(function() {
                 success: function(data, textStatus, jqXHR) {
                     if (data.msg == "success") {
                         alert("标记外访成功！");
+                        $("#list1").jqGrid('setGridParam', {
+                            url: "server.php?action=phone_handle"
+                        }).trigger("reloadGrid");
                     }
                     if (data.msg == "error") {
                         alert("标记外访失败！");
