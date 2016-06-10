@@ -269,9 +269,19 @@ function case_close()
 }
 function request_case_close()
 {
-    //query_by_status('fin_assign');
-    //query_by_status("fin_assign' or status='wait_assign");
-    query_by_status("'or '1'='1 ");//查询全部
+    $auth=$_SESSION["auth"] ;
+    if($auth==0)//超级管理员
+    {
+        query_by_status("NO_DATA' OR status!='case_close");
+    }
+    if($auth==1)//主管
+    {
+        $real_name=$_SESSION["realName"];
+        $area=$_SESSION["area"];
+        $director=$area."->".$real_name;
+        query_by_status(" NO_DATA' OR status!='case_close' AND director='".$director);
+    }
+
 }
 function export_case()
 {
@@ -499,7 +509,16 @@ else
 
 function  request_case_assign()
 {
-    query_by_status('wait_assign');
+    $auth=$_SESSION["auth"] ;
+    if($auth==0)//超级管理员都可以看得到
+    {
+        query_by_status('wait_assign');
+    }
+    if($auth==1)//主管只可以看得到自己的未分配的
+    {
+        request_region_wait();
+    }
+
 }
 
 
