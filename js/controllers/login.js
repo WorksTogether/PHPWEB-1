@@ -32,8 +32,6 @@ permissionList0 = [{
 }, {
     Name: "cuishou_case_admin"
 }, {
-    Name: "wait_handle"
-}, {
     Name: "pay_att"
 }, {
     Name: "select_all"
@@ -41,12 +39,6 @@ permissionList0 = [{
     Name: "excutive2"
 }, {
     Name: "system_manage"
-}, {
-    Name: "phone_handle"
-}, {
-    Name: "wait_visit"
-}, {
-    Name: "visit_process"
 }, {
     Name: "handle_statistic"
 }, {
@@ -82,8 +74,6 @@ permissionList1 = [{
     Name: "cuishouadmin"
 }, {
     Name: "cuishou_case_admin"
-}, {
-    Name: "wait_handle"
 }, {
     Name: "pay_att"
 }, {
@@ -129,6 +119,14 @@ permissionList2 = [{
     Name: "wait_handle"
 }, {
     Name: "pay_att"
+}, {
+    Name: "wait_handle"
+}, {
+    Name: "phone_handle"
+}, {
+    Name: "wait_visit"
+}, {
+    Name: "visit_process"
 }];
 angular.module('starter.controllers.login', ['ui.router'])
     .controller('login', ['$scope', "$http", "permissions", '$state', function(
