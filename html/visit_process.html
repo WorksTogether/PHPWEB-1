@@ -30,9 +30,9 @@
                 <li style="float: left;margin-left: 32px;">
                     <span id="visit_fin" class="submit-button" style="display: inline-block;width: 70px;text-align: center">外访完成</span>
                 </li>
-                <li style="float: left;margin-left: 32px;">
+                <!-- <li style="float: left;margin-left: 32px;">
                     <span id="continue_visit" class="submit-button" style="display: inline-block;width: 70px;text-align: center">继续外访</span>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
@@ -265,6 +265,9 @@ $(document).ready(function() {
                 success: function(data, textStatus, jqXHR) {
                     if (data.msg == "success") {
                         alert("外访成功！");
+                        $("#list1").jqGrid('setGridParam', {
+                            url: "server.php?action=visit_process1"
+                        }).trigger("reloadGrid");
 
                     }
                     if (data.msg == "error") {
@@ -290,7 +293,9 @@ $(document).ready(function() {
                 success: function(data, textStatus, jqXHR) {
                     if (data.msg == "success") {
                         alert("标记继续外访成功！");
-
+                        $("#list1").jqGrid('setGridParam', {
+                            url: "server.php?action=visit_process1"
+                        }).trigger("reloadGrid");
                     }
                     if (data.msg == "error") {
                         alert("标记继续外访失败！");

@@ -262,7 +262,9 @@ $(document).ready(function() {
                 success: function(data, textStatus, jqXHR) {
                     if (data.msg == "success") {
                         alert("取消关注项成功！");
-
+                        $("#list1").jqGrid('setGridParam', {
+                            url: "server.php?action=request_pay_att"
+                        }).trigger("reloadGrid");
                     }
                     if (data.msg == "error") {
                         alert("取消关注项失败！");
