@@ -1,0 +1,495 @@
+<link rel="stylesheet" href="css/case_detail.css" />
+<script src="lib/jquery.min.js" async="async">
+</script>
+<script src="lib/jquery.jqgrid.min.js"></script>
+<script src="lib/grid.locale-de.min.js"></script>
+<link rel="stylesheet" href="css/ui.jqgrid.css" />
+<link rel="stylesheet" href="css/jquery-ui.min.css" />
+<link rel="stylesheet" href="css/theme.css" />
+<div class="credit_case_in" ng-controller="credit_case_in">
+    <div class="div1">
+        <div style="overflow: hidden">
+            <form action="" method="post">
+                <ul style="margin-top: 15px;margin-left: 10px;margin-bottom: 5px">
+                    <li>
+                        <label for="batch_number1">批次号：</label>
+                        <input id="batch_number1" class="form-field" type="text" />
+                    </li>
+                    <li>
+                        <label for="credit_user">持卡人姓名：</label>
+                        <input id="credit_user" class="form-field" type="text" />
+                    </li>
+                    <li>
+                        <label for="id_number">身份证号码：</label>
+                        <input id="id_number" class="form-field" type="text" />
+                    </li>
+                    <li style="margin-left: 40px">
+                        <input class="submit-button" type="button" value="查询" style="height:39px;display: inline-block;width: 108px" />
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div style="margin-top: 15px;">
+            <ul style="list-style: none;overflow: hidden;height: 40px">
+                <li style="float: left;margin-left: 32px;">
+                    <span class="submit-button" id="case_detail" style="display: inline-block;width: 70px;text-align: center">案件详情</span>
+                </li>
+                <li><span id="export_case" class="submit-button" style="margin-left: 20px;display: inline-block;width: 70px;text-align: center">导出Excel</span></li>
+            </ul>
+        </div>
+    </div>
+    <div style="width: 97%;margin: 0 auto;border: #F2F2F2 solid 5px;border-radius: 10px"></div>
+    <div class="div2">
+        <table id="list1"></table>
+        <div id="pager"></div>
+        <!--<div id="pager"></div>-->
+    </div>
+    <div id="goodcover"></div>
+    <div id="code">
+        <div style="overflow: hidden;border-bottom: #F6D4BC solid 2px;border-radius: 0 0 5px 5px; background-color: #F6D4BC;">
+            <a id="closebt" href="javascript:void(0)" style="font-size: 20px;color: #CC2900;float: right;display:inline-block">
+                <i class="fa fa-times-circle"></i>
+            </a>
+        </div>
+        <div class="box_content">
+            <div style="height: 100%;width:120px;float: left;">
+                <ul id="ul_nav" style="overflow: hidden">
+                    <li class="nav" style="border-right: none;font-weight: bold" data-list="1">
+                        <div>
+                            <span>案件信息</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="2">
+                        <div>
+                            <span>电催记录</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="3">
+                        <div>
+                            <span>外访记录</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="4">
+                        <div>
+                            <span>外访记录</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="5">
+                        <div>
+                            <span>外访记录</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="6">
+                        <div>
+                            <span>外访记录</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="7">
+                        <div>
+                            <span>外访记录</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="8">
+                        <div>
+                            <span>外访记录</span>
+                        </div>
+                    </li>
+                    <li style="position:relative;border-right: #F6D4BC solid 2px;height:1000px;"></li>
+                </ul>
+            </div>
+            <div id="nav_page" class="nav_page" style="" ng-include="'html/nav_page.html'"></div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+    jQuery("#list1").jqGrid({
+        url: "server.php?action=request_case_detail",
+        //            datatype: "local",
+        datatype: "json",
+        colNames: ['客户名字', '身份证号', '工作单位', '工作单位地址', '单位电话', '职务', '户籍地址', '住址', '申请人手机号', '关系人姓名', '与申请人关系', '关系人手机号', '关系人工作单位', '关系人职位', '关系人详细地址', '产品类型', '签约金额', '还款期数', '月还款金额', '每月还款日', '签约日期', '放款日期', '还款起始日期', '还款到期日期', '剩余本金', '委案金额', '本金拖欠开始日期', '开户行名称', '账户户名', '银行卡账号', '客户手机号码', '还款期数', '已还期数', '未还期数', 'M值'],
+        colModel: [{
+            name: '客户名字',
+            index: 'A',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '身份证号',
+            index: 'B',
+            width: 60
+        }, {
+            name: '工作单位',
+            index: 'C',
+            width: 120
+        }, {
+            name: '工作单位地址',
+            index: 'D',
+            width: 120
+        }, {
+            name: '单位电话',
+            index: 'E',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '职务',
+            index: 'F',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '户籍地址',
+            index: 'G',
+            width: 120,
+            sortable: false,
+            align: 'center'
+        }, {
+            name: '住址',
+            index: 'H',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '申请人手机号',
+            index: 'I',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '关系人姓名',
+            index: 'J',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '与申请人关系',
+            index: 'K',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '关系人手机号',
+            index: 'L',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '关系人工作单位',
+            index: 'M',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '关系人职位',
+            index: 'N',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '关系人详细地址',
+            index: 'O',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '产品类型',
+            index: 'P',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '签约金额',
+            index: 'Q',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '还款期数',
+            index: 'R',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '月还款金额',
+            index: 'S',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '每月还款日',
+            index: 'T',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '签约日期',
+            index: 'U',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '放款日期',
+            index: 'V',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '还款起始日期',
+            index: 'W',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '还款到期日期',
+            index: 'X',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '剩余本金',
+            index: 'Y',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '委案金额',
+            index: 'Z',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '本金拖欠开始日期',
+            index: 'AA',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '开户行名称',
+            index: 'AB',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '账户户名',
+            index: 'AC',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '银行卡账号',
+            index: 'AD',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '客户手机号码',
+            index: 'AE',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '还款期数',
+            index: 'AF',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '已还期数',
+            index: 'AG',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '未还期数',
+            index: 'AH',
+            width: 120,
+            align: 'center'
+        }, {
+            name: 'M值',
+            index: 'AI',
+            width: 120,
+            align: 'center'
+        }],
+        rowNum: 15,
+        multiselect: true,
+        sortname: 'id',
+        gridview: true,
+        //            pager: '#pager',
+        viewrecords: true,
+        sortable: true,
+        sortorder: "asc",
+        emptyrecords: "Nothing to display",
+        scrollrows: true,
+        autowidth: true,
+        rownumbers: true,
+        height: 430,
+        hoverrows: true,
+        shrinkToFit: false,
+        autoScroll: false,
+        mtype: "post",
+        repeatitems: false,
+        loadtext: "loading...",
+        loadui: "block",
+        scroll: true,
+        loadComplete: function(data) {
+            if (data.records == 0) {
+
+            } else {
+
+            }
+        }
+    });
+    jQuery.fn.center = function() {
+        var obj = this;
+        body_width = parseInt(obj.parent().width());
+        body_height = parseInt(obj.parent().height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        }
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        }
+        obj.css({
+            'position': 'absolute'
+        });
+        obj.css({
+            'top': (obj.parent().height() - $('#code').height()) * 0.5,
+            'left': left_position
+        });
+        $(window).bind('resize', function() {
+            obj.center();
+        });
+        // $(window).bind('scroll', function() {
+        //     obj.center();
+        // });
+    };
+    $('#case_detail').click(function() {
+        var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
+        console.log(sels)
+        if (sels.length > 1) {
+            alert("选择一项查看详情！");
+            return false;
+        }
+        if (sels == "") {
+            alert("请选择查看案件详情项！");
+        } else {
+            $.ajax({
+                url: "server.php?action=list",
+                dataType: "json",
+                type: "post",
+                data: {
+                    sels: sels
+                },
+                success: function(data) {
+                    $.each(data, function(name, value) {
+                        select($("#nav_page").find("span"), "name", name, value);
+                    });
+                }
+            });
+            var select = function(obj, attr, val, insert) {
+                $.each(obj, function(name, value) {
+                    if ($(obj[name]).attr(attr) == val) {
+                        $(obj[name]).html(insert);
+                    }
+                });
+            };
+            $('#code').center();
+            $('#goodcover').show();
+            $('#code').fadeIn();
+            console.log($("#nav_page").parent("div").width())
+            $("#nav_page").css({
+                "width": ($("#nav_page").parent("div").width() - 122) + "px"
+            });
+            $("#nav_page").children("div").css({
+                "width": ($("#nav_page").width() - 20) + "px",
+                "height": ($("#nav_page").height() - 20) + "px"
+            });
+        }
+    });
+    $('#closebt').click(function() {
+        $('#code').fadeOut();
+        $('#goodcover').hide();
+    });
+    $('#ul_nav').click(function(e) {
+        console.dir()
+        var e = e || window.event;
+        var target = e.target || e.srcElement;
+        if (target.nodeName.toLowerCase() == "li" || target.nodeName.toLowerCase() == "div" || target.nodeName.toLowerCase() == "span") {
+            if (target.nodeName.toLowerCase() == "div") {
+                $(target).parents("ul").children("li").css({
+                    "border-right": "#F6D4BC solid 2px",
+                    "font-weight": "normal"
+                });
+                var list1 = $(target).parent("li").css({
+                    "border-right": "none",
+                    "font-weight": "bold"
+                }).data("list");
+                $(target).parents("ul").children("li").children("div").css({
+                    "border-bottom": "none"
+                });
+                $(target).css({
+                    "border-bottom": "#F6D4BC solid 5px"
+                });
+                var obj1 = $('#nav_page').children("div").css({
+                    "display": "none"
+                });
+                for (var i in obj1) {
+                    if (obj1.hasOwnProperty(i) && $(obj1[i]).data("list") == list1) {
+                        $(obj1[i]).css({
+                            "display": "block"
+                        });
+                    }
+                }
+            }
+            if (target.nodeName.toLowerCase() == "span") {
+                $(target).parents("ul").children("li").css({
+                    "border-right": "#F6D4BC solid 2px",
+                    "font-weight": "normal"
+                });
+                var list1 = $(target).parents("li").css({
+                    "border-right": "none",
+                    "font-weight": "bold"
+                }).data("list");
+                $(target).parents("ul").children("li").children("div").css({
+                    "border-bottom": "none"
+                });
+                $(target).parent("div").css({
+                    "border-bottom": "#F6D4BC solid 5px"
+                });
+                var obj1 = $('#nav_page').children("div").css({
+                    "display": "none"
+                });
+                for (var i in obj1) {
+                    if (obj1.hasOwnProperty(i) && $(obj1[i]).data("list") == list1) {
+                        $(obj1[i]).css({
+                            "display": "block"
+                        });
+                    }
+                }
+            }
+        }
+    });
+    $("#export_case").click(function() {
+        var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
+        var that = this;
+        console.log(sels)
+        if (sels == "") {
+            alert("请选择案件导出项！");
+        } else {
+            $(that).html("正在导出..");
+            $.ajax({
+                url: "server.php?action=export_case",
+                dataType: "json",
+                type: "post",
+                timeout: 300000,
+                data: {
+                    sels: sels
+                },
+                success: function(data) {
+                    if (data.msg == "success" && data.url != "") {
+                        //                    var fileURL=window.open (data.url,"_blank","height=0,width=0,toolbar=no,menubar=no,scrollbars=no,resizable=on,location=no,status=no,alwaysLowered=yes");
+                        //                    fileURL.document.execCommand("SaveAs");
+                        //                    fileURL.window.close();
+                        //                    fileURL.close();
+
+
+                        var a = document.createElement("a");
+                        a.href = data.url;
+                        $(a).insertAfter("#export_case");
+                        $(that).html("导出Excel");
+                        $("#export_case").siblings("a")[0].click(function() {});
+                    } else {
+                        alert("导出失败！");
+                        $(this).html("导出Excel");
+                    }
+
+                },
+                complete: function(XMLHttpRequest, status) {
+                    if (status == 'timeout') {
+                        alert("导出失败！");
+                        $(this).html("导出Excel");
+                    }
+                }
+            });
+        }
+    });
+});
+</script>

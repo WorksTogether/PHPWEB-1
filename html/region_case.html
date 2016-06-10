@@ -1,0 +1,404 @@
+<link rel="stylesheet" href="css/region_case.css" />
+<script src="lib/jquery.min.js" async="async">
+</script>
+<script src="lib/jquery.jqgrid.min.js"></script>
+<script src="lib/grid.locale-de.min.js"></script>
+<link rel="stylesheet" href="css/ui.jqgrid.css" />
+<link rel="stylesheet" href="css/jquery-ui.min.css" />
+<link rel="stylesheet" href="css/theme.css" />
+<link rel="stylesheet" href="css/font-awesome.min.css" />
+<!--<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">-->
+<div class="credit_case_in" ng-controller="credit_case_in">
+    <div class="div1">
+        <div style="overflow: hidden">
+            <form action="" method="post" id="case_query1">
+                <ul style="margin-top: 15px;margin-left: 10px;margin-bottom: 5px">
+                    <li>
+                        <label for="batch_number1">批次号：</label>
+                        <input id="batch_number1" class="form-field" type="text" />
+                    </li>
+                    <li>
+                        <label for="credit_user">持卡人姓名：</label>
+                        <input id="credit_user" class="form-field" type="text" />
+                    </li>
+                    <li style="margin-left: 40px">
+                        <input class="submit-button" type="button" value="查询" style="height:39px;display: inline-block;width: 108px" />
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div style="margin-top: 13px;">
+            <ul style="list-style: none;overflow: hidden;height: 40px">
+                <!-- <li style="float: left;margin-left: 32px;">
+                    <span class="submit-button" style="display: inline-block;width: 100px;text-align: center">自动平均分配</span>
+                </li> -->
+                <li><span id="hand_assign" class="submit-button" style="margin-left: 20px;display: inline-block;width: 100px;text-align: center">手动分配</span></li>
+            </ul>
+        </div>
+    </div>
+    <div style="width: 97%;margin: 0 auto;border: #F2F2F2 solid 5px;border-radius: 10px"></div>
+    <div class="div2">
+        <table id="list1"></table>
+        <div id="pager"></div>
+        <!--<div id="pager"></div>-->
+    </div>
+    <div id="goodcover"></div>
+    <div id="code">
+        <div style="overflow: hidden;border-bottom: #F6D4BC solid 2px;border-radius: 0 0 5px 5px; background-color: #F6D4BC;">
+            <a id="closebt" href="javascript:void(0)" style="font-size: 20px;color: #CC2900;float: right;display:inline-block">
+                <i class="fa fa-times-circle"></i>
+            </a>
+        </div>
+        <div class="box_content">
+            <ul>
+                <form action="">
+                    <li style="height: 80px;margin: 20px; border: dotted 2px #D7D7D7;border-radius: 5px;">
+                        <ul style="overflow: hidden">
+                            <li style="float:left;display: inline-block;margin-top:25px;margin-left:30px">
+                                <label for="region_excutive">催收组长：</label>
+                            </li>
+                            <li id="drop_down1" class="dropdown" style="float: left;margin: 20px 15px 15px 5px">
+                                <select class="dropdown-select" name="region_excutive" id="region_excutive">
+                                    <!--                                     <option value="0">请选择</option>
+                                    <option value="A">催收组长A</option>
+                                    <option value="B">催收组长B</option>
+                                    <option value="C">催收组长C</option>
+                                    <option value="D">催收组长D</option> -->
+                                </select>
+                                </select>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="assign" class="confirm_assign"><span style="line-height: 35px">分配</span></li>
+                </form>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function() {
+    jQuery("#list1").jqGrid({
+        url: "server.php?action=request_region_wait",
+        //            datatype: "local",
+        datatype: "json",
+        colNames: ['客户名字', '身份证号', '工作单位', '工作单位地址', '单位电话', '职务', '户籍地址', '住址', '申请人手机号', '关系人姓名', '与申请人关系', '关系人手机号', '关系人工作单位', '关系人职位', '关系人详细地址', '产品类型', '签约金额', '还款期数', '月还款金额', '每月还款日', '签约日期', '放款日期', '还款起始日期', '还款到期日期', '剩余本金', '委案金额', '本金拖欠开始日期', '开户行名称', '账户户名', '银行卡账号', '客户手机号码', '还款期数', '已还期数', '未还期数', 'M值'],
+        colModel: [{
+            name: '客户名字',
+            index: 'A',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '身份证号',
+            index: 'B',
+            width: 60
+        }, {
+            name: '工作单位',
+            index: 'C',
+            width: 120
+        }, {
+            name: '工作单位地址',
+            index: 'D',
+            width: 120
+        }, {
+            name: '单位电话',
+            index: 'E',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '职务',
+            index: 'F',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '户籍地址',
+            index: 'G',
+            width: 120,
+            sortable: false,
+            align: 'center'
+        }, {
+            name: '住址',
+            index: 'H',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '申请人手机号',
+            index: 'I',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '关系人姓名',
+            index: 'J',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '与申请人关系',
+            index: 'K',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '关系人手机号',
+            index: 'L',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '关系人工作单位',
+            index: 'M',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '关系人职位',
+            index: 'N',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '关系人详细地址',
+            index: 'O',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '产品类型',
+            index: 'P',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '签约金额',
+            index: 'Q',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '还款期数',
+            index: 'R',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '月还款金额',
+            index: 'S',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '每月还款日',
+            index: 'T',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '签约日期',
+            index: 'U',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '放款日期',
+            index: 'V',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '还款起始日期',
+            index: 'W',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '还款到期日期',
+            index: 'X',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '剩余本金',
+            index: 'Y',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '委案金额',
+            index: 'Z',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '本金拖欠开始日期',
+            index: 'AA',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '开户行名称',
+            index: 'AB',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '账户户名',
+            index: 'AC',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '银行卡账号',
+            index: 'AD',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '客户手机号码',
+            index: 'AE',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '还款期数',
+            index: 'AF',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '已还期数',
+            index: 'AG',
+            width: 120,
+            align: 'center'
+        }, {
+            name: '未还期数',
+            index: 'AH',
+            width: 120,
+            align: 'center'
+        }, {
+            name: 'M值',
+            index: 'AI',
+            width: 120,
+            align: 'center'
+        }],
+        rowNum: 15,
+        sortname: 'id',
+        //            pager: '#pager',
+        viewrecords: true,
+        multiselect: true,
+        sortable: true,
+        sortorder: "asc",
+        emptyrecords: "Nothing to display",
+        scrollrows: true,
+        autowidth: true,
+        rownumbers: true,
+        height: 450,
+        hoverrows: true,
+        shrinkToFit: false,
+        autoScroll: false,
+        mtype: "post",
+        repeatitems: false,
+        loadtext: "loading...",
+        //            loadui:"block",
+        scroll: true,
+        loadComplete: function(data) { //完成服务器请求后，回调函数
+            if (data.records == 0) { //如果没有记录返回，追加提示信息，删除按钮不可用
+                console.log(11111);
+            }
+        }
+    });
+    jQuery.fn.center = function() {
+        var obj = this;
+        body_width = parseInt(obj.parent().width());
+        body_height = parseInt(obj.parent().height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        }
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        }
+        obj.css({
+            'position': 'absolute'
+        });
+        obj.css({
+            'top': (obj.parent().height() - $('#code').height()) * 0.5,
+            'left': left_position
+        });
+        $(window).bind('resize', function() {
+            obj.center();
+        });
+        // $(window).bind('scroll', function() {
+        //     obj.center();
+        // });
+    };
+    $('#closebt').click(function() {
+        $('#code').fadeOut();
+        $('#goodcover').hide();
+    });
+    var validate_check = function() {
+        console.log($("#drop_down1").children("select").val())
+        if ($("#drop_down1").children("select").val() == "0") {
+            $("#drop_down1").focus().css({
+                border: "1px solid red",
+                boxShadow: "0 0 5px red"
+            });
+            $("#drop_down1").addClass("validate_border");
+            return false;
+        } else {
+            $("#drop_down1").css({
+                border: "1px solid #D7D7D7",
+                boxShadow: "none"
+            });
+            if ($("#drop_down1").hasClass("validate_border")) {
+                $("#drop_down1").removeClass("validate_border");
+            }
+            localStorage.setItem("hand_leader", $("#drop_down1").children("select").val());
+        }
+        return true;
+    };
+    $('#assign').click(function() {
+        if (validate_check()) {
+            $.ajax({
+                url: "server.php?action=region_hand_assign",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    leader: localStorage.getItem("hand_leader"),
+                    sels: localStorage.getItem("sels")
+                },
+                success: function(data, textStatus, jqXHR) {
+                    if (data.msg == "success") {
+                        s
+                        alert("手动分配成功！");
+                        $('#code').fadeOut();
+                        $('#goodcover').hide();
+                        $("#list1").jqGrid('setGridParam', {
+                            url: "server.php?action=request_region_wait"
+                        }).trigger("reloadGrid");
+                    }
+                    if (data.msg == "error") {
+                        alert("手动分配失败！");
+                    }
+                }
+            });
+            localStorage.removeItem("hand_leader");
+            localStorage.removeItem("sels");
+        }
+    });
+    $('#hand_assign').click(function() {
+        var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
+        var str1 = "<option value=" + 0 + ">请选择</option>";
+        console.log(sels)
+        if (sels == "") {
+            alert("请选择手动分配项！");
+        } else {
+            $.ajax({
+                url: "server.php?action=request_leader",
+                type: "POST",
+                dataType: "json",
+                success: function(data, textStatus, jqXHR) {
+                    if (data.msg == "success") {
+                        if (data.leader) {
+                            $.each(data.leader, function(name, value) {
+                                console.log(value);
+                                str1 += "<option value=" + value + ">" + value + "</option>";
+                            });
+                            console.log(str1);
+                            $("#region_leader").html(str1);
+                            str1 = "";
+                        }
+                    }
+                    if (data.msg == "error") {
+
+                    }
+                }
+            });
+            $('#code').center();
+            $('#goodcover').show();
+            $('#code').fadeIn();
+            localStorage.setItem("sels", sels);
+        }
+    });
+});
+</script>

@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="css/login.css" />
+<!--<div class="banner"></div>-->
+<div class="main" ng-controller="login">
+    <div class="main_form">
+        <form id="login_form" action="" method="post">
+            <ul>
+                <label for="user"><b>Username:</b></label>
+                <li>
+                    <em class="em1"></em>
+                    <input name="user" id="user" type="text" placeholder="用户名/手机/邮箱" />
+                </li>
+                <label for="user"><b>Password:</b></label>
+                <li>
+                    <em class="em2"></em>
+                    <input id="pas" name="password" type="password" placeholder="输入登录密码" />
+                </li>
+                <!--<li style="width: 100px;float: left">-->
+                <!--<input type="text" placeholder="输入验证码"/>-->
+                <!--</li>-->
+                <!--<div class="code" id="checkCode" onclick="createCode()"></div>-->
+                <!--<span class="code" id="checkcode" onclick="createCode()">11111</span>-->
+                <input id="submit" class="button" type="button" value="Login" ng-click="submit()" />
+                <!--<a ui-sref="nav.homepage">首　　页</a>-->
+            </ul>
+        </form>
+    </div>
+    <div style="position: absolute;width: 300px;height: 300px;background-color: #ffffff;top: 300px;left: 400px">这里添加公司工作场景</div>
+    <div style="position: absolute;width: 700px;height: 50px;background-color: #ffffff;top: 50px;left: 50px">添加XX公司催收系统</div>
+</div>
+<script type="text/javascript">
+var permissionList, permissionList0, permissionList1;
+$(document).ready(function() {
+    // $("#submit").click(function() {
+    //     console.log(window.location.host)
+    //     $.ajax({
+    //         url: "userServer.php",
+    //         data: {
+    //             user_name: $("#user").val(),
+    //             password: $("#pas").val(),
+    //             action: "login"
+    //         },
+    //         type: 'POST',
+    //         dataType: 'json',
+    //         success: function(data, textStatus) {
+    //             console.dir(data);
+    //             if (data.msg == "success") {
+    //                 console.log("success");
+    //                 window.location.href = "http://" + window.location.host + "/#/nav/homepage";
+    //                 if (data.auth == "0") {
+    //                     permissionList = permissionList0;
+    //                     console.log(permissionList);
+    //                 } else if (data.auth == "1") {
+    //                     permissionList = permissionList1;
+    //                     console.log(permissionList);
+    //                 }
+    //             }
+    //         },
+    //         error: function(XMLHttpRequest, textStatus, errorThrown) {}
+    //     });
+    // });
+
+});
+var code;
+
+function createCode() {
+    code = "";
+    var codeLength = 6; //验证码的长度
+    var checkCode = document.getElementById("checkCode");
+    var codeChars = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
+    for (var i = 0; i < codeLength; i++) {
+        var charNum = Math.floor(Math.random() * 52);
+        code += codeChars[charNum];
+    }
+    if (checkCode) {
+        checkCode.className = "code";
+        checkCode.innerHTML = code;
+    }
+}
+</script>
