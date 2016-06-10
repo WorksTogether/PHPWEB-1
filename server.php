@@ -15,7 +15,7 @@ if(!isLogin())
         "info" => "您未登录",
     );
     echo json_encode($array,JSON_UNESCAPED_UNICODE);
-  //  echo "<META HTTP-EQUIV=Refresh CONTENT=0;URL=".$_SERVER['DOMAIN'].">";
+    echo "<META HTTP-EQUIV=Refresh CONTENT=0;URL=index.html>";//跳转到首页
     die(0);
 }
 $action = $_GET['action'];
@@ -67,15 +67,58 @@ case 'list':
     case_list();
     break;
 case 'request_region_wait':
-    query_by_status('fin_assign');
+    request_region_wait();
     break;
+case 'request_region_fin':
+    request_region_fin();
+break;
 case 'request_leader':
     request_leader();
+    break;
+case 'request_leader_wait':
+    request_leader_wait();
     break;
   default:
     # code...
     break;
 };
+function request_leader_wait()
+{
+    $auth=$_SESSION["auth"] ;
+    if($auth==2)//组长，只列出自己的信息
+    {
+        $real_name=$_SESSION["realName"];
+        query_by_status("fin_assign' AND (director!='' AND director IS NOT NULL)  AND leader='".$real_name."' AND '1'='1");
+    }
+}
+function request_region_fin()
+{
+    $auth=$_SESSION["auth"] ;
+    if($auth==1)//主管，列出自己的信息，beijin->real_name
+    {
+        $real_name=$_SESSION["realName"];
+        $area=$_SESSION["area"];
+        $director=$area."->".$real_name;
+        query_by_status("fin_assign' AND director='".$director."'  AND ( leader IS NOT NULL  AND  leader!='') AND '1'='1");
+    }
+
+}
+function request_region_wait()
+{
+    $auth=$_SESSION["auth"] ;
+   /* if($auth==0)//超级管理员，显示出所有主管的信息
+    {
+        //查询出已经分配到主管，但是没有分配到组长的所有主管记录
+        query_by_status("fin_assign' AND (director!='' AND director IS NOT NULL) AND ( ISNULL(leader) OR leader='') AND '1'='1");
+    }*/
+    if($auth==1)//主管，列出自己的信息，beijin->real_name
+    {
+        $real_name=$_SESSION["realName"];
+        $area=$_SESSION["area"];
+        $director=$area."->".$real_name;
+        query_by_status("fin_assign' AND director='".$director."'  AND ( ISNULL(leader) OR leader='') AND '1'='1");
+    }
+}
 function request_leader()
 {
     $auth=$_SESSION["auth"] ;
@@ -585,7 +628,7 @@ function  query_by_status($data_status){
    if (!$sidx) 
   $sidx = 1; 
   // echo json_encode($sord);
-  $sql = "SELECT COUNT(*) AS count FROM `total` WHERE status = '".$data_status."'";
+  $sql = "SELECT COUNT(*) AS count FROM `total` WHERE  status = '".$data_status."'";
   $result = $GLOBALS['$conn']->query($sql); 
   $row = $result->fetch_array(MYSQLI_ASSOC); 
   $count = $row['count'];
@@ -608,7 +651,7 @@ function  query_by_status($data_status){
       $page = $responce->total;
       $responce->page = $page;
 
-  $sql = "SELECT * FROM `total` WHERE status = '".$data_status."' ORDER BY $sidx $sord LIMIT $start , $limit";
+  $sql = "SELECT * FROM `total` WHERE  status = '".$data_status."' ORDER BY $sidx $sord LIMIT $start , $limit";
   if($result = $GLOBALS['$conn']->query($sql))
   {
     if ($result->num_rows > 0)

@@ -84,18 +84,37 @@ function request_manage_user()
             $i = 0;
             while($row = $result->fetch_assoc())
             {
-                $responce->rows[$i]['id'] = $row['id'];
-                $responce->rows[$i]['cell'] = array (
-                    $row['user_name'],
-                    $row['password'],
-                    $row['real_name'],
-                    $row['gender'],
-                    $row['phone'],
-                    $row['email'],
-                    $row['status'],
-                    $row['auth'],
-                    $row['area'],
-                );
+                if( $row['auth']==1)
+                {
+                    $responce->rows[$i]['id'] = $row['id'];
+                    $responce->rows[$i]['cell'] = array (
+                        $row['user_name'],
+                        $row['password'],
+                        $row['real_name'],
+                        $row['gender'],
+                        $row['phone'],
+                        $row['email'],
+                        $row['status'],
+                        $row['area'],
+                        '',
+                    );
+                }
+                if($row['auth']==2)
+                {
+                    $responce->rows[$i]['id'] = $row['id'];
+                    $responce->rows[$i]['cell'] = array (
+                        $row['user_name'],
+                        $row['password'],
+                        $row['real_name'],
+                        $row['gender'],
+                        $row['phone'],
+                        $row['email'],
+                        $row['status'],
+                        '',
+                        $row['area'],
+                    );
+                }
+
                 $i++;
             }
             echo json_encode($responce);
