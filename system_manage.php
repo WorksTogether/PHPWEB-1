@@ -186,7 +186,7 @@ function manage_user_add()
 
 
 
-    $sql="SELECT * FROM `user_info` WHERE user_name='".$userName."'";
+    $sql="SELECT * FROM `user_info` WHERE user_name='".$userName."' OR real_name='".$realName."'";
     if ($result=$GLOBALS['$conn']->query($sql)) {
         if($result->num_rows>0)//用户已经存在
         {

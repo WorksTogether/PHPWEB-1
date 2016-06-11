@@ -60,6 +60,9 @@ case 'export_case':
 case 'request_case_close':
     request_case_close();
     break;
+case 'request_case_closed':
+    request_case_closed();
+break;
 case 'case_close':
     case_close();
     break;
@@ -102,6 +105,9 @@ case 'visit_handle':
 case 'phone_handle':
     phone_handle();
     break;
+    case 'request_case_inprocess'://查询
+        request_case_inprocess();
+        break;
 case 'visit_process1'://查询
     visit_process1();
     break;
@@ -120,11 +126,145 @@ case 'visit_fin':
 case 'phone_handle_fin':
     case_finish();
     break;
+case 'request_case_fin':
+    request_case_fin();
+break;
+case 'request_handle_statistic':
+    request_handle_statistic();
+break;
+case 'request_visit_statistic':
+    request_visit_statistic();
+break;
   default:
     # code...
     break;
 };
+function request_visit_statistic()
+{
+    $auth=$_SESSION["auth"] ;
+    if($auth==0)//超级管理员
+    {
+        query_by_status("visit_collection_process" );
+    }
+    if($auth==1)//主管
+    {
+        $real_name=$_SESSION["realName"];
+        $area=$_SESSION["area"];
+        $director=$area."->".$real_name;
+        query_by_status("visit_collection_process' AND director='".$director );
+        // query_by_status("case_close' AND director='".$director);
+    }
+    if($auth==2)//组长
+    {
+        $real_name=$_SESSION["realName"];
+        query_by_status("visit_collection_process' AND leader='".$real_name );
+    }
+}
+function request_handle_statistic()
+{
+    $auth=$_SESSION["auth"] ;
+    if($auth==0)//超级管理员
+    {
+        query_by_status("tel_collection" );
+    }
+    if($auth==1)//主管
+    {
+        $real_name=$_SESSION["realName"];
+        $area=$_SESSION["area"];
+        $director=$area."->".$real_name;
+        query_by_status("tel_collection' AND director='".$director );
+        // query_by_status("case_close' AND director='".$director);
+    }
+    if($auth==2)//组长
+    {
+        $real_name=$_SESSION["realName"];
+        query_by_status("tel_collection' AND leader='".$real_name );
+    }
+}
+function request_case_detail()//全部案件明细
+{
+    $auth=$_SESSION["auth"] ;
+    if($auth==0)//超级管理员
+    {
+        query_by_status("NO_DATA' OR status!='NO_DATA" );
+    }
+    if($auth==1)//主管
+    {
+        $real_name=$_SESSION["realName"];
+        $area=$_SESSION["area"];
+        $director=$area."->".$real_name;
+        query_by_status("NO_DATA' OR director='".$director );
+        // query_by_status("case_close' AND director='".$director);
+    }
+    if($auth==2)//组长
+    {
+        $real_name=$_SESSION["realName"];
+        query_by_status("NO_DATA' OR leader='".$real_name );
+    }
+}
+function  request_case_fin()
+{
+    $auth=$_SESSION["auth"] ;
+    if($auth==0)//超级管理员
+    {
+        query_by_status("case_finish" );
+    }
+    if($auth==1)//主管
+    {
+        $real_name=$_SESSION["realName"];
+        $area=$_SESSION["area"];
+        $director=$area."->".$real_name;
+        query_by_status("case_finish' AND director='".$director );
+        // query_by_status("case_close' AND director='".$director);
+    }
+    if($auth==2)//组长
+    {
+        $real_name=$_SESSION["realName"];
+        query_by_status("case_finish' AND leader='".$real_name );
+    }
+}
+function request_case_inprocess()
+{
+    $auth=$_SESSION["auth"] ;
+    if($auth==0)//超级管理员
+    {
+        query_by_status("tel_collection' OR status='visit_collection_wait'  OR status='visit_collection_process" );
+    }
+    if($auth==1)//主管
+    {
+        $real_name=$_SESSION["realName"];
+        $area=$_SESSION["area"];
+        $director=$area."->".$real_name;
+        query_by_status("NO_DATA' OR ((status='tel_collection' OR status='visit_collection_wait'  OR status='visit_collection_process') AND director='".$director."') AND '1'='1" );
+       // query_by_status("case_close' AND director='".$director);
+    }
+    if($auth==2)//组长
+    {
+        $real_name=$_SESSION["realName"];
+        query_by_status("NO_DATA' OR ((status='tel_collection' OR status='visit_collection_wait'  OR status='visit_collection_process') AND leader='".$real_name."') AND '1'='1" );
 
+    }
+}
+function request_case_closed()
+{
+    $auth=$_SESSION["auth"] ;
+    if($auth==0)//超级管理员
+    {
+        query_by_status("case_close");
+    }
+    if($auth==1)//主管
+    {
+        $real_name=$_SESSION["realName"];
+        $area=$_SESSION["area"];
+        $director=$area."->".$real_name;
+        query_by_status("case_close' AND director='".$director);
+    }
+    if($auth==2)//组长
+    {
+        $real_name=$_SESSION["realName"];
+        query_by_status("case_close' AND leader='".$real_name);
+    }
+}
 function start_visit()
 {
     $ids = $_POST['sels'];
@@ -652,15 +792,15 @@ function export_case()
     }
 
     // 字体和样式
-    $objActSheet->getStyle('A1:AL1')->getFont()->setSize(12);
-    $objActSheet->getStyle('A1:AL1')->getFont()->setBold(true);
-    $objActSheet->getStyle('A1:AL1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
-    $objActSheet->getStyle('A1:AL1')->getFill()->getStartColor()->setARGB("#ffbfbfbf");
-    $objActSheet->getStyle('A1:AL1')->getBorders()->getAllBorders()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
-    $objActSheet->getStyle('A1:AL1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-    $objActSheet->getStyle('A:AL')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-    $objActSheet->getStyle('A:AL')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
-    $objActSheet->getStyle('A:AL')->getAlignment()->setWrapText(true);
+    $objActSheet->getStyle('A1:AM1')->getFont()->setSize(12);
+    $objActSheet->getStyle('A1:AM1')->getFont()->setBold(true);
+    $objActSheet->getStyle('A1:AM1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+    $objActSheet->getStyle('A1:AM1')->getFill()->getStartColor()->setARGB("#ffbfbfbf");
+    $objActSheet->getStyle('A1:AM1')->getBorders()->getAllBorders()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
+    $objActSheet->getStyle('A1:AM1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+    $objActSheet->getStyle('A:AM')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+    $objActSheet->getStyle('A:AM')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+    $objActSheet->getStyle('A:AM')->getAlignment()->setWrapText(true);
     //填写表头
     $objActSheet->setCellValue('A1','客户名');
     $objActSheet->setCellValue('B1','身份证号');
@@ -700,6 +840,7 @@ function export_case()
     $objActSheet->setCellValue('AJ1','是否重点关注');
     $objActSheet->setCellValue('AK1','区域主管');
     $objActSheet->setCellValue('AL1','区域组长');
+    $objActSheet->setCellValue('AM1','案件进展');
 
     if($result = $GLOBALS['$conn']->query($sql)) {
         if ($result->num_rows > 0) {
@@ -744,6 +885,8 @@ function export_case()
                 $objActSheet->setCellValue('AJ'.$i,$row['important']);
                 $objActSheet->setCellValue('AK'.$i,$row['director']);
                 $objActSheet->setCellValue('AL'.$i,$row['leader']);
+                $status=$row['status'];
+                $objActSheet->setCellValue('AM'.$i,getStatus($status));
                 $i++;
             }
             $outputFileName=dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'downloads' . DIRECTORY_SEPARATOR . 'output.xls';
@@ -768,9 +911,35 @@ function export_case()
         }
 
 }
-function request_case_detail()
+function getStatus($status)
 {
-    query_by_status('fin_assign');
+    $status_show='未分配';
+    switch ($status)
+    {
+        case 'wait_assign':
+            $status_show="等待分配";
+            break;
+        case 'fin_assign':
+            $status_show="已分配到下属";
+            break;
+        case 'case_close':
+            $status_show="案件强制关闭";
+            break;
+        case 'tel_collection':
+            $status_show="电话催收中";
+            break;
+        case 'visit_collection_wait':
+            $status_show="等待外访";
+            break;
+        case 'visit_collection_process':
+            $status_show="正在外访中";
+            break;
+        case 'case_finish':
+            $status_show="催收完成";
+            break;
+
+    }
+    return $status_show;
 }
 function distribution()
 {
