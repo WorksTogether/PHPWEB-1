@@ -847,6 +847,8 @@ function export_case()
             $i=2;
             while ($row = $result->fetch_assoc()) {
 
+
+
                 $objActSheet->setCellValue('A'.$i, $row['customer_name']);
                 $objActSheet->setCellValueExplicit('B'.$i,$row['id_num']);
                 $objActSheet->setCellValue('C'.$i, $row['work_company']);
@@ -887,7 +889,55 @@ function export_case()
                 $objActSheet->setCellValue('AL'.$i,$row['leader']);
                 $status=$row['status'];
                 $objActSheet->setCellValue('AM'.$i,getStatus($status));
-                $i++;
+
+                $relation_id=$row['id'];
+                $sql2 = "SELECT * FROM `relation` WHERE customer_id =".$relation_id;
+                $result2 = $GLOBALS['$conn']->query($sql2);
+                $relation_num=$result2->num_rows;
+                $objActSheet->mergeCells('A'.$i.':A'.($i+$relation_num));
+                $objActSheet->mergeCells('B'.$i.':B'.($i+$relation_num));
+                $objActSheet->mergeCells('C'.$i.':C'.($i+$relation_num));
+                $objActSheet->mergeCells('D'.$i.':D'.($i+$relation_num));
+                $objActSheet->mergeCells('E'.$i.':E'.($i+$relation_num));
+                $objActSheet->mergeCells('F'.$i.':F'.($i+$relation_num));
+                $objActSheet->mergeCells('G'.$i.':G'.($i+$relation_num));
+                $objActSheet->mergeCells('H'.$i.':H'.($i+$relation_num));
+                $objActSheet->mergeCells('I'.$i.':I'.($i+$relation_num));
+                $objActSheet->mergeCells('P'.$i.':P'.($i+$relation_num));
+                $objActSheet->mergeCells('Q'.$i.':Q'.($i+$relation_num));
+                $objActSheet->mergeCells('R'.$i.':R'.($i+$relation_num));
+                $objActSheet->mergeCells('S'.$i.':S'.($i+$relation_num));
+                $objActSheet->mergeCells('T'.$i.':T'.($i+$relation_num));
+                $objActSheet->mergeCells('U'.$i.':U'.($i+$relation_num));
+                $objActSheet->mergeCells('V'.$i.':V'.($i+$relation_num));
+                $objActSheet->mergeCells('W'.$i.':W'.($i+$relation_num));
+                $objActSheet->mergeCells('X'.$i.':X'.($i+$relation_num));
+                $objActSheet->mergeCells('Y'.$i.':Y'.($i+$relation_num));
+                $objActSheet->mergeCells('Z'.$i.':Z'.($i+$relation_num));
+                $objActSheet->mergeCells('AA'.$i.':AA'.($i+$relation_num));
+                $objActSheet->mergeCells('AB'.$i.':AB'.($i+$relation_num));
+                $objActSheet->mergeCells('AC'.$i.':AC'.($i+$relation_num));
+                $objActSheet->mergeCells('AD'.$i.':AD'.($i+$relation_num));
+                $objActSheet->mergeCells('AE'.$i.':AE'.($i+$relation_num));
+                $objActSheet->mergeCells('AF'.$i.':AF'.($i+$relation_num));
+                $objActSheet->mergeCells('AG'.$i.':AG'.($i+$relation_num));
+                $objActSheet->mergeCells('AH'.$i.':AH'.($i+$relation_num));
+                $objActSheet->mergeCells('AI'.$i.':AI'.($i+$relation_num));
+                $objActSheet->mergeCells('AJ'.$i.':AJ'.($i+$relation_num));
+                $objActSheet->mergeCells('AK'.$i.':AK'.($i+$relation_num));
+                $objActSheet->mergeCells('AL'.$i.':AL'.($i+$relation_num));
+                $objActSheet->mergeCells('AM'.$i.':AM'.($i+$relation_num));
+                $j=$i+1;
+                while ($row2 = $result2->fetch_assoc()) {
+                    $objActSheet->setCellValue('J'.$j,$row2['relation_name']);
+                    $objActSheet->setCellValue('K'.$j, $row2['relationship']);
+                    $objActSheet->setCellValueExplicit('L'.$j, $row2['relation_phone']);
+                    $objActSheet->setCellValue('M'.$j, $row2['relation_company']);
+                    $objActSheet->setCellValue('N'.$j, $row2['relation_duty']);
+                    $objActSheet->setCellValue('O'.$j,$row2['relation_addr']);
+                    $j++;
+                }
+                $i=$i+$relation_num+1;
             }
             $outputFileName=dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'downloads' . DIRECTORY_SEPARATOR . 'output.xls';
             $objWriter->save($outputFileName);
