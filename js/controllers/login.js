@@ -43,6 +43,12 @@ permissionList0 = [{
     Name: "handle_statistic"
 }, {
     Name: "visit_statistic"
+}, {
+    Name: "data_statistic"
+}, {
+    Name: "homepage_region"
+}, {
+    Name: "homepage_salesman"
 }];
 permissionList1 = [{
     Name: "case_admin"
@@ -84,6 +90,8 @@ permissionList1 = [{
     Name: "handle_statistic"
 }, {
     Name: "visit_statistic"
+}, {
+    Name: "homepage_region"
 }];
 permissionList2 = [{
     Name: "case_admin"
@@ -129,6 +137,8 @@ permissionList2 = [{
     Name: "handle_statistic"
 }, {
     Name: "visit_statistic"
+}, {
+    Name: "homepage_salesman"
 }];
 angular.module('starter.controllers.login', ['ui.router'])
     .controller('login', ['$scope', "$http", "permissions", '$state', function(
@@ -177,3 +187,4 @@ angular.module('starter.controllers.login', ['ui.router'])
             // $location.path('/login');
         });
     }])
+    .value('permissionList', 'permissionList');
