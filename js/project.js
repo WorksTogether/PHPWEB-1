@@ -143,7 +143,7 @@ angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 's
     // .run(function(permissions) {
     //     permissions.setPermissions(permissionList);
     // })
-    .factory('permissions', function($rootScope) {
+    .factory('permissions', ['$rootScope', '$http', function($rootScope, $http) {
         var permissionList;
         return {
             setPermissions: function(permissions) {
@@ -153,13 +153,67 @@ angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 's
             },
             hasPermission: function(permission) {
                 permission = permission.trim();
+                // $rootScope.permissionList = [{
+                //     Name: "case_admin"
+                // }, {
+                //     Name: "case_assign"
+                // }, {
+                //     Name: "case_close"
+                // }, {
+                //     Name: "fen_case_admin"
+                // }, {
+                //     Name: "region_case"
+                // }, {
+                //     Name: "region_fin"
+                // }, {
+                //     Name: "leader_case"
+                // }, {
+                //     Name: "leader_fin"
+                // }, {
+                //     Name: "case_tongji"
+                // }, {
+                //     Name: "case_inprocess"
+                // }, {
+                //     Name: "case_fin"
+                // }, {
+                //     Name: "case_closed"
+                // }, {
+                //     Name: "case_detail"
+                // }, {
+                //     Name: "cuishouadmin"
+                // }, {
+                //     Name: "cuishou_case_admin"
+                // }, {
+                //     Name: "pay_att"
+                // }, {
+                //     Name: "leader2"
+                // }, {
+                //     Name: "credit_case_in"
+                // }, {
+                //     Name: "handle_statistic"
+                // }, {
+                //     Name: "visit_statistic"
+                // }, {
+                //     Name: "homepage_region"
+                // }];
+                // $http({
+                //     url: 'server.php?action=111',
+                //     method: 'POST'
+                // }).success(function(data, header, config, status) {
+                //     //响应成功
+
+                //     console.log($rootScope.permissionList);
+
+                // }).error(function(data, header, config, status) {
+                //     //处理响应失败
+                // });
                 return permissionList.some(function(item) {
                     if (angular.isString(item.Name))
                         return item.Name.trim() === permission
                 });
             }
         };
-    })
+    }])
     .directive('hasPermission', function(permissions) {
         return {
             restrict: 'AE',
