@@ -698,7 +698,49 @@ function case_list()
     if ($result=$GLOBALS['$conn']->query($sql))
     {
         //$rows[0]=$result->fetch_assoc();
-        echo json_encode($result->fetch_assoc());
+        $row =$result->fetch_assoc();
+        $arrays=array();
+        array_push($arrays,$row);
+        //echo json_encode($row);
+        $status=$row['status'];
+        $arrays['handle_progress']=getStatus($status);
+        $arrays['handle_saleman']=$row['leader'];
+        $arrays['tel_handle']=$row['leader'];
+        $status_phone="未电催";
+        $status_visit="未外访";
+
+        switch ($status)
+        {
+            case 'wait_assign':
+            case 'fin_assign':
+            $status_phone="未电催";
+            $status_visit="未外访";
+                break;
+            case 'case_close':
+                $status_show="案件强制关闭";
+                break;
+            case 'tel_collection':
+                $status_phone="正在电催";
+                $status_visit="未外访";
+                break;
+            case 'visit_collection_wait':
+                $status_phone="已电催";
+                $status_visit="等待外访";
+                break;
+            case 'visit_collection_process':
+                $status_phone="已电催";
+                $status_visit="正在外访";
+                break;
+            case 'case_finish':
+                $status_phone="已电催";
+                $status_visit="已外访";
+                break;
+
+        }
+        $arrays['tel_handle']=$status_phone;
+        $arrays['visit_handle']=$status_visit;
+
+        echo json_encode($arrays);
     }
     else
     {
