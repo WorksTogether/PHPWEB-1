@@ -20,7 +20,7 @@ if(!isLogin())
 }
 $action = $_GET['action'];
 switch ($action) {
-case 'auth':
+case 'authlist':
     $response=array();
     $response['auth']=$_SESSION["auth"];
     echo json_encode($response,JSON_UNESCAPED_UNICODE);
