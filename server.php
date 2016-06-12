@@ -22,7 +22,7 @@ $action = $_GET['action'];
 switch ($action) {
 case 'authlist':
     $response=array();
-    $response['msg']=$_SESSION["success"];
+    $response['msg']="success";
     $response['auth']=$_SESSION["auth"];
     echo json_encode($response,JSON_UNESCAPED_UNICODE);
     break;
