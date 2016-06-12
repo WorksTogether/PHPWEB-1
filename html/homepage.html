@@ -9,11 +9,11 @@
         <li style="border-top: #D8D8D8 solid 1px">
             <div style="border-right: #D8D8D8 solid 1px;padding-right: 3%">
                 <span>案件催收总数</span>
-                <span style="float: right"><b>0</b> 件</span>
+                <span style="float: right"><b id="case_total">0</b> 件</span>
             </div>
             <div style="padding-left: 3%">
                 <span>外访次数</span>
-                <span style="float: right"><b>0</b> 次</span>
+                <span style="float: right"><b id="visit_times">0</b> 次</span>
             </div>
         </li>
         <!-- <li style="border-top: #D8D8D8 solid 1px">
@@ -36,21 +36,21 @@
         <li style="border-top: #D8D8D8 solid 1px">
             <div style="border-right: #D8D8D8 solid 1px;padding-right: 3%">
                 <span>地区主管-待处理委案</span>
-                <span style="float: right"><b>0</b> 笔</span>
+                <span style="float: right"><b id="region_wait_handle">0</b> 笔</span>
             </div>
             <div style="padding-left: 3%">
                 <span>催收业务员-待处理委案</span>
-                <span style="float: right"><b>0</b> 笔</span>
+                <span style="float: right"><b id="salesman_wait_handle">0</b> 笔</span>
             </div>
         </li>
         <li style="border-top: #D8D8D8 solid 1px">
             <div style="border-right: #D8D8D8 solid 1px;padding-right: 3%">
                 <span>待办催收任务</span>
-                <span style="float: right"><b>0</b> 笔</span>
+                <span style="float: right"><b id="wait_handle">0</b> 笔</span>
             </div>
             <div style="padding-left: 3%">
                 <span>待处理外访任务</span>
-                <span style="float: right"><b>0</b> 笔</span>
+                <span style="float: right"><b id="wait_visit">0</b> 笔</span>
             </div>
             <!--  <div style="border-right: #D8D8D8 solid 1px;padding-right: 3%">
                 <span>待处理外访任务</span>
@@ -69,3 +69,28 @@
         </li> -->
     </ul>
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+    $.ajax({
+        url: "server.php?action=visit_fin",
+        type: "POST",
+        dataType: "json",
+        data: {
+            sels: sels
+        },
+        success: function(data, textStatus, jqXHR) {
+            if (data.msg == "success") {
+                $("#case_total").html(data.case_total);
+                $("#visit_times").html(data.visit_times);
+                $("#region_wait_handle").html(data.region_wait_handle);
+                $("#salesman_wait_handle").html(data.salesman_wait_handle);
+                $("#wait_handle").html(data.wait_handle);
+                $("#wait_visit").html(data.wait_visit);
+            }
+            if (data.msg == "error") {
+
+            }
+        }
+    });
+});
+</script>
