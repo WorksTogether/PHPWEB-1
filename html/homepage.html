@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="./css/home_page.css" />
 <div class="homepage">
-    <ul>
+    <ul has-permission="data_statistic">
         <li>
             <span style="font-size: 25px;font-weight: bold">
             数据统计
@@ -34,16 +34,17 @@
         </span>
         </li>
         <li style="border-top: #D8D8D8 solid 1px">
-            <div style="border-right: #D8D8D8 solid 1px;padding-right: 3%">
+            <div style="border-right: #D8D8D8 solid 1px;padding-right: 3%" has-permission="homepage_region">
                 <span>地区主管-待处理委案</span>
                 <span style="float: right"><b id="region_wait_handle">0</b> 笔</span>
             </div>
-            <div style="padding-left: 3%">
+            <div style="padding-left: 3%" has-permission="homepage_salesman">
                 <span>催收业务员-待处理委案</span>
                 <span style="float: right"><b id="salesman_wait_handle">0</b> 笔</span>
             </div>
         </li>
-        <li style="border-top: #D8D8D8 solid 1px">
+        <li style="border-top: #D8D8D8 solid 1px" has-permission="homepage_salesman
+">
             <div style="border-right: #D8D8D8 solid 1px;padding-right: 3%">
                 <span>待办催收任务</span>
                 <span style="float: right"><b id="wait_handle">0</b> 笔</span>
@@ -75,9 +76,6 @@ $(document).ready(function() {
         url: "server.php?action=homepage",
         type: "POST",
         dataType: "json",
-        data: {
-            sels: sels
-        },
         success: function(data, textStatus, jqXHR) {
             if (data.msg == "success") {
                 $("#case_total").html(data.case_total);
