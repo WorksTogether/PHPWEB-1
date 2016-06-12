@@ -699,13 +699,10 @@ function case_list()
     {
         //$rows[0]=$result->fetch_assoc();
         $row =$result->fetch_assoc();
-        $arrays=array();
-        array_push($arrays,$row);
-        //echo json_encode($row);
         $status=$row['status'];
-        $arrays['handle_progress']=getStatus($status);
-        $arrays['handle_saleman']=$row['leader'];
-        $arrays['tel_handle']=$row['leader'];
+        $row['handle_progress']=getStatus($status);
+        $row['handle_saleman']=$row['leader'];
+        $row['tel_handle']=$row['leader'];
         $status_phone="未电催";
         $status_visit="未外访";
 
@@ -737,10 +734,10 @@ function case_list()
                 break;
 
         }
-        $arrays['tel_handle']=$status_phone;
-        $arrays['visit_handle']=$status_visit;
+        $row['tel_handle']=$status_phone;
+        $row['visit_handle']=$status_visit;
 
-        echo json_encode($arrays);
+        echo json_encode($row);
     }
     else
     {
