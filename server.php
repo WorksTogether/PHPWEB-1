@@ -16,10 +16,15 @@ if(!isLogin())
     );
     echo json_encode($array,JSON_UNESCAPED_UNICODE);
     echo "<META HTTP-EQUIV=Refresh CONTENT=0;URL=index.html>";//跳转到首页
-    die(0);
+    die();
 }
 $action = $_GET['action'];
 switch ($action) {
+case 'auth':
+    $response=array();
+    $response['auth']=$_SESSION["auth"];
+    echo json_encode($response,JSON_UNESCAPED_UNICODE);
+    break;
   case 'norefresh':
       $reponse["records"] = 0;
     	echo json_encode($reponse,JSON_UNESCAPED_UNICODE);
@@ -128,17 +133,98 @@ case 'phone_handle_fin':
     break;
 case 'request_case_fin':
     request_case_fin();
-break;
+    break;
 case 'request_handle_statistic':
     request_handle_statistic();
-break;
+    break;
 case 'request_visit_statistic':
     request_visit_statistic();
-break;
+    break;
+case 'homepage':
+    homepage();
+    break;
   default:
     # code...
     break;
 };
+
+function homepage()
+{
+    $auth=$_SESSION["auth"] ;
+    if($auth==0)//超级管理员
+    {
+
+        $response=array();
+        $sql1 = "SELECT COUNT(*) AS count FROM `total` WHERE  status = 'tel_collection' OR status = 'visit_collection_wait' OR status = 'visit_collection_process'";
+        $result1 = $GLOBALS['$conn']->query($sql1);
+        $row1 = $result1->fetch_array(MYSQLI_ASSOC);
+        $count1 = $row1['count'];
+        $response['case_total']=$count1;
+        $response['wait_handle']=$count1;
+
+        $sql2 = "SELECT COUNT(*) AS count FROM `total` WHERE  status = 'visit_collection_process'";
+        $result2 = $GLOBALS['$conn']->query($sql2);
+        $row2 = $result2->fetch_array(MYSQLI_ASSOC);
+        $count2 = $row2['count'];
+        $response['visit_times']=$count2;
+
+
+        $sql3 = "SELECT COUNT(*) AS count FROM `total` WHERE  status = 'fin_assign' AND ( director IS NOT NULL  AND  director!='')  AND  ( ISNULL(leader) OR leader='')";
+        $result3 = $GLOBALS['$conn']->query($sql3);
+        $row3 = $result3->fetch_array(MYSQLI_ASSOC);
+        $count3 = $row3['count'];
+        $response['region_wait_handle']=$count3;
+
+        $sql4 = "SELECT COUNT(*) AS count FROM `total` WHERE  status = 'fin_assign' AND ( director IS NOT NULL  AND  director!='')  AND  ( leader IS NOT NULL  AND  leader!='')";
+        $result4 = $GLOBALS['$conn']->query($sql4);
+        $row4 = $result4->fetch_array(MYSQLI_ASSOC);
+        $count4 = $row4['count'];
+        $response['salesman_wait_handle']=$count4;
+
+        $sql5 = "SELECT COUNT(*) AS count FROM `total` WHERE  status = 'visit_collection_wait'";
+        $result5 = $GLOBALS['$conn']->query($sql5);
+        $row5 = $result5->fetch_array(MYSQLI_ASSOC);
+        $count5 = $row5['count'];
+        $response['wait_visit']=$count5;
+        echo json_encode($response,JSON_UNESCAPED_UNICODE);
+    }
+    if($auth==1)//主管
+    {
+        $response=array();
+        $real_name=$_SESSION["realName"];
+        $area=$_SESSION["area"];
+        $director=$area."->".$real_name;
+        $sql3 = "SELECT COUNT(*) AS count FROM `total` WHERE  status = 'fin_assign'  AND director='".$director."' AND  ( ISNULL(leader) OR leader='')";
+        $result3 = $GLOBALS['$conn']->query($sql3);
+        $row3 = $result3->fetch_array(MYSQLI_ASSOC);
+        $count3 = $row3['count'];
+        $response['region_wait_handle']=$count3;
+        echo json_encode($response,JSON_UNESCAPED_UNICODE);
+    }
+    if($auth==2)//组长
+    {
+        $response=array();
+        $real_name=$_SESSION["realName"];
+        $sql4 = "SELECT COUNT(*) AS count FROM `total` WHERE  status = 'fin_assign' AND ( director IS NOT NULL  AND  director!='')    AND leader='".$real_name."'";
+        $result4 = $GLOBALS['$conn']->query($sql4);
+        $row4 = $result4->fetch_array(MYSQLI_ASSOC);
+        $count4 = $row4['count'];
+        $response['salesman_wait_handle']=$count4;
+
+        $sql5 = "SELECT COUNT(*) AS count FROM `total` WHERE  status = 'visit_collection_wait'  AND leader='".$real_name."'";
+        $result5 = $GLOBALS['$conn']->query($sql5);
+        $row5 = $result5->fetch_array(MYSQLI_ASSOC);
+        $count5 = $row5['count'];
+        $response['wait_visit']=$count5;
+
+        $sql1 = "SELECT COUNT(*) AS count FROM `total` WHERE  (status = 'tel_collection' OR status = 'visit_collection_wait' OR status = 'visit_collection_process')  AND leader='".$real_name."'";
+        $result1 = $GLOBALS['$conn']->query($sql1);
+        $row1 = $result1->fetch_array(MYSQLI_ASSOC);
+        $count1 = $row1['count'];
+        $response['wait_handle']=$count1;
+        echo json_encode($response,JSON_UNESCAPED_UNICODE);
+    }
+}
 function request_visit_statistic()
 {
     $auth=$_SESSION["auth"] ;
