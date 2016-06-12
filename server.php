@@ -155,6 +155,7 @@ function homepage()
     {
 
         $response=array();
+        $response['msg']="success";
         $sql1 = "SELECT COUNT(*) AS count FROM `total` WHERE  status = 'tel_collection' OR status = 'visit_collection_wait' OR status = 'visit_collection_process'";
         $result1 = $GLOBALS['$conn']->query($sql1);
         $row1 = $result1->fetch_array(MYSQLI_ASSOC);
@@ -191,6 +192,7 @@ function homepage()
     if($auth==1)//主管
     {
         $response=array();
+        $response['msg']="success";
         $real_name=$_SESSION["realName"];
         $area=$_SESSION["area"];
         $director=$area."->".$real_name;
@@ -204,6 +206,7 @@ function homepage()
     if($auth==2)//组长
     {
         $response=array();
+        $response['msg']="success";
         $real_name=$_SESSION["realName"];
         $sql4 = "SELECT COUNT(*) AS count FROM `total` WHERE  status = 'fin_assign' AND ( director IS NOT NULL  AND  director!='')    AND leader='".$real_name."'";
         $result4 = $GLOBALS['$conn']->query($sql4);
