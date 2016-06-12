@@ -69,7 +69,7 @@
                             <span>外访记录</span>
                         </div>
                     </li>
-                    <li class="nav" data-list="4">
+                    <!-- <li class="nav" data-list="4">
                         <div>
                             <span>外访记录</span>
                         </div>
@@ -93,7 +93,7 @@
                         <div>
                             <span>外访记录</span>
                         </div>
-                    </li>
+                    </li> -->
                     <li style="position:relative;border-right: #F6D4BC solid 2px;height:1000px;"></li>
                 </ul>
             </div>
@@ -110,175 +110,175 @@ $(document).ready(function() {
         colNames: ['客户名字', '身份证号', '工作单位', '工作单位地址', '单位电话', '职务', '户籍地址', '住址', '申请人手机号', '关系人姓名', '与申请人关系', '关系人手机号', '关系人工作单位', '关系人职位', '关系人详细地址', '产品类型', '签约金额', '还款期数', '月还款金额', '每月还款日', '签约日期', '放款日期', '还款起始日期', '还款到期日期', '剩余本金', '委案金额', '本金拖欠开始日期', '开户行名称', '账户户名', '银行卡账号', '客户手机号码', '还款期数', '已还期数', '未还期数', 'M值'],
         colModel: [{
             name: '客户名字',
-            index: 'customer_name',
+            index: 'A',
             width: 120,
             align: 'center'
         }, {
             name: '身份证号',
-            index: 'id_num',
+            index: 'B',
             width: 60
         }, {
             name: '工作单位',
-            index: 'work_company',
+            index: 'C',
             width: 120
         }, {
             name: '工作单位地址',
-            index: 'work_addr',
+            index: 'D',
             width: 120
         }, {
             name: '单位电话',
-            index: 'work_telephone',
+            index: 'E',
             width: 120,
             align: 'center'
         }, {
             name: '职务',
-            index: 'work_duty',
+            index: 'F',
             width: 120,
             align: 'center'
         }, {
             name: '户籍地址',
-            index: 'household_addr',
+            index: 'G',
             width: 120,
             sortable: false,
             align: 'center'
         }, {
             name: '住址',
-            index: 'home_addr',
+            index: 'H',
             width: 120,
             align: 'center'
         }, {
             name: '申请人手机号',
-            index: 'applyer_phone',
+            index: 'I',
             width: 120,
             align: 'center'
         }, {
             name: '关系人姓名',
-            index: 'relation_name',
+            index: 'J',
             width: 120,
             align: 'center'
         }, {
             name: '与申请人关系',
-            index: 'relationship',
+            index: 'K',
             width: 120,
             align: 'center'
         }, {
             name: '关系人手机号',
-            index: 'relation_phone',
+            index: 'L',
             width: 120,
             align: 'center'
         }, {
             name: '关系人工作单位',
-            index: 'relation_company',
+            index: 'M',
             width: 120,
             align: 'center'
         }, {
             name: '关系人职位',
-            index: 'relation_duty',
+            index: 'N',
             width: 120,
             align: 'center'
         }, {
             name: '关系人详细地址',
-            index: 'relation_addr',
+            index: 'O',
             width: 120,
             align: 'center'
         }, {
             name: '产品类型',
-            index: 'product_type',
+            index: 'P',
             width: 120,
             align: 'center'
         }, {
             name: '签约金额',
-            index: 'sign_money',
+            index: 'Q',
             width: 120,
             align: 'center'
         }, {
             name: '还款期数',
-            index: 'repay_sum_period',
+            index: 'R',
             width: 120,
             align: 'center'
         }, {
             name: '月还款金额',
-            index: 'repay_month',
+            index: 'S',
             width: 120,
             align: 'center'
         }, {
             name: '每月还款日',
-            index: 'repay_date',
+            index: 'T',
             width: 120,
             align: 'center'
         }, {
             name: '签约日期',
-            index: 'sign_date',
+            index: 'U',
             width: 120,
             align: 'center'
         }, {
             name: '放款日期',
-            index: 'loan_date',
+            index: 'V',
             width: 120,
             align: 'center'
         }, {
             name: '还款起始日期',
-            index: 'repay_start_date',
+            index: 'W',
             width: 120,
             align: 'center'
         }, {
             name: '还款到期日期',
-            index: 'repay_expire_date',
+            index: 'X',
             width: 120,
             align: 'center'
         }, {
             name: '剩余本金',
-            index: 'remain_capital',
+            index: 'Y',
             width: 120,
             align: 'center'
         }, {
             name: '委案金额',
-            index: 'case_money',
+            index: 'Z',
             width: 120,
             align: 'center'
         }, {
             name: '本金拖欠开始日期',
-            index: 'capital_delay_start_date',
+            index: 'AA',
             width: 120,
             align: 'center'
         }, {
             name: '开户行名称',
-            index: 'bank_name',
+            index: 'AB',
             width: 120,
             align: 'center'
         }, {
             name: '账户户名',
-            index: 'account_name',
+            index: 'AC',
             width: 120,
             align: 'center'
         }, {
             name: '银行卡账号',
-            index: 'bank_card_num',
+            index: 'AD',
             width: 120,
             align: 'center'
         }, {
             name: '客户手机号码',
-            index: 'customer_phone',
+            index: 'AE',
             width: 120,
             align: 'center'
         }, {
             name: '还款期数',
-            index: 'repay_sum_period_2',
+            index: 'AF',
             width: 120,
             align: 'center'
         }, {
             name: '已还期数',
-            index: 'repay_already_period',
+            index: 'AG',
             width: 120,
             align: 'center'
         }, {
             name: '未还期数',
-            index: 'repay_not_period',
+            index: 'AH',
             width: 120,
             align: 'center'
         }, {
             name: 'M值',
-            index: 'm_value',
+            index: 'AI',
             width: 120,
             align: 'center'
         }],
