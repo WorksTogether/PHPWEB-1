@@ -187,4 +187,3 @@ angular.module('starter.controllers.login', ['ui.router'])
             // $location.path('/login');
         });
     }])
-    .value('permissionList', 'permissionList');
