@@ -13,6 +13,7 @@ if(!isLogin())
     $array = array(
         'msg' => "error",
         'info' => "您未登录",
+        'url'=>"<META HTTP-EQUIV=Refresh CONTENT=0;URL=index.html>",
     );
     echo json_encode($array,JSON_UNESCAPED_UNICODE);
     //echo "<META HTTP-EQUIV=Refresh CONTENT=0;URL=index.html>";//跳转到首页
