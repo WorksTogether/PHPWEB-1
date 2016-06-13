@@ -313,14 +313,15 @@ angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 's
             }
         };
     }])
-    .factory('handhttp', function($http, $rootScope, permissions) {
+    .factory('handhttp', function($http, $rootScope, permissions, $location) {
         return {
             authshttp: function(value, element) {
                 $http({
                     url: 'server.php?action=authlist',
                     method: 'POST'
                 }).success(function(data, header, config, status) {
-                    //响应成功
+                    console.log(data.msg)
+                        //响应成功
                     if (data.msg == "success") {
                         var hasPermission = permissions.hasPermission(value, data.auth);
                         if (hasPermission) {
@@ -330,9 +331,12 @@ angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 's
                             element.hide();
                         }
                     } else if (data.msg == "error") {
-                        console.log(111111121212121)
-                        alert("请登录！");
-                        // $location.path('/login');
+                        noauth += 1;
+                        console.log(noauth)
+                        if (noauth == 1) {
+                            alert("请登录！");
+                            $location.path('/login');
+                        }
                     }
                 }).error(function(data, header, config, status) {
                     //处理响应失败
@@ -363,4 +367,5 @@ angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 's
                 // scope.$on('permissionsChanged', toggleVisibilityBasedOnPermission);
             }
         };
-    });
+    })
+var noauth = 0;
