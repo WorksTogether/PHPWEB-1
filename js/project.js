@@ -322,7 +322,6 @@ angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 's
                 }).success(function(data, header, config, status) {
                     //响应成功
                     if (data.msg == "success") {
-                       // alert('test');
                         var hasPermission = permissions.hasPermission(value, data.auth);
                         if (hasPermission) {
                             element.show();
@@ -330,10 +329,10 @@ angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 's
                         } else {
                             element.hide();
                         }
-                    }
-                    else
-                    {
-                        window.location.href="index.html";
+                    } else if (data.msg == "error") {
+                        console.log(111111121212121)
+                        alert("请登录！");
+                        // $location.path('/login');
                     }
                 }).error(function(data, header, config, status) {
                     //处理响应失败
@@ -361,7 +360,7 @@ angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 's
                 //     }
                 // }
                 // toggleVisibilityBasedOnPermission();
-                scope.$on('permissionsChanged', toggleVisibilityBasedOnPermission);
+                // scope.$on('permissionsChanged', toggleVisibilityBasedOnPermission);
             }
         };
     });
