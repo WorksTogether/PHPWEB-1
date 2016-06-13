@@ -16,7 +16,7 @@ if(!isLogin())
     );
     echo json_encode($array,JSON_UNESCAPED_UNICODE);
     echo "<META HTTP-EQUIV=Refresh CONTENT=0;URL=index.html>";//跳转到首页
-    die();
+    die(0);
 }
 $action = $_GET['action'];
 switch ($action) {
