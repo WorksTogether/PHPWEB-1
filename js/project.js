@@ -151,62 +151,161 @@ angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 's
                 permissionList = permissions;
                 $rootScope.$broadcast('permissionsChanged')
             },
-            hasPermission: function(permission) {
+            hasPermission: function(permission, auth) {
                 permission = permission.trim();
-                // $rootScope.permissionList = [{
-                //     Name: "case_admin"
-                // }, {
-                //     Name: "case_assign"
-                // }, {
-                //     Name: "case_close"
-                // }, {
-                //     Name: "fen_case_admin"
-                // }, {
-                //     Name: "region_case"
-                // }, {
-                //     Name: "region_fin"
-                // }, {
-                //     Name: "leader_case"
-                // }, {
-                //     Name: "leader_fin"
-                // }, {
-                //     Name: "case_tongji"
-                // }, {
-                //     Name: "case_inprocess"
-                // }, {
-                //     Name: "case_fin"
-                // }, {
-                //     Name: "case_closed"
-                // }, {
-                //     Name: "case_detail"
-                // }, {
-                //     Name: "cuishouadmin"
-                // }, {
-                //     Name: "cuishou_case_admin"
-                // }, {
-                //     Name: "pay_att"
-                // }, {
-                //     Name: "leader2"
-                // }, {
-                //     Name: "credit_case_in"
-                // }, {
-                //     Name: "handle_statistic"
-                // }, {
-                //     Name: "visit_statistic"
-                // }, {
-                //     Name: "homepage_region"
-                // }];
-                // $http({
-                //     url: 'server.php?action=111',
-                //     method: 'POST'
-                // }).success(function(data, header, config, status) {
-                //     //响应成功
+                var permissionList0, permissionList1;
+                permissionList0 = [{
+                    Name: "case_admin"
+                }, {
+                    Name: "case_assign_main"
+                }, {
+                    Name: "credit_case_in"
+                }, {
+                    Name: "case_assign"
+                }, {
+                    Name: "case_close"
+                }, {
+                    Name: "region_case"
+                }, {
+                    Name: "region_fin"
+                }, {
+                    Name: "leader_case"
+                }, {
+                    Name: "leader_fin"
+                }, {
+                    Name: "case_tongji"
+                }, {
+                    Name: "case_inprocess"
+                }, {
+                    Name: "case_fin"
+                }, {
+                    Name: "case_closed"
+                }, {
+                    Name: "case_detail"
+                }, {
+                    Name: "cuishouadmin"
+                }, {
+                    Name: "cuishou_case_admin"
+                }, {
+                    Name: "pay_att"
+                }, {
+                    Name: "select_all"
+                }, {
+                    Name: "excutive2"
+                }, {
+                    Name: "system_manage"
+                }, {
+                    Name: "handle_statistic"
+                }, {
+                    Name: "visit_statistic"
+                }, {
+                    Name: "data_statistic"
+                }, {
+                    Name: "homepage_region"
+                }, {
+                    Name: "homepage_salesman"
+                }];
+                permissionList1 = [{
+                    Name: "case_admin"
+                }, {
+                    Name: "case_assign"
+                }, {
+                    Name: "case_close"
+                }, {
+                    Name: "fen_case_admin"
+                }, {
+                    Name: "region_case"
+                }, {
+                    Name: "region_fin"
+                }, {
+                    Name: "leader_case"
+                }, {
+                    Name: "leader_fin"
+                }, {
+                    Name: "case_tongji"
+                }, {
+                    Name: "case_inprocess"
+                }, {
+                    Name: "case_fin"
+                }, {
+                    Name: "case_closed"
+                }, {
+                    Name: "case_detail"
+                }, {
+                    Name: "cuishouadmin"
+                }, {
+                    Name: "cuishou_case_admin"
+                }, {
+                    Name: "pay_att"
+                }, {
+                    Name: "leader2"
+                }, {
+                    Name: "credit_case_in"
+                }, {
+                    Name: "handle_statistic"
+                }, {
+                    Name: "visit_statistic"
+                }, {
+                    Name: "homepage_region"
+                }];
+                permissionList2 = [{
+                    Name: "case_admin"
+                }, {
+                    Name: "credit_case_in"
+                }, {
+                    Name: "case_close"
+                }, {
+                    Name: "region_case"
+                }, {
+                    Name: "region_fin"
+                }, {
+                    Name: "leader_case"
+                }, {
+                    Name: "leader_fin"
+                }, {
+                    Name: "case_tongji"
+                }, {
+                    Name: "case_inprocess"
+                }, {
+                    Name: "case_fin"
+                }, {
+                    Name: "case_closed"
+                }, {
+                    Name: "case_detail"
+                }, {
+                    Name: "cuishouadmin"
+                }, {
+                    Name: "cuishou_case_admin"
+                }, {
+                    Name: "wait_handle"
+                }, {
+                    Name: "pay_att"
+                }, {
+                    Name: "wait_handle"
+                }, {
+                    Name: "phone_handle"
+                }, {
+                    Name: "wait_visit"
+                }, {
+                    Name: "visit_process"
+                }, {
+                    Name: "handle_statistic"
+                }, {
+                    Name: "visit_statistic"
+                }, {
+                    Name: "homepage_salesman"
+                }];
+                if (auth == "0") {
+                    permissionList = permissionList0;
+                    console.log(permissionList);
+                } else if (auth == "1") {
+                    permissionList = permissionList1;
+                    console.log(permissionList);
+                } else if (auth == "2") {
+                    permissionList = permissionList2;
+                    console.log(permissionList);
+                }
 
-                //     console.log($rootScope.permissionList);
-
-                // }).error(function(data, header, config, status) {
-                //     //处理响应失败
-                // });
                 return permissionList.some(function(item) {
                     if (angular.isString(item.Name))
                         return item.Name.trim() === permission
@@ -214,7 +313,30 @@ angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 's
             }
         };
     }])
-    .directive('hasPermission', function(permissions) {
+    .factory('handhttp', function($http, $rootScope, permissions) {
+        return {
+            authshttp: function(value, element) {
+                $http({
+                    url: 'server.php?action=authlist',
+                    method: 'POST'
+                }).success(function(data, header, config, status) {
+                    //响应成功
+                    if (data.msg = "success") {
+                        var hasPermission = permissions.hasPermission(value, data.auth);
+                        if (hasPermission) {
+                            element.show();
+                            console.log("show");
+                        } else {
+                            element.hide();
+                        }
+                    }
+                }).error(function(data, header, config, status) {
+                    //处理响应失败
+                });
+            }
+        };
+    })
+    .directive('hasPermission', function(permissions, handhttp) {
         return {
             restrict: 'AE',
             link: function(scope, element, attrs) {
@@ -222,17 +344,18 @@ angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 's
                     throw "hasPermission value must be a string";
 
                 var value = attrs.hasPermission.trim();
+                handhttp.authshttp(value, element);
 
-                function toggleVisibilityBasedOnPermission() {
-                    var hasPermission = permissions.hasPermission(value);
-                    if (hasPermission) {
-                        element.show();
-                        console.log("show");
-                    } else {
-                        element.hide();
-                    }
-                }
-                toggleVisibilityBasedOnPermission();
+                // function toggleVisibilityBasedOnPermission() {
+                //     var hasPermission = permissions.hasPermission(value);
+                //     if (hasPermission) {
+                //         element.show();
+                //         console.log("show");
+                //     } else {
+                //         element.hide();
+                //     }
+                // }
+                // toggleVisibilityBasedOnPermission();
                 scope.$on('permissionsChanged', toggleVisibilityBasedOnPermission);
             }
         };
