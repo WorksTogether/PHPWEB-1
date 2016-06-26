@@ -5,7 +5,8 @@ angular.module('starter.controllers.visit_process', ['angularFileUpload', 'ui.ro
             url: 'server.php?action=uploadpic',
             autoUpload: true,
             removeAfterUpload: true,
-            queueLimit: 20
+            queueLimit: 20,
+            formData: localStorage.getItem("sel")
         });
         uploader1.onBeforeUploadItem = function(fileItem) {};
         uploader1.onAfterAddingFile = function(fileItem) {

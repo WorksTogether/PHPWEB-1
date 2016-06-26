@@ -410,7 +410,7 @@ $(document).ready(function() {
                         $("#list1").jqGrid('setGridParam', {
                             url: "system_manage.php?action=request_manage_user"
                         }).trigger("reloadGrid");
-                        localStorage.removeItem("sel");
+                        // localStorage.removeItem("sel");
                     }
                     if (data.msg == "error") {
                         alert("添加失败！");
