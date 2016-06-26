@@ -18,6 +18,9 @@ angular.module('starter.controllers.visit_process', ['angularFileUpload', 'ui.ro
             //     return false;
             // }
             console.log(angular.element(".showFileName1").html());
+            if (angular.element(".showFileName1").html().indexOf("未选择文件") > -1) {
+                angular.element(".showFileName1").html("");
+            }
             angular.element(".showFileName1").append(fileItem.file.name);
         };
         uploader1.onSuccessItem = function(fileItem, response, status, headers) {

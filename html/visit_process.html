@@ -65,12 +65,12 @@
                             <li style="margin-top: 20px">
                                 <label for="pic" style="display: inline-block;">案件图片信息：</label>
                                 <a href="javascript:;" class="file" style="line-height: 30px;font-size: 12px;">选择文件<input type="file" name="upload_file1" id="upload_file1" data-upload1="false" nv-file-select="" uploader="uploader1" multiple="multiple" accept=".jp2,.jpe,.jpeg,.jpg,.png"></a>
-                                <span class="showFileName1">未选择文件</span>
+                                <span class="showFileName1" style="display: inline-block;width: 250px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">未选择文件</span>
                             </li>
                             <li style="margin-top: 20px">
                                 <label for="vid" style="display: inline-block;">案件视频信息：</label>
                                 <a href="javascript:;" class="file" style="line-height: 30px;font-size: 12px;">选择文件<input type="file" name="upload_file1" id="upload_file2" data-upload2="false" nv-file-select="" uploader="uploader2" multiple="multiple" accept="video/*"></a>
-                                <span class="showFileName2">未选择文件</span>
+                                <span class="showFileName2" style="display: inline-block;width: 250px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;">未选择文件</span>
                             </li>
                         </ul>
                     </li>
@@ -389,9 +389,10 @@ $(document).ready(function() {
         $('#goodcover').hide();
     });
     $('#assign').click(function() {
+        var infor = $("#infor").val();
         var upload1 = angular.element("#upload_file1").data("upload1");
         var upload2 = angular.element("#upload_file2").data("upload2");
-        if (upload1 && upload2) {
+        if (upload1 || upload2 || $("#infor").val()) {
             $.ajax({
                 url: "server.php?action=submit_infor",
                 type: "POST",
