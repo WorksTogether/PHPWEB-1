@@ -2,13 +2,13 @@ angular.module('starter.controllers.visit_process', ['angularFileUpload', 'ui.ro
     .controller('visit_process', ['$scope', '$location', 'FileUploader', '$state', '$http', function($scope, $location, FileUploader, $state, $http) {
         $scope.$on('$stateChangeSuccess', function(evt, next, current) {});
         var uploader1 = $scope.uploader1 = new FileUploader({
-            url: 'server.php?action=uploadpic',
+            url: 'server.php?action=uploadpic' + "&" + "sel=" + localStorage.getItem("sel"),
             autoUpload: true,
             removeAfterUpload: true,
             queueLimit: 20,
-            formData: {
-                sels: localStorage.getItem("sel")
-            }
+            // formData: {
+            //     sels: localStorage.getItem("sel")
+            // }
         });
         uploader1.onBeforeUploadItem = function(fileItem) {};
         uploader1.onAfterAddingFile = function(fileItem) {
@@ -34,7 +34,7 @@ angular.module('starter.controllers.visit_process', ['angularFileUpload', 'ui.ro
             console.info('onErrorItem', fileItem, response, status, headers);
         };
         var uploader2 = $scope.uploader2 = new FileUploader({
-            url: 'server.php?action=uploadvideo',
+            url: 'server.php?action=uploadvideo' + "&" + "sel=" + localStorage.getItem("sel"),
             autoUpload: true,
             removeAfterUpload: true,
             queueLimit: 20
