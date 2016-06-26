@@ -31,7 +31,7 @@ angular.module('starter.controllers.visit_process', ['angularFileUpload', 'ui.ro
             console.info('onErrorItem', fileItem, response, status, headers);
         };
         var uploader2 = $scope.uploader2 = new FileUploader({
-            url: 'server.php?action=uploadpic',
+            url: 'server.php?action=uploadvideo',
             autoUpload: true,
             removeAfterUpload: true,
             queueLimit: 20
