@@ -145,11 +145,246 @@ case 'request_visit_statistic':
 case 'homepage':
     homepage();
     break;
+case 'submit_infor':
+    submit_infor();
+    break;
+case 'uploadpic':
+    uploadpic();
+    break;
+case 'uploadvideo':
+    uploadvideo();
+    break;
   default:
     # code...
     break;
 };
+//$outputFileName=dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'downloads' . DIRECTORY_SEPARATOR . 'output.xls';
+function uploadvideo()
+{
+    $ids = $_GET['sel'];
+    if(empty($ids))
+    {
 
+        $array = array(
+            "msg" => "error",
+            "info"=>"ID 不为空"
+        );
+        echo json_encode($array,JSON_UNESCAPED_UNICODE);
+        die(0);
+    }
+    if ( empty( $_FILES ) )
+    {
+        $array = array(
+            "msg" => "error",
+            "info"=>"视频不能为空"
+        );
+        echo json_encode($array,JSON_UNESCAPED_UNICODE);
+        die(0);
+    }
+    $file = $_FILES['file'];//得到传输的数据
+    //得到文件名称
+    /* $name = $file['name'];
+     $type = strtolower(substr($name,strrpos($name,'.')+1)); //得到文件类型，并且都转化成小写
+     $allow_type = array('mp4','','gif','png'); //定义允许上传的类型
+     //判断文件类型是否被允许上传
+     if(!in_array($type, $allow_type)){
+         //如果不被允许，则直接停止程序运行
+         $array = array(
+             "msg" => "error",
+             "info"=>"文件类型错误！"
+         );
+         echo json_encode($array,JSON_UNESCAPED_UNICODE);
+         die(0);
+     }*/
+    $upload_path = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'case_files'.DIRECTORY_SEPARATOR.$ids.DIRECTORY_SEPARATOR."video"; //上传文件的存放路径
+    if(!is_readable($upload_path))
+    {
+        mkdir($upload_path,0700);
+    }
+//开始移动文件到相应的文件夹
+    if( file_exists($upload_path.DIRECTORY_SEPARATOR.$file['name']))
+    {
+        $array = array(
+            "msg" => "error",
+            "info"=>"文件已存在！"
+        );
+        echo json_encode($array,JSON_UNESCAPED_UNICODE);
+        die(0);
+    }
+    if(move_uploaded_file($file['tmp_name'],$upload_path.DIRECTORY_SEPARATOR.$file['name'])){
+
+        $sql = "SELECT * FROM `total`  WHERE id IN (".$ids.")";
+        if($result = $GLOBALS['$conn']->query($sql))
+        {
+            if ($result->num_rows > 0)
+            {
+
+                $row = $result->fetch_assoc();
+                $text_before=$row['video'];
+            }
+        }
+        if(empty($text_before)) {
+            $sql = "UPDATE `total` SET video='". $file['name'] . "' WHERE id IN (" . $ids . ")";
+        }
+        else{
+            $sql = "UPDATE `total` SET video='" . $text_before . "<+>" . $file['name'] . "' WHERE id IN (" . $ids . ")";
+        }
+        if ($GLOBALS['$conn']->query($sql))
+        {
+            $array = array(
+                "msg" => "success",
+            );
+            echo json_encode($array,JSON_UNESCAPED_UNICODE);
+        }
+        else
+        {
+            $array = array(
+                "msg" => "error",
+                "info"=>"文件存储错误！"
+            );
+            echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+            echo json_encode($array,JSON_UNESCAPED_UNICODE);
+        }
+
+
+    }else{
+        $array = array(
+            "msg" => "error",
+            "info"=>"文件存储错误！"
+        );
+        echo json_encode($array,JSON_UNESCAPED_UNICODE);
+    }
+}
+function uploadpic()
+{
+    $ids = $_GET['sel'];
+    if(empty($ids))
+    {
+
+        $array = array(
+            "msg" => "error",
+            "info"=>"ID 不为空"
+        );
+        echo json_encode($array,JSON_UNESCAPED_UNICODE);
+        die(0);
+    }
+    if ( empty( $_FILES ) )
+    {
+        $array = array(
+            "msg" => "error",
+            "info"=>"图片不能为空"
+        );
+        echo json_encode($array,JSON_UNESCAPED_UNICODE);
+        die(0);
+    }
+    $file = $_FILES['file'];//得到传输的数据
+    //得到文件名称
+    $name = $file['name'];
+    $type = strtolower(substr($name,strrpos($name,'.')+1)); //得到文件类型，并且都转化成小写
+    $allow_type = array('jpg','jpeg','gif','png'); //定义允许上传的类型
+    //判断文件类型是否被允许上传
+    if(!in_array($type, $allow_type)){
+        //如果不被允许，则直接停止程序运行
+        $array = array(
+            "msg" => "error",
+            "info"=>"文件类型错误！"
+        );
+        echo json_encode($array,JSON_UNESCAPED_UNICODE);
+        die(0);
+    }
+    $upload_path = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'case_files'.DIRECTORY_SEPARATOR.$ids.DIRECTORY_SEPARATOR."pic"; //上传文件的存放路径
+    if(!is_readable($upload_path))
+    {
+        mkdir($upload_path,0700);
+    }
+//开始移动文件到相应的文件夹
+   if( file_exists($upload_path.DIRECTORY_SEPARATOR.$file['name']))
+   {
+       $array = array(
+           "msg" => "error",
+           "info"=>"文件已存在！"
+       );
+       echo json_encode($array,JSON_UNESCAPED_UNICODE);
+       die(0);
+   }
+    if(move_uploaded_file($file['tmp_name'],$upload_path.DIRECTORY_SEPARATOR.$file['name'])){
+
+        $sql = "SELECT * FROM `total`  WHERE id IN (".$ids.")";
+        if($result = $GLOBALS['$conn']->query($sql))
+        {
+            if ($result->num_rows > 0)
+            {
+
+                $row = $result->fetch_assoc();
+                $text_before=$row['img'];
+             }
+        }
+        if(empty($text_before)) {
+            $sql = "UPDATE `total` SET img='". $file['name'] . "' WHERE id IN (" . $ids . ")";
+        }
+        else{
+            $sql = "UPDATE `total` SET img='" . $text_before . "<+>" . $file['name'] . "' WHERE id IN (" . $ids . ")";
+        }
+        if ($GLOBALS['$conn']->query($sql))
+        {
+            $array = array(
+                "msg" => "success",
+            );
+            echo json_encode($array,JSON_UNESCAPED_UNICODE);
+        }
+        else
+        {
+            $array = array(
+                "msg" => "error",
+                "info"=>"文件存储错误！"
+            );
+            echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+            echo json_encode($array,JSON_UNESCAPED_UNICODE);
+        }
+
+
+    }else{
+        $array = array(
+            "msg" => "error",
+            "info"=>"文件存储错误！"
+        );
+        echo json_encode($array,JSON_UNESCAPED_UNICODE);
+    }
+
+
+}
+function submit_infor()
+{
+    $ids = $_POST['sels'];
+    if(empty($ids))
+    {
+
+        $array = array(
+            "msg" => "error",
+            "info"=>"ID 不为空"
+        );
+        echo json_encode($array,JSON_UNESCAPED_UNICODE);
+        die(0);
+    }
+    $text_info=trim($_POST['infor']);
+
+    $auth=$_SESSION["auth"] ;
+    if($auth==2)//组长
+    {
+        $sql = "UPDATE `total` SET text_info='".$text_info."' WHERE id IN (".$ids.")";
+        if ($GLOBALS['$conn']->query($sql))
+        {
+            $array = array(
+                "msg" => "success",
+            );
+            echo json_encode($array);
+        }
+        else
+        {
+            echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+        }
+    }
+}
 function homepage()
 {
     $auth=$_SESSION["auth"] ;
@@ -828,6 +1063,27 @@ function case_list()
         $row['tel_handle']=$status_phone;
         $row['visit_handle']=$status_visit;
 
+        
+        $pic_url_text=$row['img'];
+        $video_url_text=$row['video'];
+        $upload_path = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'case_files'.DIRECTORY_SEPARATOR.$ids[0]; //上传文件的存放路径
+        if(empty($pic_url_text)) {
+            $row['pic_url'] = null;
+        }
+        else
+        {
+            $row['pic_url']=$upload_path.DIRECTORY_SEPARATOR."pic".DIRECTORY_SEPARATOR.explode('<+>',$pic_url_text)[0];
+        }
+
+        if(empty($video_url_text)) {
+            $row['video_url'] = null;
+
+        }
+        else{
+            $row['video_url'] = $upload_path.DIRECTORY_SEPARATOR."video".DIRECTORY_SEPARATOR.explode('<+>',$pic_url_text)[0];
+        }
+
+
         echo json_encode($row);
     }
     else
@@ -1440,6 +1696,7 @@ function  query_by_status($data_status){
             $row['repay_already_period'],
             $row['repay_not_period'],
             $row['m_value'],
+
             );
             $i++; 
       }
