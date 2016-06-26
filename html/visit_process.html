@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/wait_handle.css" />
+<link rel="stylesheet" href="css/visit_process.css" />
 <script src="lib/jquery.min.js" async="async">
 </script>
 <script src="lib/jquery.jqgrid.min.js"></script>
@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="css/ui.jqgrid.css" />
 <link rel="stylesheet" href="css/jquery-ui.min.css" />
 <link rel="stylesheet" href="css/theme.css" />
-<div class="credit_case_in" ng-controller="credit_case_in">
+<div class="credit_case_in" ng-controller="visit_process">
     <div class="div1">
         <div style="overflow: hidden">
             <form action="" method="post" id="case_query1">
@@ -30,6 +30,9 @@
                 <li style="float: left;margin-left: 32px;">
                     <span id="visit_fin" class="submit-button" style="display: inline-block;width: 70px;text-align: center">外访完成</span>
                 </li>
+                <li style="float: left;margin-left: 32px;">
+                    <span id="infor_input" class="submit-button" style="display: inline-block;width: 70px;text-align: center">信息录入</span>
+                </li>
                 <!-- <li style="float: left;margin-left: 32px;">
                     <span id="continue_visit" class="submit-button" style="display: inline-block;width: 70px;text-align: center">继续外访</span>
                 </li> -->
@@ -41,6 +44,40 @@
         <table id="list1"></table>
         <div id="pager"></div>
         <!--<div id="pager"></div>-->
+    </div>
+    <div id="goodcover"></div>
+    <div id="code">
+        <div style="overflow: hidden;border-bottom: #F6D4BC solid 2px;border-radius: 0 0 5px 5px; background-color: #F6D4BC;">
+            <a id="closebt" href="javascript:void(0)" style="font-size: 20px;color: #CC2900;float: right;display:inline-block">
+                <i class="fa fa-times-circle"></i>
+            </a>
+        </div>
+        <div class="box_content">
+            <ul>
+                <form action="" id="add_form">
+                    <li style="height: 330px;margin: 20px; border: dotted 2px #D7D7D7;border-radius: 5px;overflow: hidden">
+                        <ul style="margin-left: 18px">
+                            <li style="margin-top: 20px">
+                                <label for="infor" style="display: inline-block;">案件文字信息：</label>
+                                <textarea id="infor" class="form-field" style="margin-right: 15px;width: 300px;height: 100px;" placeholder="请输入案件文字信息" rows="3" cols="20">
+                                </textarea>
+                            </li>
+                            <li style="margin-top: 20px">
+                                <label for="pic" style="display: inline-block;">案件图片信息：</label>
+                                <a href="javascript:;" class="file" style="line-height: 30px;font-size: 12px;">选择文件<input type="file" name="upload_file1" id="upload_file1" data-upload1="false" nv-file-select="" uploader="uploader1" multiple="multiple" accept=".jp2,.jpe,.jpeg,.jpg,.png"></a>
+                                <span class="showFileName1">未选择文件</span>
+                            </li>
+                            <li style="margin-top: 20px">
+                                <label for="vid" style="display: inline-block;">案件视频信息：</label>
+                                <a href="javascript:;" class="file" style="line-height: 30px;font-size: 12px;">选择文件<input type="file" name="upload_file1" id="upload_file2" data-upload2="false" nv-file-select="" uploader="uploader2" multiple="multiple" accept="video/*"></a>
+                                <span class="showFileName2">未选择文件</span>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="assign" class="confirm_assign" style="margin-left: 200px"><span style="line-height: 35px">添加</span></li>
+                </form>
+            </ul>
+        </div>
     </div>
 </div>
 <script type="text/javascript">
@@ -299,6 +336,82 @@ $(document).ready(function() {
                     }
                     if (data.msg == "error") {
                         alert("标记继续外访失败！");
+                    }
+                }
+            });
+        }
+    });
+    jQuery.fn.center = function() {
+        var obj = this;
+        body_width = parseInt(obj.parent().width());
+        body_height = parseInt(obj.parent().height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        }
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        }
+        obj.css({
+            'position': 'absolute'
+        });
+        obj.css({
+            'top': (obj.parent().height() - $('#code').height()) * 0.5,
+            'left': left_position
+        });
+        $(window).bind('resize', function() {
+            obj.center();
+        });
+    };
+    $('#infor_input').click(function() {
+        var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
+        console.log(sels)
+        if (sels.length > 1) {
+            alert("选择一项添加信息！");
+            return false;
+        }
+        if (sels == "") {
+            alert("请选择添加信息项！");
+        } else {
+            $('#code').center();
+            $('#goodcover').show();
+            $('#code').fadeIn();
+            localStorage.setItem("sel", "sels");
+        }
+    });
+    $('#closebt').click(function() {
+        $('#code').fadeOut();
+        $('#goodcover').hide();
+    });
+    $('#assign').click(function() {
+        var upload1 = angular.element("#upload_file1").data("upload1");
+        var upload2 = angular.element("#upload_file2").data("upload2");
+        if (upload1 && upload2) {
+            $.ajax({
+                url: "server.php?action=submit_infor",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    infor: $("#infor").val(),
+                    sels: localStorage.getItem("sel")
+                },
+                success: function(data, textStatus, jqXHR) {
+                    if (data.msg == "success") {
+                        alert("添加成功！");
+                        $('#code').fadeOut();
+                        $('#goodcover').hide();
+                        $("#list1").jqGrid('setGridParam', {
+                            url: "system_manage.php?action=request_manage_user"
+                        }).trigger("reloadGrid");
+                        localStorage.removeItem("sel");
+                    }
+                    if (data.msg == "error") {
+                        alert("添加失败！");
                     }
                 }
             });

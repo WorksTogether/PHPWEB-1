@@ -254,13 +254,14 @@ $(document).ready(function() {
     });
     $("#export_case").click(function() {
         var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
+        var that = this;
         console.log(sels)
         if (sels == "") {
             alert("请选择案件导出项！");
         } else {
-            $(this).html("正在导出..");
+            $(that).html("正在导出..");
             $.ajax({
-                url: "server.php?action=export_case_inprocess",
+                url: "server.php?action=export_case",
                 dataType: "json",
                 type: "post",
                 timeout: 300000,

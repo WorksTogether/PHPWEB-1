@@ -254,6 +254,7 @@ $(document).ready(function() {
     });
     $("#export_case").click(function() {
         var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
+        var that = this;
         console.log(sels)
         if (sels == "") {
             alert("请选择案件导出项！");

@@ -362,6 +362,10 @@ $(document).ready(function() {
                     $.each(data, function(name, value) {
                         select($("#nav_page").find("span"), "name", name, value);
                     });
+                    // $("#pic").attr('src', data.pic_url);
+                    // if (!($("#infor").html().indexOf("&nbsp;") > -1)) {
+                    //     $("#infor").attr('title', $("#infor").html());
+                    // }
                 }
             });
             var select = function(obj, attr, val, insert) {
@@ -455,6 +459,7 @@ $(document).ready(function() {
             alert("请选择案件导出项！");
         } else {
             $(that).html("正在导出..");
+
             $.ajax({
                 url: "server.php?action=export_case",
                 dataType: "json",

@@ -1,4 +1,4 @@
-angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 'starter.controllers.nav', 'starter.controllers.login'])
+angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 'starter.controllers.nav', 'starter.controllers.login', 'starter.controllers.visit_process'])
     .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('login', {
@@ -332,7 +332,6 @@ angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 's
                         }
                     } else if (data.msg == "error") {
                         noauth += 1;
-                        console.log(noauth)
                         if (noauth == 1) {
                             alert("请登录！");
                             $location.path('/login');
