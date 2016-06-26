@@ -381,7 +381,7 @@ $(document).ready(function() {
             $('#code').center();
             $('#goodcover').show();
             $('#code').fadeIn();
-            localStorage.setItem("sel", "sels");
+            localStorage.setItem("sel", sels);
         }
     });
     $('#closebt').click(function() {
@@ -389,6 +389,7 @@ $(document).ready(function() {
         $('#goodcover').hide();
     });
     $('#assign').click(function() {
+        console.log($("#infor").val())
         var infor = $("#infor").val();
         var upload1 = angular.element("#upload_file1").data("upload1");
         var upload2 = angular.element("#upload_file2").data("upload2");
