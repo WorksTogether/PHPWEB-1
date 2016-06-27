@@ -1066,13 +1066,18 @@ function case_list()
         
         $pic_url_text=$row['img'];
         $video_url_text=$row['video'];
-        $upload_path = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'case_files'.DIRECTORY_SEPARATOR.$ids[0]; //上传文件的存放路径
+        $upload_path =  'case_files'.DIRECTORY_SEPARATOR.$ids[0]; //上传文件的存放路径
+        $pic_length=0;
+        $video_length=0;
         if(empty($pic_url_text)) {
             $row['pic_url'] = null;
         }
         else
         {
-            $row['pic_url']=$upload_path.DIRECTORY_SEPARATOR."pic".DIRECTORY_SEPARATOR.explode('<+>',$pic_url_text)[0];
+            $pic_url_array=explode('<+>',$pic_url_text);
+            $row['pic_url']=$upload_path.DIRECTORY_SEPARATOR."pic".DIRECTORY_SEPARATOR.$pic_url_array[0];
+            $pic_length=count($pic_url_array);
+
         }
 
         if(empty($video_url_text)) {
@@ -1080,10 +1085,14 @@ function case_list()
 
         }
         else{
-            $row['video_url'] = $upload_path.DIRECTORY_SEPARATOR."video".DIRECTORY_SEPARATOR.explode('<+>',$pic_url_text)[0];
+            $video_url_array=explode('<+>',$video_url_text);
+            $row['video_url'] = $upload_path.DIRECTORY_SEPARATOR."video".DIRECTORY_SEPARATOR.$video_url_array[0];
+            $video_length=count($video_url_array);
         }
 
-
+        $row['pic_len']=$pic_length;
+        $row['video_len']=$video_length;
+        $row['img']=null;
         echo json_encode($row);
     }
     else
