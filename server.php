@@ -154,11 +154,53 @@ case 'uploadpic':
 case 'uploadvideo':
     uploadvideo();
     break;
+case 'get_pic':
+    get_pic();
+    break;
   default:
     # code...
     break;
 };
 //$outputFileName=dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'downloads' . DIRECTORY_SEPARATOR . 'output.xls';
+
+function get_pic()
+{
+    $id = $_POST['sels'];
+    $pic_index = $_POST['index'];
+
+    if(empty($id))
+    {
+
+        $array = array(
+            "msg" => "error",
+            "info"=>"ID 不为空"
+        );
+        echo json_encode($array,JSON_UNESCAPED_UNICODE);
+        die(0);
+    }
+    $upload_path =  'case_files'.DIRECTORY_SEPARATOR.$id; //上传文件的存放路径
+    if(empty($pic_index))
+    {
+        $pic_index=0;
+    }
+    $sql = "SELECT * FROM `total` WHERE id IN (".$id.")";
+    if ($result=$GLOBALS['$conn']->query($sql)) {
+        $row = $result->fetch_assoc();
+        $pic_url_text = $row['img'];
+        if(empty($pic_url_text)) {
+            $row['src'] = null;
+        }
+        else
+        {
+            $pic_url_array=explode('<+>',$pic_url_text);
+            $response['src']=$upload_path.DIRECTORY_SEPARATOR."pic".DIRECTORY_SEPARATOR.$pic_url_array[$pic_index-1];
+
+        }
+        $row['img']=null;
+        echo json_encode($response);
+
+    }
+}
 function uploadvideo()
 {
     $ids = $_GET['sel'];
