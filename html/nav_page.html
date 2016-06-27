@@ -346,7 +346,9 @@ $(function() {
     $("#right").click(function() {
         // var base_url = $("#pic").attr('src').slice(1, 2);
         var index = localStorage.getItem("pic_index");
+        console.log(index);
         var len = localStorage.getItem("pic_len");
+        console.log(len);
         var new_index = index + 1;
         // $("#pic").attr('src', "image/" + new_url + ".jpg");
         if (index >= 1 && index <= len) {
