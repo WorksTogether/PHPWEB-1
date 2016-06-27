@@ -59,8 +59,7 @@
                         <ul style="margin-left: 18px">
                             <li style="margin-top: 20px">
                                 <label for="infor" style="display: inline-block;">案件文字信息：</label>
-                                <textarea id="infor" class="form-field" style="margin-right: 15px;width: 300px;height: 100px;" placeholder="请输入案件文字信息" rows="3" cols="20">
-                                </textarea>
+                                <textarea id="infor" class="form-field" style="margin-right: 15px;width: 300px;height: 100px;" rows="3" cols="20"></textarea>
                             </li>
                             <li style="margin-top: 20px">
                                 <label for="pic" style="display: inline-block;">案件图片信息：</label>
@@ -382,6 +381,7 @@ $(document).ready(function() {
             $('#goodcover').show();
             $('#code').fadeIn();
             localStorage.setItem("sel", sels);
+
         }
     });
     $('#closebt').click(function() {
@@ -407,9 +407,9 @@ $(document).ready(function() {
                         alert("添加成功！");
                         $('#code').fadeOut();
                         $('#goodcover').hide();
-                        $("#list1").jqGrid('setGridParam', {
-                            url: "system_manage.php?action=request_manage_user"
-                        }).trigger("reloadGrid");
+                        // $("#list1").jqGrid('setGridParam', {
+                        //     url: "system_manage.php?action=request_manage_user"
+                        // }).trigger("reloadGrid");
                         // localStorage.removeItem("sel");
                     }
                     if (data.msg == "error") {

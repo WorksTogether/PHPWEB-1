@@ -344,6 +344,7 @@ $(document).ready(function() {
     $('#case_detail').click(function() {
         var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
         console.log(sels)
+        localStorage.setItem("sel2", sels);
         if (sels.length > 1) {
             alert("选择一项查看详情！");
             return false;
@@ -362,10 +363,27 @@ $(document).ready(function() {
                     $.each(data, function(name, value) {
                         select($("#nav_page").find("span"), "name", name, value);
                     });
-                    // $("#pic").attr('src', data.pic_url);
-                    // if (!($("#infor").html().indexOf("&nbsp;") > -1)) {
-                    //     $("#infor").attr('title', $("#infor").html());
-                    // }
+                    if (!($("#infor").html().indexOf("&nbsp;") > -1)) {
+                        $("#infor").attr('title', $("#infor").html());
+                    }
+                    if (data.pic_len != null && data.pic_len != "" && data.pic_len != undefined) {
+                        localStorage.setItem("pic_len", pic_len);
+                    }
+                    if (data.pic_url == null || data.pic_url == "" || data.pic_url == undefined) {
+                        $("#pic_instance").css("display", "none");
+                        $("#pic_text").css("background-color", "#EAF7DE");
+                        $("#pic_text").html("未找到相关图片！");
+                    } else {
+                        $("#pic").attr('src', data.pic_url);
+                        localStorage.setItem("pic_index", 1);
+                    }
+                    if (data.video_url == null || data.video_url == "" || data.video_url == undefined) {
+                        $("#video_instance").css("display", "none");
+                        $("#video_text").css("background-color", "#EAF7DE");
+                        $("#video_text").html("未找到相关视频！");
+                    } else {
+                        $("#video1").attr('src', data.video_url);
+                    }
                 }
             });
             var select = function(obj, attr, val, insert) {

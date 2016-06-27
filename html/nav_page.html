@@ -280,14 +280,14 @@
         </li>
         <li style="vertical-align: middle;">
             <span style="vertical-align: middle;">案件文字信息：</span>
-            <span id="infor" name="infor" title="" style="width: 480px;display:inline-block; text-overflow:ellipsis;white-space:nowrap;overflow:hidden;vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span id="infor" name="text_info" title="" style="width: 480px;display:inline-block; text-overflow:ellipsis;white-space:nowrap;overflow:hidden;vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </li>
         <li style="clear: left;">
             <span>案件图片信息<a href="">(下载)</a>：</span>
-            <span style="background-color: white;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span id="pic_text" style="background-color: white;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </li>
     </ul>
-    <div style="width:500px;display:block;border: none;text-align: center;margin: 0 auto;">
+    <div id="pic_instance" style="width:500px;display:block;border: none;text-align: center;margin: 0 auto;">
         <i id="left" class="fa fa-chevron-left fa-3x" aria-hidden="true" style="color: #E4F4C3;margin-right: 15px;"></i>
         <img id="pic" src="image/example-slide-1.jpg" style="max-width: 200px">
         <i id="right" class="fa fa-chevron-right fa-3x" aria-hidden="true" style="color: #E4F4C3;margin-left: 15px;margin-top: 10px;"></i>
@@ -295,11 +295,11 @@
     <ul>
         <li>
             <span>案件视频信息<a href="">(下载)</a>：</span>
-            <span style="background-color: white;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span id="video_text" style="background-color: white;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </li>
     </ul>
-    <div style="width:500px;display:block;border: none;text-align: center;margin: 0 auto;clear: left;">
-        <video src="video/123456.mp4" controls="controls" width="300" height="200">
+    <div id="video_instance" style="width:500px;display:block;border: none;text-align: center;margin: 0 auto;clear: left;">
+        <video id="video1" src="video/123456.mp4" controls="controls" width="300" height="200">
         </video>
     </div>
 </div>
@@ -319,17 +319,52 @@
  -->
 <script type="text/javascript">
 $(function() {
-    $("#pic").attr('src', "image/123456.jpg");
-    console.log($("#pic").attr('src').slice(6, -4));
     $("#left").click(function() {
-        var base_url = $("#pic").attr('src').slice(6, -4);
-        var new_url = Number(base_url) + 1;
-        $("#pic").attr('src', "image/" + new_url + ".jpg");
+        var index = localStorage.getItem("pic_index");
+        var len = localStorage.getItem("pic_len");
+        // var base_url = $("#pic").attr('src').slice(1, 2);
+        var new_index = index - 1;
+        // $("#pic").attr('src', "image/" + new_url + ".jpg");
+        if (index >= 1 && index <= len) {
+            $.ajax({
+                url: "server.php?action=get_pic",
+                dataType: "json",
+                type: "post",
+                data: {
+                    sels: localStorage.getItem("sel2"),
+                    index: new_index
+                },
+                success: function(data) {
+                    $("#pic").attr('src', data.src);
+
+                }
+            });
+            localStorage.setItem("pic_index", new_index);
+        }
+
     });
     $("#right").click(function() {
-        var base_url = $("#pic").attr('src').slice(6, -4);
-        var new_url = Number(base_url) - 1;
-        $("#pic").attr('src', "image/" + new_url + ".jpg");
+        // var base_url = $("#pic").attr('src').slice(1, 2);
+        var index = localStorage.getItem("pic_index");
+        var len = localStorage.getItem("pic_len");
+        var new_index = index + 1;
+        // $("#pic").attr('src', "image/" + new_url + ".jpg");
+        if (index >= 1 && index <= len) {
+            $.ajax({
+                url: "server.php?action=get_pic",
+                dataType: "json",
+                type: "post",
+                data: {
+                    sels: localStorage.getItem("sel2"),
+                    index: new_index
+                },
+                success: function(data) {
+                    $("#pic").attr('src', data.src);
+                }
+                localStorage.setItem("pic_index", new_index);
+            });
+        }
+
     });
 });
 </script>
