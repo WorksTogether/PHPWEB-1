@@ -367,7 +367,7 @@ $(document).ready(function() {
                         $("#infor").attr('title', $("#infor").html());
                     }
                     if (data.pic_len != null && data.pic_len != "" && data.pic_len != undefined) {
-                        localStorage.setItem("pic_len", pic_len);
+                        localStorage.setItem("pic_len", data.pic_len);
                     }
                     if (data.pic_url == null || data.pic_url == "" || data.pic_url == undefined) {
                         $("#pic_instance").css("display", "none");
