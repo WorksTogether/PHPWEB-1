@@ -324,7 +324,7 @@ $(function() {
         var index = localStorage.getItem("pic_index");
         var len = localStorage.getItem("pic_len");
         // var base_url = $("#pic").attr('src').slice(1, 2);
-        var new_index = index - 1;
+        var new_index = Number(index) - 1;
         // $("#pic").attr('src', "image/" + new_url + ".jpg");
         if (index >= 1 && index <= len) {
             $.ajax({
@@ -349,7 +349,7 @@ $(function() {
         console.log(index);
         var len = localStorage.getItem("pic_len");
         console.log(len);
-        var new_index = index + 1;
+        var new_index = Number(index) + 1;
         // $("#pic").attr('src', "image/" + new_url + ".jpg");
         if (index >= 1 && index <= len) {
             $.ajax({
