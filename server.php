@@ -253,7 +253,8 @@ function uploadvideo()
         echo json_encode($array,JSON_UNESCAPED_UNICODE);
         die(0);
     }
-    if(move_uploaded_file($file['tmp_name'],$upload_path.DIRECTORY_SEPARATOR.$file['name'])){
+    $file_name_date=uniqid().date("y-m-d-h-i-sa").strtolower(substr($file['name'],strrpos($file['name'],'.'))); //得到文件类型，并且都转化成小写.
+    if(move_uploaded_file($file['tmp_name'],$upload_path.DIRECTORY_SEPARATOR.$file_name_date)){
 
         $sql = "SELECT * FROM `total`  WHERE id IN (".$ids.")";
         if($result = $GLOBALS['$conn']->query($sql))
@@ -266,10 +267,10 @@ function uploadvideo()
             }
         }
         if(empty($text_before)) {
-            $sql = "UPDATE `total` SET video='". $file['name'] . "' WHERE id IN (" . $ids . ")";
+            $sql = "UPDATE `total` SET video='". $file_name_date . "' WHERE id IN (" . $ids . ")";
         }
         else{
-            $sql = "UPDATE `total` SET video='" . $text_before . "<+>" . $file['name'] . "' WHERE id IN (" . $ids . ")";
+            $sql = "UPDATE `total` SET video='" . $text_before . "<+>" . $file_name_date . "' WHERE id IN (" . $ids . ")";
         }
         if ($GLOBALS['$conn']->query($sql))
         {
@@ -340,6 +341,7 @@ function uploadpic()
         mkdir($upload_path,0700);
     }
 //开始移动文件到相应的文件夹
+    $file_name_date=uniqid().date("y-m-d-h-i-sa").strtolower(substr($file['name'],strrpos($file['name'],'.'))); //得到文件类型，并且都转化成小写.
    if( file_exists($upload_path.DIRECTORY_SEPARATOR.$file['name']))
    {
        $array = array(
@@ -349,7 +351,7 @@ function uploadpic()
        echo json_encode($array,JSON_UNESCAPED_UNICODE);
        die(0);
    }
-    if(move_uploaded_file($file['tmp_name'],$upload_path.DIRECTORY_SEPARATOR.$file['name'])){
+    if(move_uploaded_file($file['tmp_name'],$upload_path.DIRECTORY_SEPARATOR.$file_name_date)){
 
         $sql = "SELECT * FROM `total`  WHERE id IN (".$ids.")";
         if($result = $GLOBALS['$conn']->query($sql))
@@ -362,10 +364,10 @@ function uploadpic()
              }
         }
         if(empty($text_before)) {
-            $sql = "UPDATE `total` SET img='". $file['name'] . "' WHERE id IN (" . $ids . ")";
+            $sql = "UPDATE `total` SET img='". $file_name_date . "' WHERE id IN (" . $ids . ")";
         }
         else{
-            $sql = "UPDATE `total` SET img='" . $text_before . "<+>" . $file['name'] . "' WHERE id IN (" . $ids . ")";
+            $sql = "UPDATE `total` SET img='" . $text_before . "<+>" . $file_name_date . "' WHERE id IN (" . $ids . ")";
         }
         if ($GLOBALS['$conn']->query($sql))
         {
