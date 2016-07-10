@@ -138,6 +138,12 @@ angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 's
                 controller: '',
                 permission: 'visit_statistic'
             })
+            .state('nav.col_temp', {
+                url: '/col_temp',
+                templateUrl: 'html/col_temp.html',
+                controller: '',
+                permission: 'col_temp'
+            })
         $urlRouterProvider.otherwise('login');
     })
     // .run(function(permissions) {
@@ -204,6 +210,8 @@ angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 's
                     Name: "homepage_region"
                 }, {
                     Name: "homepage_salesman"
+                }, {
+                    Name: "col_temp"
                 }];
                 permissionList1 = [{
                     Name: "case_admin"

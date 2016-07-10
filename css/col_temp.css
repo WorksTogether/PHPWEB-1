@@ -1,0 +1,27 @@
+.credit_case_in {
+    /*border: #D8D8D8 solid 1px;*/
+    border: #E8F1FF solid 5px;
+    border-radius: 10px;
+    margin-left: 265px;
+    margin-right: 10px;
+    font-family: "Microsoft YaHei" ! important;
+    z-index: 2;
+    position: relative;
+    background-color: #ffffff;
+}
+
+.credit_case_in .div2 {
+    /*background-color: #F2F2F2;*/
+    margin: 15px 15px;
+    border-radius: 10px 10px 0 0;
+    font-size: 16px;
+}
+
+.credit_case_in .div1 {
+    background-color: #F2F2F2;
+    height: 120px;
+    margin: 15px 15px;
+    border-radius: 10px 10px 0 0;
+    border: #D8D8D8 solid 1px;
+    font-size: 16px;
+}

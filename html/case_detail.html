@@ -345,6 +345,7 @@ $(document).ready(function() {
         var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
         console.log(sels)
         localStorage.setItem("sel2", sels);
+
         if (sels.length > 1) {
             alert("选择一项查看详情！");
             return false;

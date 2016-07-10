@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="css/col_temp.css" />
+<script src="lib/jquery.min.js" async="async">
+</script>
+<div class="credit_case_in" style="height: 500px;">
+    <!--  <textarea name="content" style="width: 700px;height:400px;display: block;">KindEditor</textarea> -->
+    <!-- 加载编辑器的容器 -->
+    <script id="container" name="content" type="text/plain">信用卡欠款催收告知函 被告知人：#name #sex 身份证号：#id 告知事由： 你因使用#BANK银行信用卡进行透支消费，未按规定时间偿还，至今已逾期#exp个月，已涉嫌信用卡诈骗罪，根据国家两高院最新解释，你务必于五日内到银行任一网点还清以上欠款，才能避免刑事处罚。 特此告知！ 受托告知人：#BANK信用卡中心 #year年#month月#day日 以上告知内容本人已知悉，确实属实，本人保证在规定时间内还清所欠款项。 持卡人（签字）： 20 年 月 日
+    </script>
+    <div style="text-align: center;">
+        <input id="save" class="submit-button" type="button" value="保存" style="height:39px;display: inline-block;width: 80px;margin-top: 16px;" />
+    </div>
+    <!-- 配置文件 -->
+    <script type="text/javascript" src="/lib/editor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="/lib/editor/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+</div>
+<script type="text/javascript">
+// var html1 = ue.getContent();
+// console.log(html1);
+// ue1.ready(function() {
+
+//     //获取html内容，返回: <p>hello</p>
+//     var html = ue.getContent();
+//     console.log(html);
+// });
+$(document).ready(function() {
+    var ue = UE.getEditor('container', {
+        initialFrameHeight: 320,
+        autoHeightEnabled: false
+            // initialFrameWidth: 800
+    });
+    $("#save").click(function() {
+        var content = ue.getContent();
+        console.log(content);
+        $.ajax({
+            url: "server.php?action=save",
+            type: "POST",
+            dataType: "json",
+            data: {
+                data: content
+            },
+            success: function(data, textStatus, jqXHR) {
+                if (data.msg == "success") {
+                    alert("保存成功！");
+                } else {
+                    alert("保存失败！");
+                }
+            }
+        });
+    });
+});
+</script>

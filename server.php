@@ -157,10 +157,18 @@ case 'uploadvideo':
 case 'get_pic':
     get_pic();
     break;
+case 'getDate':
+    getData();
+    break;
   default:
     # code...
     break;
 };
+
+function getData()
+{
+
+}
 //$outputFileName=dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'downloads' . DIRECTORY_SEPARATOR . 'output.xls';
 
 function get_pic()

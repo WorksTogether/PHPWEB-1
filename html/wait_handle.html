@@ -33,6 +33,10 @@
                 <li style="float: left;margin-left: 32px;">
                     <span id="pay_att" class="submit-button" style="display: inline-block;width: 70px;text-align: center">重点关注</span>
                 </li>
+                <li style="float: left;margin-left: 32px;">
+                    <!--  <a class="submit-button" style="text-decoration: none;display:inline-block;margin-left: 20px;width: 80px;text-align: center" href="html/print_page.html" target="_blank">打印催收函</a> -->
+                    <span id="print" class="submit-button" style="display: inline-block;width: 90px;text-align: center">打印催收函</span>
+                </li>
             </ul>
         </div>
     </div>
@@ -302,6 +306,46 @@ $(document).ready(function() {
                         alert("重点关注失败！");
                     }
                 }
+            });
+        }
+    });
+    $("#print").click(function() {
+        var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
+        console.log(sels)
+        if (sels.length > 1) {
+            alert("选择一项打印！");
+            return false;
+        }
+        if (sels == "") {
+            alert("请选择打印项！");
+        } else {
+            $.ajax({
+                url: "server.php?action=getDate",
+                dataType: "json",
+                type: "post",
+                timeout: 300000,
+                data: {
+                    sels: sels
+                },
+                success: function(data) {
+                        if (data.msg == "success") {
+                            var a = document.createElement("a");
+                            a.href = "html/print_page.html";
+                            a.target = "_blank";
+                            $(a).insertAfter("#print");
+                            localStorage.setItem("print_data", data.print_data);
+                            $("#print").siblings("a")[0].click(function() {});
+                        } else {
+                            alert("获取打印数据失败！");
+                        }
+
+                    }
+                    // complete: function(XMLHttpRequest, status) {
+                    //     if (status == 'timeout') {
+                    //         alert("导出失败！");
+                    //         $(this).html("导出Excel");
+                    //     }
+                    // }
             });
         }
     });

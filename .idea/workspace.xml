@@ -22,59 +22,84 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="server.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="server.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="253" column="15" selection-start-line="253" selection-start-column="15" selection-end-line="253" selection-end-column="15" />
+            <state relative-caret-position="2850">
+              <caret line="150" column="17" selection-start-line="150" selection-start-column="17" selection-end-line="150" selection-end-column="17" />
               <folding>
-                <marker date="1467003847219" expanded="true" signature="3744:3787" placeholder="SELECT * FRO... total" />
-                <marker date="1467003847219" expanded="true" signature="5954:5999" placeholder="SELECT * FRO... total" />
-                <marker date="1467003847219" expanded="true" signature="6288:6364" placeholder="UPDATE `tota... " />
-                <marker date="1467003847219" expanded="true" signature="6411:6511" placeholder="UPDATE `tota... " />
-                <marker date="1467003847219" expanded="true" signature="8831:8854" placeholder="SELECT * FRO... total" />
-                <marker date="1467003847219" expanded="true" signature="8831:8867" placeholder="SELECT * FRO... total" />
-                <marker date="1467003847219" expanded="true" signature="8831:8876" placeholder="SELECT * FRO... total" />
-                <marker date="1467003847219" expanded="true" signature="9164:9188" placeholder="UPDATE `tota... " />
-                <marker date="1467003847219" expanded="true" signature="9164:9189" placeholder="UPDATE `tota... " />
-                <marker date="1467003847219" expanded="true" signature="9164:9238" placeholder="UPDATE `tota... " />
-                <marker date="1467003847219" expanded="true" signature="9285:9383" placeholder="UPDATE `tota... " />
-                <marker date="1467003847219" expanded="true" signature="10416:10446" placeholder="UPDATE `tota... " />
-                <marker date="1467003847219" expanded="true" signature="10416:10484" placeholder="UPDATE `tota... " />
-                <marker date="1467003847219" expanded="true" signature="10943:11088" placeholder="SELECT COUNT... " />
-                <marker date="1467003847219" expanded="true" signature="11331:11411" placeholder="SELECT COUNT... " />
-                <marker date="1467003847219" expanded="true" signature="11614:11764" placeholder="SELECT COUNT... " />
-                <marker date="1467003847219" expanded="true" signature="11973:12131" placeholder="SELECT COUNT... " />
-                <marker date="1467003847219" expanded="true" signature="12342:12419" placeholder="SELECT COUNT... " />
-                <marker date="1467003847219" expanded="true" signature="12891:13023" placeholder="SELECT COUNT... " />
-                <marker date="1467003847219" expanded="true" signature="13429:13573" placeholder="SELECT COUNT... " />
-                <marker date="1467003847219" expanded="true" signature="13784:13890" placeholder="SELECT COUNT... " />
-                <marker date="1467003847219" expanded="true" signature="14091:14267" placeholder="SELECT COUNT... " />
-                <marker date="1467003847219" expanded="true" signature="18549:18567" placeholder="UPDATE `tota... " />
-                <marker date="1467003847219" expanded="true" signature="19203:19221" placeholder="UPDATE `tota... " />
-                <marker date="1467003847219" expanded="true" signature="19861:19879" placeholder="UPDATE `tota... " />
-                <marker date="1467003847219" expanded="true" signature="20527:20545" placeholder="UPDATE `tota... " />
-                <marker date="1467003847219" expanded="true" signature="22917:22935" placeholder="UPDATE `tota... " />
-                <marker date="1467003847219" expanded="true" signature="23764:23782" placeholder="UPDATE `tota... " />
-                <marker date="1467003847219" expanded="true" signature="25602:25620" placeholder="UPDATE `tota... " />
-                <marker date="1467003847219" expanded="true" signature="27308:27347" placeholder="SELECT * FRO... user_info" />
-                <marker date="1467003847219" expanded="true" signature="27940:28001" placeholder="SELECT * FRO... user_info" />
-                <marker date="1467003847219" expanded="true" signature="28795:28842" placeholder="SELECT * FRO... total" />
-                <marker date="1467003847219" expanded="true" signature="31486:31551" placeholder="UPDATE `tota... " />
-                <marker date="1467003847219" expanded="true" signature="32463:32511" placeholder="SELECT * FRO... total" />
-                <marker date="1467003847219" expanded="true" signature="39351:39395" placeholder="SELECT * FRO... relation" />
-                <marker date="1467003847219" expanded="true" signature="45197:45215" placeholder="UPDATE `tota... " />
-                <marker date="1467003847219" expanded="true" signature="45813:45856" placeholder="SELECT COUNT... " />
-                <marker date="1467003847219" expanded="true" signature="47146:47189" placeholder="SELECT COUNT... " />
-                <marker date="1467003847219" expanded="true" signature="48388:48463" placeholder="SELECT * FRO... total" />
-                <marker date="1467003847219" expanded="true" signature="50850:50922" placeholder="SELECT COUNT... " />
-                <marker date="1467003847219" expanded="true" signature="51482:51575" placeholder="SELECT * FRO... total" />
-                <marker date="1467003847219" expanded="true" signature="56372:60284" placeholder="INSERT INTO `total`... " />
-                <marker date="1467003847219" expanded="true" signature="60597:61389" placeholder="INSERT INTO `relation`... " />
-                <marker date="1467003847219" expanded="true" signature="61826:61868" placeholder="DELETE FROM " />
-                <marker date="1467003847219" expanded="true" signature="61882:61936" placeholder="DELETE FROM " />
-                <marker date="1467003847219" expanded="true" signature="62262:62326" placeholder="UPDATE `tota... " />
+                <marker date="1468163219689" expanded="true" signature="3811:3854" placeholder="SELECT * FRO... total" />
+                <marker date="1468163219689" expanded="true" signature="6021:6066" placeholder="SELECT * FRO... total" />
+                <marker date="1468163219689" expanded="true" signature="6355:6431" placeholder="UPDATE `tota... " />
+                <marker date="1468163219689" expanded="true" signature="6478:6578" placeholder="UPDATE `tota... " />
+                <marker date="1468163219689" expanded="true" signature="8898:8943" placeholder="SELECT * FRO... total" />
+                <marker date="1468163219689" expanded="true" signature="9231:9305" placeholder="UPDATE `tota... " />
+                <marker date="1468163219689" expanded="true" signature="9352:9450" placeholder="UPDATE `tota... " />
+                <marker date="1468163219689" expanded="true" signature="10483:10551" placeholder="UPDATE `tota... " />
+                <marker date="1468163219689" expanded="true" signature="11010:11155" placeholder="SELECT COUNT... " />
+                <marker date="1468163219689" expanded="true" signature="11398:11478" placeholder="SELECT COUNT... " />
+                <marker date="1468163219689" expanded="true" signature="11681:11831" placeholder="SELECT COUNT... " />
+                <marker date="1468163219689" expanded="true" signature="12040:12198" placeholder="SELECT COUNT... " />
+                <marker date="1468163219689" expanded="true" signature="12409:12486" placeholder="SELECT COUNT... " />
+                <marker date="1468163219689" expanded="true" signature="12958:13090" placeholder="SELECT COUNT... " />
+                <marker date="1468163219689" expanded="true" signature="13496:13640" placeholder="SELECT COUNT... " />
+                <marker date="1468163219689" expanded="true" signature="13851:13957" placeholder="SELECT COUNT... " />
+                <marker date="1468163219689" expanded="true" signature="14158:14334" placeholder="SELECT COUNT... " />
+                <marker date="1468163219689" expanded="true" signature="18616:18634" placeholder="UPDATE `tota... " />
+                <marker date="1468163219689" expanded="true" signature="19270:19288" placeholder="UPDATE `tota... " />
+                <marker date="1468163219689" expanded="true" signature="19928:19946" placeholder="UPDATE `tota... " />
+                <marker date="1468163219689" expanded="true" signature="20594:20612" placeholder="UPDATE `tota... " />
+                <marker date="1468163219689" expanded="true" signature="22984:23002" placeholder="UPDATE `tota... " />
+                <marker date="1468163219689" expanded="true" signature="23831:23849" placeholder="UPDATE `tota... " />
+                <marker date="1468163219689" expanded="true" signature="25669:25687" placeholder="UPDATE `tota... " />
+                <marker date="1468163219689" expanded="true" signature="27375:27414" placeholder="SELECT * FRO... user_info" />
+                <marker date="1468163219689" expanded="true" signature="28007:28068" placeholder="SELECT * FRO... user_info" />
+                <marker date="1468163219689" expanded="true" signature="28862:28909" placeholder="SELECT * FRO... total" />
+                <marker date="1468163219689" expanded="true" signature="31553:31618" placeholder="UPDATE `tota... " />
+                <marker date="1468163219689" expanded="true" signature="32530:32578" placeholder="SELECT * FRO... total" />
+                <marker date="1468163219689" expanded="true" signature="39418:39462" placeholder="SELECT * FRO... relation" />
+                <marker date="1468163219689" expanded="true" signature="45264:45282" placeholder="UPDATE `tota... " />
+                <marker date="1468163219689" expanded="true" signature="45880:45923" placeholder="SELECT COUNT... " />
+                <marker date="1468163219689" expanded="true" signature="47213:47256" placeholder="SELECT COUNT... " />
+                <marker date="1468163219689" expanded="true" signature="48455:48530" placeholder="SELECT * FRO... total" />
+                <marker date="1468163219689" expanded="true" signature="50917:50989" placeholder="SELECT COUNT... " />
+                <marker date="1468163219689" expanded="true" signature="51549:51642" placeholder="SELECT * FRO... total" />
+                <marker date="1468163219689" expanded="true" signature="56439:60351" placeholder="INSERT INTO `total`... " />
+                <marker date="1468163219689" expanded="true" signature="60664:61456" placeholder="INSERT INTO `relation`... " />
+                <marker date="1468163219689" expanded="true" signature="61893:61935" placeholder="DELETE FROM " />
+                <marker date="1468163219689" expanded="true" signature="61949:62003" placeholder="DELETE FROM " />
+                <marker date="1468163219689" expanded="true" signature="62329:62393" placeholder="UPDATE `tota... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="case_assign.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/case_assign.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="checkcode.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/checkcode.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="case_assign.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/case_assign.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -111,61 +136,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userServer.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/userServer.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2109">
-              <caret line="111" column="25" selection-start-line="111" selection-start-column="4" selection-end-line="111" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="system_manage.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/system_manage.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3534">
-              <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
+            <state relative-caret-position="582">
+              <caret line="53" column="22" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Date.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PHPExcel/Shared/Date.php">
+      <file leaf-file-name="angular.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/angular/angular.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1805">
-              <caret line="119" column="27" selection-start-line="119" selection-start-column="27" selection-end-line="119" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Worksheet.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PHPExcel/Worksheet.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22249">
-              <caret line="1195" column="50" selection-start-line="1195" selection-start-column="42" selection-end-line="1195" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Cell.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/PHPExcel/Cell.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4275">
-              <caret line="249" column="22" selection-start-line="249" selection-start-column="22" selection-end-line="249" selection-end-column="22" />
+            <state relative-caret-position="418">
+              <caret line="22" column="79" selection-start-line="22" selection-start-column="79" selection-end-line="22" selection-end-column="79" />
               <folding />
             </state>
           </provider>
@@ -222,8 +207,9 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
-    <option name="width" value="1932" />
-    <option name="height" value="1056" />
+    <option name="y" value="-8" />
+    <option name="width" value="1296" />
+    <option name="height" value="786" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -267,6 +253,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -285,55 +272,8 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PHPWEB-1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PHPWEB-1" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="php" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PHPWEB-1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PHPWEB-1" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PHPWEB-1" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PHPWEB-1" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -345,6 +285,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\KS\Desktop\PHPWEB-1\lib" />
+      <recent name="C:\Users\KS\Desktop\PHPWEB-1\css" />
+      <recent name="C:\Users\KS\Desktop\PHPWEB-1\js" />
+      <recent name="C:\Users\KS\Desktop\PHPWEB-1\html" />
       <recent name="D:\KS\GitHubClone\PHPWEB\php" />
     </key>
   </component>
@@ -423,17 +367,19 @@
       <workItem from="1465566968968" duration="539000" />
       <workItem from="1465634480448" duration="4960000" />
       <workItem from="1466944596937" duration="15432000" />
+      <workItem from="1468161957891" duration="1780000" />
+      <workItem from="1468164279151" duration="125000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176272000" />
+    <option name="totallyTimeSpent" value="178177000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1932" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1296" height="786" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1341336" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22109374" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18393235" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -471,11 +417,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/php/globalSettings.php" />
-    <entry file="file://$PROJECT_DIR$/php/parseExcel.php" />
-    <entry file="file://$PROJECT_DIR$/php/login.php" />
-    <entry file="file://$PROJECT_DIR$/php/PHPExcel/Classes/PHPExcel/IOFactory.php" />
-    <entry file="file://$PROJECT_DIR$/php/PHPExcel/Classes/PHPExcel.php" />
     <entry file="file://$PROJECT_DIR$/js/controllers/222.js" />
     <entry file="file://$PROJECT_DIR$/html/33333.html" />
     <entry file="file://$PROJECT_DIR$/js/controllers/444.js" />
@@ -660,7 +601,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2109">
           <caret line="111" column="25" selection-start-line="111" selection-start-column="4" selection-end-line="111" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -668,7 +608,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1805">
           <caret line="119" column="27" selection-start-line="119" selection-start-column="27" selection-end-line="119" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -676,7 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22249">
           <caret line="1195" column="50" selection-start-line="1195" selection-start-column="42" selection-end-line="1195" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -684,7 +622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4275">
           <caret line="249" column="22" selection-start-line="249" selection-start-column="22" selection-end-line="249" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -692,7 +629,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3534">
           <caret line="186" column="0" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -703,14 +639,6 @@
           <folding>
             <element signature="e#6#83#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="23" column="52" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -730,58 +658,100 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/html/case_assign.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/checkcode.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/case_assign.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="253" column="15" selection-start-line="253" selection-start-column="15" selection-end-line="253" selection-end-column="15" />
+        <state relative-caret-position="2850">
+          <caret line="150" column="17" selection-start-line="150" selection-start-column="17" selection-end-line="150" selection-end-column="17" />
           <folding>
-            <marker date="1467003847219" expanded="true" signature="3744:3787" placeholder="SELECT * FRO... total" />
-            <marker date="1467003847219" expanded="true" signature="5954:5999" placeholder="SELECT * FRO... total" />
-            <marker date="1467003847219" expanded="true" signature="6288:6364" placeholder="UPDATE `tota... " />
-            <marker date="1467003847219" expanded="true" signature="6411:6511" placeholder="UPDATE `tota... " />
-            <marker date="1467003847219" expanded="true" signature="8831:8854" placeholder="SELECT * FRO... total" />
-            <marker date="1467003847219" expanded="true" signature="8831:8867" placeholder="SELECT * FRO... total" />
-            <marker date="1467003847219" expanded="true" signature="8831:8876" placeholder="SELECT * FRO... total" />
-            <marker date="1467003847219" expanded="true" signature="9164:9188" placeholder="UPDATE `tota... " />
-            <marker date="1467003847219" expanded="true" signature="9164:9189" placeholder="UPDATE `tota... " />
-            <marker date="1467003847219" expanded="true" signature="9164:9238" placeholder="UPDATE `tota... " />
-            <marker date="1467003847219" expanded="true" signature="9285:9383" placeholder="UPDATE `tota... " />
-            <marker date="1467003847219" expanded="true" signature="10416:10446" placeholder="UPDATE `tota... " />
-            <marker date="1467003847219" expanded="true" signature="10416:10484" placeholder="UPDATE `tota... " />
-            <marker date="1467003847219" expanded="true" signature="10943:11088" placeholder="SELECT COUNT... " />
-            <marker date="1467003847219" expanded="true" signature="11331:11411" placeholder="SELECT COUNT... " />
-            <marker date="1467003847219" expanded="true" signature="11614:11764" placeholder="SELECT COUNT... " />
-            <marker date="1467003847219" expanded="true" signature="11973:12131" placeholder="SELECT COUNT... " />
-            <marker date="1467003847219" expanded="true" signature="12342:12419" placeholder="SELECT COUNT... " />
-            <marker date="1467003847219" expanded="true" signature="12891:13023" placeholder="SELECT COUNT... " />
-            <marker date="1467003847219" expanded="true" signature="13429:13573" placeholder="SELECT COUNT... " />
-            <marker date="1467003847219" expanded="true" signature="13784:13890" placeholder="SELECT COUNT... " />
-            <marker date="1467003847219" expanded="true" signature="14091:14267" placeholder="SELECT COUNT... " />
-            <marker date="1467003847219" expanded="true" signature="18549:18567" placeholder="UPDATE `tota... " />
-            <marker date="1467003847219" expanded="true" signature="19203:19221" placeholder="UPDATE `tota... " />
-            <marker date="1467003847219" expanded="true" signature="19861:19879" placeholder="UPDATE `tota... " />
-            <marker date="1467003847219" expanded="true" signature="20527:20545" placeholder="UPDATE `tota... " />
-            <marker date="1467003847219" expanded="true" signature="22917:22935" placeholder="UPDATE `tota... " />
-            <marker date="1467003847219" expanded="true" signature="23764:23782" placeholder="UPDATE `tota... " />
-            <marker date="1467003847219" expanded="true" signature="25602:25620" placeholder="UPDATE `tota... " />
-            <marker date="1467003847219" expanded="true" signature="27308:27347" placeholder="SELECT * FRO... user_info" />
-            <marker date="1467003847219" expanded="true" signature="27940:28001" placeholder="SELECT * FRO... user_info" />
-            <marker date="1467003847219" expanded="true" signature="28795:28842" placeholder="SELECT * FRO... total" />
-            <marker date="1467003847219" expanded="true" signature="31486:31551" placeholder="UPDATE `tota... " />
-            <marker date="1467003847219" expanded="true" signature="32463:32511" placeholder="SELECT * FRO... total" />
-            <marker date="1467003847219" expanded="true" signature="39351:39395" placeholder="SELECT * FRO... relation" />
-            <marker date="1467003847219" expanded="true" signature="45197:45215" placeholder="UPDATE `tota... " />
-            <marker date="1467003847219" expanded="true" signature="45813:45856" placeholder="SELECT COUNT... " />
-            <marker date="1467003847219" expanded="true" signature="47146:47189" placeholder="SELECT COUNT... " />
-            <marker date="1467003847219" expanded="true" signature="48388:48463" placeholder="SELECT * FRO... total" />
-            <marker date="1467003847219" expanded="true" signature="50850:50922" placeholder="SELECT COUNT... " />
-            <marker date="1467003847219" expanded="true" signature="51482:51575" placeholder="SELECT * FRO... total" />
-            <marker date="1467003847219" expanded="true" signature="56372:60284" placeholder="INSERT INTO `total`... " />
-            <marker date="1467003847219" expanded="true" signature="60597:61389" placeholder="INSERT INTO `relation`... " />
-            <marker date="1467003847219" expanded="true" signature="61826:61868" placeholder="DELETE FROM " />
-            <marker date="1467003847219" expanded="true" signature="61882:61936" placeholder="DELETE FROM " />
-            <marker date="1467003847219" expanded="true" signature="62262:62326" placeholder="UPDATE `tota... " />
+            <marker date="1468163219689" expanded="true" signature="3811:3854" placeholder="SELECT * FRO... total" />
+            <marker date="1468163219689" expanded="true" signature="6021:6066" placeholder="SELECT * FRO... total" />
+            <marker date="1468163219689" expanded="true" signature="6355:6431" placeholder="UPDATE `tota... " />
+            <marker date="1468163219689" expanded="true" signature="6478:6578" placeholder="UPDATE `tota... " />
+            <marker date="1468163219689" expanded="true" signature="8898:8943" placeholder="SELECT * FRO... total" />
+            <marker date="1468163219689" expanded="true" signature="9231:9305" placeholder="UPDATE `tota... " />
+            <marker date="1468163219689" expanded="true" signature="9352:9450" placeholder="UPDATE `tota... " />
+            <marker date="1468163219689" expanded="true" signature="10483:10551" placeholder="UPDATE `tota... " />
+            <marker date="1468163219689" expanded="true" signature="11010:11155" placeholder="SELECT COUNT... " />
+            <marker date="1468163219689" expanded="true" signature="11398:11478" placeholder="SELECT COUNT... " />
+            <marker date="1468163219689" expanded="true" signature="11681:11831" placeholder="SELECT COUNT... " />
+            <marker date="1468163219689" expanded="true" signature="12040:12198" placeholder="SELECT COUNT... " />
+            <marker date="1468163219689" expanded="true" signature="12409:12486" placeholder="SELECT COUNT... " />
+            <marker date="1468163219689" expanded="true" signature="12958:13090" placeholder="SELECT COUNT... " />
+            <marker date="1468163219689" expanded="true" signature="13496:13640" placeholder="SELECT COUNT... " />
+            <marker date="1468163219689" expanded="true" signature="13851:13957" placeholder="SELECT COUNT... " />
+            <marker date="1468163219689" expanded="true" signature="14158:14334" placeholder="SELECT COUNT... " />
+            <marker date="1468163219689" expanded="true" signature="18616:18634" placeholder="UPDATE `tota... " />
+            <marker date="1468163219689" expanded="true" signature="19270:19288" placeholder="UPDATE `tota... " />
+            <marker date="1468163219689" expanded="true" signature="19928:19946" placeholder="UPDATE `tota... " />
+            <marker date="1468163219689" expanded="true" signature="20594:20612" placeholder="UPDATE `tota... " />
+            <marker date="1468163219689" expanded="true" signature="22984:23002" placeholder="UPDATE `tota... " />
+            <marker date="1468163219689" expanded="true" signature="23831:23849" placeholder="UPDATE `tota... " />
+            <marker date="1468163219689" expanded="true" signature="25669:25687" placeholder="UPDATE `tota... " />
+            <marker date="1468163219689" expanded="true" signature="27375:27414" placeholder="SELECT * FRO... user_info" />
+            <marker date="1468163219689" expanded="true" signature="28007:28068" placeholder="SELECT * FRO... user_info" />
+            <marker date="1468163219689" expanded="true" signature="28862:28909" placeholder="SELECT * FRO... total" />
+            <marker date="1468163219689" expanded="true" signature="31553:31618" placeholder="UPDATE `tota... " />
+            <marker date="1468163219689" expanded="true" signature="32530:32578" placeholder="SELECT * FRO... total" />
+            <marker date="1468163219689" expanded="true" signature="39418:39462" placeholder="SELECT * FRO... relation" />
+            <marker date="1468163219689" expanded="true" signature="45264:45282" placeholder="UPDATE `tota... " />
+            <marker date="1468163219689" expanded="true" signature="45880:45923" placeholder="SELECT COUNT... " />
+            <marker date="1468163219689" expanded="true" signature="47213:47256" placeholder="SELECT COUNT... " />
+            <marker date="1468163219689" expanded="true" signature="48455:48530" placeholder="SELECT * FRO... total" />
+            <marker date="1468163219689" expanded="true" signature="50917:50989" placeholder="SELECT COUNT... " />
+            <marker date="1468163219689" expanded="true" signature="51549:51642" placeholder="SELECT * FRO... total" />
+            <marker date="1468163219689" expanded="true" signature="56439:60351" placeholder="INSERT INTO `total`... " />
+            <marker date="1468163219689" expanded="true" signature="60664:61456" placeholder="INSERT INTO `relation`... " />
+            <marker date="1468163219689" expanded="true" signature="61893:61935" placeholder="DELETE FROM " />
+            <marker date="1468163219689" expanded="true" signature="61949:62003" placeholder="DELETE FROM " />
+            <marker date="1468163219689" expanded="true" signature="62329:62393" placeholder="UPDATE `tota... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/editor/ueditor.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="66" column="35" selection-start-line="66" selection-start-column="35" selection-end-line="66" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/angular/angular.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="79" selection-start-line="22" selection-start-column="79" selection-end-line="22" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="53" column="22" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
