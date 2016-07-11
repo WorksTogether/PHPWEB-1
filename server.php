@@ -160,14 +160,81 @@ case 'get_pic':
 case 'getDate':
     getData();
     break;
+case 'save':
+    saveTemplate();
+    break;
   default:
     # code...
     break;
 };
+function saveTemplate()
+{
+    $template_data = $_POST['data'];
+    //echo  $template_data;
+    if(empty($template_data))
+    {
+        $array = array(
+            "msg" => "error",
+            "info"=>"模板不能为空"
 
+        );
+        echo json_encode($array,JSON_UNESCAPED_UNICODE);
+        die(0);
+    }
+    $sql1 = "SELECT *  FROM `template` ";
+    if($result = $GLOBALS['$conn']->query($sql1))
+    {
+        if ($result->num_rows == 0)
+        {
+
+            $sql = "INSERT INTO `template`(`template_data`) VALUES ('".$template_data."')";
+
+        }
+        else
+        {
+            $row = $result->fetch_assoc();
+            $template_id=$row['id'];
+            $sql = "UPDATE `template` SET template_data='". $template_data . "' WHERE id IN (".$template_id.")";
+
+        }
+    }
+
+
+
+    if ($GLOBALS['$conn']->query($sql)) {
+
+        $array = array(
+            "msg" => "success",
+
+        );
+        echo json_encode($array, JSON_UNESCAPED_UNICODE);
+    } else {
+        echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+    }
+}
 function getData()
 {
+    /*
+        $ids = $_POST['sels'];
+        if(empty($ids))
+        {
 
+            $array = array(
+                "msg" => "error",
+                "info"=>"id不为空",
+            );
+            echo json_encode($array);
+            die(0);
+        }
+
+        $sql = "SELECT * FROM `total` WHERE id IN (".$ids[0].")";
+        if ($result=$GLOBALS['$conn']->query($sql)) {
+            //$rows[0]=$result->fetch_assoc();
+            $row = $result->fetch_assoc();
+            $name = $row['customer_name'];
+        }*/
+
+  echo "<p>this is a test</p>";
 }
 //$outputFileName=dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'downloads' . DIRECTORY_SEPARATOR . 'output.xls';
 
