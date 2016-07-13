@@ -214,7 +214,7 @@ function saveTemplate()
 }
 function getData()
 {
-    /*
+
         $ids = $_POST['sels'];
         if(empty($ids))
         {
@@ -227,14 +227,35 @@ function getData()
             die(0);
         }
 
+    $sql1 = "SELECT * FROM `template` WHERE `active` =1";
+    if ($result1=$GLOBALS['$conn']->query($sql1)) {
+        //$rows[0]=$result->fetch_assoc();
+        $row1 = $result1->fetch_assoc();
+        $template_text = $row1['template_data'];
+
         $sql = "SELECT * FROM `total` WHERE id IN (".$ids[0].")";
         if ($result=$GLOBALS['$conn']->query($sql)) {
             //$rows[0]=$result->fetch_assoc();
             $row = $result->fetch_assoc();
             $name = $row['customer_name'];
-        }*/
+            $id_num=$row['id_num'];
+            $bank=$row['bank_name'];
+            $exp=$row['capital_delay_start_date'];
+            $template_text= str_ireplace("#name",$name,$template_text);
+            $template_text= str_ireplace("#id",$id_num,$template_text);
+            $template_text= str_ireplace("#bank",$bank,$template_text);
+            //  $template_text= str_ireplace("#exp",$exp,$template_text);
+            $template_text= str_ireplace("#year",date("Y"),$template_text);
+            $template_text= str_ireplace("#month",date("m"),$template_text);
+            $template_text= str_ireplace("#day",date("d"),$template_text);
+            $response['msg']="success";
+            $response['print_data']=$template_text;
+            echo json_encode($response);
+        }
+    }
 
-  echo "<p>this is a test</p>";
+
+  //echo "<p>this is a test</p>";
 }
 //$outputFileName=dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'downloads' . DIRECTORY_SEPARATOR . 'output.xls';
 
