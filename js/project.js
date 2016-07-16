@@ -107,6 +107,12 @@ angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 's
                 controller: '',
                 permission: 'pay_att'
             })
+            .state('nav.phone_error', {
+                url: '/phone_error',
+                templateUrl: 'html/phone_error.html',
+                controller: '',
+                permission: 'phone_error'
+            })
             .state('nav.user_manage', {
                 url: '/user_manage',
                 templateUrl: 'html/user_manage.html',
@@ -212,6 +218,8 @@ angular.module('starter', ['ui.router', 'starter.controllers.credit_case_in', 's
                     Name: "homepage_salesman"
                 }, {
                     Name: "col_temp"
+                }, {
+                    Name: "phone_error"
                 }];
                 permissionList1 = [{
                     Name: "case_admin"

@@ -163,10 +163,102 @@ case 'getDate':
 case 'save':
     saveTemplate();
     break;
+case 'phone_error':
+    phone_error();
+    break;
+case "request_phone_error":
+    request_phone_error();
+    break;
+case "request_error":
+    request_error();
+    break;
   default:
     # code...
     break;
 };
+function request_error()
+{
+    $id=$_POST['sels'];
+    if(empty($id))
+    {
+        $array = array(
+            "msg" => "error",
+            "info"=>"id不能为空"
+
+        );
+        echo json_encode($array,JSON_UNESCAPED_UNICODE);
+        die(0);
+    }
+
+    $sql = "SELECT * FROM `total` WHERE id IN (".$id[0].")";
+    if ($result=$GLOBALS['$conn']->query($sql)) {
+        $row = $result->fetch_assoc();
+        $error_text = $row['error_text'];
+        $response['msg']="success";
+        $response['infor']=$error_text;
+
+        echo json_encode($response,JSON_UNESCAPED_UNICODE);
+        
+    }
+
+
+}
+function request_phone_error()
+{
+    $auth=$_SESSION["auth"] ;
+    if($auth==0)//超级管理员
+    {
+        query_by_status("NO_DATA' OR error='yes" );
+    }
+    else{
+        $array = array(
+            "msg" => "error",
+            "info"=>"非法请求"
+
+        );
+        echo json_encode($array,JSON_UNESCAPED_UNICODE);
+        die(0);
+    }
+}
+function phone_error()
+{
+    $id=$_POST['sels'];
+    $data=$_POST['infor'];
+    if(empty($id))
+    {
+        $array = array(
+            "msg" => "error",
+            "info"=>"id不能为空"
+
+        );
+        echo json_encode($array,JSON_UNESCAPED_UNICODE);
+        die(0);
+    }
+    if(empty($data))
+    {
+        $array = array(
+            "msg" => "error",
+            "info"=>"错误内容不能为空"
+
+        );
+        echo json_encode($array,JSON_UNESCAPED_UNICODE);
+        die(0);
+    }
+
+
+
+    $sql = "UPDATE `total` SET `error`='yes',`error_text`='".$data."'  WHERE id IN (" . $id . ")";
+    if ($GLOBALS['$conn']->query($sql))
+    {
+        $array = array(
+            "msg" => "success",
+        );
+        echo json_encode($array,JSON_UNESCAPED_UNICODE);
+    }
+
+
+
+}
 function saveTemplate()
 {
     $template_data = $_POST['data'];
@@ -1327,15 +1419,15 @@ function export_case()
     }
 
     // 字体和样式
-    $objActSheet->getStyle('A1:AM1')->getFont()->setSize(12);
-    $objActSheet->getStyle('A1:AM1')->getFont()->setBold(true);
-    $objActSheet->getStyle('A1:AM1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
-    $objActSheet->getStyle('A1:AM1')->getFill()->getStartColor()->setARGB("#ffbfbfbf");
-    $objActSheet->getStyle('A1:AM1')->getBorders()->getAllBorders()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
-    $objActSheet->getStyle('A1:AM1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-    $objActSheet->getStyle('A:AM')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-    $objActSheet->getStyle('A:AM')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
-    $objActSheet->getStyle('A:AM')->getAlignment()->setWrapText(true);
+    $objActSheet->getStyle('A1:AO1')->getFont()->setSize(12);
+    $objActSheet->getStyle('A1:AO1')->getFont()->setBold(true);
+    $objActSheet->getStyle('A1:AO1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+    $objActSheet->getStyle('A1:AO1')->getFill()->getStartColor()->setARGB("#ffbfbfbf");
+    $objActSheet->getStyle('A1:AO1')->getBorders()->getAllBorders()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
+    $objActSheet->getStyle('A1:AO1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+    $objActSheet->getStyle('A:AO')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+    $objActSheet->getStyle('A:AO')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+    $objActSheet->getStyle('A:AO')->getAlignment()->setWrapText(true);
     //填写表头
     $objActSheet->setCellValue('A1','客户名');
     $objActSheet->setCellValue('B1','身份证号');
@@ -1376,6 +1468,8 @@ function export_case()
     $objActSheet->setCellValue('AK1','区域主管');
     $objActSheet->setCellValue('AL1','区域组长');
     $objActSheet->setCellValue('AM1','案件进展');
+    $objActSheet->setCellValue('AN1','电催错误');
+    $objActSheet->setCellValue('AO1','电催错误');
 
     if($result = $GLOBALS['$conn']->query($sql)) {
         if ($result->num_rows > 0) {
@@ -1424,6 +1518,8 @@ function export_case()
                 $objActSheet->setCellValue('AL'.$i,$row['leader']);
                 $status=$row['status'];
                 $objActSheet->setCellValue('AM'.$i,getStatus($status));
+                $objActSheet->setCellValue('AN'.$i,$row['error']);
+                $objActSheet->setCellValue('AO'.$i,$row['error_text']);
 
                 $relation_id=$row['id'];
                 $sql2 = "SELECT * FROM `relation` WHERE customer_id =".$relation_id;
@@ -1462,6 +1558,8 @@ function export_case()
                 $objActSheet->mergeCells('AK'.$i.':AK'.($i+$relation_num));
                 $objActSheet->mergeCells('AL'.$i.':AL'.($i+$relation_num));
                 $objActSheet->mergeCells('AM'.$i.':AM'.($i+$relation_num));
+                $objActSheet->mergeCells('AN'.$i.':AN'.($i+$relation_num));
+                $objActSheet->mergeCells('AO'.$i.':AO'.($i+$relation_num));
                 $j=$i+1;
                 while ($row2 = $result2->fetch_assoc()) {
                     $objActSheet->setCellValue('J'.$j,$row2['relation_name']);
