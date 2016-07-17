@@ -259,6 +259,59 @@
     border: #C9C9C9 solid 1px;
 }
 
+#goodcover1 {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #A6A6A6;
+    z-index: 1001;
+    -moz-opacity: 0.3;
+    opacity: 0.30;
+    filter: alpha(opacity=50);
+    border-radius: 10px;
+}
+
+#code1 {
+    width: 600px;
+    height: 320px;
+    background-color: #FAE1D1;
+    position: absolute;
+    display: none;
+    z-index: 1002;
+    border-radius: 5px;
+    border: #C9C9C9 solid 1px;
+}
+
+
+/*.goodcover {
+    display: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: #A6A6A6;
+    z-index: 1001;
+    -moz-opacity: 0.3;
+    opacity: 0.30;
+    filter: alpha(opacity=50);
+    border-radius: 10px;
+}
+
+.code {
+    width: 600px;
+    height: 330px;
+    background-color: #FAE1D1;
+    position: absolute;
+    display: none;
+    z-index: 1002;
+    border-radius: 5px;
+    border: #C9C9C9 solid 1px;
+}*/
+
 #closebt {
     margin-right: 3px;
     /*margin-top: 3px;*/

@@ -198,7 +198,7 @@ function request_error()
         $response['infor']=$error_text;
 
         echo json_encode($response,JSON_UNESCAPED_UNICODE);
-        
+
     }
 
 
@@ -208,7 +208,8 @@ function request_phone_error()
     $auth=$_SESSION["auth"] ;
     if($auth==0)//超级管理员
     {
-        query_by_status("NO_DATA' OR error='yes" );
+        query_by_status("tel_collection_error");
+
     }
     else{
         $array = array(
@@ -247,7 +248,7 @@ function phone_error()
 
 
 
-    $sql = "UPDATE `total` SET `error`='yes',`error_text`='".$data."'  WHERE id IN (" . $id . ")";
+    $sql = "UPDATE `total` SET `status`='tel_collection_error',`error_text`='".$data."'  WHERE id IN (" . $id . ")";
     if ($GLOBALS['$conn']->query($sql))
     {
         $array = array(
@@ -856,7 +857,16 @@ function start_visit()
 function case_finish()
 {
     $ids = $_POST['sels'];
-    $ids_str = join(',', $ids);
+    if(is_array($ids))
+    {
+        $ids_str = join(',', $ids);
+    }
+    else
+    {
+        $ids_str=$ids;
+    }
+   //
+    $finsh_text=$_POST['infor'];
     if(empty($ids))
     {
 
@@ -867,7 +877,7 @@ function case_finish()
         echo json_encode($array);
         die(0);
     }
-    $sql_join="status='case_finish'";
+    $sql_join="status='case_finish' , finish_text='".$finsh_text."' , finish_data='".date("Y-m-d")."'";
     $sql_1 = "UPDATE `total` SET ";
     $sql_2=" WHERE id IN (".$ids_str.")";
     $sql=$sql_1.$sql_join.$sql_2;
@@ -1278,6 +1288,10 @@ function case_list()
                 $status_phone="正在电催";
                 $status_visit="未外访";
                 break;
+            case 'tel_collection_error':
+                $status_phone="电催错误";
+                $status_visit="未外访";
+                break;
             case 'visit_collection_wait':
                 $status_phone="已电催";
                 $status_visit="等待外访";
@@ -1285,6 +1299,10 @@ function case_list()
             case 'visit_collection_process':
                 $status_phone="已电催";
                 $status_visit="正在外访";
+                break;
+            case 'visit_collection_error':
+                $status_phone="已电催";
+                $status_visit="外访错误";
                 break;
             case 'case_finish':
                 $status_phone="已电催";
@@ -1295,6 +1313,7 @@ function case_list()
         $row['tel_handle']=$status_phone;
         $row['visit_handle']=$status_visit;
 
+        $row['fin_infor']=$row['finish_text'];
         
         $pic_url_text=$row['img'];
         $video_url_text=$row['video'];
@@ -1419,15 +1438,15 @@ function export_case()
     }
 
     // 字体和样式
-    $objActSheet->getStyle('A1:AO1')->getFont()->setSize(12);
-    $objActSheet->getStyle('A1:AO1')->getFont()->setBold(true);
-    $objActSheet->getStyle('A1:AO1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
-    $objActSheet->getStyle('A1:AO1')->getFill()->getStartColor()->setARGB("#ffbfbfbf");
-    $objActSheet->getStyle('A1:AO1')->getBorders()->getAllBorders()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
-    $objActSheet->getStyle('A1:AO1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-    $objActSheet->getStyle('A:AO')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
-    $objActSheet->getStyle('A:AO')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
-    $objActSheet->getStyle('A:AO')->getAlignment()->setWrapText(true);
+    $objActSheet->getStyle('A1:AN1')->getFont()->setSize(12);
+    $objActSheet->getStyle('A1:AN1')->getFont()->setBold(true);
+    $objActSheet->getStyle('A1:AN1')->getFill()->setFillType(PHPExcel_Style_Fill::FILL_SOLID);
+    $objActSheet->getStyle('A1:AN1')->getFill()->getStartColor()->setARGB("#ffbfbfbf");
+    $objActSheet->getStyle('A1:AN1')->getBorders()->getAllBorders()->setBorderStyle(PHPExcel_Style_Border::BORDER_THIN);
+    $objActSheet->getStyle('A1:AN1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+    $objActSheet->getStyle('A:AN')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+    $objActSheet->getStyle('A:AN')->getAlignment()->setVertical(PHPExcel_Style_Alignment::VERTICAL_CENTER);
+    $objActSheet->getStyle('A:AN')->getAlignment()->setWrapText(true);
     //填写表头
     $objActSheet->setCellValue('A1','客户名');
     $objActSheet->setCellValue('B1','身份证号');
@@ -1468,8 +1487,8 @@ function export_case()
     $objActSheet->setCellValue('AK1','区域主管');
     $objActSheet->setCellValue('AL1','区域组长');
     $objActSheet->setCellValue('AM1','案件进展');
-    $objActSheet->setCellValue('AN1','电催错误');
-    $objActSheet->setCellValue('AO1','电催错误');
+    $objActSheet->setCellValue('AN1','错误信息');
+   // $objActSheet->setCellValue('AO1','电催错误');
 
     if($result = $GLOBALS['$conn']->query($sql)) {
         if ($result->num_rows > 0) {
@@ -1518,8 +1537,8 @@ function export_case()
                 $objActSheet->setCellValue('AL'.$i,$row['leader']);
                 $status=$row['status'];
                 $objActSheet->setCellValue('AM'.$i,getStatus($status));
-                $objActSheet->setCellValue('AN'.$i,$row['error']);
-                $objActSheet->setCellValue('AO'.$i,$row['error_text']);
+                //$objActSheet->setCellValue('AN'.$i,$row['error']);
+                $objActSheet->setCellValue('AN'.$i,$row['error_text']);
 
                 $relation_id=$row['id'];
                 $sql2 = "SELECT * FROM `relation` WHERE customer_id =".$relation_id;

@@ -10,8 +10,10 @@
  fin_assign
 case_close
 tel_collection
+tel_collection_error
 visit_collection_wait
 visit_collection_process
+visit_collection_error
 case_finish
 
 

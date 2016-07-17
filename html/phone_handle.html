@@ -45,8 +45,8 @@
         <div id="pager"></div>
         <!--<div id="pager"></div>-->
     </div>
-    <div id="goodcover"></div>
-    <div id="code">
+    <div id="goodcover" class="goodcover"></div>
+    <div id="code" class="code">
         <div style="overflow: hidden;border-bottom: #F6D4BC solid 2px;border-radius: 0 0 5px 5px; background-color: #F6D4BC;">
             <a id="closebt" href="javascript:void(0)" style="font-size: 20px;color: #CC2900;float: right;display:inline-block">
                 <i class="fa fa-times-circle"></i>
@@ -64,6 +64,29 @@
                         </ul>
                     </li>
                     <li id="assign" class="confirm_assign" style="margin-left: 200px"><span style="line-height: 35px">添加</span></li>
+                </form>
+            </ul>
+        </div>
+    </div>
+    <div id="goodcover1" class="goodcover"></div>
+    <div id="code1" class="code">
+        <div style="overflow: hidden;border-bottom: #F6D4BC solid 2px;border-radius: 0 0 5px 5px; background-color: #F6D4BC;">
+            <a id="closebt1" href="javascript:void(0)" style="font-size: 20px;color: #CC2900;float: right;display:inline-block">
+                <i class="fa fa-times-circle"></i>
+            </a>
+        </div>
+        <div class="box_content">
+            <ul>
+                <form action="" id="add_form">
+                    <li style="height: 170px;margin: 20px; border: dotted 2px #D7D7D7;border-radius: 5px;overflow: hidden">
+                        <ul style="margin-left: 18px">
+                            <li style="margin-top: 20px">
+                                <label for="infor1" style="display: inline-block;">电催完成信息：</label>
+                                <textarea id="infor1" class="form-field" style="margin-right: 15px;width: 300px;height: 100px;" rows="3" cols="20"></textarea>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="assign1" class="confirm_assign" style="margin-left: 200px"><span style="line-height: 35px">添加</span></li>
                 </form>
             </ul>
         </div>
@@ -276,25 +299,63 @@ $(document).ready(function() {
     $('#phone_handle_fin').click(function() {
         var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
         console.log(sels)
+        if (sels.length > 1) {
+            alert("选择一项！");
+            return false;
+        }
         if (sels == "") {
             alert("请选择标记完成项！");
         } else {
+            $('#code1').center();
+            $('#goodcover1').show();
+            $('#code1').fadeIn();
+            localStorage.setItem("sel", sels);
+            // $.ajax({
+            //     url: "server.php?action=phone_handle_fin",
+            //     type: "POST",
+            //     dataType: "json",
+            //     data: {
+            //         sels: sels
+            //     },
+            //     success: function(data, textStatus, jqXHR) {
+            //         if (data.msg == "success") {
+            //             alert("标记完成成功！");
+            //             $("#list1").jqGrid('setGridParam', {
+            //                 url: "server.php?action=phone_handle"
+            //             }).trigger("reloadGrid");
+            //         }
+            //         if (data.msg == "error") {
+            //             alert("标记完成失败！");
+            //         }
+            //     }
+            // });
+        }
+    });
+    $('#assign1').click(function() {
+        console.log($("#infor1").val())
+        var infor = $("#infor1").val();
+        if ($("#infor1").val()) {
+            console.log(1212)
             $.ajax({
                 url: "server.php?action=phone_handle_fin",
                 type: "POST",
                 dataType: "json",
                 data: {
-                    sels: sels
+                    infor: $("#infor1").val(),
+                    sels: localStorage.getItem("sel")
                 },
                 success: function(data, textStatus, jqXHR) {
                     if (data.msg == "success") {
-                        alert("标记完成成功！");
+                        alert("添加成功！");
+                        $('#code').fadeOut();
+                        $('#goodcover').hide();
                         $("#list1").jqGrid('setGridParam', {
                             url: "server.php?action=phone_handle"
                         }).trigger("reloadGrid");
+                        localStorage.removeItem("sel");
                     }
                     if (data.msg == "error") {
-                        alert("标记完成失败！");
+                        alert("添加失败！");
                     }
                 }
             });
@@ -375,6 +436,10 @@ $(document).ready(function() {
         $('#code').fadeOut();
         $('#goodcover').hide();
     });
+    $('#closebt1').click(function() {
+        $('#code1').fadeOut();
+        $('#goodcover1').hide();
+    });
     $('#assign').click(function() {
         console.log($("#infor").val())
         var infor = $("#infor").val();
@@ -395,8 +460,7 @@ $(document).ready(function() {
                         $("#list1").jqGrid('setGridParam', {
                             url: "server.php?action=phone_handle"
                         }).trigger("reloadGrid");
-
-                        // localStorage.removeItem("sel");
+                        localStorage.removeItem("sel");
                     }
                     if (data.msg == "error") {
                         alert("添加失败！");
