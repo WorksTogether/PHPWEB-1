@@ -1725,46 +1725,32 @@ function query_exist()
 {
 
         $sql = "SELECT COUNT(*) AS count FROM `total` WHERE ";
-        $query_param_status=$_POST['status'];
+        $query_param_batch=$_POST['status'];
         $query_param_name=$_POST['name'];
-        $query_param_id=$_POST['id'];
-        $query_param_phone=$_POST['phone'];
         //$query_param_ID=$_POST['page'];
-    if(empty($query_param_status))
+    if(empty($query_param_batch) && empty($query_param_name) && empty($query_param_ID))
     {
         $array = array(
             "msg" => "error",
-
         );
         echo json_encode($array);
         die(0);
     }
-    if(empty($query_param_name) && empty($query_param_id) &&empty($query_param_phone))
+    if(!empty($query_param_batch))
     {
-        $array = array(
-            "msg" => "error",
-
-        );
-        echo json_encode($array);
-        die(0);
+        $sql.="status='".$query_param_batch."' AND ";
     }
-
     if(!empty($query_param_name))
     {
         $sql.="name='".$query_param_name."' AND ";
     }
-    if(!empty($query_param_id))
+    if(!empty($query_param_ID))
     {
-        $sql.="id_num='".$query_param_id."' AND ";
+        $sql.="id_num='".$query_param_ID."' AND ";
     }
-    if(!empty($query_param_phone))
-    {
-        $sql.="applyer_phone='".$query_param_phone."' AND ";
-    }
-
-        $sql.=" status= '".$query_param_status."'";
+        $sql.=" 1=1 ";
         $result = $GLOBALS['$conn']->query($sql);
-        $row = $result->fetch_array();
+        $row = $result->fetch_array(MYSQLI_ASSOC);
         $count = $row['count'];
         if($count>0)
         {
@@ -1777,7 +1763,6 @@ function query_exist()
         {
             $array = array(
                 "msg" => "error",
-                "info"=>"empty"
             );
             echo json_encode($array);
         }
@@ -1788,43 +1773,32 @@ function query_list()
     $limit = $_POST['rows'];
     $sidx = $_POST['sidx'];
     $sord = $_POST['sord'];
-    $query_param_status=$_POST['status'];
-    $query_param_name=$_POST['name'];
-    $query_param_id=$_POST['id'];
-    $query_param_phone=$_POST['phone'];
     if (!$sidx)
         $sidx = 1;
 
     $sql = "SELECT COUNT(*) AS count FROM `total` WHERE ";
     $sql_add=" ";
-    if(empty($query_param_status))
-    {
-        $array = array(
-            "msg" => "error",
-        );
-        echo json_encode($array);
-        die(0);
-    }
+    $query_param_batch=$_POST['status'];
+    $query_param_name=$_POST['name'];
     //$query_param_ID=$_POST['page'];
-    if(empty($query_param_name) && empty($query_param_id) &&empty($query_param_phone))
+    if(empty($query_param_batch) && empty($query_param_name) && empty($query_param_ID))
     {
         echo json_encode("error");
         die(0);
+    }
+    if(!empty($query_param_batch))
+    {
+        $sql_add.="status='".$query_param_batch."' AND ";
     }
     if(!empty($query_param_name))
     {
         $sql_add.="name='".$query_param_name."' AND ";
     }
-    if(!empty($query_param_id))
+    if(!empty($query_param_ID))
     {
-        $sql_add.="id_num='".$query_param_id."' AND ";
+        $sql_add.="id_num='".$query_param_ID."' AND ";
     }
-    if(!empty($query_param_phone))
-    {
-        $sql_add.="applyer_phone='".$query_param_phone."' AND ";
-    }
-
-    $sql_add.=" status= '".$query_param_status."'";
+    $sql_add.=" 1=1 ";
     $sql.=$sql_add;
     $result = $GLOBALS['$conn']->query($sql);
     $row = $result->fetch_array(MYSQLI_ASSOC);

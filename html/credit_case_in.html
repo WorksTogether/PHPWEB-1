@@ -404,7 +404,8 @@ $(document).ready(function() {
             data: {
                 name: $("#credit_user").val(),
                 phone: $("#phone_number").val(),
-                id: $("#id_number").val()
+                id: $("#id_number").val(),
+                status: "case_in"
             },
             success: function(data, textStatus, jqXHR) {
                 console.dir(data);
@@ -414,7 +415,8 @@ $(document).ready(function() {
                         postData: {
                             name: $("#credit_user").val(),
                             phone: $("#phone_number").val(),
-                            id: $("#id_number").val()
+                            id: $("#id_number").val(),
+                            status: "case_in"
                         },
                         page: 1
                     }).trigger("reloadGrid");
