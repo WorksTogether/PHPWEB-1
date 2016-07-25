@@ -151,10 +151,11 @@
             <span name="home_addr">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </li>
         <li>
-            <span>申请人手机号：</span>
-            <span name="applyer_phone">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span>客户手机号码：</span>
+            <span name="customer_phone">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </li>
-        <li>
+        <li style="background-color: white;width: 690px;clear: left;height: 1px;border-top:dotted;margin-left: 20px;margin-top: 2px;margin-bottom: 2px;border-color: rgb(178,224,87);"></li>
+        <li style="clear: left;">
             <span>关系人姓名：</span>
             <span name="relation_name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </li>
@@ -177,6 +178,11 @@
         <li>
             <span>关系人详细地址：</span>
             <span name="relation_addr">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </li>
+        <li style="background-color: white;width: 690px;clear: left;height: 1px;border-top:dotted;margin-left: 20px;margin-top: 2px;margin-bottom: 2px;border-color: rgb(178,224,87);"></li>
+        <li style="clear: left;">
+            <span>申请人手机号：</span>
+            <span name="applyer_phone">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </li>
         <li>
             <span>产品类型：</span>
@@ -227,22 +233,6 @@
             <span name="capital_delay_start_date">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </li>
         <li>
-            <span>开户行名称：</span>
-            <span name="bank_name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        </li>
-        <li>
-            <span>账户户名：</span>
-            <span name="account_name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        </li>
-        <li>
-            <span>银行卡账号：</span>
-            <span name="bank_card_num">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        </li>
-        <li>
-            <span>客户手机号码：</span>
-            <span name="customer_phone">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        </li>
-        <li>
             <span>还款期数：</span>
             <span name="repay_sum_period_2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </li>
@@ -257,6 +247,25 @@
         <li>
             <span>M值：</span>
             <span name="m_value">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </li>
+        <li style="background-color: white;width: 690px;clear: left;height: 1px;border-top:dotted;margin-left: 20px;margin-top: 2px;margin-bottom: 2px;border-color: rgb(178,224,87);"></li>
+        <li>
+            <span>开户行名称：</span>
+            <span name="bank_name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </li>
+        <li>
+            <span>账户户名：</span>
+            <span name="account_name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </li>
+        <li>
+            <span>银行卡账号：</span>
+            <span name="bank_card_num">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </li>
+        <li style="background-color: white;width: 690px;clear: left;height: 1px;border:dotted;margin-left: 12px;margin-top: 15px;margin-bottom: 2px;border-color: rgb(178,224,87);height: 180px;border-radius: 8px;position: relative;">
+            <label for="infor2" style="display: inline-bl
+ock;margin-left: 100px;">电催完成信息：</label>
+            <textarea id="infor2" class="form-field" style="margin-right: 15px;margin-top:10px;width: 300px;height: 100px;" rows="3" cols="20"></textarea>
+            <button id="assign2" style="height: 20px;width: 60px;position: absolute;top: 130px;left: 310px;">添加</button>
         </li>
     </ul>
 </div>
@@ -290,7 +299,7 @@
             <span style="background-color: white">外访错误信息：</span>
             <span name="" style="display: none">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </li>
-        <li style="vertical-align: middle;">
+        <li style="vertical-align: middle;clear: left;">
             <span style="vertical-align: middle;">案件文字信息：</span>
             <span id="infor" name="text_info" title="" style="width: 480px;display:inline-block; height:17px;text-overflow:ellipsis;white-space:nowrap;overflow:hidden;vertical-align: middle;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </li>
@@ -378,6 +387,37 @@ $(function() {
             });
         }
 
+    });
+
+    $('#assign2').click(function() {
+        console.log($("#infor2").val());
+        console.log(localStorage.getItem("sel2"))
+        var infor = $("#infor2").val();
+        if ($("#infor2").val()) {
+            $.ajax({
+                url: "server.php?action=phone_handle_fin",
+                type: "POST",
+                dataType: "json",
+                data: {
+                    infor: $("#infor2").val(),
+                    sels: localStorage.getItem("sel2")
+                },
+                success: function(data, textStatus, jqXHR) {
+                    if (data.msg == "success") {
+                        alert("添加成功！");
+                        $('#code2').fadeOut();
+                        $('#goodcover2').hide();
+                        $("#list1").jqGrid('setGridParam', {
+                            url: "server.php?action=phone_handle"
+                        }).trigger("reloadGrid");
+                        localStorage.removeItem("sel2");
+                    }
+                    if (data.msg == "error") {
+                        alert("添加失败！");
+                    }
+                }
+            });
+        }
     });
 });
 </script>

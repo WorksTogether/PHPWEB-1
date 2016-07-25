@@ -30,6 +30,7 @@
                 <li style="float: left;margin-left: 32px;">
                     <span id="err_info" class="submit-button" style="display: inline-block;width: 70px;text-align: center">错误信息</span>
                 </li>
+                <li><span id="export_case" class="submit-button" style="margin-left: 20px;display: inline-block;width: 70px;text-align: center">导出Excel</span></li>
             </ul>
         </div>
     </div>
@@ -356,6 +357,51 @@ $(document).ready(function() {
     $('#closebt').click(function() {
         $('#code').fadeOut();
         $('#goodcover').hide();
+    });
+    $("#export_case").click(function() {
+        var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
+        var that = this;
+        console.log(sels)
+        if (sels == "") {
+            alert("请选择案件导出项！");
+        } else {
+            $(that).html("正在导出..");
+
+            $.ajax({
+                url: "server.php?action=export_case",
+                dataType: "json",
+                type: "post",
+                timeout: 300000,
+                data: {
+                    sels: sels
+                },
+                success: function(data) {
+                    if (data.msg == "success" && data.url != "") {
+                        //                    var fileURL=window.open (data.url,"_blank","height=0,width=0,toolbar=no,menubar=no,scrollbars=no,resizable=on,location=no,status=no,alwaysLowered=yes");
+                        //                    fileURL.document.execCommand("SaveAs");
+                        //                    fileURL.window.close();
+                        //                    fileURL.close();
+
+
+                        var a = document.createElement("a");
+                        a.href = data.url;
+                        $(a).insertAfter("#export_case");
+                        $(that).html("导出Excel");
+                        $("#export_case").siblings("a")[0].click(function() {});
+                    } else {
+                        alert("导出失败！");
+                        $(this).html("导出Excel");
+                    }
+
+                },
+                complete: function(XMLHttpRequest, status) {
+                    if (status == 'timeout') {
+                        alert("导出失败！");
+                        $(this).html("导出Excel");
+                    }
+                }
+            });
+        }
     });
 });
 </script>

@@ -31,7 +31,7 @@
                     <span id="visit_fin" class="submit-button" style="display: inline-block;width: 70px;text-align: center">外访完成</span>
                 </li>
                 <li style="float: left;margin-left: 32px;">
-                    <span id="infor_input" class="submit-button" style="display: inline-block;width: 70px;text-align: center">信息录入</span>
+                    <span id="infor_input" class="submit-button" style="display: inline-block;width: 70px;text-align: center">外访错误</span>
                 </li>
                 <!-- <li style="float: left;margin-left: 32px;">
                     <span id="continue_visit" class="submit-button" style="display: inline-block;width: 70px;text-align: center">继续外访</span>
@@ -45,8 +45,8 @@
         <div id="pager"></div>
         <!--<div id="pager"></div>-->
     </div>
-    <div id="goodcover"></div>
-    <div id="code">
+    <div id="goodcover" class="goodcover"></div>
+    <div id="code" class="code">
         <div style="overflow: hidden;border-bottom: #F6D4BC solid 2px;border-radius: 0 0 5px 5px; background-color: #F6D4BC;">
             <a id="closebt" href="javascript:void(0)" style="font-size: 20px;color: #CC2900;float: right;display:inline-block">
                 <i class="fa fa-times-circle"></i>
@@ -74,6 +74,29 @@
                         </ul>
                     </li>
                     <li id="assign" class="confirm_assign" style="margin-left: 200px"><span style="line-height: 35px">添加</span></li>
+                </form>
+            </ul>
+        </div>
+    </div>
+    <div id="goodcover1" class="goodcover"></div>
+    <div id="code1" class="code">
+        <div style="overflow: hidden;border-bottom: #F6D4BC solid 2px;border-radius: 0 0 5px 5px; background-color: #F6D4BC;">
+            <a id="closebt1" href="javascript:void(0)" style="font-size: 20px;color: #CC2900;float: right;display:inline-block">
+                <i class="fa fa-times-circle"></i>
+            </a>
+        </div>
+        <div class="box_content" style="height: 270px;">
+            <ul>
+                <form action="" id="add_form">
+                    <li style="height: 170px;margin: 20px; border: dotted 2px #D7D7D7;border-radius: 5px;overflow: hidden">
+                        <ul style="margin-left: 18px">
+                            <li style="margin-top: 20px">
+                                <label for="infor1" style="display: inline-block;">外访完成信息：</label>
+                                <textarea id="infor1" class="form-field" style="margin-right: 15px;width: 300px;height: 100px;" rows="3" cols="20"></textarea>
+                            </li>
+                        </ul>
+                    </li>
+                    <li id="assign1" class="confirm_assign" style="margin-left: 200px"><span style="line-height: 35px">添加</span></li>
                 </form>
             </ul>
         </div>
@@ -288,26 +311,64 @@ $(document).ready(function() {
     $('#visit_fin').click(function() {
         var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
         console.log(sels)
+        if (sels.length > 1) {
+            alert("选择一项！");
+            return false;
+        }
         if (sels == "") {
             alert("请选择外访完成项！");
         } else {
+            $('#code1').center();
+            $('#goodcover1').show();
+            $('#code1').fadeIn();
+            localStorage.setItem("sel", sels);
+            // $.ajax({
+            //     url: "server.php?action=visit_fin",
+            //     type: "POST",
+            //     dataType: "json",
+            //     data: {
+            //         sels: sels
+            //     },
+            //     success: function(data, textStatus, jqXHR) {
+            //         if (data.msg == "success") {
+            //             alert("外访成功！");
+            //             $("#list1").jqGrid('setGridParam', {
+            //                 url: "server.php?action=visit_process1"
+            //             }).trigger("reloadGrid");
+
+            //         }
+            //         if (data.msg == "error") {
+            //             alert("外访失败！");
+            //         }
+            //     }
+            // });
+        }
+    });
+    $('#assign1').click(function() {
+        console.log($("#infor1").val())
+        var infor = $("#infor1").val();
+        if ($("#infor1").val()) {
+            console.log(1212)
             $.ajax({
                 url: "server.php?action=visit_fin",
                 type: "POST",
                 dataType: "json",
                 data: {
-                    sels: sels
+                    infor: $("#infor1").val(),
+                    sels: localStorage.getItem("sel")
                 },
                 success: function(data, textStatus, jqXHR) {
                     if (data.msg == "success") {
-                        alert("外访成功！");
+                        alert("添加成功！");
+                        $('#code1').fadeOut();
+                        $('#goodcover1').hide();
                         $("#list1").jqGrid('setGridParam', {
-                            url: "server.php?action=visit_process1"
+                            url: "server.php?action=phone_handle"
                         }).trigger("reloadGrid");
-
+                        localStorage.removeItem("sel");
                     }
                     if (data.msg == "error") {
-                        alert("外访失败！");
+                        alert("添加失败！");
                     }
                 }
             });
@@ -387,6 +448,10 @@ $(document).ready(function() {
     $('#closebt').click(function() {
         $('#code').fadeOut();
         $('#goodcover').hide();
+    });
+    $('#closebt1').click(function() {
+        $('#code1').fadeOut();
+        $('#goodcover1').hide();
     });
     $('#assign').click(function() {
         console.log($("#infor").val())

@@ -27,14 +27,17 @@
         </div>
         <div style="margin-top: 15px;">
             <ul style="list-style: none;overflow: hidden;height: 40px">
-                <li style="float: left;margin-left: 32px;">
+                <!-- <li style="float: left;margin-left: 32px;">
                     <span id="phone_handle_fin" class="submit-button" style="display: inline-block;width: 90px;text-align: center">电催完成案件</span>
-                </li>
+                </li> -->
                 <li style="float: left;margin-left: 32px;">
                     <span id="visit_start" class="submit-button" style="display: inline-block;width: 70px;text-align: center">外访处理</span>
                 </li>
                 <li style="float: left;margin-left: 32px;">
                     <span id="infor_input" class="submit-button" style="display: inline-block;width: 70px;text-align: center">电催错误</span>
+                </li>
+                <li style="float: left;margin-left: 32px;">
+                    <span id="case_detail" class="submit-button" style="display: inline-block;width: 70px;text-align: center">案件详情</span>
                 </li>
             </ul>
         </div>
@@ -89,6 +92,62 @@
                     <li id="assign1" class="confirm_assign" style="margin-left: 200px"><span style="line-height: 35px">添加</span></li>
                 </form>
             </ul>
+        </div>
+    </div>
+    <div id="goodcover2"></div>
+    <div id="code2">
+        <div style="overflow: hidden;border-bottom: #F6D4BC solid 2px;border-radius: 0 0 5px 5px; background-color: #F6D4BC;">
+            <a id="closebt2" href="javascript:void(0)" style="font-size: 20px;color: #CC2900;float: right;display:inline-block">
+                <i class="fa fa-times-circle"></i>
+            </a>
+        </div>
+        <div class="box_content2">
+            <div style="height: 100%;width:120px;float: left;">
+                <ul id="ul_nav" style="overflow: hidden">
+                    <li class="nav" style="border-right: none;font-weight: bold" data-list="1">
+                        <div>
+                            <span>案件信息</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="2">
+                        <div>
+                            <span>催收进度</span>
+                        </div>
+                    </li>
+                    <!--  <li class="nav" data-list="3">
+                        <div>
+                            <span>电催记录</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="4">
+                        <div>
+                            <span>外访记录</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="5">
+                        <div>
+                            <span>外访记录</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="6">
+                        <div>
+                            <span>外访记录</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="7">
+                        <div>
+                            <span>外访记录</span>
+                        </div>
+                    </li>
+                    <li class="nav" data-list="8">
+                        <div>
+                            <span>外访记录</span>
+                        </div>
+                    </li> -->
+                    <li style="position:relative;border-right: #F6D4BC solid 2px;height:1000px;"></li>
+                </ul>
+            </div>
+            <div id="nav_page" class="nav_page" style="" ng-include="'html/nav_page.html'"></div>
         </div>
     </div>
 </div>
@@ -347,8 +406,8 @@ $(document).ready(function() {
                 success: function(data, textStatus, jqXHR) {
                     if (data.msg == "success") {
                         alert("添加成功！");
-                        $('#code').fadeOut();
-                        $('#goodcover').hide();
+                        $('#code1').fadeOut();
+                        $('#goodcover1').hide();
                         $("#list1").jqGrid('setGridParam', {
                             url: "server.php?action=phone_handle"
                         }).trigger("reloadGrid");
@@ -394,6 +453,7 @@ $(document).ready(function() {
         body_height = parseInt(obj.parent().height());
         block_width = parseInt(obj.width());
         block_height = parseInt(obj.height());
+        console.log((obj.parent().height() - $('#code').height()) * 0.5);
 
         left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
         if (body_width < block_width) {
@@ -408,7 +468,7 @@ $(document).ready(function() {
             'position': 'absolute'
         });
         obj.css({
-            'top': (obj.parent().height() - $('#code').height()) * 0.5,
+            'top': (obj.parent().height() - obj.height()) * 0.5,
             'left': left_position
         });
         $(window).bind('resize', function() {
@@ -469,6 +529,136 @@ $(document).ready(function() {
             });
         }
     });
+    $('#case_detail').click(function() {
+        var sels = $("#list1").jqGrid('getGridParam', 'selarrrow');
+        console.log(sels)
+        localStorage.setItem("sel2", sels);
 
+        if (sels.length > 1) {
+            alert("选择一项查看详情！");
+            return false;
+        }
+        if (sels == "") {
+            alert("请选择查看案件详情项！");
+        } else {
+            $.ajax({
+                url: "server.php?action=list",
+                dataType: "json",
+                type: "post",
+                data: {
+                    sels: sels
+                },
+                success: function(data) {
+                    $.each(data, function(name, value) {
+                        select($("#nav_page").find("span"), "name", name, value);
+                    });
+                    if (!($("#infor").html().indexOf("&nbsp;") > -1)) {
+                        $("#infor").attr('title', $("#infor").html());
+                    }
+                    if (data.pic_len != null && data.pic_len != "" && data.pic_len != undefined) {
+                        localStorage.setItem("pic_len", data.pic_len);
+                    }
+                    if (data.pic_url == null || data.pic_url == "" || data.pic_url == undefined) {
+                        $("#pic_instance").css("display", "none");
+                        $("#pic_text").css("background-color", "#EAF7DE");
+                        $("#pic_text").html("未找到相关图片！");
+                    } else {
+                        $("#pic").attr('src', data.pic_url);
+                        localStorage.setItem("pic_index", 1);
+                    }
+                    if (data.video_url == null || data.video_url == "" || data.video_url == undefined) {
+                        $("#video_instance").css("display", "none");
+                        $("#video_text").css("background-color", "#EAF7DE");
+                        $("#video_text").html("未找到相关视频！");
+                    } else {
+                        $("#video1").attr('src', data.video_url);
+                    }
+
+                }
+            });
+            var select = function(obj, attr, val, insert) {
+                $.each(obj, function(name, value) {
+                    if ($(obj[name]).attr(attr) == val) {
+                        $(obj[name]).html(insert);
+                    }
+                });
+            };
+            $('#code2').center();
+            $('#goodcover2').show();
+            $('#code2').fadeIn();
+            console.log($("#nav_page").parent("div").width())
+            $("#nav_page").css({
+                "width": ($("#nav_page").parent("div").width() - 122) + "px"
+            });
+            $("#nav_page").children("div").css({
+                "width": ($("#nav_page").width() - 20) + "px",
+                "height": ($("#nav_page").height() - 20) + "px"
+            });
+        }
+    });
+    $('#closebt2').click(function() {
+        $('#code2').fadeOut();
+        $('#goodcover2').hide();
+        localStorage.removeItem("sel2");
+    });
+    $('#ul_nav').click(function(e) {
+        console.dir()
+        var e = e || window.event;
+        var target = e.target || e.srcElement;
+        if (target.nodeName.toLowerCase() == "li" || target.nodeName.toLowerCase() == "div" || target.nodeName.toLowerCase() == "span") {
+            if (target.nodeName.toLowerCase() == "div") {
+                $(target).parents("ul").children("li").css({
+                    "border-right": "#F6D4BC solid 2px",
+                    "font-weight": "normal"
+                });
+                var list1 = $(target).parent("li").css({
+                    "border-right": "none",
+                    "font-weight": "bold"
+                }).data("list");
+                $(target).parents("ul").children("li").children("div").css({
+                    "border-bottom": "none"
+                });
+                $(target).css({
+                    "border-bottom": "#F6D4BC solid 5px"
+                });
+                var obj1 = $('#nav_page').children("div").css({
+                    "display": "none"
+                });
+                for (var i in obj1) {
+                    if (obj1.hasOwnProperty(i) && $(obj1[i]).data("list") == list1) {
+                        $(obj1[i]).css({
+                            "display": "block"
+                        });
+                    }
+                }
+            }
+            if (target.nodeName.toLowerCase() == "span") {
+                $(target).parents("ul").children("li").css({
+                    "border-right": "#F6D4BC solid 2px",
+                    "font-weight": "normal"
+                });
+                var list1 = $(target).parents("li").css({
+                    "border-right": "none",
+                    "font-weight": "bold"
+                }).data("list");
+                $(target).parents("ul").children("li").children("div").css({
+                    "border-bottom": "none"
+                });
+                $(target).parent("div").css({
+                    "border-bottom": "#F6D4BC solid 5px"
+                });
+                var obj1 = $('#nav_page').children("div").css({
+                    "display": "none"
+                });
+                for (var i in obj1) {
+                    if (obj1.hasOwnProperty(i) && $(obj1[i]).data("list") == list1) {
+                        $(obj1[i]).css({
+                            "display": "block"
+                        });
+                    }
+                }
+            }
+        }
+    });
 });
 </script>

@@ -234,7 +234,7 @@
 .credit_case_in .box_content .nav_page {
     float: left;
     height: 100%;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .credit_case_in .box_content .nav_page div {
@@ -305,13 +305,13 @@ table.table1 {
 
 .credit_case_in .box_content .nav_page div ul li {
     float: left;
-    margin-bottom: 4px;
-    margin-top: 4px;
+    margin-bottom: 2px;
+    margin-top: 2px;
 }
 
 .credit_case_in .box_content .nav_page div ul li span:first-child {
     background-color: #E4F4C3;
-    padding: 7px;
+    padding: 2px;
     font-weight: bold;
     white-space: nowrap;
     -webkit-border-top-left-radius: 5px;
@@ -326,7 +326,7 @@ table.table1 {
 }
 
 .credit_case_in .box_content .nav_page div ul li span:last-child {
-    padding: 7px;
+    padding: 2px;
     text-align: center;
     background-color: #EAF7DE;
     color: #666;

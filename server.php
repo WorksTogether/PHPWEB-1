@@ -47,7 +47,7 @@ case 'authlist':
     query_by_status('case_in');
   break;
   case 'query_1':
-      query_exist();
+      query_exist("case_in");
   break;
   case 'query_2':
       query_list();
@@ -1313,7 +1313,7 @@ function case_list()
         $row['tel_handle']=$status_phone;
         $row['visit_handle']=$status_visit;
 
-        $row['fin_infor']=$row['finish_text'];
+        $row['fin_infor']=$row['finish_data']." ".$row['finish_text'];
         
         $pic_url_text=$row['img'];
         $video_url_text=$row['video'];
@@ -1721,14 +1721,9 @@ function  request_case_assign()
 }
 
 
-function query_exist()
+function query_exist($status)
 {
-
-        $sql = "SELECT COUNT(*) AS count FROM `total` WHERE ";
-        $query_param_batch=$_POST['status'];
-        $query_param_name=$_POST['name'];
-        //$query_param_ID=$_POST['page'];
-    if(empty($query_param_batch) && empty($query_param_name) && empty($query_param_ID))
+    if(empty($status))
     {
         $array = array(
             "msg" => "error",
@@ -1736,36 +1731,98 @@ function query_exist()
         echo json_encode($array);
         die(0);
     }
-    if(!empty($query_param_batch))
+
+        $sql = "SELECT * FROM `total` WHERE ";
+        $query_param_phone=$_POST['phone'];
+        $query_param_name=$_POST['name'];
+        $query_param_id=$_POST['id'];
+        //$query_param_ID=$_POST['page'];
+    if(empty($query_param_phone) && empty($query_param_name) && empty($query_param_id))
     {
-        $sql.="status='".$query_param_batch."' AND ";
+        $array = array(
+            "msg" => "error",
+        );
+        echo json_encode($array);
+        die(0);
+    }
+    if(!empty($query_param_phone))
+    {
+        $sql.="applyer_phone='".$query_param_phone."' AND ";
     }
     if(!empty($query_param_name))
     {
-        $sql.="name='".$query_param_name."' AND ";
+        $sql.="customer_name='".$query_param_name."' AND ";
     }
-    if(!empty($query_param_ID))
+    if(!empty($query_param_id))
     {
-        $sql.="id_num='".$query_param_ID."' AND ";
+        $sql.="id_num='".$query_param_id."' AND ";
     }
-        $sql.=" 1=1 ";
-        $result = $GLOBALS['$conn']->query($sql);
-        $row = $result->fetch_array(MYSQLI_ASSOC);
-        $count = $row['count'];
-        if($count>0)
+        $sql.=" status= '".$status."'";
+
+    if($result = $GLOBALS['$conn']->query($sql))
+    {
+        $responce->records = $result->num_rows ;
+        $responce->total = 1;
+        $responce->page = 1;
+
+        if ($result->num_rows > 0)
         {
-            $array = array(
-                "msg" => "success",
-            );
-            echo json_encode($array);
+            $i = 0;
+            while($row = $result->fetch_assoc())
+            {
+                $responce->rows[$i]['id'] = $row['id'];
+                $responce->rows[$i]['cell'] = array (
+                    $row['customer_name'],
+                    $row['id_num'],
+                    $row['work_company'],
+                    $row['work_addr'],
+                    $row['work_telephone'],
+                    $row['work_duty'],
+                    $row['household_addr'],
+                    $row['home_addr'],
+                    $row['applyer_phone'],
+                    $row['relation_name'],
+                    $row['relationship'],
+                    $row['relation_phone'],
+                    $row['relation_company'],
+                    $row['relation_duty'],
+                    $row['relation_addr'],
+                    $row['product_type'],
+                    $row['sign_money'],
+                    $row['repay_sum_period'],
+                    $row['repay_month'],
+                    $row['repay_date'],
+                    $row['sign_date'],
+                    $row['loan_date'],
+                    $row['repay_start_date'],
+                    $row['repay_expire_date'],
+                    $row['remain_capital'],
+                    $row['case_money'],
+                    $row['capital_delay_start_date'],
+                    $row['bank_name'],
+                    $row['account_name'],
+                    $row['bank_card_num'],
+                    $row['customer_phone'],
+                    $row['repay_sum_period_2'],
+                    $row['repay_already_period'],
+                    $row['repay_not_period'],
+                    $row['m_value'],
+                );
+                $i++;
+            }
+            echo json_encode($responce);
         }
         else
         {
-            $array = array(
-                "msg" => "error",
-            );
-            echo json_encode($array);
+            $reponse->records = 0;
+            $responce->total = 0;
+            echo json_encode($reponse,JSON_UNESCAPED_UNICODE);
         }
+    }
+    else
+    {
+        echo "Error: " . $sql . "<br>" . $GLOBALS['$conn']->error;
+    }
 }
 function query_list()
 {

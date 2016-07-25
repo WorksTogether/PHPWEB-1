@@ -14,16 +14,16 @@
             <form action="" method="post" id="case_query1">
                 <ul style="margin-top: 15px;margin-left: 10px;margin-bottom: 5px">
                     <li>
-                        <label for="batch_number1">批次号：</label>
-                        <input id="batch_number1" class="form-field" type="text" />
-                    </li>
-                    <li>
-                        <label for="credit_user">持卡人姓名：</label>
+                        <label for="credit_user">姓名：</label>
                         <input id="credit_user" class="form-field" type="text" />
                     </li>
                     <li>
                         <label for="id_number">身份证号码：</label>
                         <input id="id_number" class="form-field" type="text" />
+                    </li>
+                    <li>
+                        <label for="phone_number">电话号码：</label>
+                        <input id="phone_number" class="form-field" type="text" />
                     </li>
                     <li style="margin-left: 40px">
                         <input id="query" class="submit-button" type="button" value="查询" style="height:39px;display: inline-block;width: 108px" />
@@ -35,7 +35,7 @@
             <form action="" id="credit_case_data" name="form2">
                 <ul style="margin-top: 10px;margin-left: 10px;margin-bottom: 5px;height: 41px">
                     <li>
-                        <label for="bank_name">银行名称：</label>
+                        <label for="bank_name">案件名称：</label>
                         <input id="bank_name" name="bank_name" class="form-field" type="text" />
                     </li>
                     <li>
@@ -403,7 +403,8 @@ $(document).ready(function() {
             dataType: "json",
             data: {
                 name: $("#credit_user").val(),
-                status: $("#batch_number1").val()
+                phone: $("#phone_number").val(),
+                id: $("#id_number").val()
             },
             success: function(data, textStatus, jqXHR) {
                 console.dir(data);
@@ -412,8 +413,10 @@ $(document).ready(function() {
                         url: "server.php?action=query_2",
                         postData: {
                             name: $("#credit_user").val(),
-                            status: $("#batch_number1").val()
-                        }
+                            phone: $("#phone_number").val(),
+                            id: $("#id_number").val()
+                        },
+                        page: 1
                     }).trigger("reloadGrid");
                 }
                 if (data.msg == "error") {
